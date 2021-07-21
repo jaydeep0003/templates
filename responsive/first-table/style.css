@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100%;
+	max-height: 100vh;
+	line-height: 1.6;
+	font-size: 1rem;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+}
+
+.header {
+	display: flex;
+	margin: 0 7%;
+	justify-content: space-between;
+}
+
+.nav-logo-tag {
+	max-height: 4rem;
+	max-width: 4rem;
+	padding: 1rem 0;
+}
+
+.nav-items {
+	align-self: center;
+}
+
+.nav-items ul {
+	display: flex;
+	list-style: none;
+}
+
+.nav-items ul li {
+	margin-left: 2rem;
+}
+
+ .nav-items ul li a {
+ 	text-decoration: none;
+ 	color: black;
+ }
+
+ .title-section {
+ 	text-align: center;
+ }
+
+.title-section h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 3rem;
+    text-transform: capitalize;
+}
+
+ .title-section p {
+ 	margin-top: 2rem;
+ 	width: 35%;
+ 	margin: 0 auto;
+ }
+
+td a {
+	text-decoration: none;
+	color: black;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+ .main-container {
+ 	margin: 3rem 7% 0 7%;
+ 	/*overflow-x: hidden;
+ 	overflow-y: auto;*/
+ }
+
+ .first-head-th-title {
+ 	background-color: #6fce72;
+ 	color: white;
+ }
+
+ .second-head-th-title {
+ 	background-color: #e45269;
+ 	color: white;
+ }
+
+ .third-head-th-title {
+ 	background-color: #3bbcf5;
+ 	color: white;
+ }
+
+ .u-align-center {
+ 	text-align: center;
+ }
+
+.u-padding {
+	 padding: 0.525rem 2rem;
+}
+
+.u-gray {
+	background-color: #f2f2f2;
+	color: black;
+}
+
+.u-font-size {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.u-table-border {
+	border-color: black;
+	/*border: 2px solid white;*/
+	width: 10%;
+	padding: 1rem 0 1rem 0;
+}
+
+.td-bold {
+	font-weight: bold;
+	font-size: 1.125rem;
+}
+
+.first-btn {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 0.5rem 1.5rem;
+	border: 2px solid #858e99;
+	font-weight: 700;
+	font-size: 0.875rem;
+}
+
+.second-btn {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 0.5rem 1.5rem;
+	color: white;
+	background-color: #e03752;
+	border: 2px solid #e03752;
+	font-weight: 700;
+	font-size: 0.875rem;
+}
+
+.third-btn {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 0.5rem 1.5rem;
+	border: 2px solid #75808c;
+	font-weight: 700;
+	font-size: 0.875rem;
+	color: #75808c;
+}
+
+.footer {
+	margin-top: 2rem;
+	padding: 2rem;
+	color: white;
+	background-color: #333333;
+}
+
+.footer .footer-paragraph {
+	width: 33%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.footer .owner-title {
+	margin-top: 1rem;
+}
+
+.footer .owner-title span {
+	font-style: italic;
+}

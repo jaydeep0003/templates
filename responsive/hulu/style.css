@@ -85,6 +85,17 @@ img {
 	text-decoration: underline;
 }
 
+.text-xl {
+	font-size: 70px;
+	font-weight: bold;
+}
+
+.sub-text {
+	max-width: 850px;
+	margin-bottom: 10px;
+	font-size: 24px;
+}
+
 .btn {
 	display: inline-block;
 	background: white;
@@ -132,11 +143,6 @@ h4 {
 	text-transform: uppercase;
 }
 
-
-
-
-
-
 .sub-header {
 	display: grid;
 	grid-template-columns: 2fr 4fr 2fr;
@@ -155,6 +161,79 @@ h4 {
 	text-align: center;
 }
 
+.categories {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 90px 40px;
+}
+
+.categories .covers {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 20px;
+	margin-top: 40px;
+}
+
+.categories .covers > div {
+	height: 500px;
+	width: 300px;
+	position: relative;
+}
+
+.categories .cover-grid {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+      156.82deg,
+      rgba(0, 0, 0, 0.6) 4.58%,
+      rgba(0, 0, 0, 0) 69.61%
+    ),
+    linear-gradient(24.5deg, rgba(0, 0, 0, 0.2) 4.71%, rgba(0, 0, 0, 0) 71.49%);
+}
+
+.categories .cover-text {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	text-align: center;
+}
+
+.cover-1 {
+	background: url('images/cover-1.jpg') no-repeat center center / cover;
+}
+
+.cover-2 {
+	background: url('images/cover-2.jpg') no-repeat center center / cover;
+}
+
+.cover-3 {
+	background: url('images/cover-3.jpg') no-repeat center center / cover;
+}
+
+.cover-4 {
+	background: url('images/cover-4.jpg') no-repeat center center / cover;
+}
+
+.live {
+	background: #151516;
+	padding: 40px;
+}
+
+.live-border {
+	border: 4px solid #1ce783;
+	border-radius: 16px;
+	padding: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
 
 @media(max-width: 768px) {
 	.header .logo {
@@ -188,18 +267,3 @@ h4 {
 		text-align: center;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

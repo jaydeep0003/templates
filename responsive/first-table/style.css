@@ -15,6 +15,18 @@ body {
 	font-weight: 400;
 }
 
+.main-menu-icon {
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	color: black;
+	display: none;
+}
+
+.main-menu-icon:hover {
+	color: #ddd;
+}
+
 .header {
 	display: flex;
 	margin: 0 7%;
@@ -49,11 +61,14 @@ body {
  	text-align: center;
  }
 
+.title-section {
+	margin-top: 3rem;
+}
+
 .title-section h2{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 2rem;
-    margin-top: 3rem;
     text-transform: capitalize;
 }
 
@@ -74,13 +89,12 @@ table {
 
  .main-container {
  	margin: 3rem 7% 0 7%;
- 	/*overflow-x: hidden;
- 	overflow-y: auto;*/
  }
 
  .first-head-th-title {
  	background-color: #6fce72;
  	color: white;
+ 	width
  }
 
  .second-head-th-title {
@@ -113,7 +127,6 @@ table {
 
 .u-table-border {
 	border-color: black;
-	/*border: 2px solid white;*/
 	width: 10%;
 	padding: 1rem 0 1rem 0;
 }
@@ -132,6 +145,10 @@ table {
 	font-size: 0.875rem;
 }
 
+.first-btn:hover {
+	color: #75808c;
+	border-color: black;
+}
 .second-btn {
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -143,6 +160,10 @@ table {
 	font-size: 0.875rem;
 }
 
+.second-btn:hover {
+	background-color: #f21336;
+}
+
 .third-btn {
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -151,6 +172,10 @@ table {
 	font-weight: 700;
 	font-size: 0.875rem;
 	color: #75808c;
+}
+
+.third-btn:hover {
+	border-color: black;
 }
 
 .footer {
@@ -172,4 +197,111 @@ table {
 
 .footer .owner-title span {
 	font-style: italic;
+}
+
+.main-container .overflow-division {
+		overflow-x: auto;
+		overflow-y: hidden;
+		pointer-events: initial;
+	}
+
+@media (max-width: 992px) and (min-width: 769px) {
+	.header {
+		margin:0 3%;
+	}	
+
+	.title-section {
+		margin-top: 0.5rem;
+	}
+
+	.title-section p {
+		width: 60%;
+	}
+
+	.main-container {
+		margin: 3% 3% 0 3%;
+	}
+}
+
+@media (max-width: 768px) and (min-width: 577px) {
+	.main-menu-icon {
+		display: block;
+	}
+	.nav-items {
+		display: none;
+	}
+
+	.header {
+		margin:0 3%;
+	}
+
+	.title-section {
+		margin-top: 0.5rem;
+	}
+
+	.title-section p {
+		width: 72%;
+	}
+
+	.main-container {
+		margin: 3% 3% 0 3%;
+	}
+
+	.u-padding {
+		
+	}
+
+	.btn-padding {
+		padding: 0.5rem 0.5rem;
+	}
+
+	.u-table-border {
+		width: 20%;
+	}
+}
+
+@media(max-width: 576px) {
+	.main-menu-icon {
+		display: block;
+	}
+
+	.nav-items {
+		display: none;
+	}
+
+	 .main-container {
+ 		margin: 3rem 7% 0 7%;
+	 }
+
+	 .title-section p {
+	 	margin-top: 2rem;
+	 	width: 80%;
+	 	margin: 0 auto;
+	 }
+
+	.u-table-border {
+		padding: 1rem 1.5rem;
+		white-space: nowrap;
+	}	
+
+	table {
+		margin-bottom: 2rem;
+	}
+
+	.title-section {
+		margin: 0 7%;
+	}
+
+	.title-section h2{
+    	font-size: 1.5rem;
+	}
+
+	.title-section p {
+		width: 100%;
+	}
+
+	.footer .footer-paragraph {
+		width: 75%;
+	}
+	
 }

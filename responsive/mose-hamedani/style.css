@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-height: 100vh;
+	max-width: 100%;
+	line-height: 1.6;
+	font-size: 1rem;
+	font-family: 'Poppins', sans-serif;	
+}
+
+header {
+	color: black;
+	background: white;
+}
+
+header .navigation-bar {
+	margin: 0 8%;
+	display: flex;
+	justify-content: space-between;
+}
+
+header nav div {
+	margin: 1rem 0;
+
+}
+
+header ul {
+	display: flex;
+	list-style: none;
+	font-family: 'Poppins', sans-serif;	
+	font-weight: 200;
+}
+
+header ul li {
+	margin-left: 2rem;
+}
+
+header ul li a {
+	text-decoration: none;
+	color: white;
+	background-color: #fc2a4f !important;
+	font-weight: 600;
+	padding: 0.5rem 1rem;
+	border-radius: 20px	;
+}
+
+.first-blog .headline {
+	text-align: center;
+	line-height: 1;
+	font-weight: 600;
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(90deg,#7250d5 0,#aa47a5 50%,#f43a67 99%);
+	position: relative;
+	overflow: hidden;
+	padding: 5rem 0 21.25rem;
+    clip-path: polygon(0px 0px, 100% 0px, 100% 89%, 0px 100%);
+}
+
+.first-blog .headline:before {
+	content: "";
+	position: absolute;
+	left: -28%;
+	bottom: 0;
+	top: 0;
+	width: 100%;
+	background: hsla(0,0%,100%,.1);
+	transform: skewX(-25deg);
+}
+
+.first-blog .headline h1 {
+	font-size: 2.300rem;
+	width: 65%;
+	color: white;
+	margin: 0 auto;
+	font-weight: 600;
+}
+
+.first-blog .headline-image {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	margin: -17rem auto 0;
+}
+
+.first-blog .headline-image .headline-image-tag {
+	object-fit: cover;
+}
+
+.headline-title {
+	margin: 1rem 8%;
+	text-align: center;
+}
+
+.headline-title .hello {
+	text-transform: uppercase;
+	background: linear-gradient(90deg,#1e8bff,#6955ff 45%,#a83af5 50%,#c03ada 75%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	letter-spacing: 2px;
+	font-size: 1rem;
+}
+
+.headline-title .name-div {
+	color: #211c51;
+	text-transform: capitalize;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.headline-title .name-div h2 {
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+.headline-title .headline-para {
+	width: 50%;
+	margin: 0 auto;
+	padding-bottom: 1rem;
+	font-weight: 300;
+	color: #211c51;
+}
+
+.headline-title .facts {
+	margin: 0 20%;
+	padding: 3rem 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.headline-title .facts span {
+	font-size: 2.2rem;
+}
+
+.headline-title .facts .first-span {
+	color: #1e8bff;
+}
+
+.headline-title .facts .second-span {
+	color: #6955ff;
+}
+
+.headline-title .facts .third-span {
+	color: #a83af5;
+}
+
+.headline-title .facts .fourth-span {
+	color: #c03ada;
+}
+
+
+/*second blog*/
+
+.second-blog {
+	background-color: #f5f5f5;
+}
+
+.second-blog .first-grid-division .second-blog-image-tag {
+	height: 2.5rem;
+	width: 2.5rem;
+	border-radius: 35px;
+}

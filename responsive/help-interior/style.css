@@ -1,0 +1,104 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-height: 100vh;
+	max-width: 100%;
+	font-size: 1rem;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	line-height: 1.5;
+	background-color: #9baead;
+	color: white;
+}
+
+header {
+	border-bottom: 1px solid #c0c0c0;
+}	
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 7%;
+
+}
+
+.search-icon .u-svg-content {
+	height: 1rem;
+	position: absolute;
+	left: 19rem;
+	margin-top: 1rem;
+	color: #c0c0c0;
+	fill: #c0c0c0;
+}
+
+.search {
+	background-color: transparent;
+	border: 1px solid #c0c0c0;
+	padding: 1rem;
+}
+
+.nav-menu-icon {
+	color: black;
+	fill: black;
+	align-self: center;
+}
+
+.nordic-blog {
+	margin: 0 10%;
+}
+
+.nordic-container {
+	display: flex;
+	margin-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+.first-nordic-div h1{
+	font-size: 2rem;
+}
+
+.social-icon {
+	margin-top: 1rem;
+}
+
+.social-icon .u-svg-content {
+	fill: white;
+	color: white;
+	height: 2rem;
+}
+
+.first-nordic-div h2 {
+	margin-top: 17rem;
+}
+
+
+.first-nordic-div p {
+	width: 71%;
+	margin-top: 1rem;
+}
+
+
+.nordic-image-tag {
+	height: 34.4375rem;
+	width: 24.1875rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -392,7 +392,11 @@ nav {
 }
 
 .contact-second-div {
-	margin-left: 3rem;
+	margin-left: 4rem;
+}
+
+.contact-social-icon {
+	    padding-top: 1rem;
 }
 
 .contact-social-icon .u-svg-content {
@@ -404,8 +408,20 @@ nav {
 	background-color: white;
 }
 
-
 .contact-social-icon h2 {
 	font-weight: bold;
 	font-size: 0.95rem;
+	padding-top: 1rem;
+}
+
+.contact-first-icon {
+	padding-top: 1rem;
+}
+
+.footer {
+	color: white;
+	background-color: #333;
+	text-align: center;
+	padding: 2rem;
+
 }

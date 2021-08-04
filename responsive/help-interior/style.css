@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -86,19 +88,324 @@ nav {
 	width: 24.1875rem;
 }
 
+.green-decor-blog {
+	background-color: white;
+	color: black;
+}
+
+.green-container {
+	margin: 0 7%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 10rem 0;
+}
+
+.green-container .image-div {
+	width: 22rem;
+	height: 25rem;
+}
+
+.green-image-tag {
+	width: 100%;
+	height: 100%;
+}
+
+.first-green-decor h2 {
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.image-div p {
+	padding-top: 1rem;
+}
+
+.business-container {
+	margin: 0 7%;
+}
+
+.title {
+	padding-top: 2rem;
+}
+
+.title h2 {
+	font-size: 1.5rem;
+	text-transform: capitalize;
+	font-weight: 400;
+}
+
+.business-container {
+    width: 64%;
+    padding: 3rem 0;
+}
+
+.discription h1 {
+	font-size: 3.75rem;
+	line-height: 1;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+}
+
+.business-container .para {
+	padding-top: 1.5rem;
+	width: 78%;
+}
+
+.living {
+	background-color: white;
+	color: black;
+}
+
+.living-image {
+	width: 24.2rem;
+	height: 22rem;
+	border: 10px solid transparent;
+}
+
+.living-image-tag {
+	width: 100%;
+	height: 100%;
+}
+
+.living-container {
+	margin: 0 7%;
+	padding: 4rem 0;
+	display: flex;
+}
+
+.sale h2{
+	padding:3rem 2.5rem;
+	color: white;
+	background-color: #9baead;
+	display: inline-block;
+}
+
+.address {
+	display: flex;
+}
+
+.address p {
+	padding-left: 3rem;
+	padding-top: 2rem;
+	font-size: 1.325rem;
+	opacity: 0.8;
+}
+
+.horizontal-line {
+	height: 4px;
+	background-color: #9baead;
+	margin: 2rem 2rem 0;
+}
+
+.title {
+	padding-top: 2rem;
+	padding-left: 2rem;
+}
+
+.title h1 {
+	font-size: 3.75rem;
+	color: #9baead;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+.living-para {
+	padding-left: 2rem;
+	padding-top: 1.3rem;
+}
+
+.second-para {
+	padding-top: 1.3rem;
+}
+
+.hero-container {
+	display: flex;
+}
+
+.hero-first-image {
+	width: 66%;
+	height: 691px;
+	object-fit: cover;
+}
+
+.hero-image-tag {
+	width: 100%;
+	height: 100%;
+}
+
+.hero-second-image {
+	width: 34%;
+	height: 691px;
+	object-fit: cover;
+}
+
+.concepts {
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.05), rgba(0,0,0,0.05)),url("https://images01.nicepage.com/c461c07a441a5d220e8feb1a/2c40e87651f0595ab996efd9/jh.jpg");
+	color: black;
+	object-fit: cover;
+	background-position: 50% 50%;
+	background-size: cover;
+}
+
+.concepts-container {
+	padding-top: 20rem;
+	padding-bottom: 20rem;
+	margin: 0 7%;
+}
+
+.concepts-title {
+	width: 41%;
+}
+
+.concepts-title h1 {
+	font-size: 3.75rem;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+	color: #9baead;
+	text-transform: capitalize;
+	line-height: 1;
+}
+
+.concepts-title p {
+	font-size: 1.125rem;
+	padding-top: 1rem;
+}
+
+.concepts .btn {
+	padding-top: 3rem;
+	display: flex;
+}
+
+.concepts .btn a{
+	text-decoration: none;
+	color: white;
+} 
+
+.btn .view {
+	padding-right: 5rem;
+}
+
+.btn .view a {
+	padding: 0.8rem 1.5rem;
+	background-color: #9baead;
+}
+
+.btn .view a:hover{
+	background-color: #454545;
+}
+
+.btn .shop a {
+	padding: 0.8rem 1.5rem;
+	background-color: transparent;	
+	color: #454545;
+	border:solid #454545 1px ;
+}
+
+.why-should {
+	background-color: white;
+	color: black;
+}
+
+.why-should-container {
+	margin: 0 10%;
+	padding: 4rem 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.why-width {
+	width: 19rem;
+	height: 21rem;
+}
+
+.why-image-tag {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.why-title {
+	padding-top: 7rem;
+}
+
+.why-title p {
+    padding-top: 1rem;
+}
+
+.images-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.u-image-width {
+	width: 21.1rem;
+	height: 25rem;
+}
+
+.images-tag {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contact-container {
+	margin: 0 10%;
+	display: flex;
+	padding: 5rem 0;
+}
+
+.contact-firts-div {
+	width: 55%;
+
+}
+
+.contact-title h1 {
+	font-size: 1.5rem;
+}
+
+.u-input-width {
+	width: 100%;
+	padding: 0.8rem;
+	border-style: none;
+	font-size: 1.125rem;
+}
+
+.u-padding {
+	padding-top: 1.5rem;
+}
+
+.submit-btn {
+	padding-top: 2rem;
+}
+
+.submit-btn a {
+	padding: 0.8rem 2rem;
+	background-color: transparent;
+	color: white;
+	border: 1px solid white;
+	text-decoration: none;
+	opacity: 0.8;
+}
+
+.submit-btn a:hover {
+	color: #adcce9;
+}
+
+.contact-second-div {
+	margin-left: 3rem;
+}
+
+.contact-social-icon .u-svg-content {
+	width: 4rem;
+	height: 4rem;
+	color: #9baead;
+	border-radius: 0.6rem;
+	fill: #9baead;
+	background-color: white;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.contact-social-icon h2 {
+	font-weight: bold;
+	font-size: 0.95rem;
+}

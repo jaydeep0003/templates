@@ -42,6 +42,10 @@ nav {
 	padding: 1rem;
 }
 
+.search:focus {
+	outline: none;
+}
+
 .nav-menu-icon {
 	color: black;
 	fill: black;
@@ -117,6 +121,10 @@ nav {
 
 .image-div p {
 	padding-top: 1rem;
+}
+
+.business {
+	background-color: #b7c6c5;
 }
 
 .business-container {
@@ -375,7 +383,7 @@ nav {
 }
 
 .submit-btn {
-	padding-top: 2rem;
+	padding-top: 3rem;
 }
 
 .submit-btn a {
@@ -423,5 +431,86 @@ nav {
 	background-color: #333;
 	text-align: center;
 	padding: 2rem;
-
 }
+
+.u-input-width:focus {
+	outline: none;
+}
+
+
+@media(max-width: 1024px) {
+	.why-should-container {
+	    margin: 0 4%;
+	    padding: 4rem 0;
+	    display: grid;
+	    grid-template-columns: repeat(3, 1fr);
+	    grid-gap: 1rem;
+	}
+
+	.why-title {
+		width: 90%;
+	}
+
+	.u-image-width {
+	    width: 32rem;
+	    height: 25rem;
+	}
+
+	.concepts {
+		object-fit: cover;
+		background-position: 50% 50%;
+		background-size: cover;
+	}
+
+	.images-container {
+	    display: grid;
+	    grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media(max-width: 992px) and (min-width: 769px) {
+	.search-icon .u-svg-content {
+	    left: 17rem;
+	}
+
+	.first-nordic-div h2 {
+    	margin-top: 5rem;
+	}
+
+	.nordic-image-tag {
+	    height: 26.438rem;
+	    width: 19.188rem;
+	}
+
+	.green-container .image-div {
+	    width: 13rem;
+	    height: 15rem;
+	}
+
+	.green-container {
+	    grid-gap: 1rem;
+	}
+
+	.title {
+	    padding-left: 0rem;
+	}
+
+	.business-container {
+	    width: 85%;
+	}
+
+	.business-container .para {
+	    padding-top: 1.5rem;
+	    width: 100%;
+	    line-height: 2;
+	}
+
+	.business-container .para p {
+		font-size: 0.9rem;
+	}
+
+	.living-container {
+		flex-direction: column;
+	}
+}
+

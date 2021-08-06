@@ -96,9 +96,22 @@ header {
 	text-decoration: underline;
 }
 
-
 ul .active{
 	color: #089FE4;
+}
+
+.nav-menu-icon {
+	cursor: pointer;
+	position: absolute;
+	top: 1rem;
+	right: 10%;
+	z-index: 2;
+	display: none;
+}
+
+.nav-menu-icon:hover{
+	color: #f5f5f5;
+	opacity: 0.9;
 }
 
 .spokeo-blog {
@@ -863,6 +876,11 @@ ul .active{
 	.spokeo-image-div {
 		display: none;
 	}
+
+	.nav-menu-icon {
+		display: inline-block;
+	}
+
 	.spokeo-blog .spokeo-title-division {
 	    padding-top: 3.5rem;
 	}
@@ -1103,9 +1121,14 @@ ul .active{
 	.u-hide {
 		display: none;
 	}
+	
 	.spokeo-image-div {
 		display: none;
 	}	
+
+	.nav-menu-icon {
+		display: inline-block;
+	}
 
 	.spokeo-blog .spokeo-title-division {
 	    padding-top: 3.5rem;
@@ -1116,6 +1139,7 @@ ul .active{
 	    width: 100%;
 	    font-size: 0.9rem;
 	}
+
 	.featured-on {
 		border-top: 1px solid #e4e4e4;
 		padding-top: 1rem;		
@@ -1371,12 +1395,27 @@ ul .active{
 		width: 37.5rem;
 		margin: 0 auto;
 	}
+}
 
+@media(max-width: 667px){
+	.spokeo-input-tag {
+	    height: 3rem;
+	    width: 25rem;
+	}
+
+	.billions-image-tag {
+	    width: 573px;
+	    height: 573px;
+	}
 }
 
 @media(max-width: 576px) {
 	.u-hide {
 		display: none;
+	}
+
+	.nav-menu-icon {
+		display: inline-block;
 	}
 
 	.spokeo-blog .spokeo-title-division {
@@ -1399,9 +1438,8 @@ ul .active{
 
 	.spokeo-input-tag {
 	    height: 3rem;
-	    width: 21.8rem;
+	    width: 100%;
 	}
-
 	.spokeo-form-container .search-now-btn {
     	padding-top: 2rem;
     	padding-left: 0;
@@ -1426,9 +1464,12 @@ ul .active{
 	.featured {
 	    padding-top: 2rem;
 	    margin: 0 7%;
-	    width: 100%;
+	    width: 86%;
 	}
 
+	.over-title {
+		padding-bottom: 1rem;	
+	}
 	.re-sm-size {
 		display: none;
 	}
@@ -1460,6 +1501,7 @@ ul .active{
 	.billions-container {
 	    display: flex;
 	    flex-direction: column;
+	    margin: 0 7%;
 	}
 
 	.records-container {
@@ -1473,6 +1515,260 @@ ul .active{
 	.record-name {
 	   font-size: 1rem;
  	   font-weight: bold;
+	}
+
+	.billions-image-tag {
+	    width: 311px;
+	    height: 311px;
+	}
+
+	.all-in-one-main-container {
+	    flex-direction: column;
+	    margin: 0 7%;
+	}
+
+	.all-in-title h1 {
+	    font-size: 1.3rem;
+	    color: black;
+	}
+
+	.all-in-items {
+	    display: grid;
+	    grid-template-columns: repeat(1, 1fr);
+	    font-size: 1rem;
+	    font-weight: bold;
+	}
+
+	.all-in-one-second-division {
+	    width: 14.25rem;
+	    margin: 0 auto;
+	}
+
+	.all-in-second-image-tag {
+		width: 100%;
+		height: 100%;
+	}
+
+	.stay-container {
+	    display: flex;
+	    padding-top: 0rem;
+	    flex-direction: column;
+	}
+
+	.first-update-div {
+    	padding-top: 4rem;
+	}
+
+	.second-update-div {
+    	width: 20.25rem;
+	}
+
+	.we-can-title h1 {
+	    font-size: 1.5rem;
+	}
+
+	.we-can-container {
+	    grid-template-columns: repeat(1, 1fr);
+	    padding: 0;
+	}
+
+	.help-div-title h1 {
+		padding-top: 2rem;
+	}
+
+	.all-in-one-first-division {
+    	margin-top: 1rem;
+	}
+
+	.read-more {
+		display: none;
+	}
+
+	.dis-image {
+	    width: 22rem;
+	    margin: 0 auto;
+	}
+
+	.discover-container {
+    	grid-template-columns: repeat(1, 1rem);
+    	padding-top: 0;
+	}
+
+	.dis-image {
+		padding-top: 3rem;
+	}
+
+	.discover-blog {
+    	margin: 0 7%;
+    	padding: 5rem 0 0rem;
+	}
+
+	.endless-title h1 {
+	    font-size: 1.5rem;
+	}
+
+	.endless-para {
+	    text-align: center;
+	    font-size: 0.9rem;
+	    padding-top: 1rem;
+	    width: 100%;
+	    margin: 0 auto;
+	}
+
+	.enterprice-image {
+	    padding-top: 3rem;
+	    width: 100%;
+	    margin: 0 auto;
+	}
+
+	.get-support {
+	    display: flex;
+	    /*justify-content: space-between;*/
+	    flex-direction: column;
+	    padding: 1rem;
+	    border: 1px solid #e4e4e4;
+	}
+
+	.get-first-div {
+    	display: flex;
+    	flex-direction: column;
+	}
+
+	.get-title h1 {
+	    color: #33393C;
+	    font-size: 1.2rem;
+	    text-transform: uppercase;
+	    font-weight: 700;
+	    border-right: none;
+	    padding-right: 0;
+	    margin-right: 0;
+	}
+
+	.contect-title h2 {
+	    font-size: 0.9rem;
+	    color: #33393C;
+	    font-weight: 400;
+	    padding-top: 1rem;
+	}
+
+	.get-second-div {
+		padding-top: 1rem;
+	}
+
+	.third-contact-div {
+		display: none;
+	}
+
+	.first-contact-div {
+	    border: none;
+	    padding-left: calc(3vw);
+	    padding-right: 0;
+	}
+
+	.footer-items {
+		display: grid;
+		grid-template-columns: repeat(3, 6rem);
+	}
+
+	.footer-item-first {
+    	border-right: 0;
+    	padding-right: 0.7rem;
+	}
+
+	.footer-item-third {
+		width: 7rem;
+		border: 0;
+	}
+
+	.footer-item-fourth {
+    	padding-left: 0rem;
+    	margin-left: -1rem;
+	}
+
+	.footer-item-fifth {
+	    padding-left: 0;
+	    text-transform: uppercase;
+	    width: 17rem;
+	    margin-left: -4rem;
+	    text-align: center;
+	}
+
+	.size-992px {
+		padding-top: 1rem;
+	}
+	
+	.footer-links {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		margin: 0 3rem;
+	}
+
+	.foooter-padding {
+		padding-top: 1rem;
+	}	
+	
+	.footer-para {
+	    width: 86%;
+	    margin: 0 auto;
+	    padding-top: 0.9rem;
+	}
+
+	.billions {
+		margin: 0;
+	}
+
+	.all-in-one {
+		margin: 0;
+	}
 }
+
+@media(max-width: 375px) {
+	.second-update-div {
+    	width: 19.25rem;
+	}
+
+	.spokeo-para {
+    	padding-top: 2rem;
+    	width: 97%;
+    	font-size: 0.9rem;
+	}
+
+	.spokeo-blog .spokeo-container {
+	    margin: 0px 3%;
+	    display: flex;
+	}
+
+	.spokeo-title h2 {
+		font-size: 1.3rem;
+	}
+
+	.spokeo-title-items ul li {
+    padding-right: 1.5rem;
+	}
+
+	.spokeo-input-tag {
+		padding-left: 0;
+	}
+
+	.dis-image {
+	    width: 19.3rem;
+	    margin: 0 auto;
+	}
+
+	.footer-items {
+		display: none;
+	}
+
+	.footer-links a {
+	    text-decoration: none;
+	    color: black;
+	    padding-right: 0;
+	    font-weight: bold;
+	}
+
+	.footer-para {
+	    width: 70%;
+	    margin: 0 auto;
+	    padding-top: 0.9rem;
 	}
 }

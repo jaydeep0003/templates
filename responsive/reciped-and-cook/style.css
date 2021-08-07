@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100%;
+	max-height: 100vh;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.main-blog {
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/first-image.jpeg");
+	background-position: 50% 0px, 50% 4.80357vh;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.blog-container {
+	margin: 0 7%;
+	text-align: center;
+	color: white;
+}
+
+.nav-menu-icon {
+    padding-top: 2rem;
+    
+}
+
+.fa-caret-down {
+	font-size: 5rem;
+}
+
+.the-best {
+	padding-top: 5rem;
+}
+
+.blog-title {
+	padding-top: 5rem;	
+}
+
+.blog-title h1{
+	font-size: 3.75rem;
+	font-weight: 700;
+	font-family: 'Playfair Display', serif;
+}
+
+.blog-para {
+	width: 61%;
+	margin: 0 auto;
+	padding-top: 2rem;
+}
+
+.down-arrow {
+	padding: 1.5rem 0;
+}
+
+.our-menu {
+	background-color: #f2f2f2;
+}
+
+.our-menu-container {
+	margin: 0 7%;
+
+}
+
+.our-menu-container h6 {
+	padding-top: 3rem;
+	text-align: center;
+	font-size: 1.125rem;
+	letter-spacing: 4px;
+	font-weight: 300;
+	font-family: 'Roboto', sans-serif;
+}
+
+.menu-title {
+	padding-top: 2rem;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.menu-title h1{
+	font-size: 3rem;
+	font-weight: 700;
+	font-family: 'Playfair Display', serif;	
+
+}
+
+.menu-items {
+	padding: 3rem 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 1rem;
+	text-align: center;
+}
+
+.menu-items p{
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 1rem;
+}
+
+.ice-container {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 7%;
+	padding: 6rem 0 8rem;
+}
+
+.ice-cream {
+	background-image: url('images/third-image.jpg');
+	background-position: 50% 50%;
+	background-size: cover;
+	object-fit: cover;
+	color: white;
+}
+
+.ice-items {
+	display: grid;
+	grid-template-columns: repeat(3, 10.625rem);
+	grid-gap: 2rem;
+}
+
+.fa-ice-cream {
+	padding: 4rem 4rem 5rem 4rem;
+	background-color: #000000;
+	opacity: 0.5;
+}
+
+.ice-items h5 {
+	position: absolute;
+	margin-top: -4rem;
+	margin-left: 2rem;
+}
+
+.history {
+	background-color: white;
+	color: black;
+}
+
+.history-container {
+	margin: 0 7%;
+}
+
+.history-items {
+	display: grid;
+	grid-template-columns: repeat(3, 33.33%);
+	text-align: center;
+}
+
+.history-image-tag {
+	width: 100%;
+	height: 22rem;
+	object-fit: cover;
+}
+
+.history-container {
+	margin: 0 7%;
+	padding-top: 7rem;
+}
+
+.history-title h6 {
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 1.125rem;
+	font-family: 'Playfair Display', serif;	
+}
+
+.history-title h3 {
+	padding-top: 1rem;
+}
+
+.history-title p {
+	padding: 1rem 0;
+}
+
+.history-title a {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 0.9rem;
+	color: black;
+}
+
+.history-title {
+	padding: 5rem 1rem 0 1rem;
+}
+
+.healthy {
+	background-color: #f2f2f2;
+	margin-top: 4rem;
+}
+
+.healthy-container {
+	margin: 0 7%;
+	padding-top: 4rem;
+}
+
+.healthy-items {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.healthy-img-height {
+	width: 100;
+	height: 38rem;
+}
+
+.healthy-image-tag {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.healthy-items h2 {
+	font-size: 3rem;
+	font-weight: 700;
+	font-family: 'Playfair Display', serif;	
+	text-transform: capitalize;	
+}
+
+.healthy-title {
+	width: 80%;
+	padding-top: 5rem;
+}
+
+.healthy-para {
+	width: 72%;
+	padding-top: 1rem;
+}
+
+.second-para {
+	padding-top: 1.5rem;
+}
+
+.healthy-btn {
+	padding-top: 3rem;
+}
+
+.healthy-btn a { 
+	color: black;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.healthy-items h6 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.125rem;
+    font-family: 'Playfair Display', serif;
+    padding-top: 6rem;
+}
+
+.healthy-reviews {
+	padding-top: 0.5rem;
+}
+
+.healthy-items-icon {
+	padding-top: 1rem;
+}
+
+.healthy-items-icon .fas{
+	font-size: 2rem;
+} 
+
+.healthy-para-2 {
+    width: 90%;
+    padding-top: 1rem;
+}
+
+.healthy-fourth-items {
+	padding-left: 4rem;
+}
+
+.healthy-u-padding {
+	padding-top: 4rem;
+}
+
+.cookie-container {
+	margin: 0 7%;
+}
+
+.cookie-container h1 {
+	padding-top: 3rem;
+	font-size: 3rem;
+	font-weight: 700;
+	font-family: 'Playfair Display', serif;
+	text-transform: capitalize;
+	text-align: center;
+}
+
+.cookie-container p {
+	text-align: center;
+	padding-top: 1rem;
+}
+
+.coockie-images {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.u-effect {
+	width: 22rem;
+	height: 24rem;
+}
+
+.ookie-image-tag {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+}

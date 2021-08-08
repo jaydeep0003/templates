@@ -249,6 +249,7 @@ body {
 	color: black;
 	letter-spacing: 1px;
 	text-transform: uppercase;
+	font-size: 0.9rem;
 }
 
 .healthy-items h6 {
@@ -304,6 +305,7 @@ body {
 }
 
 .coockie-images {
+	padding-top: 3rem;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 }
@@ -311,11 +313,122 @@ body {
 .u-effect {
 	width: 22rem;
 	height: 24rem;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
-.ookie-image-tag {
+.u-image-height {
+	height: 100%;
+	width: 100%;
+}
+
+.cookie-image-tag {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
 
+.cookie-btn {
+	padding: 3rem 0;
+	text-align: center;
+}
+
+.cookie-btn a {
+	color: black;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 0.9rem
+}
+
+.u-effect:hover .u-slide{
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+	transition: all 500ms ease;
+}
+
+.cookie-end-blog {
+	background-color: #f2f2f2;
+}
+
+
+.end-blog-images {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	overflow: hidden;
+}
+
+.end-u-effect {
+	height: 33rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.end-u-effect:hover .end-u-slide {
+	position: absolute;
+	opacity: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+	transition: all 500ms ease;
+
+}
+
+.end-blog-discription {
+	padding: 3rem 0;
+	margin: 0 auto ;
+	text-align: center;
+	width: 65%;
+	
+}
+
+.end-blog-discription h1{
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5rem;
+	line-height: 2;
+}
+
+.end-blog-icons {
+	padding-top: 3rem;
+}
+
+.end-blog-icons span {
+	padding-right: 2rem;
+	cursor: pointer;
+}
+
+.footer {
+	background-color: #333;
+	color: white;
+	height: 10rem;
+}
+
+.footer-para {
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 3rem;
+	width: 35%;
+}
+
+.owner-title {
+	padding-top: 1rem;
+}
+
+.icon-roted {
+	display: inline-block;
+	overflow: hidden;
+}
+
+.icon-roted:hover .u-roted-y {
+	transition: 3s;
+	transform: rotateY(370deg);
 }

@@ -18,7 +18,7 @@ body {
 
 .main-blog {
 	background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("images/first-image.jpeg");
-	background-position: 50% 0px, 50% 4.80357vh;
+	/*background-position: 50% 0px, 50% 4.80357vh;*/
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;

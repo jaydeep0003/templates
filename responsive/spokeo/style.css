@@ -167,7 +167,6 @@ ul .active{
 .spokeo-input-tag {
 	height: 3rem;
 	width: 27rem;
-	/*width: 100%;*/
 	font-size: 1rem;
 	padding-left: 1rem;
 	border: none;
@@ -175,6 +174,10 @@ ul .active{
 	color::placeholder #33393C;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	background-color: #ffffff;
+}
+
+.input-sm {
+	display: none;
 }
 
 .spokeo-form-container .search-now-btn {
@@ -1414,6 +1417,19 @@ ul .active{
 		display: none;
 	}
 
+	.input-sm {
+		display: block;
+	}
+
+	.input-lg {
+		display: none;
+	} 
+
+	.spokeo-input-tag {
+	    padding-left: 0;
+	    text-align: center;
+	}
+
 	.nav-menu-icon {
 		display: inline-block;
 	}
@@ -1720,6 +1736,8 @@ ul .active{
 	.all-in-one {
 		margin: 0;
 	}
+
+
 }
 
 @media(max-width: 375px) {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -122,7 +124,180 @@ header {
 	width: 100%;
 	height: 100%;
 }
+.main-blog {
+	margin-top: 2rem;
+}
 
 .main-blog-container {
 	margin: 0 2%;
+}
+
+.blog-items {
+	display: flex;
+}
+
+.first-introduction-item .python-lang {
+	list-style: none;
+	/*width: 100%;*/
+}
+
+.python-lang a{
+	text-decoration: none;
+	color: #273239;
+}
+
+.first-introduction-item .python-lang li  {
+	background-color: white;
+	padding: 5px 32px 5px 15px;
+	border-bottom: 1px solid #F0F0F0;
+	font-size: 100%;
+	font-weight: 400;
+	font-family: 'PT Sans', sans-serif;
+	/*width: 85%;*/
+	line-height: 1.5;
+}
+
+.drop-down {
+	font-size: 100%;
+	font-weight: 400;
+	font-family: 'PT Sans', sans-serif;
+	padding: 12px 15px 1rem 1rem;
+	background-color: white;
+	/*width: 85%;*/
+	border-bottom: 1px solid #F0F0F0;
+}
+
+.drop-down {
+	display: flex;
+	justify-content: space-between;
+}
+
+.fa-angle-up {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.python-lang li:hover {
+	background-color: #f2f2f2;
+}
+
+.drop-down:hover {
+	background-color: #f2f2f2;	
+}
+
+.second-discription-blog {
+	width: 79%;
+	margin-left: 1%;
+	background-color: white;
+	padding: 1rem;
+}
+
+.second-discription-blog ol {
+	padding-left: 2rem;
+}
+
+.python-title h1 {
+	font-weight: 1.75rem;
+}
+
+.python-title .date {
+	color: #6d6d6d;
+	font-size: 15px;
+	padding: 5px 0;
+}
+
+.python-title p {
+	padding-top: 1rem;
+	font-weight: 400;
+	letter-spacing: -.01em;
+	font-size: 1rem;
+}
+
+.title-image {
+	padding: 2rem 0;
+}
+
+.title-image .blog-image {
+	width: 100%;
+	height: 100%;
+}
+
+.section-app p {
+	padding: 1rem 0;
+}
+
+.machine {
+	list-style: disc outside;
+}
+
+.machine a {
+	color: #308D46;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.machine a:hover {
+	text-decoration: underline;
+}
+
+.machine span {
+	color: #308D46;
+	cursor: pointer;
+}
+
+.machine span:hover {
+	text-decoration: underline;
+}
+
+.third-most-articles {
+	padding: 1rem 0 1rem 2rem;
+}
+
+.article {
+	font-size: 16pt;
+	letter-spacing: .2rem;
+	color: #308D46;
+}
+
+.article-first-div {
+    width: 18rem;
+}
+
+.article-items ul li {
+	padding: 0.7rem 0;
+}
+
+.article-first-div {
+	padding-top: 10rem;
+}
+
+.article-second-div {
+	padding-top: 20rem;
+}
+
+.links {
+	padding: 2rem 0;
+}
+
+.links a{
+	text-decoration: none;
+	color: #308D46;
+	
+}
+
+.links a:hover {
+	text-decoration: underline;
+}
+
+.python-more-links a {
+	text-decoration: none;
+	color: #308D46;	
+}
+
+.python-more-links a:hover {
+	text-decoration: underline;
+}
+
+.python-more-links {
+
 }

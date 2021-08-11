@@ -1,0 +1,128 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(media/FontsFree-Net-zxss.ttf);
+}
+
+
+body {
+	max-height: 100vh;
+	max-width: 100%;
+	color: #273239;
+	background-color: #f2f2f2;
+	font-family: myFirstFont;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.7;
+}
+
+header {
+	background-color: white;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navigation-bars a{
+	text-decoration: none;
+	color: black;
+}
+
+.navigation-bars ul{
+	list-style: none;
+}
+
+.first-navigation-bar {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 2%;
+}
+
+.first-nav-bar ul {
+	display: flex;
+}
+
+.first-nav-bar ul li {
+	padding-right: 1rem;
+}
+
+.first-nav-bar ul li a {
+	font-weight: 600;
+	font-size: 95%;
+}
+
+.first-nav-bar ul li a:hover {
+	color: #308D46;
+}
+
+.third-nav-bar {
+	display: flex;
+}
+
+.third-padding {
+	padding-left: 1.5rem;
+}
+
+.align-self {
+	align-self: center;
+}
+
+.second-nav-bar {
+	padding: 1rem 0;
+}
+
+.signin a{
+	background-color: black;
+	color: white;
+	padding: 0.6rem 1.5rem;
+	border-radius: 10px;
+	font-weight: 700;
+}
+
+.second-navigaaaation-bar {
+	margin: 0 2%;
+}
+
+.second-navigaaaation-bar ul{
+	display: flex;
+	padding: 1rem 0;
+}
+
+.second-navigaaaation-bar ul li {
+	padding-right: 1.422rem;
+}
+
+.second-navigaaaation-bar ul li a{
+	font-size: 95%;
+	font-weight: 500;
+}
+
+.second-navigaaaation-bar ul li a:hover{
+	color: #308D46;
+}
+
+.nav-horizontal-line {
+	height: 1px;
+	width: 100%;
+	background-color: #f2f2f2;
+}
+
+.fa-language {
+	font-size: 1.7rem;
+}
+
+.nine-dot-menu {
+    width: 2.8rem;
+}
+
+.nine-dot-menu svg {
+	width: 100%;
+	height: 100%;
+}
+
+.main-blog-container {
+	margin: 0 2%;
+}

@@ -27,6 +27,19 @@ header {
 	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
+.nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navigation-bars {
+	position: relative;
+}
+
 .nav-menu-icon {
 	position: absolute;
 	top: 1.5rem;
@@ -132,6 +145,41 @@ header {
 	height: 100%;
 }
 
+.dot-headline {
+	font-size: 1.325rem;
+	font-weight: 900;
+}
+
+.mega-dot-menu-container {
+	position: absolute;
+	top: 20%;
+	left: 0;
+	display: block;
+	margin: 4rem 0rem;
+	display: none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+	z-index: 9999;
+	box-shadow: 0 15px 10px -15px rgba(0, 0, 0, 0.2);
+}
+
+.nine-dot-menu:hover .mega-dot-menu-container {
+	width: 100%;
+	display: inline-block;
+	background-color: white;
+}
+
+.mega-dot-image-tag {
+	width: 60px;
+}
+
+.mega-dot-div {
+	display: grid;
+	grid-template-columns: repeat(4, 15rem);
+	grid-gap: 1rem;
+	padding-left: 6rem;
+	padding-bottom: 1rem;
+}
+
 .header-list-menu {
 	position: relative;
 	display: inline-block;
@@ -179,9 +227,8 @@ header {
 	transition: all .3s ease-in;
 }
 
-
 .main-blog {
-	margin-top: 2rem;
+	margin-top: 10rem;
 }
 
 .main-blog-container {
@@ -591,6 +638,9 @@ footer {
 }
 
 @media (max-width: 992px) and (min-width: 769px) {
+	.main-blog {
+    	margin-top: 7rem;
+	}
 	.second-navigation-bar {
 		display: none;
 	}
@@ -633,6 +683,9 @@ footer {
 }
 
 @media(max-width: 768px) and (min-width: 577px) {
+	.main-blog {
+    	margin-top: 7rem;
+	}
 	.second-navigation-bar {
 		display: none;
 	}
@@ -736,6 +789,9 @@ footer {
 }
 
 @media(max-width: 576px) {
+	.main-blog {
+    	margin-top: 5rem;
+	}
 	.second-navigation-bar {
 		display: none;
 	}

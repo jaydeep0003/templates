@@ -50,7 +50,7 @@ header {
 	margin: 0 2%;
 }
 
-.first-nav-bar ul {
+.first-nav-bar .header-list-menu {
 	display: flex;
 }
 
@@ -131,6 +131,55 @@ header {
 	width: 100%;
 	height: 100%;
 }
+
+.header-list-menu {
+	position: relative;
+	display: inline-block;
+}
+
+.mega-dropdown li span {
+	color: black;
+}
+
+.mega-dropdown li:hover {
+	background-color: #DDD;
+}
+
+.mega-dropdown li{
+	display: flex;
+	justify-content: space-between;
+	padding: 0.7rem 1rem;
+}
+
+.mega-dropdown i {
+	color: black;
+	fill: black;
+	align-self: center;
+	font-size: 1.5rem;
+}
+
+.first-nav-bar .mega-dropdown {
+	z-index: 1;
+	position: absolute;
+	width: 250px;
+	box-shadow: 0 0 15px 0 rgba(0,0,0,.18);
+	background: #fff;
+	top: 100%;
+	left: 0;
+	font-weight: 500;
+	display: none;
+}
+
+.header-list-menu .selected:hover .mega-dropdown{
+	display: block;
+}
+
+.header-list-menu .selected:hover .fa-angle-down{
+	transform: rotate(-90deg);
+	transition: all .3s ease-in;
+}
+
+
 .main-blog {
 	margin-top: 2rem;
 }

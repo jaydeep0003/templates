@@ -23,15 +23,11 @@ body {
 }
 
 header {
-
+	/*background: white;*/
 }
 
 .navigation-bar {
 	margin: 0 7%;
-}
-
-.nav-items {
-	/*display: flex;*/
 }
 
 .nav-logo {
@@ -214,8 +210,90 @@ header {
 	margin-top: 2rem;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 2rem;
+}
+
+.bg-image {
+	background-size: cover;
+	object-fit: cover;
+	height: 11.25em;
+	justify-content: center;
+	align-self: center;
+	padding: 1rem;
+	cursor: pointer;
+}
+
+.bg-image .cart-para{
+	padding: 1.5rem;
+	background: white;
+	width: 100%;
+	margin: 1.5rem 0;
+}
+
+.bg-image .cart-para p {
+	font-weight: 400;
+}
+
+.bg-image .cart-para h3 {
+	font-size: 1.375rem;
+	font-weight: 700;
+}
+
+.first-image {
+	background-image: url('images/python.svg');
+}
+
+.second-image {
+	background-image: url('images/javascript.svg');
+}
+
+.third-image {
+	background-image: url('images/web-development.svg');
+}
+
+.fourth-image {
+	background-image: url('images/data-science.svg');
+}
+
+.u-border {
+	border: 1px solid black;
+}
+
+.border-shadow:hover {
+	transform: translate(4px, -4px);
+	box-shadow: -8px 8px 0 #10162F;
+	transition: box-shadow 200ms ease 0s, transform 200ms ease 0s;
+}
+
+.nav-first-item .hover-effect {
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	position: absolute;
+	width: 143px;
+	background: #fff;
+	top: 14%;
+	padding: 1rem 1.5rem;
+	border: 1px solid black;
+	display: none;
+	overflow: hidden;
+	max-height: 500px;
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+}
+
+.nav-first-item .hover-effect li {
+	padding: 1rem 0;
+	font-weight: 400;
+	font-size: 1rem;
+	  
+}
+
+.nav-first-item .hover-effect li:hover {
+	color: rgb(58, 16, 229);
 }
 
 
-
-
+ 

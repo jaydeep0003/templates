@@ -275,6 +275,7 @@ header {
 	top: 10%;
 	padding: 1rem 1.5rem;
 	border: 1px solid black;
+	height: 0;
 	/*display: none;*/
 	
 
@@ -298,4 +299,15 @@ header {
 .menu {
 	position: relative;
 	display: block;
+}
+
+.menu .hover-effect {
+	position: absolute;
+	transition: all .7s ease;
+}
+
+.menu li:hover ul {
+	height: 250px;
+	opacity: 1;
+  transform: translateY(0);
 }

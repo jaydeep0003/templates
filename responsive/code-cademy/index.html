@@ -205,17 +205,30 @@
 	// 		i.style.display = "block"
 	// 	}
 	// }
+	const button = document.getElementById('li_item_first');
+	const list = document.getElementById('show-first');
 
-	function onclick_first() {
-		menu =  document.getElementById('show-first'); 
-
-		if(menu.style.display == "block") {
-			menu.style.display = "none";
+	list.style.display = "none";
+	button.addEventListener('click', (event) => {
+		if (list.style.display == "none") {
+			list.style.display = "block"
 		}
 		else {
-			menu.style.display = "block"
+			list.style.display = "none"
 		}
-	}
+	})
+
+
+	// function onclick_first() {
+	// 	menu =  document.getElementById('show-first'); 
+
+	// 	if(menu.style.display == "block") {
+	// 		menu.style.display = "none";
+	// 	}
+	// 	else {
+	// 		menu.style.display = "block"
+	// 	}
+	// }
 
 	function onclick_second() {
 		var menu_two =  document.getElementById('show-second');    

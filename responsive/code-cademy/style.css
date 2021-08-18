@@ -278,11 +278,7 @@ header {
 	height: 0;
 	height: 250px;
 	opacity: 1;
-  	transform: translateY(0px);
-  	transform-origin: top;
-  	transition: all .7s linear 0s;
 	display: none;
-
 }
 
 .nav-first-item .hover-effect li {

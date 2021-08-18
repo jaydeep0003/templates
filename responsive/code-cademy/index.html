@@ -18,47 +18,50 @@
 		   					</g>
 		   				</svg>
 					</div>
-					<ul id='menu'>
-						<li><a href="#" >catalog</a></li>
-						<li>
-							<a href="#" onclick="onclick_first()">
-								<span class="overflow">Resources</span>
-								<i class="fas fa-caret-down "></i>
+					<div class="navigation-items-effect">
+						<ul id='menu'>
+							<li><a href="#" >catalog</a></li>
+							<li>
+								<a href="#" id="li_item_first" class="btn_effect" onclick="onclick_first()">
+									<span class="overflow">Resources</span>
+									<i class="fas fa-caret-down "></i>	
+								</a>
+								
 								<ul class="hover-effect first-effect" id='show-first'>
 									<li>Cheatsheets</li>
 									<li>Projects</li>
 									<li>Articles</li>
 									<li>Blog</li>
 								</ul>
-
-							</a>
-						</li>
-						<li>
-							<a href="#" onclick="onclick_second()">
-								<span class="overflow">Community</span>
-								<i class="fas fa-caret-down"></i>
-								<ul class="hover-effect second-effect" id='show-second'>
-									<li>Cheatsheets</li>
-									<li>Projects</li>
-									<li>Articles</li>
-									<li>Blog</li>
-								</ul>
-							</a>
-						</li>
-						<li>
-							<a href="#" onclick="onclick_third()">
-								<span class="overflow">Pro pricing</span>
-								<i class="fas fa-caret-down"></i>
-								<ul class="hover-effect third-effect" id='show-third'>
-									<li>Cheatsheets</li>
-									<li>Projects</li>
-									<li>Articles</li>
-									<li>Blog</li>
-								</ul>
-							</a>
-						</li>
-						<li><a href="#"></a>For Bussines</li>
-					</ul>
+								
+							</li>
+							<li>
+								<a href="#" id="li_item_second" class="btn_effect" onclick="onclick_second()">
+									<span class="overflow">Community</span>
+									<i class="fas fa-caret-down"></i>
+									<ul class="hover-effect second-effect" id='show-second'>
+										<li>Cheatsheets</li>
+										<li>Projects</li>
+										<li>Articles</li>
+										<li>Blog</li>
+									</ul>
+								</a>
+							</li>
+							<li>
+								<a href="#" id="li_item_third" class="btn_effect" onclick="onclick_third()">
+									<span class="overflow">Pro pricing</span>
+									<i class="fas fa-caret-down"></i>
+									<ul class="hover-effect third-effect" id='show-third'>
+										<li>Cheatsheets</li>
+										<li>Projects</li>
+										<li>Articles</li>
+										<li>Blog</li>
+									</ul>
+								</a>
+							</li>
+							<li><a href="#"></a>For Bussines</li>
+						</ul>
+					</div>
 				</div>
 				<div class="nav-second-item">
 					<div class="search-icon">
@@ -192,7 +195,8 @@
 -->
 
 
-
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <script type="text/javascript">
 	// function onclick_ex() {
@@ -204,8 +208,7 @@
 	// }
 
 	function onclick_first() {
-		 menu =  document.getElementById('show-first');  
-		  menu.style.height = "300px"
+		 menu =  document.getElementById('show-first'); 
 		if(menu.style.display == "block") {
 			menu.style.display = "none";
 		}
@@ -256,10 +259,9 @@
 		if(event.target !=a) {
 			a.style.display = "none";
 		}
-	})
-
-
+	});
 </script>
+
 
 
 </body>

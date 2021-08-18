@@ -272,15 +272,11 @@ header {
 	position: absolute;
 	width: 143px;
 	background: #fff;
-	top: 14%;
+	top: 10%;
 	padding: 1rem 1.5rem;
 	border: 1px solid black;
-	display: none;
-	overflow: hidden;
-	max-height: 500px;
-	transition-property: all;
-	transition-duration: .5s;
-	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+	/*display: none;*/
+	
 
 }
 
@@ -295,5 +291,11 @@ header {
 	color: rgb(58, 16, 229);
 }
 
+.navigation-items-effect {
+	align-self: center;
+}
 
- 
+.menu {
+	position: relative;
+	display: block;
+}

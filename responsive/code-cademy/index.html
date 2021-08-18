@@ -18,7 +18,7 @@
 		   					</g>
 		   				</svg>
 					</div>
-					<div class="navigation-items-effect">
+					<div class="navigation-items-effect collapse">
 						<ul id='menu' class="menu">
 							<li><a href="#" >catalog</a></li>
 							<li>
@@ -209,15 +209,17 @@
 	function onclick_first() {
 		menu =  document.getElementById('show-first'); 
 
-		if(menu.style.display == "block") {
-			menu.style.display = "none";
-		}
-		else {
-			menu.style.display = "block"
-		}
+		// if(menu.style.display == "block") {
+		// 	menu.style.display = "none";
+		// }
+		// else {
+		// 	menu.style.display = "block"
+		// }
 
-		// menu.style.transform: translateY(0);
-		// menu.style.height: "250px";
+		menu.style.display = "block";
+		// menu.style.transform = "translateY(0)";
+		// menu.style.height =  "250px";
+		// menu.style.transition = 'all .7s ease';
 		 
 	}
 
@@ -264,6 +266,7 @@
 	// 		a.style.display = "none";
 	// 	}
 	// });
+
 </script>
 
 

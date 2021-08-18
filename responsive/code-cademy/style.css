@@ -272,15 +272,15 @@ header {
 	position: absolute;
 	width: 143px;
 	background: #fff;
-	top: 10%;
+	top: 15%;
 	padding: 1rem 1.5rem;
 	border: 1px solid black;
 	height: 0;
 	height: 250px;
 	opacity: 1;
-  	/*transform: translateY(0px);
+  	transform: translateY(0px);
   	transform-origin: top;
-  	transition: all .7s ease;*/
+  	transition: all .7s ease;
 	display: none;
 
 }
@@ -298,6 +298,7 @@ header {
 
 .navigation-items-effect {
 	align-self: center;
+	
 }
 
 .menu {
@@ -305,20 +306,3 @@ header {
 	display: block;
 }
 
-/*.menu li ul {
-	display: none;
-}*/
-
-
-/*.menu li:hover ul {
-	height: 250px;
-	opacity: 1;
-  transform: translateY(0);
-  display: block;
-}
-*/
-
-	/*height: 250px;*/
-	/*opacity: 1;
-	transform: translateY(0);*/
-  	

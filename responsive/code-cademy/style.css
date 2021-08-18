@@ -268,7 +268,7 @@ header {
 .nav-first-item .hover-effect {
 	display: flex;
 	flex-direction: column;
-	z-index: 1;
+	z-index: 10000;
 	position: absolute;
 	width: 143px;
 	background: #fff;
@@ -280,7 +280,7 @@ header {
 	opacity: 1;
   	transform: translateY(0px);
   	transform-origin: top;
-  	transition: all .7s ease;
+  	transition: all .7s linear 0s;
 	display: none;
 
 }
@@ -298,7 +298,7 @@ header {
 
 .navigation-items-effect {
 	align-self: center;
-	
+
 }
 
 .menu {

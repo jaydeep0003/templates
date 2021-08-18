@@ -196,7 +196,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<!--
+
 <script type="text/javascript">
 	// function onclick_ex() {
 	// 	li_list = document.getElementsByClassName('hover-effect')
@@ -207,37 +207,42 @@
 	// }
 
 	function onclick_first() {
-		 menu =  document.getElementById('show-first'); 
+		menu =  document.getElementById('show-first'); 
+
 		if(menu.style.display == "block") {
 			menu.style.display = "none";
 		}
 		else {
 			menu.style.display = "block"
 		}
+
+		// menu.style.transform: translateY(0);
+		// menu.style.height: "250px";
+		 
 	}
 
-	function onclick_second() {
-		var menu_two =  document.getElementById('show-second');    
-		if(menu_two.style.display == "block") {
-			menu_two.style.display = "none";
-		}
-		else {
-			menu_two.style.display = "block"
-		}
+	// function onclick_second() {
+	// 	var menu_two =  document.getElementById('show-second');    
+	// 	if(menu_two.style.display == "block") {
+	// 		menu_two.style.display = "none";
+	// 	}
+	// 	else {
+	// 		menu_two.style.display = "block"
+	// 	}
 
-		console.log(menu_two)
-	}
+	// 	console.log(menu_two)
+	// }
 
-	function onclick_third() {
-		var menu_three =  document.getElementById('show-third');    
-		if(menu_three.style.display == "block") {
-			menu_three.style.display = "none";
-		}
-		else {
-			menu_three.style.display = "block"
-		}
-		console.log(menu_three)
-	}
+	// function onclick_third() {
+	// 	var menu_three =  document.getElementById('show-third');    
+	// 	if(menu_three.style.display == "block") {
+	// 		menu_three.style.display = "none";
+	// 	}
+	// 	else {
+	// 		menu_three.style.display = "block"
+	// 	}
+	// 	console.log(menu_three)
+	// }
 
 	window.addEventListener('mouseup', function(event){
 		var a = document.getElementById('show-first');
@@ -246,22 +251,21 @@
 		}
 	});
 
-	window.addEventListener('mouseup', function(event){
-		var a = document.getElementById('show-second');
-		if(event.target !=a) {
-			a.style.display = "none";
-		}
-	})
+	// window.addEventListener('mouseup', function(event){
+	// 	var a = document.getElementById('show-second');
+	// 	if(event.target !=a) {
+	// 		a.style.display = "none";
+	// 	}
+	// })
 
-	window.addEventListener('mouseup', function(event){
-		var a = document.getElementById('show-third');
-		if(event.target !=a) {
-			a.style.display = "none";
-		}
-	});
+	// window.addEventListener('mouseup', function(event){
+	// 	var a = document.getElementById('show-third');
+	// 	if(event.target !=a) {
+	// 		a.style.display = "none";
+	// 	}
+	// });
 </script>
 
--->
 
 </body>
 </html>

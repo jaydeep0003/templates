@@ -276,8 +276,12 @@ header {
 	padding: 1rem 1.5rem;
 	border: 1px solid black;
 	height: 0;
-	/*display: none;*/
-	
+	height: 250px;
+	opacity: 1;
+  	/*transform: translateY(0px);
+  	transform-origin: top;
+  	transition: all .7s ease;*/
+	display: none;
 
 }
 
@@ -301,13 +305,20 @@ header {
 	display: block;
 }
 
-.menu .hover-effect {
-	position: absolute;
-	transition: all .7s ease;
-}
+/*.menu li ul {
+	display: none;
+}*/
 
-.menu li:hover ul {
+
+/*.menu li:hover ul {
 	height: 250px;
 	opacity: 1;
   transform: translateY(0);
+  display: block;
 }
+*/
+
+	/*height: 250px;*/
+	/*opacity: 1;
+	transform: translateY(0);*/
+  	

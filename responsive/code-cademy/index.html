@@ -195,84 +195,106 @@
 
 
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
 
 <script type="text/javascript">
-	// function onclick_ex() {
-	// 	li_list = document.getElementsByClassName('hover-effect')
-	// 	for(i of li_list)
-	// 	{
-	// 		i.style.display = "block"
-	// 	}
-	// }
-	const button = document.getElementById('li_item_first');
-	const list = document.getElementById('show-first');
+	// const button = document.getElementById('li_item_first');
+	// const list = document.getElementById('show-first');
 
-	list.style.display = "none";
-	button.addEventListener('click', (event) => {
-		if (list.style.display == "none") {
-			list.style.display = "block"
+	// list.style.display = "none";
+	// button.addEventListener('click', (event) => {
+	// 	if (list.style.display == "none") {
+	// 		list.style.display = "block"
+	// 	}
+	// 	else {
+	// 		list.style.display = "none"
+	// 	}
+	// });
+
+
+	const button_second = document.getElementById('li_item_second');
+	const list_second = document.getElementById('show-second');
+
+	list_second.style.display = "none";
+	button_second.addEventListener('click', (event) => {
+		if (list_second.style.display == "none") {
+			list_second.style.display = "block"
 		}
 		else {
-			list.style.display = "none"
+			list_second.style.display = "none"
 		}
-	})
+	});
 
+	const button_third = document.getElementById('li_item_third');
+	const list_third = document.getElementById('show-third');
+
+	list_third.style.display = "none";
+	button_third.addEventListener('click', (event) => {
+		if (list_third.style.display == "none") {
+			list_third.style.display = "block"
+		}
+		else {
+			list_third.style.display = "none"
+		}
+	});
 
 	// function onclick_first() {
 	// 	menu =  document.getElementById('show-first'); 
 
-	// 	if(menu.style.display == "block") {
-	// 		menu.style.display = "none";
+	// 	if(menu.style.display == "none") {
+	// 		menu.style.display = "block";
 	// 	}
 	// 	else {
-	// 		menu.style.display = "block"
+	// 		menu.style.display = "none"
 	// 	}
 	// }
 
-	function onclick_second() {
-		var menu_two =  document.getElementById('show-second');    
-		if(menu_two.style.display == "block") {
-			menu_two.style.display = "none";
-		}
-		else {
-			menu_two.style.display = "block"
-		}
+	// function onclick_second() {
+	// 	var menu_two =  document.getElementById('show-second');    
+	// 	if(menu_two.style.display == "block") {
+	// 		menu_two.style.display = "none";
+	// 	}
+	// 	else {
+	// 		menu_two.style.display = "block"
+	// 	}
 
-		console.log(menu_two)
-	}
+	// 	console.log(menu_two)
+	// }
 
-	function onclick_third() {
-		var menu_three =  document.getElementById('show-third');    
-		if(menu_three.style.display == "block") {
-			menu_three.style.display = "none";
-		}
-		else {
-			menu_three.style.display = "block"
-		}
-		console.log(menu_three)
-	}
+	// function onclick_third() {
+	// 	var menu_three =  document.getElementById('show-third');    
+	// 	if(menu_three.style.display == "block") {
+	// 		menu_three.style.display = "none";
+	// 	}
+	// 	else {
+	// 		menu_three.style.display = "block"
+	// 	}
+	// 	console.log(menu_three)
+	// }
 
-	window.addEventListener('mouseup', function(event){
-		var a = document.getElementById('show-first');
-		if(event.target !=a) {
-			a.style.display = "none";
-		}
-	});
+	// window.addEventListener('mouseup', function(event){
+	// 	var a = document.getElementById('show-first');
+	// 	if(event.target !=a) {
+	// 		a.style.display = "none";
+	// 	}
+	// 	// else {
+	// 	// 	a.style.display = "block";	
+	// 	// }
+	// });
 
-	window.addEventListener('mouseup', function(event){
-		var a = document.getElementById('show-second');
-		if(event.target !=a) {
-			a.style.display = "none";
-		}
-	})
+	// window.addEventListener('mouseup', function(event){
+	// 	var a = document.getElementById('show-second');
+	// 	if(event.target !=a) {
+	// 		a.style.display = "none";
+	// 	}
+	// });
 
-	window.addEventListener('mouseup', function(event){
-		var a = document.getElementById('show-third');
-		if(event.target !=a) {
-			a.style.display = "none";
-		}
-	});
+	// window.addEventListener('mouseup', function(event){
+	// 	var a = document.getElementById('show-third');
+	// 	if(event.target !=a) {
+	// 		a.style.display = "none";
+	// 	}
+	// });
 
 
 </script>

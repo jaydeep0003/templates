@@ -268,14 +268,12 @@ header {
 .nav-first-item .hover-effect {
 	display: flex;
 	flex-direction: column;
-	z-index: 10000;
 	position: absolute;
 	width: 143px;
 	background: #fff;
 	top: 10%;
 	padding: 1rem 1.5rem;
 	border: 1px solid black;
-	height: 0;
 	height: 250px;
 	opacity: 1;
 	/*display: none;*/
@@ -297,36 +295,72 @@ header {
 
 }
 
-/*.menu {
-	position: relative;
-	display: block;
+
+.list_items {
+	perspective: 1000px;
+	display: none;
 }
-*/
-/*#li_item_first:hover {
-	background: red;
-	  animation: growDown 300ms ease-in-out forwards;
-	   transform-origin: top center;
-	     display: block;
-}*/
 
-@keyframes growDown {
-/*
-  0% {
-
-    transform: scaleY(0)
-
-  }
-
-  80% {
-
-    transform: scaleY(1.1)
-
-  }
-
-  100% {
-
-    transform: scaleY(1)
-
-  }*/
+.list_items  {
+	transform-origin: top center;
+	opacity: 0;
 
 }
+
+.list_items {
+	animation: animate 500ms ease-in-out forwards;
+	animation-delay: 100ms;
+}
+
+@keyframes animate{
+	0%{
+		opacity: 0;
+		transform: rotateX(-90deg);
+	}
+
+	50%{
+		
+		transform: rotateX(10deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateX(0deg);
+	}
+}
+
+
+
+.new_list {
+	perspective: 1000px;
+	display: none;
+}
+
+.new_list  {
+	transform-origin: top center;
+	opacity: 0;
+
+}
+
+.new_list {
+	animation: new_anim 500ms ease-in-out forwards;
+	animation-delay: 100ms;
+}
+
+@keyframes new_anim{
+	0%{
+		opacity: 0;
+		transform: rotateX(-90deg);
+	}
+
+	50%{
+		
+		transform: rotateX(10deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateX(0deg);
+	}
+}
+

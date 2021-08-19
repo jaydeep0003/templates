@@ -22,12 +22,14 @@
 						<ul id='menu' class="menu">
 							<li><a href="#" >catalog</a></li>
 							<li>
-								<a href="#" id="li_item_first" class="btn_effect" onclick="onclick_first()">
-									<span class="overflow">Resources</span>
-									<i class="fas fa-caret-down "></i>	
-								</a>
-								
-								<ul class="hover-effect first-effect" id='show-first'>
+								<div id="click_id">
+									<a href="#" id="li_item_first" class="btn_effect">
+										<span class="overflow">Resources</span>
+										<i class="fas fa-caret-down "></i>	
+									</a>
+								</div>
+
+								<ul class="nav_lists hover-effect first-effect list_items" id='show-first'>
 									<li>Cheatsheets</li>
 									<li>Projects</li>
 									<li>Articles</li>
@@ -39,7 +41,7 @@
 									<span class="overflow">Community</span>
 									<i class="fas fa-caret-down"></i>
 								</a>
-								<ul class="hover-effect second-effect" id='show-second'>
+								<ul class="nav_lists hover-effect second-effect list_items" id='show-second'>
 										<li>Cheatsheets</li>
 										<li>Projects</li>
 										<li>Articles</li>
@@ -51,14 +53,16 @@
 									<span class="overflow">Pro pricing</span>
 									<i class="fas fa-caret-down"></i>
 								</a>
-								<ul class="hover-effect third-effect" id='show-third'>
+								<ul class="nav_lists hover-effect third-effect list_items" id='show-third'>
 										<li>Cheatsheets</li>
 										<li>Projects</li>
 										<li>Articles</li>
 										<li>Blog</li>
 									</ul>
 							</li>
-							<li><a href="#"></a>For Bussines</li>
+							<li>
+								<a href="#">For Bussines</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -198,45 +202,55 @@
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
 
 <script type="text/javascript">
-	// const button = document.getElementById('li_item_first');
-	// const list = document.getElementById('show-first');
 
-	// list.style.display = "none";
-	// button.addEventListener('click', (event) => {
-	// 	if (list.style.display == "none") {
-	// 		list.style.display = "block"
-	// 	}
-	// 	else {
-	// 		list.style.display = "none"
-	// 	}
-	// });
-
-
-	const button_second = document.getElementById('li_item_second');
-	const list_second = document.getElementById('show-second');
-
-	list_second.style.display = "none";
-	button_second.addEventListener('click', (event) => {
-		if (list_second.style.display == "none") {
-			list_second.style.display = "block"
+	document.getElementById('click_id').addEventListener('click', click_in);
+	function click_in() {
+		if(document.getElementById('show-first').style.display == 'none') {
+			const click_on = document.getElementById('show-first');
+			click_on.style.display = 'block';
+			click_on.classList.add('list_items');
+			click_on.classList.remove('new_lists');
+			console.log('first_clicked');
 		}
 		else {
-			list_second.style.display = "none"
+			const element = document.getElementById('show-first');
+			element.style.display = 'none';
+			element.classList.add('new_lists');
+			element.classList.remove('list_items');
 		}
-	});
+	}
 
-	const button_third = document.getElementById('li_item_third');
-	const list_third = document.getElementById('show-third');
 
-	list_third.style.display = "none";
-	button_third.addEventListener('click', (event) => {
-		if (list_third.style.display == "none") {
-			list_third.style.display = "block"
-		}
-		else {
-			list_third.style.display = "none"
-		}
-	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// function onclick_first() {
 	// 	menu =  document.getElementById('show-first'); 

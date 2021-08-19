@@ -272,7 +272,7 @@ header {
 	position: absolute;
 	width: 143px;
 	background: #fff;
-	top: 142%;
+	top: 10%;
 	padding: 1rem 1.5rem;
 	border: 1px solid black;
 	height: 0;
@@ -302,15 +302,15 @@ header {
 	display: block;
 }
 */
-#li_item_first:hover {
-	/*background: red;*/
+/*#li_item_first:hover {
+	background: red;
 	  animation: growDown 300ms ease-in-out forwards;
 	   transform-origin: top center;
 	     display: block;
-}
+}*/
 
 @keyframes growDown {
-
+/*
   0% {
 
     transform: scaleY(0)
@@ -327,6 +327,6 @@ header {
 
     transform: scaleY(1)
 
-  }
+  }*/
 
 }

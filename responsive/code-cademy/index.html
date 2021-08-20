@@ -40,7 +40,7 @@
 								<div id="click_second_id">
 								<a href="#" id="li_item_second" class="btn_effect">
 									<span class="overflow">Community</span>
-									<i class="fas fa-caret-down"></i>
+									<i id="second_down" class="fas fa-caret-down first_down"></i>
 								</a>
 								</div>
 								<ul class="nav_lists hover-effect second-effect list_items_first" id='show-second'>
@@ -54,7 +54,7 @@
 								<div id="click_third_id">
 								<a href="#" id="li_item_third" class="btn_effect">
 									<span class="overflow">Pro pricing</span>
-									<i class="fas fa-caret-down"></i>
+									<i id="third_down" class="fas fa-caret-down first_down"></i>
 								</a>
 								</div>
 								<ul class="nav_lists hover-effect third-effect list_items" id='show-third'>
@@ -81,7 +81,7 @@
 			</div>
 		</nav>
 	</header>
-<!-- 
+
 	<section class="main-blog">
 		<div class="main-blog-container">
 			<div class="blog-items">
@@ -152,8 +152,7 @@
 			</div>
 		</div>
 	</section>
- -->
-<!-- 
+ 
 	<section class="carts">
 		<div class="cart-container">
 			<div class="cart-title">
@@ -199,130 +198,66 @@
 			</div>
 		</div>
 	</section>
--->
 
 
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+	<section class="quiz">
+		<div class="quize_container">
+			<div class="quize_items">
+				<div class="quize_first_item">
+					<span class="small-steps">First Steps</span>
+					<span class="large">Not sure where to begin?</span>
+					<span>No need to worry, our quiz will help you make sense of it all.</span>
+					<div class="quize_btn">
+						<a href="#">Take our quize</a>
+					</div>
+				</div>
+				<div class="quize_second_item">
+					<img src="images/b12b906ec05fe653d3bfe500adccd4c5.svg" class="quize_image">
+				</div>
+			</div>
+		</div>
+	</section>
 
-<script type="text/javascript">
-	document.getElementById('click_id').addEventListener('click', click_in);
-	function click_in() {
-		var click_on = document.getElementById('show-first');
-		if(click_on.classList.contains('list_items_first')) {
-			click_on.style.display = 'block';
-			click_on.classList.remove('list_items_first');
-			click_on.classList.remove('new_lists');
-			click_on.classList.add('add_list_items_first');
-		}
-		else {
-			click_on.classList.add('list_items_first');
-			click_on.classList.add('new_lists');
-		}
-	}
+	<section class="how_work">
+		<div class="how_work_container">
+			<div class="work_items">
+				<div class="work_first">
+					<span>How it works</span>
+					<span class="work_large">
+						First, we invented the best system for learning to code.
+					</span>
+					<span class="work_large">
+						Ten years and 50 million learners later, we've perfected it.
+					</span>
+				</div>
+				<div class="work_second">
+					<div class="work-division">
+						<span class="doing">Learn by doing</span>
+						<span class="doing_para">From building websites to analyzing data, the choice is yours. No matter your experience level, you'll be writing real, working code in minutes.</span>
+						<div class="work_icon">
+							
 
-
-
-	document.getElementById('click_id').addEventListener('click', click_down);
-	function click_down(){
-		var first_rotate = document.getElementById('first_down');
-		if(first_rotate.classList.contains('first_down')) {
-			first_rotate.classList.add('first_down');
-		}
-		else {
-			first_rotate.classList.remove('first_down');
-		}
-	}
-
-	// document.getElementById('click_second_id').addEventListener('click', click_in_second);
-	// function click_in_second() {
-	// 	var click_on = document.getElementById('show-second');
-	// 	if(click_on.classList.contains('list_items_first')) {
-	// 		click_on.style.display = 'block';
-	// 		click_on.classList.remove('list_items_first');
-	// 		click_on.classList.remove('new_lists');
-	// 		click_on.classList.add('add_list_items_first');
-			
-	// 	}
-	// 	else {
-	// 		click_on.classList.add('list_items_first');
-	// 		click_on.classList.add('new_lists');
-	// 	}
-	// }
-
-	// document.getElementById('click_third_id').addEventListener('click', click_in_third);
-	// function click_in_third() {
-	// 	var click_on_third = document.getElementById('show-third');
-	// 	if(click_on_third.classList.contains('list_items_first')) {
-	// 		click_on_third.style.display = 'block';
-	// 		click_on_third.classList.remove('list_items_first');
-	// 		click_on_third.classList.remove('new_lists');
-	// 		click_on_third.classList.add('add_list_items_first');
-	// 	}
-	// 	else {
-	// 		click_on_third.classList.add('list_items_first');
-	// 		click_on_third.classList.add('new_lists');
-	// 	}
-	// }
-
-	
+							<svg aria-hidden="true" class="gamut-10b60ap-Box ebnwbv90">
+							    <defs>
+							        <pattern id="checkerDensepattern-0" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+							            <rect width="1" height="1" fill="currentColor"></rect>
+							            <rect x="2" y="2" width="1" height="1" fill="currentColor"></rect>
+							        </pattern>
+							    </defs>
+							    <rect x="0" y="0" width="100%" height="100%" fill="url(#checkerDensepattern-0)"></rect>
+							</svg>
 
 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-	// window.addEventListener('mouseup', function(event){
-	// 	var a = document.getElementById('show-first');
-	// 	if(event.target !=a) {
-	// 		a.style.display = "none";
-	// 	}
-	// 	else {
-	// 		a.style.display = "block";	
-	// 	}
-	// });
-
-	// window.addEventListener('mouseup', function(event){
-	// 	var a = document.getElementById('show-second');
-	// 	if(event.target !=a) {
-	// 		a.style.display = "none";
-	// 	}
-	// });
-
-	// window.addEventListener('mouseup', function(event){
-	// 	var a = document.getElementById('show-third');
-	// 	if(event.target !=a) {
-	// 		a.style.display = "none";
-	// 	}
-	// });
-
-
+<!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
+<script type="text/javascript" src="script_src.js">
 </script>
 
 

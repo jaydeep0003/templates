@@ -389,11 +389,16 @@ header {
 	}
 }
 
-.first_down {
+.first_down_effect {
 	animation: mymove 1s forwards;
 
 }
 
 @keyframes mymove {
-  50% {transform: rotate(180deg);}
+  100% {transform: rotate(180deg);}
 }
+
+.first_down_effect_off {
+	animation: mymove_off 3s reverse;
+}
+

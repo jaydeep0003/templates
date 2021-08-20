@@ -292,24 +292,57 @@ header {
 
 .navigation-items-effect {
 	align-self: center;
-
 }
 
 
-.list_items {
+.list_items_first {
 	perspective: 1000px;
 	display: none;
 }
 
-.list_items  {
+.list_items_first  {
+	transform-origin: to cneter;
+	opacity: 0;
+}
+
+.list_items_first {
+	animation: animate 500ms ease-in-out both;
+	animation-delay: 100ms;
+}
+
+@keyframes animate{
+	0%{
+		opacity: 0;
+		transform: rotateX(10deg);
+	}
+
+	50%{
+		
+		transform: rotateX(10deg);
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateX(10deg);
+	}
+}
+
+
+
+.add_list_items_first {
+	perspective: 1000px;
+	display: none;
+}
+
+.add_list_items_first  {
 	transform-origin: top center;
 	opacity: 0;
 
 }
 
-.list_items {
-	animation: animate 500ms ease-in-out forwards;
-	animation-delay: 100ms;
+.add_list_items_first {
+	animation: animate 900ms ease-in-out both;
+	animation-delay: 50ms;
 }
 
 @keyframes animate{
@@ -330,21 +363,27 @@ header {
 }
 
 
-.new_list  {
+
+
+
+
+
+
+
+.new_lists  {
 	transform-origin: top center;
 	opacity: 0;
-
 }
 
-.new_list {
+.new_lists {
 	animation: new_anim 500ms ease-in-out forwards;
-	animation-delay: 100ms;
+	animation-delay: -300ms;
 }
 
 @keyframes new_anim{
 	0%{
 		opacity: 0;
-		transform: rotateX(-90deg);
+		transform: rotateX(50deg);
 	}
 
 	50%{
@@ -354,7 +393,7 @@ header {
 
 	100% {
 		opacity: 1;
-		transform: rotateX(0deg);
+		transform: rotateX(-90deg);
 	}
 }
 

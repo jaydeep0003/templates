@@ -20,6 +20,7 @@ body {
 	background: #FFF0E5;
 	font-family: 'Apercu';
 	/*font-family: 'Roboto', sans-serif;*/
+	
 }
 
 header {
@@ -449,12 +450,12 @@ header {
 }
 
 .how_work {
-	background: #0A0D1C;
+	background: #10162f;
 	color: white;
 }
 
 .how_work_container {
-	margin: 0 10%;
+	margin: 0 14%;
 }
 
 .work_items {
@@ -465,6 +466,7 @@ header {
 
 .font-work {
 	font-family: "Suisse", "Apercu", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	color: #FFF0E5;
 }
 
 .work_first {
@@ -481,4 +483,70 @@ header {
 .work_large {
 	font-size: 1.625rem;
 	font-family: "Suisse", "Apercu", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.work_division {
+	display: flex;
+	flex-direction: column;
+}
+
+.how_work_container {
+	padding: 7% 0;
+}
+
+.work_second {
+	width: 45%;
+}
+
+.doing {
+	font-weight: bold;
+	font-size: 1.375rem;
+	margin: 0px 0px 0.5rem;	
+}
+
+.doing_para {
+	font-size: 1.125rem;
+}
+
+.work_icon {
+	margin: 1rem 0 2rem;
+	height: 6px;
+	
+}
+
+.gamut-10b60ap-Box {
+	width: 100%;
+	height: 100%;
+	color: #66C4FF;
+}
+
+.work_font {
+	font-family: "Suisse", "Apercu", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-size: 1.625rem;
+	letter-spacing: 1px;
+	line-height: 1.5;
+	padding: 1rem 0;
+}
+
+.get_start {
+	background: #3A10E5;
+	color: white;
+}
+
+.get_start_container {
+	margin: 0 15%;
+}
+
+.get_items {
+	display: flex;
+	justify-content: space-between;
+	padding: 8% 0;
+}
+
+.get_large {
+	font-size: 2.75rem;
+}
+
+.get_first {
+	width: 31%;
 }

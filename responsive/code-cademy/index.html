@@ -37,10 +37,12 @@
 								</ul>
 							</li>
 							<li>
+								<div id="click_second_id">
 								<a href="#" id="li_item_second" class="btn_effect" onclick="onclick_second()">
 									<span class="overflow">Community</span>
 									<i class="fas fa-caret-down"></i>
 								</a>
+								</div>
 								<ul class="nav_lists hover-effect second-effect list_items" id='show-second'>
 										<li>Cheatsheets</li>
 										<li>Projects</li>
@@ -49,10 +51,12 @@
 									</ul>
 							</li>
 							<li>
+								<div id="click_third_id">
 								<a href="#" id="li_item_third" class="btn_effect" onclick="onclick_third()">
 									<span class="overflow">Pro pricing</span>
 									<i class="fas fa-caret-down"></i>
 								</a>
+								</div>
 								<ul class="nav_lists hover-effect third-effect list_items" id='show-third'>
 										<li>Cheatsheets</li>
 										<li>Projects</li>
@@ -220,6 +224,41 @@
 		}
 	}
 
+	document.getElementById('click_second_id').addEventListener('click', click_in_second);
+	function click_in_second() {
+		if(document.getElementById('show-second').style.display == 'none') {
+			const click_on_second = document.getElementById('show-second');
+			click_on_second.style.display = 'block';
+			click_on_second.classList.add('list_items');
+			click_on_second.classList.remove('new_lists');
+			console.log('second_clicked');
+		}
+		else {
+			const element = document.getElementById('show-second');
+			element.style.display = 'none';
+			element.classList.add('new_lists');
+			element.classList.remove('list_items');
+		}
+	}
+
+
+
+	document.getElementById('click_third_id').addEventListener('click', click_in_third);
+	function click_in_third() {
+		if(document.getElementById('show-third').style.display == 'none') {
+			const click_on_third = document.getElementById('show-third');
+			click_on_third.style.display = 'block';
+			click_on_third.classList.add('list_items');
+			click_on_third.classList.remove('new_lists');
+			console.log('second_clicked');
+		}
+		else {
+			const element = document.getElementById('show-third');
+			element.style.display = 'none';
+			element.classList.add('new_lists');
+			element.classList.remove('list_items');
+		}
+	}
 
 
 

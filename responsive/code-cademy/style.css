@@ -276,7 +276,7 @@ header {
 	border: 1px solid black;
 	height: 250px;
 	opacity: 1;
-	/*display: none;*/
+	display: none;
 }
 
 .nav-first-item .hover-effect li {
@@ -329,12 +329,6 @@ header {
 	}
 }
 
-
-
-.new_list {
-	perspective: 1000px;
-	display: none;
-}
 
 .new_list  {
 	transform-origin: top center;

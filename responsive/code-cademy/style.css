@@ -362,14 +362,6 @@ header {
 	}
 }
 
-
-
-
-
-
-
-
-
 .new_lists  {
 	transform-origin: top center;
 	opacity: 0;
@@ -397,3 +389,11 @@ header {
 	}
 }
 
+.first_down {
+	animation: mymove 1s forwards;
+
+}
+
+@keyframes mymove {
+  50% {transform: rotate(180deg);}
+}

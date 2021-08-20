@@ -25,7 +25,7 @@
 								<div id="click_id">
 									<a href="#" id="li_item_first" class="btn_effect">
 										<span class="overflow">Resources</span>
-										<i class="fas fa-caret-down "></i>	
+										<i id="first_down" class="fas fa-caret-down first_down "></i>	
 									</a>
 								</div>
 
@@ -38,12 +38,12 @@
 							</li>
 							<li>
 								<div id="click_second_id">
-								<a href="#" id="li_item_second" class="btn_effect" onclick="onclick_second()">
+								<a href="#" id="li_item_second" class="btn_effect">
 									<span class="overflow">Community</span>
 									<i class="fas fa-caret-down"></i>
 								</a>
 								</div>
-								<ul class="nav_lists hover-effect second-effect list_items" id='show-second'>
+								<ul class="nav_lists hover-effect second-effect list_items_first" id='show-second'>
 										<li>Cheatsheets</li>
 										<li>Projects</li>
 										<li>Articles</li>
@@ -52,17 +52,17 @@
 							</li>
 							<li>
 								<div id="click_third_id">
-								<a href="#" id="li_item_third" class="btn_effect" onclick="onclick_third()">
+								<a href="#" id="li_item_third" class="btn_effect">
 									<span class="overflow">Pro pricing</span>
 									<i class="fas fa-caret-down"></i>
 								</a>
 								</div>
 								<ul class="nav_lists hover-effect third-effect list_items" id='show-third'>
-										<li>Cheatsheets</li>
-										<li>Projects</li>
-										<li>Articles</li>
-										<li>Blog</li>
-									</ul>
+									<li>Cheatsheets</li>
+									<li>Projects</li>
+									<li>Articles</li>
+									<li>Blog</li>
+								</ul>
 							</li>
 							<li>
 								<a href="#">For Bussines</a>
@@ -206,7 +206,6 @@
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
 
 <script type="text/javascript">
-
 	document.getElementById('click_id').addEventListener('click', click_in);
 	function click_in() {
 		var click_on = document.getElementById('show-first');
@@ -221,6 +220,50 @@
 			click_on.classList.add('new_lists');
 		}
 	}
+
+
+
+	document.getElementById('click_id').addEventListener('click', click_down);
+	function click_down(){
+		var first_rotate = document.getElementById('first_down');
+		if(first_rotate.classList.contains('first_down')) {
+			first_rotate.classList.add('first_down');
+		}
+		else {
+			first_rotate.classList.remove('first_down');
+		}
+	}
+
+	// document.getElementById('click_second_id').addEventListener('click', click_in_second);
+	// function click_in_second() {
+	// 	var click_on = document.getElementById('show-second');
+	// 	if(click_on.classList.contains('list_items_first')) {
+	// 		click_on.style.display = 'block';
+	// 		click_on.classList.remove('list_items_first');
+	// 		click_on.classList.remove('new_lists');
+	// 		click_on.classList.add('add_list_items_first');
+			
+	// 	}
+	// 	else {
+	// 		click_on.classList.add('list_items_first');
+	// 		click_on.classList.add('new_lists');
+	// 	}
+	// }
+
+	// document.getElementById('click_third_id').addEventListener('click', click_in_third);
+	// function click_in_third() {
+	// 	var click_on_third = document.getElementById('show-third');
+	// 	if(click_on_third.classList.contains('list_items_first')) {
+	// 		click_on_third.style.display = 'block';
+	// 		click_on_third.classList.remove('list_items_first');
+	// 		click_on_third.classList.remove('new_lists');
+	// 		click_on_third.classList.add('add_list_items_first');
+	// 	}
+	// 	else {
+	// 		click_on_third.classList.add('list_items_first');
+	// 		click_on_third.classList.add('new_lists');
+	// 	}
+	// }
 
 	
 
@@ -253,48 +296,16 @@
 
 
 
-	// function onclick_first() {
-	// 	menu =  document.getElementById('show-first'); 
-
-	// 	if(menu.style.display == "none") {
-	// 		menu.style.display = "block";
-	// 	}
-	// 	else {
-	// 		menu.style.display = "none"
-	// 	}
-	// }
-
-	// function onclick_second() {
-	// 	var menu_two =  document.getElementById('show-second');    
-	// 	if(menu_two.style.display == "block") {
-	// 		menu_two.style.display = "none";
-	// 	}
-	// 	else {
-	// 		menu_two.style.display = "block"
-	// 	}
-
-	// 	console.log(menu_two)
-	// }
-
-	// function onclick_third() {
-	// 	var menu_three =  document.getElementById('show-third');    
-	// 	if(menu_three.style.display == "block") {
-	// 		menu_three.style.display = "none";
-	// 	}
-	// 	else {
-	// 		menu_three.style.display = "block"
-	// 	}
-	// 	console.log(menu_three)
-	// }
+	
 
 	// window.addEventListener('mouseup', function(event){
 	// 	var a = document.getElementById('show-first');
 	// 	if(event.target !=a) {
 	// 		a.style.display = "none";
 	// 	}
-	// 	// else {
-	// 	// 	a.style.display = "block";	
-	// 	// }
+	// 	else {
+	// 		a.style.display = "block";	
+	// 	}
 	// });
 
 	// window.addEventListener('mouseup', function(event){

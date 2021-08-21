@@ -480,6 +480,23 @@ header {
 	transform-style: preserve-3d;
 }
 
+#anim {
+	position: relative;
+	animation-name: anim;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	/*animation-timing-function: ease-in-out;*/
+}
+
+@keyFrames anim{
+	0% {left: -500px;}
+	/*25%{left: 200px;}
+	50%{left: 400px;}
+	75%{left: 600px;}*/
+	100% {right: 0px;}
+}
+
+
 @media(max-width: 1024px){
 	.blog-container {
     	margin: 0 12%;

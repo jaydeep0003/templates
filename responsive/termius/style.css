@@ -482,18 +482,23 @@ header {
 
 #anim {
 	position: relative;
+	background: url('images/Group 14.svg');
+	background-position: 0 0;
+	background-size: cover;
+	background-repeat: repeat-x;
 	animation-name: anim;
-	animation-duration: 5s;
+	animation-duration: 20s;
 	animation-iteration-count: infinite;
-	/*animation-timing-function: ease-in-out;*/
+	animation-timing-function: linear;
 }
 
 @keyFrames anim{
-	0% {left: -500px;}
-	/*25%{left: 200px;}
-	50%{left: 400px;}
-	75%{left: 600px;}*/
-	100% {right: 0px;}
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 100%;	
+	}
 }
 
 

@@ -103,14 +103,9 @@ ul .active{
 	cursor: pointer;
 	position: absolute;
 	top: 1rem;
-	right: 10%;
+	right: 3%;
 	z-index: 2;
 	display: none;
-}
-
-.nav-menu-icon:hover{
-	color: #f5f5f5;
-	opacity: 0.9;
 }
 
 .spokeo-blog {
@@ -863,9 +858,36 @@ ul .active{
 }
 
 @media(max-width: 992px) and (min-width: 769px) {
-	.u-hide {
+	.nav-search-container {
 		display: none;
 	}
+
+	.nav-items {
+		position: absolute;
+		right: 0;
+		top: 62px;
+		background-color: white;
+		height: 100vh;
+		width: 30%;
+	}
+
+	.navigation-bar .nav-items ul {
+		display: block;
+	}
+
+	.nav-items ul li {
+		padding: 30px 0;
+	}
+
+	.nav-second-items {
+		position: absolute;
+		right: 0;
+		top: 80px;
+	}
+
+
+
+
 	.spokeo-image-div {
 		display: none;
 	}

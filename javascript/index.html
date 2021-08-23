@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>On Click Function</title>
+</head>
+<body>
+	<div id="demo"></div>
+	<!-- <button onclick="this.innerHTML=Date().slice(0,25);">Now Date</button> -->
+	<button onclick="myfunction()">Click</button>
+	<script type="text/javascript">
+		function myfunction(){
+			document.getElementById('demo').innerHTML = Date().slice(0,25);
+		}
+	</script>
+</body>
+</html>

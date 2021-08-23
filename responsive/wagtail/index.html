@@ -21,7 +21,7 @@
 				</div>
 
 				<div class="nav-items new_class">
-					<ul>
+					<ul class="article">
 						<li><a href="#">Features</li></a>
 						<li><a href="#">About Wagtail</li></a>
 						<li><a href="#">Services</li></a>
@@ -456,6 +456,16 @@
 			</div>
 		</div>
 	</footer> -->
+
+
+
+
+	<script type="text/javascript">
+		document.querySelector('.nav-menu-icon').addEventListener('click',function(){
+		document.querySelector('.article').classList.toggle('.show');
+		console.log('click');
+	});
+	</script>
 
 </body>
 </html>

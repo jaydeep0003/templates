@@ -84,6 +84,26 @@ header {
 	opacity: 0.9;
 }
 
+.new_class {
+	width: 100%;
+	display: block;
+}
+
+.new_class ul{
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .main-blog::after{
 	background-color: #251657;
 	color: white;

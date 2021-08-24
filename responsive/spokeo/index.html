@@ -27,14 +27,14 @@
 						</div>
 					</form></div>
 				<div class="nav-items u-hide">
-					<ul>
+					<ul class="toggle">
 						<li>about</li>
 						<li>login</li>
 						<li class="active">sign up</li>
 					</ul>
 				</div>
 				<div class="nav-second-items">
-					<ul>
+					<ul class="toggle">
 						<li>About</li>
 						<li>Privacy</li>
 						<li>Careers</li>
@@ -542,6 +542,30 @@
 			</div>
 		</div>
 	</section>
+
+
+	<script type="text/javascript">
+		document.querySelector('.nav-menu-icon').addEventListener('click', function(){
+			document.querySelector('ul').classList.toggle('show');
+		});
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

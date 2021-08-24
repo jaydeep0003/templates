@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Validation Form</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+
+		}
+		h1 {
+			padding-top: 2rem;
+			text-align: center;
+		}
+		form {
+			margin: 2rem;
+		}
+
+		.form_division {
+			font-size: 1.125rem;
+			padding: 0.7rem 0;
+		}
+
+		.form_division input {
+			padding: 0.5rem;
+			width: 30%;
+			border: 1px solid #333;
+			border-radius: 4px;
+		}
+
+		.btn {
+			padding: 0.5rem 1rem;
+			border: 1px solid #333;
+			border-radius: 8px;
+			margin-top: 1rem;
+			color: #333;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Validation Form</h1>
+	<form name="myform" onsubmit="return validateForm()" method="post">
+		<div class="form_division" id="name">
+			Name : <input type="text" name="fname">
+		</div>
+
+		<div class="form_division" id="email">
+			Email : <input type="text" name="femail">
+		</div>
+
+		<div class="form_division" id="password">
+			Password : <input type="text" name="fpassword">
+		</div>
+
+		<input type="submit" value="submit" class="btn">
+	</form>
+</body>
+</html>

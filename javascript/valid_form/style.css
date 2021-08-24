@@ -43,3 +43,11 @@
 			font-weight: bold;
 			padding-left: .3rem;
 		}
+
+		.form_radio, p {
+			padding-top: 1rem;
+		}
+
+		.form_radio input {
+			margin: .5rem 0;
+		}

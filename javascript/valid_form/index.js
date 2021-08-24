@@ -39,5 +39,19 @@ function validateForm() {
 		returnvalue = false;
 	}
 
+	male_click(n){
+		var male = document.forms['myform']['male'].value;
+		var female = document.forms['myform']['female'].value;
+		
+		if(n===0){
+			male.checked = true;
+			female.checked = false;
+		}
+		else {
+			male.checked = false;
+			female.checked = true;
+		}
+	}
+
 	return returnvalue;
 }

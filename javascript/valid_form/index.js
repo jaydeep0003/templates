@@ -39,12 +39,15 @@ function validateForm() {
 		returnvalue = false;
 	}
 
-	var a = document.myform.gender;
+	var a = document.forms['myform']['gender'].value;
 	for(i=0; i<a.length; i++) {
-		return false
+		// return false
 		if (a[i].checked == true) {
 			console.log('a');
 			return true;
+		}
+		else {
+			console.log(a);
 		}
 	}
 

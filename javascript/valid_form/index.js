@@ -11,20 +11,6 @@ function form_error(id, error){
 }
 
 function validateForm() {
-	var male = document.getElementById('male');
-	var female = document.getElementById('female');
-
-	var gender = document.forms['myform']['gender'];
-	if(female == ''){
-		male = true;
-		female = false;
-		console.log(male);
-	}
-	else {
-		male=false;
-		female=true;
-		console.log(female);
-	}
 	var returnvalue = true;
 	clearErrors();
 	var name = document.forms['myform']['fname'].value;
@@ -40,7 +26,7 @@ function validateForm() {
 	}
 
 	var email = document.forms['myform']['femail'].value;
-	if(email.length < 10){
+	if(email.length < 5){
 		form_error('email',' Email is sort');
 		document.getElementById('em').style.border = '2px solid red';
 		returnvalue = false;
@@ -51,6 +37,15 @@ function validateForm() {
 		form_error('password',' Password of too Much more');
 		document.getElementById('ps').style.border = '2px solid red';
 		returnvalue = false;
+	}
+
+	var a = document.myform.gender;
+	for(i=0; i<a.length; i++) {
+		return false
+		if (a[i].checked == true) {
+			console.log('a');
+			return true;
+		}
 	}
 
 	return returnvalue;

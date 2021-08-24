@@ -7,23 +7,22 @@
 </head>
 <body>
 	<h1>Validation Form</h1>
-	<form action="" name="myform" onsubmit="return validateForm()" method="post">
+	<form action="/" name="myform" onsubmit="return validateForm()" method="post">
 		<div class="form_division" id="name">
-			Name : <input type="text" name="fname" id="nm" required><span class="form_error"></span>
+			Name : <input type="text" name="fname" id="nm" ><span class="form_error"></span>
 		</div>
 
 		<div class="form_division" id="email">
-			Email : <input type="email" name="femail" id="em" required><span class="form_error"></span>
+			Email : <input type="email" name="femail" id="em" ><span class="form_error"></span>
 		</div>
 
 		<div class="form_division" id="password">
-			Password : <input type="password" name="fpassword" id="ps" required><span class="form_error"></span>
+			Password : <input type="password" name="fpassword" id="ps" ><span class="form_error"></span>
 		</div>
 		<p>Chose gender</p>
 		<div class="form_radio">
-			Male: <input type="radio" id="male" name="gender" value="male" checked><br>
+			Male: <input type="radio" id="male" name="gender" value="male"><br>
 			Female: <input type="radio" id="femail" name="gender" value="femail">
-			
 		</div>
 
 		<input type="submit" value="submit" class="btn">

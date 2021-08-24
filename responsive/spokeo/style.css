@@ -857,7 +857,14 @@ ul .active{
 	}
 }
 
+.nav-second-items {
+	display: none;
+}
+
 @media(max-width: 992px) and (min-width: 769px) {
+	.nav-second-items {
+		display: block;
+}
 	.navigation-bar ul{
 		transform: translateX(500px);
 		transition: all 0.5s linear;
@@ -866,10 +873,24 @@ ul .active{
 	.navigation-bar ul.show{
 		transform: translateX(0px);	
 	}
+	
 	.nav-search-container {
 		display: none;
 	}
 
+	.navigation-bar .nav-second-items ul{
+		position: absolute;
+		right: 0;
+		top: 0px;
+		background-color: white;
+		height: 100vh;
+		width: 100%;
+		transform: translateX(800px);
+		transition: all 0.5s linear;
+	}
+	.navigation-bar .nav-second-items ul.show{
+		transform: translateX(0px);
+	}
 	.nav-items ul{
 		position: absolute;
 		right: 0;
@@ -883,15 +904,20 @@ ul .active{
 		display: block;
 	}
 
+	.navigation-bar .nav-second-items ul {
+		display: block;
+	}
+
 	.nav-items ul li {
 		padding: 20px 0;
 	}
 
 	.nav-second-items {
 		position: absolute;
-		right: 0;
+		right: 62%;
 		top: 323px;
 		width: 30%;
+		display: block;
 
 	}
 	.nav-second-items ul {
@@ -1579,7 +1605,7 @@ ul .active{
 	.nav-second-items {
 		position: absolute;
 		right: 0;
-		top: 123px;
+		top: 323px;
 		width: 100%;
 
 	}

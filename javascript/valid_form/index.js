@@ -26,7 +26,7 @@ function validateForm() {
 	}
 
 	var email = document.forms['myform']['femail'].value;
-	if(email.length < 5){
+	if(email.length < 1){
 		form_error('email',' Email is sort');
 		document.getElementById('em').style.border = '2px solid red';
 		returnvalue = false;
@@ -39,17 +39,19 @@ function validateForm() {
 		returnvalue = false;
 	}
 
-	var a = document.forms['myform']['gender'].value;
-	for(i=0; i<a.length; i++) {
-		// return false
-		if (a[i].checked == true) {
-			console.log('a');
-			return true;
+	var a = document.querySelectorAll('input[name="gender"]');
+	var select;
+	for(let rb of a){
+		if (rb.checked) {
+			select = rb.value;
+			break;
+
 		}
 		else {
-			console.log(a);
+			returnvalue = false;
 		}
 	}
+	
 
 	return returnvalue;
 }

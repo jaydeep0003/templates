@@ -100,7 +100,7 @@ select{
 }
 
 .textarea {
-	display: none;
+	/*display: none;*/
 }
 
 .newtextarea {

@@ -1,7 +1,6 @@
 function printError(Id,Msg){
 	document.getElementById(Id).innerHTML = Msg;
 }
-new_text_box = document.getElementById('other_id').addEventListener('click', myfun);
 
 function validationForm(){
 	var name = document.Form.name.value;
@@ -65,6 +64,7 @@ function validationForm(){
 			mobileErr = false;
 			var elem = document.getElementById('mobile');
 		}
+		return true;
 	}
 
 
@@ -82,6 +82,7 @@ function validationForm(){
 		var elem = document.getElementById('country');
 		elem.classList.add('input-3');
 		elem.classList.remove('input-4');
+		return true;
 	}
 
 	if(gender==""){
@@ -114,27 +115,7 @@ function validationForm(){
 		}
 	}
 
-	// var text = document.Form.text_name;
-	// if (text == '') {
-	// 	printError('text_nameErr', 'enter Something');
-	// 	return false
-	// }
-	// else {
-	// 	return true;
-	// }
-
-}
-	function myfun() {	
-		var textarea = document.getElementById('textarea');
-		if (textarea.classList.contains('textarea')) {
-			textarea.classList.add('newtextarea');
-			textarea.classList.remove('textarea');
-		}
-		else {
-			textarea.classList.add('textarea');
-			textarea.classList.remove('newtextarea');
-		}
-		
-	}
 	
+}
+
 

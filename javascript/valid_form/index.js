@@ -1,6 +1,7 @@
 function printError(Id,Msg){
 	document.getElementById(Id).innerHTML = Msg;
 }
+new_text_box = document.getElementById('other_id').addEventListener('click', myfun);
 
 function validationForm(){
 	var name = document.Form.name.value;
@@ -96,19 +97,44 @@ function validationForm(){
 		var elem = document.getElementById('gender');
 		elem.classList.add('input-3');
 		elem.classList.remove('input-4');
+		return true;
 	}
 
 	var check = document.Form.container;
 	for(i=0; i<check.length; i++){
 		if (check[i].checked==true) {
-			return true
+			return true;
 		}
 		else{
 			printError('hobbyErr', 'select your hobby');
+			var elem = document.getElementById('hobby');
+			elem.classList.add('input-4');
+			elem.classList.remove('input-3');
 			return false;
 		}
 	}
 
-}
+	// var text = document.Form.text_name;
+	// if (text == '') {
+	// 	printError('text_nameErr', 'enter Something');
+	// 	return false
+	// }
+	// else {
+	// 	return true;
+	// }
 
+}
+	function myfun() {	
+		var textarea = document.getElementById('textarea');
+		if (textarea.classList.contains('textarea')) {
+			textarea.classList.add('newtextarea');
+			textarea.classList.remove('textarea');
+		}
+		else {
+			textarea.classList.add('textarea');
+			textarea.classList.remove('newtextarea');
+		}
+		
+	}
+	
 

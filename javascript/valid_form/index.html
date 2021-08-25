@@ -2,32 +2,68 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Validation Form</title>
+	<title></title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<h1>Validation Form</h1>
-	<form action="" name="myform" onsubmit="return validateForm()" method="post">
-		<div class="form_division" id="name">
-			Name : <input type="text" name="fname" id="nm" ><span class="form_error"></span>
+	<form name="Form" action="/" onsubmit="return validationForm()">
+		<div class="box">
+			<label>Full Name</label>
+			<input type="text" name="name" id="name">
+			<div class="error" id="nameErr"></div>
 		</div>
 
-		<div class="form_division" id="email">
-			Email : <input type="email" name="femail" id="em" ><span class="form_error"></span>
+		<div class="box">
+			<label>Email Address</label>
+			<input type="text" name="email" id="email">
+			<div class="error" id="emailErr"></div>
 		</div>
 
-		<div class="form_division" id="password">
-			Password : <input type="password" name="fpassword" id="ps" ><span class="form_error"></span>
-		</div>
-		<p>Chose gender</p>
-		<div class="form_radio">
-			Male: <input type="radio" id="male" name="gender" value="male"><br>
-			Female: <input type="radio" id="femail" name="gender" value="femail">
+		<div class="box">
+			<label>Mobile Number</label>
+			<input type="text" name="mobile" id="mobile">
+			<div class="error" id="mobileErr"></div>
 		</div>
 
-		<input type="submit" value="submit" class="btn">
+		<div class="box">
+			<label>Country</label>
+			<select name="country" id="country">
+				<option>Select</option>
+				<option>India</option>
+				<option>USA</option>
+			</select>
+			<div class="error" id="countryErr"></div>
+		</div>
+
+		<div class="box">
+			<label>Gender</label>
+			<div class="form-inline" id="gender">
+				<label><input type="radio" name="gender" value="male">Male</label>
+				<label><input type="radio" name="gender" value="female">Female</label>
+			</div>
+			<div class="error" id="genderErr"></div>
+		</div>
+
+		<div class="box">
+			<input type="submit" name="submit" value="submit">
+		</div>
+
 	</form>
 
-<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="index.js">
+		
+	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

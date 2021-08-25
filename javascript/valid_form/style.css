@@ -7,47 +7,109 @@
 			padding-top: 2rem;
 			text-align: center;
 		}
-		form {
-			margin: 2rem;
-		}
+		body {
+	font-size: 1rem;
+	background: -webkit-radial-gradient(top left, #90F6FB, #2C3283);
+}
 
-		.form_division {
-			font-size: 1.125rem;
-			padding: 0.7rem 0;
-		}
+.form {
+	width: 100%;
+}
 
-		.form_division input {
-			padding: 0.5rem;
-			width: 30%;
-			border: 1px solid #333;
-			border-radius: 4px;
-		}
+form {
+	width: 300px;
+	padding: 15px 40px 40px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	background-color: white;
+	margin: 4% auto;
+}
 
-		.form_division input:focus {
-			outline: none;
-		}
+label {
+	display: block;
+	margin-bottom: 5px;
+}
 
-		.btn {
-			padding: 0.5rem 1rem;
-			border: 1px solid #333;
-			border-radius: 8px;
-			margin-top: 1rem;
-			color: #333;
-			text-transform: uppercase;
-			font-weight: bold;
-			letter-spacing: 1px;
-		}
+label i {
+	color: #999;
+	font-size: 80%;
+}
 
-		.form_error {
-			color: red;
-			font-weight: bold;
-			padding-left: .3rem;
-		}
+input,select {
+	border: 1px solid #333;
+	padding: 10px;
+	display: block;	
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 2px;
+	background-color: #a9bae64a;
 
-		.form_radio, p {
-			padding-top: 1rem;
-		}
+}
 
-		.form_radio input {
-			margin: .5rem 0;
-		}
+.box {
+	padding-bottom: 10px;
+}
+
+.form-inline {
+	border: 1px solid #ccc;
+	padding: 8px 10px 4px;
+	border-radius: 2px;
+}
+
+.form-inline label,.form-inline input {
+	display: inline-block;
+	width: auto;
+	padding-right: 15px;
+}
+
+.error {
+	color: red;
+	font-size: 90%;
+}
+
+input[type='text']{
+	outline: none;
+}
+
+input[type='submit'] {
+	font-size: 110%;
+	font-weight: 200;
+	background-color: #efbe58;
+	border-color: #efbe58;
+	box-shadow: 0 3px 0 #bd432e;
+	color: white;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+input[type='submit']:hover {
+	background-color:  #bd432e;
+	border-color:  #bd432e;
+}
+
+.input-3 {
+	border: 1px solid #01cc40;
+}
+
+.input-4 {
+	border: 1px solid red;	
+}
+
+select{
+	outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

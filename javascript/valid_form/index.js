@@ -1,57 +1,98 @@
-function clearErrors(){
-	erros = document.getElementsByClassName('form_error');
-	for(let item of erros){
-		item.innerHTML = '';
-	}
+function printError(Id,Msg){
+	document.getElementById(Id).innerHTML = Msg;
 }
 
-function form_error(id, error){
-	element = document.getElementById(id);
-	element.getElementsByClassName('form_error')[0].innerHTML = error;
-}
+function validationForm(){
+	var name = document.Form.name.value;
+	var email = document.Form.email.value;
+	var mobile = document.Form.mobile.value;
+	var country = document.Form.country.value;
+	var gender = document.Form.gender.value;
 
-function validateForm() {
-	var returnvalue = true;
-	clearErrors();
-	var name = document.forms['myform']['fname'].value;
-	if(name.length < 5){
-		form_error('name',' length of Name too sort');
-		document.getElementById('nm').style.border = '2px solid red';
-		returnvalue = false;
+	var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
+
+	if(name==""){
+		printError('nameErr' , 'Please enter your name');
+		var elem = document.getElementById('name');
 	}
-
-	if(name.length == 0){
-		form_error('name',' length of Name can not to zero');
-		returnvalue = false;
-	}
-
-	var email = document.forms['myform']['femail'].value;
-	if(email.length < 1){
-		form_error('email',' Email is sort');
-		document.getElementById('em').style.border = '2px solid red';
-		returnvalue = false;
-	}
-
-	var pass = document.forms['myform']['fpassword'].value;
-	if(pass.length < 8){
-		form_error('password',' Password of too Much more');
-		document.getElementById('ps').style.border = '2px solid red';
-		returnvalue = false;
-	}
-
-	var a = document.querySelectorAll('input[name="gender"]');
-	var select;
-	for(let rb of a){
-		if (rb.checked) {
-			select = rb.value;
-			break;
-
+	else {
+		var regex = /^[a-zA-Z\s]+$/;
+		if(regex.test(name) == false){
+			printError('nameErr', 'Please enter a valid name')
 		}
 		else {
-			returnvalue = false;
+			printError('nameErr', '');
+			nameErr = false;
+			var elem = document.getElementById('name');
 		}
 	}
-	
 
-	return returnvalue;
+
+	if(email==""){
+		printError('emailErr' , 'Please enter your email');
+		var elem = document.getElementById('email');
+	}
+	else {
+		var regex = /^\S+@\S+\.\S+$/;
+		if(regex.test(email) == false){
+			printError('emailErr', 'Please enter a valid email')
+		}
+		else {
+			printError('emailErr', '');
+			emailErr = false;
+			var elem = document.getElementById('email');
+		}
+	}
+
+	if(mobile==""){
+		printError('mobileErr' , 'Please enter your mobile');
+		var elem = document.getElementById('mobile');
+	}
+	else {
+		var regex = /^[1-9]\d{9}$/;
+		if(regex.test(mobile) == false){
+			printError('mobileErr', 'Please enter a valid mobile')
+		}
+		else {
+			printError('mobileErr', '');
+			mobileErr = false;
+			var elem = document.getElementById('mobile');
+		}
+	}
+
+
+
+	if(country=="submit"){
+		printError('countryErr' , 'Please enter your country');
+		var elem = document.getElementById('country');
+		elem.classList.add('input-4');
+		elem.classList.remove('input-3');
+	}
+
+	else{
+		printError('countryErr' , '');
+		var elem = document.getElementById('country');
+		elem.classList.add('input-3');
+		elem.classList.remove('input-4');
+	}
+
+	if(gender==""){
+		printError('genderErr' , 'Please enter your gender');
+		var elem = document.getElementById('gender');
+		elem.classList.add('input-4');
+		elem.classList.remove('input-3');
+	}
+
+	else{
+		printError('genderErr' , '');
+		var elem = document.getElementById('gender');
+		elem.classList.add('input-3');
+		elem.classList.remove('input-4');
+	}
+
+	// if((nameErr || emailErr || mobileErr || countryErr ||genderErr) == true){
+	// 	return false;
+	// }
 }
+
+

@@ -97,22 +97,42 @@ function validationForm(){
 		var elem = document.getElementById('gender');
 		elem.classList.add('input-3');
 		elem.classList.remove('input-4');
-		return true;
+		// return true;
 	}
 
 	var check = document.Form.container;
 	for(i=0; i<check.length; i++){
 		if (check[i].checked==true) {
-			// return true;
+			console.log('hhh')
+			return true;
 		}
 		else{
 			printError('hobbyErr', 'select your hobby');
 			var elem = document.getElementById('hobby');
 			elem.classList.add('input-4');
 			elem.classList.remove('input-3');
-			// return false;
+			return false;
 		}
 	}	
+
+	// var txa = document.Form.textarea;
+	var txa = document.getElementById('text_area');
+	if (txa.value=='') {
+		printError('textareaErr', 'type something');
+		console.log('false');
+		// var elem = document.getElementById('text_area');
+		// elem.classList.add('input-4');
+		// elem.classList.remove('input-3');
+		  txa.focus();
+		return false
+	}
+	else {
+		// var elem = document.getElementById('text_area');
+		// elem.classList.add('input-3');
+		// elem.classList.remove('input-4');
+		console.log('true');
+		return true
+	}
 }
 
 

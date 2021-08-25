@@ -8,8 +8,9 @@ function validationForm(){
 	var mobile = document.Form.mobile.value;
 	var country = document.Form.country.value;
 	var gender = document.Form.gender.value;
+	var textarea = document.Form.textarea.value;
 
-	var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
+	var nameErr = emailErr = mobileErr = countryErr = genderErr = textareaErr = true;   
 
 	if(name==""){
 		printError('nameErr' , 'Please enter your name');	
@@ -97,13 +98,14 @@ function validationForm(){
 		var elem = document.getElementById('gender');
 		elem.classList.add('input-3');
 		elem.classList.remove('input-4');
+		console.log('hhh')
 		// return true;
 	}
 
 	var check = document.Form.container;
 	for(i=0; i<check.length; i++){
 		if (check[i].checked==true) {
-			console.log('hhh')
+			// console.log('hhh')
 			return true;
 		}
 		else{
@@ -115,8 +117,17 @@ function validationForm(){
 		}
 	}	
 
-	// var txa = document.Form.textarea;
-	var txa = document.getElementById('text_area');
+
+	if(obj1 == ''){      
+       printError('textareaErr', 'write something');
+       return false;       
+    }
+    
+     else{
+       // return true;
+   }
+/*	var txa = document.Form.textarea;
+	// var txa = document.getElementById('text_area');
 	if (txa.value=='') {
 		printError('textareaErr', 'type something');
 		console.log('false');
@@ -131,8 +142,9 @@ function validationForm(){
 		// elem.classList.add('input-3');
 		// elem.classList.remove('input-4');
 		console.log('true');
-		return true
+		// return true
 	}
+*/
+
+
 }
-
-

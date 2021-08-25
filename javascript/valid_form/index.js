@@ -64,7 +64,6 @@ function validationForm(){
 			mobileErr = false;
 			var elem = document.getElementById('mobile');
 		}
-		return true;
 	}
 
 
@@ -82,7 +81,7 @@ function validationForm(){
 		var elem = document.getElementById('country');
 		elem.classList.add('input-3');
 		elem.classList.remove('input-4');
-		return true;
+		// return true;
 	}
 
 	if(gender==""){
@@ -104,18 +103,16 @@ function validationForm(){
 	var check = document.Form.container;
 	for(i=0; i<check.length; i++){
 		if (check[i].checked==true) {
-			return true;
+			// return true;
 		}
 		else{
 			printError('hobbyErr', 'select your hobby');
 			var elem = document.getElementById('hobby');
 			elem.classList.add('input-4');
 			elem.classList.remove('input-3');
-			return false;
+			// return false;
 		}
-	}
-
-	
+	}	
 }
 
 

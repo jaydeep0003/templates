@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>Validation Form</h1>
-	<form name="Form" action="/" onsubmit="return validationForm()">
+	<form name="Form" action="." method="post" onsubmit="return validationForm()">
 		<div class="box">
 			<label>Full Name</label>
 			<input type="text" name="name" id="name">
@@ -43,6 +43,15 @@
 				<label><input type="radio" name="gender" value="female">Female</label>
 			</div>
 			<div class="error" id="genderErr"></div>
+		</div>
+
+		<div class="box">
+			<label>Hobbyes</label>
+			<div class="form-inline" id="hobby">
+				<label><input type="checkbox" name="container" value="pubg">pubg</label>
+				<label><input type="checkbox" name="container" value="freefire">freefire</label>
+			</div>
+			<div class="error" id="hobbyErr"></div>
 		</div>
 
 		<div class="box">

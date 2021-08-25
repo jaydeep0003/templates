@@ -12,13 +12,15 @@ function validationForm(){
 	var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
 
 	if(name==""){
-		printError('nameErr' , 'Please enter your name');
+		printError('nameErr' , 'Please enter your name');	
 		var elem = document.getElementById('name');
+		return false
 	}
 	else {
 		var regex = /^[a-zA-Z\s]+$/;
 		if(regex.test(name) == false){
 			printError('nameErr', 'Please enter a valid name')
+
 		}
 		else {
 			printError('nameErr', '');
@@ -31,11 +33,13 @@ function validationForm(){
 	if(email==""){
 		printError('emailErr' , 'Please enter your email');
 		var elem = document.getElementById('email');
+		return false
 	}
 	else {
 		var regex = /^\S+@\S+\.\S+$/;
 		if(regex.test(email) == false){
 			printError('emailErr', 'Please enter a valid email')
+
 		}
 		else {
 			printError('emailErr', '');
@@ -47,11 +51,13 @@ function validationForm(){
 	if(mobile==""){
 		printError('mobileErr' , 'Please enter your mobile');
 		var elem = document.getElementById('mobile');
+		return false;
 	}
 	else {
 		var regex = /^[1-9]\d{9}$/;
 		if(regex.test(mobile) == false){
 			printError('mobileErr', 'Please enter a valid mobile')
+
 		}
 		else {
 			printError('mobileErr', '');
@@ -67,6 +73,7 @@ function validationForm(){
 		var elem = document.getElementById('country');
 		elem.classList.add('input-4');
 		elem.classList.remove('input-3');
+		return false;
 	}
 
 	else{
@@ -81,6 +88,7 @@ function validationForm(){
 		var elem = document.getElementById('gender');
 		elem.classList.add('input-4');
 		elem.classList.remove('input-3');
+		return false;
 	}
 
 	else{
@@ -90,9 +98,17 @@ function validationForm(){
 		elem.classList.remove('input-4');
 	}
 
-	// if((nameErr || emailErr || mobileErr || countryErr ||genderErr) == true){
-	// 	return false;
-	// }
+	var check = document.Form.container;
+	for(i=0; i<check.length; i++){
+		if (check[i].checked==true) {
+			return true
+		}
+		else{
+			printError('hobbyErr', 'select your hobby');
+			return false;
+		}
+	}
+
 }
 
 

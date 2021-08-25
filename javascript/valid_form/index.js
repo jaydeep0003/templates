@@ -8,7 +8,7 @@ function validationForm(){
 	var mobile = document.Form.mobile.value;
 	var country = document.Form.country.value;
 	var gender = document.Form.gender.value;
-	var textarea = document.Form.textarea.value;
+	var textarea1 = document.Form.textarea_name.value;
 
 	var nameErr = emailErr = mobileErr = countryErr = genderErr = textareaErr = true;   
 
@@ -118,14 +118,21 @@ function validationForm(){
 	}	
 
 
-	if(obj1 == ''){      
-       printError('textareaErr', 'write something');
-       return false;       
-    }
-    
-     else{
-       // return true;
-   }
+	// var a = document.getElementById('text_area');
+
+	if (textarea1=='') {
+		printError('textareaErr', 'write something');
+		// var elem = document.getElementById('text_area');
+		// 	elem.classList.add('input-4');
+		// 	elem.classList.remove('input-3');
+		return false;
+	}
+	else{
+		// var elem = document.getElementById('text_area');
+		// elem.classList.add('input-3');
+		// elem.classList.remove('input-4');
+		return true
+	}
 /*	var txa = document.Form.textarea;
 	// var txa = document.getElementById('text_area');
 	if (txa.value=='') {

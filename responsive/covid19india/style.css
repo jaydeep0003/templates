@@ -120,3 +120,55 @@ body {
 	width: 18rem;
 	cursor: pointer;
 }
+
+.main_blog {
+	display: flex;
+}
+
+.hero_container {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.hero {
+	padding-top: 5rem;
+	margin-left: 5rem;
+	margin-right: 3rem;
+	width: 43%;
+}
+
+.searchbox label {
+	font-size: 0.85rem;
+	font-weight: bold;
+	padding-bottom: 2rem;
+	color: #6c757d;
+}
+
+.searchbox {
+	display: flex;
+	flex-direction: column;
+}
+
+.u-input {
+	background: #1e1e30;
+	outline: none;
+	border: 0;
+	width: 100%;
+	height: 4rem;
+	box-shadow: 0 10px 35px rgba(0, 0, 0, .1);
+	border-radius: 5px;
+	width: calc(100% - 4rem);
+}
+
+.searchbox_ {
+	position: relative;
+	width: 100%;
+}
+
+.search_botton span svg{
+	position: absolute;
+	top: 1.2rem;
+	left: 2.75rem;
+	color: #6c757d;
+}
+

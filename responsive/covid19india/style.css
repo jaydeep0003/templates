@@ -74,19 +74,49 @@ body {
 
 }
 
-.hover_items a{
-	text-decoration: none;
-	color: #6c757d;
+.hover_items ul li {
 	font-weight: bold;
 	text-align: center;
 	height: 1.5rem;
-	width: 12rem;
+	/*width: 12rem;*/
 	padding-bottom: 4rem;
-
 } 
 
-.hover_items > .active {
-	color: rgb(76, 117, 242);
-	margin-top: 8rem;
+.hover_items ul li a {
+	color: #6c757d;
+	text-decoration: none;
 
+}
+
+	/*background:rgba(219,85,129,.18823529411764706);*/
+
+.hover_items ul li a.active {
+	color: rgb(76, 117, 242);
+
+
+}
+
+.hover_items ul .li_class {
+	margin-top: 8rem;
+}
+
+
+.hover_items {
+	height: 100vh;
+	width: 15rem;
+	position: absolute;
+	transform: translateX(-170px);
+	transition: all 0.3s linear;
+}
+
+.hover_items ul li {
+	text-align: center;
+	list-style: none;
+}
+
+.header_effect:hover ~ .hover_items{
+	transform: translateX(0px);	
+	cursor: pointer;
+	width: 18rem;
+	cursor: pointer;
 }

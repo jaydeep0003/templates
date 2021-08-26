@@ -104,10 +104,13 @@ textarea {
 	outline: none;	
 }
 
-.text_area {
+.text_class {
 	display: none;
 }
 
+.new_text_area {
+	display: block;
+}
 
 
 

@@ -7,7 +7,7 @@
 </head>
 <body>
 	<h1>Validation Form</h1>
-	<form name="Form" action="." method="post" onsubmit="return validationForm()">
+	<form name="Form" action="" method="post" onsubmit="validationForm()">
 		<div class="box">
 			<label>Full Name</label>
 			<input type="text" name="name" id="name">
@@ -56,12 +56,12 @@
 		</div>
 
 		<div class="">
-			<textarea name="textarea_name" placeholder="textarea" class="text_area" id="text_area"></textarea>
+			<textarea name="textarea_name" rows="4" cols="39" class="text_class" id="text_area"></textarea>
 			<div class="error" id="textareaErr"></div>
 		</div>
 
 		<div class="box">
-			<input type="submit" name="submit" value="submit">
+			<input type="submit" value="submit">
 		</div>
 
 	</form>

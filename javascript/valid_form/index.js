@@ -9,6 +9,7 @@ function validationForm(){
 	var country = document.Form.country.value;
 	var gender = document.Form.gender.value;
 	var textarea1 = document.Form.textarea_name.value;
+	var a = document.getElementById('text_area');
 
 	var nameErr = emailErr = mobileErr = countryErr = genderErr = textareaErr = true;   
 
@@ -117,41 +118,15 @@ function validationForm(){
 		}
 	}	
 
-
-	// var a = document.getElementById('text_area');
-
-	if (textarea1=='') {
-		printError('textareaErr', 'write something');
-		// var elem = document.getElementById('text_area');
-		// 	elem.classList.add('input-4');
-		// 	elem.classList.remove('input-3');
-		return false;
-	}
-	else{
-		// var elem = document.getElementById('text_area');
-		// elem.classList.add('input-3');
-		// elem.classList.remove('input-4');
-		return true
-	}
-/*	var txa = document.Form.textarea;
-	// var txa = document.getElementById('text_area');
-	if (txa.value=='') {
-		printError('textareaErr', 'type something');
-		console.log('false');
-		// var elem = document.getElementById('text_area');
-		// elem.classList.add('input-4');
-		// elem.classList.remove('input-3');
-		  txa.focus();
+	if(a.value==""){
+		printError('nameErr' , 'Please enter your name');	
+		var elem = document.getElementById('text_area');
 		return false
 	}
-	else {
-		// var elem = document.getElementById('text_area');
-		// elem.classList.add('input-3');
-		// elem.classList.remove('input-4');
-		console.log('true');
-		// return true
+	else{
+		return true
 	}
-*/
+
 
 
 }

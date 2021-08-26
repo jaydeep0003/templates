@@ -8,8 +8,7 @@ function validationForm(){
 	var mobile = document.Form.mobile.value;
 	var country = document.Form.country.value;
 	var gender = document.Form.gender.value;
-	var textarea1 = document.Form.textarea_name.value;
-	var a = document.getElementById('text_area');
+	var textarea_text = document.Form.textarea_name.value;
 
 	var nameErr = emailErr = mobileErr = countryErr = genderErr = textareaErr = true;   
 
@@ -29,6 +28,7 @@ function validationForm(){
 			nameErr = false;
 			var elem = document.getElementById('name');
 		}
+		// return true
 	}
 
 
@@ -86,6 +86,9 @@ function validationForm(){
 		// return true;
 	}
 
+
+
+
 	if(gender==""){
 		printError('genderErr' , 'Please enter your gender');
 		var elem = document.getElementById('gender');
@@ -99,14 +102,16 @@ function validationForm(){
 		var elem = document.getElementById('gender');
 		elem.classList.add('input-3');
 		elem.classList.remove('input-4');
-		console.log('hhh')
+		
 		// return true;
 	}
 
 	var check = document.Form.container;
-	for(i=0; i<check.length; i++){
+	for(var i=0; i<check.length; i++){
 		if (check[i].checked==true) {
-			// console.log('hhh')
+			var elem = document.getElementById('hobby');
+			elem.classList.add('input-3');
+			elem.classList.remove('input-4');
 			return true;
 		}
 		else{
@@ -116,17 +121,29 @@ function validationForm(){
 			elem.classList.remove('input-3');
 			return false;
 		}
-	}	
-
-	if(a.value==""){
-		printError('nameErr' , 'Please enter your name');	
-		var elem = document.getElementById('text_area');
-		return false
 	}
-	else{
+	if(textarea_text == ''){
+		printError('textareaErr' , 'write something');	
+		// var elem = document.getElementById('textareaErr').innerHTML = 'error';
+		var elem = document.getElementById('text_area');
+			elem.classList.add('input-4');
+			elem.classList.remove('input-3');
+		return false;
+	}
+
+	else {
+		var elem = document.getElementById('text_area');
+			elem.classList.add('input-3');
+			elem.classList.remove('input-4');
 		return true
 	}
 
-
+	document.getElementById('other').addEventListener('click', function(){
+			document.getElementById('text_area').style.display = 'block';
+	});
+	
+	
+	
 
 }
+

@@ -100,8 +100,13 @@ select{
 }
 
 
+textarea {
+	outline: none;	
+}
 
-
+.text_area {
+	display: none;
+}
 
 
 

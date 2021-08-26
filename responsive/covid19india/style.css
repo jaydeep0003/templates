@@ -1,3 +1,41 @@
+/*@font-face {
+ font-family:Archia;
+ src:url(/fonts/Archia/archia-semibold-webfont.eot);
+ src:local('Archia'),
+ url(/fonts/Archia/archia-semibold-webfont.eot?#iefix) format('embedded-opentype'),
+ url(/fonts/Archia/archia-semibold-webfont.woff2) format('woff2'),
+ url(/fonts/Archia/archia-semibold-webfont.woff) format('woff'),
+ url(/fonts/Archia/archia-semibold-webfont.ttf) format('truetype');
+ font-weight:600;
+ font-style:normal;
+ font-display:swap
+}
+@font-face {
+ font-family:Archia;
+ src:url(/fonts/Archia/archia-medium-webfont.eot);
+ src:local('Archia'),
+ url(/fonts/Archia/archia-medium-webfont.eot?#iefix) format('embedded-opentype'),
+ url(/fonts/Archia/archia-medium-webfont.woff2) format('woff2'),
+ url(/fonts/Archia/archia-medium-webfont.woff) format('woff'),
+ url(/fonts/Archia/archia-medium-webfont.ttf) format('truetype');
+ font-weight:400;
+ font-style:normal;
+ font-display:swap
+}
+@font-face {
+ font-family:Archia;
+ src:url(/fonts/Archia/archia-bold-webfont.eot);
+ src:local('Archia'),
+ url(/fonts/Archia/archia-bold-webfont.eot?#iefix) format('embedded-opentype'),
+ url(/fonts/Archia/archia-bold-webfont.woff2) format('woff2'),
+ url(/fonts/Archia/archia-bold-webfont.woff) format('woff'),
+ url(/fonts/Archia/archia-bold-webfont.ttf) format('truetype');
+ font-weight:900;
+ font-style:normal;
+ font-display:swap
+}*/
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -9,6 +47,7 @@ body {
 	color: #bdbdbd;
 	font-size: 1rem;
 	line-height: 1.6;
+	font-family: Archia;
 }
 
 .header {
@@ -157,7 +196,9 @@ body {
 	height: 4rem;
 	box-shadow: 0 10px 35px rgba(0, 0, 0, .1);
 	border-radius: 5px;
-	width: calc(100% - 4rem);
+	/*width: calc(100% - 4rem);*/
+	color: white;
+	padding-left: 3.5rem;
 }
 
 .searchbox_ {
@@ -168,7 +209,31 @@ body {
 .search_botton span svg{
 	position: absolute;
 	top: 1.2rem;
-	left: 2.75rem;
+	left: .75rem;
 	color: #6c757d;
 }
 
+input placeholder {
+ position: relative;
+    opacity: 0;
+    animation: move-text 0.75s forwards; 
+}
+
+@keyframes move-text {
+     0% {
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate3d(0px, -50px, 0px);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate3d(0px, 20px, 0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 1;
+  }
+}

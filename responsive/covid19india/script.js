@@ -6,7 +6,7 @@ var k = '';
 		k += j;
 		document.getElementById('search').value = k;
 		setTimeout(3000);
-		console.log(setTimeout)
+		// console.log(setTimeout)
 	}
 
 }

@@ -1,15 +1,13 @@
 
-const items = ['jaydeep']
+const items = ['first','second']
 for(var i of items){
-var k = '';
 	for(var j of i){
+		let k = '';
 		k += j;
-		
-		
-		setTimeout(function(){
+		setTimeout(()=>{
 			document.getElementById('search').value = k;
+			console.log(document.getElementById('search').value = k);
 		},2000);
-		
-	};
+	}
 
 }

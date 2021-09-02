@@ -281,3 +281,44 @@ body {
 .map-padding .mini-map {
 	padding-top: 0.5rem;
 }
+
+.vaccine_header {
+	display: flex;
+	padding-top: .5rem;
+	margin-left: 8rem;
+	font-size: .875rem;	
+}
+
+.vaccine_header div {
+	padding:.5rem;
+	background: rgba(219,85,129,.12549019607843137);
+	border-radius: 5px;
+	color: #db5581;
+	
+}
+
+.progress_title {
+	color: #6c757d;
+	cursor: pointer;
+	opacity: .6;
+	padding: 1rem 0;
+	font-size: 12px;
+}
+
+.table_icon {
+	display: flex;
+	margin-top: 1rem;
+}
+
+.tale-u-border {
+	background: rgba(108,117,125,.06274509803921569);
+	border-radius: 5px;
+	color: rgba(108,117,125,.6);
+	display: flex;
+	justify-content: center;
+	height: 2.5rem;
+	align-items: center;
+	width: 2.5rem;
+	text-align: center;
+	margin-right: .25rem;
+}

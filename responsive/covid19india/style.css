@@ -230,21 +230,54 @@ body {
 .map_switcher {
 	grid-template-columns: repeat(4, 1fr);
 	display: grid;
+	cursor: pointer;
+	padding: 1rem 0;
 }
 .map_switcher .first_map_div {
 	color: #ff073a;
+	height: 14rem;
+}
+
+.map_switcher .first_map_div:hover {
+	background: rgba(255,7,58,.12549019607843137);
 }
 
 .map_switcher .second_map_div {
 	color: #007bff;
+	height: 14rem;
+	background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;
+	/*width: calc(25%);*/
+}
+
+.map_switcher .second_map_div:hover {
+	background: rgba(0,123,255,.12549019607843137);
 }
 
 .map_switcher .third_map_div {
 	color: #28a745;
+	height: 14rem;
+}
+
+.map_switcher .third_map_div:hover {
+	background: rgba(40,167,69,.12549019607843137);
 }
 
 .map_switcher .fourth_map_div {
 	color: #6c757d;
+	height: 14rem;
 }
 
+.map_switcher .fourth_map_div:hover {background: rgba(108,117,125,.06274509803921569);}
 
+.map-padding {
+	border-radius: 5px;
+}
+
+.map-padding h5 {
+	padding-top: 0.5rem;
+	padding-bottom: 1rem;
+}
+
+.map-padding .mini-map {
+	padding-top: 0.5rem;
+}

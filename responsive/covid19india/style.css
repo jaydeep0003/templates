@@ -322,3 +322,50 @@ body {
 	text-align: center;
 	margin-right: .25rem;
 }
+
+.table_row {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	padding-top: 0.5rem;
+}
+
+.cell {
+	background-color: #1e1e30;
+	padding: 1.25rem .5rem .75rem;
+	margin-right: .25rem;
+	font-size: 16px;
+	color: #6c757d;
+	font-weight: 900;
+	/*padding: .5rem;*/
+	border-radius: 5px;
+}
+
+.statistic {
+	text-align: center;
+	/*align-items: center;*/
+	font-size: 16px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+
+}
+
+
+.table_row .statistic {
+	background-color: transparent;
+
+}
+
+.table_row .statistic .is-confirmed {
+	color: #ff073a;
+}
+
+.delta.is-recovered {
+	color: #28a745;
+
+}
+
+.table_row_bg_color .statistic{
+	background-color: #1e1e30;
+}

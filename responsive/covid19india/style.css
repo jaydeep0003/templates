@@ -213,3 +213,38 @@ body {
 	left: .75rem;
 	color: #6c757d;
 }
+
+.action_panel {
+	display: flex;
+	margin: 1rem auto;
+	text-align: center;
+	align-items: center;
+	padding-left: 11rem;
+	color: #6c757d;
+}
+
+.action_panel span {
+	padding-left: 0.8rem;	
+}
+
+.map_switcher {
+	grid-template-columns: repeat(4, 1fr);
+	display: grid;
+}
+.map_switcher .first_map_div {
+	color: #ff073a;
+}
+
+.map_switcher .second_map_div {
+	color: #007bff;
+}
+
+.map_switcher .third_map_div {
+	color: #28a745;
+}
+
+.map_switcher .fourth_map_div {
+	color: #6c757d;
+}
+
+

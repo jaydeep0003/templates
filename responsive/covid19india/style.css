@@ -325,7 +325,7 @@ body {
 
 .table_row {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(5, auto);
 	padding-top: 0.5rem;
 }
 
@@ -370,3 +370,16 @@ body {
 	background: red;
 }
 */
+
+.table_container {
+	align-self: center;
+	overflow-x: auto;
+	/*width: 80%;*/
+	/*overflow: auto;*/
+}
+
+.table_row {
+	position: sticky;
+	left: 0;
+	z-index: 11;
+}

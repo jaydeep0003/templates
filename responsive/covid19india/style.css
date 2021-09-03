@@ -361,19 +361,8 @@ body {
 
 .statistic {
 	background-color: #161625;
-
 }
-
-
-/*.statistic{
-	background-color: #1e1e30;
-}*/
 
 .cell.statistic.new_class{
 	background: #1e1e30;
-}
-
-
-.bg-dark:hover ~ .table_row {
-	background: red;
 }

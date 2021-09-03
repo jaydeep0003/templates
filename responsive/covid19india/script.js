@@ -50,7 +50,7 @@ data.forEach((value,index) => {
 	</div>
 
 	<div class="cell statistic">
-		<div class="delta is-deceased"  id="table-fifth-value" value=''>↑${value[4]}</div>
+		<div class="delta is-deceased"  id="table-fifth-value" value=''>${value[4]}</div>
 		<div>1,37,332</div>
 	</div>
 	`
@@ -59,35 +59,33 @@ data.forEach((value,index) => {
 	else
 	{
 		store = `
-		
 			<div class="cell">
 				<div class="state_name " id="table-first-value" value=''>${value[0]}</div>
 			</div>
-			
-			<div class="cell statistic new_class bg-dark ">
+
+			<div class="cell statistic new_class">
 				<div class="delta is-confirmed" id="table-second-value" value=''>${value[1]}</div>
 				<div>64,69,332</div>
 			</div>
 
-			<div class="cell statistic new_class bg-dark">
-				<div id="table-third-value"  value=''>${value[2]}</div>
+			<div class="cell statistic new_class">
+				<div id="table-third-value" value=''>${value[2]}</div>
 			</div>
 
-			<div class="cell statistic new_class bg-dark">
-				<div class="delta is-recovered"  id="table-fourth-value" value=''>${value[3]}</div>
+			<div class="cell statistic new_class">
+				<div class="delta is-recovered" id="table-fourth-value" value=''>${value[3]}</div>
 				<div>62,700,332</div>
 			</div>
 
-			<div class="cell statistic new_class bg-dark">
-				<div class="delta is-deceased"  id="table-fifth-value" value=''>↑${value[4]}</div>
+			<div class="cell statistic new_class">
+				<div class="delta is-deceased" id="table-fifth-value" value=''>${value[4]}</div>
 				<div>1,37,332</div>
 			</div>
-
-		`
+		`	
 	}
-
 	
 	newdata += store;
 	});
-document.getElementById("cell").innerHTML = newdata;
+
+	document.getElementById("cell").innerHTML = newdata;
 

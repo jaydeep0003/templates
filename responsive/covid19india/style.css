@@ -358,11 +358,14 @@ body {
 	color: #28a745;
 }
 
-
 .statistic {
 	background-color: #161625;
 }
 
 .cell.statistic.new_class{
 	background: #1e1e30;
+}
+
+.cell.statistic.new_class:hover{
+	background: red;
 }

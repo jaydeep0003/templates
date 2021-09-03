@@ -31,6 +31,7 @@ var store =document.getElementById("cell").innerHTML;
 data.forEach((value,index) => {
 	if(index % 2 == 0) {
 		store = `
+		
 	<div class="cell">
 		<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 	</div>
@@ -53,37 +54,37 @@ data.forEach((value,index) => {
 		<div class="delta is-deceased"  id="table-fifth-value" value=''>${value[4]}</div>
 		<div>1,37,332</div>
 	</div>
+	
 	`
 	}
 
 	else
 	{
 		store = `
-			<div class="cell">
-				<div class="state_name " id="table-first-value" value=''>${value[0]}</div>
+			<div class="cell" id = 'new-id'>
+				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 			</div>
 
-			<div class="cell statistic new_class">
+			<div class="cell statistic new_class " >
 				<div class="delta is-confirmed" id="table-second-value" value=''>${value[1]}</div>
 				<div>64,69,332</div>
 			</div>
 
-			<div class="cell statistic new_class">
+			<div class="cell statistic new_class ">
 				<div id="table-third-value" value=''>${value[2]}</div>
 			</div>
 
-			<div class="cell statistic new_class">
+			<div class="cell statistic new_class ">
 				<div class="delta is-recovered" id="table-fourth-value" value=''>${value[3]}</div>
 				<div>62,700,332</div>
 			</div>
 
-			<div class="cell statistic new_class">
+			<div class="cell statistic new_class ">
 				<div class="delta is-deceased" id="table-fifth-value" value=''>${value[4]}</div>
 				<div>1,37,332</div>
 			</div>
 		`	
 	}
-	
 	newdata += store;
 	});
 

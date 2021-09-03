@@ -1,4 +1,4 @@
-/*@font-face {
+@font-face {
  font-family:Archia;
  src:url(/fonts/Archia/archia-semibold-webfont.eot);
  src:local('Archia'),
@@ -325,7 +325,7 @@ body {
 
 .table_row {
 	display: grid;
-	grid-template-columns: repeat(5, auto);
+	grid-template-columns: repeat(6, 1fr);
 	padding-top: 0.5rem;
 }
 
@@ -338,6 +338,10 @@ body {
 	font-weight: 900;
 	/*padding: .5rem;*/
 	border-radius: 5px;
+}
+
+.table_row .cell {
+	padding:.75rem 1rem;
 }
 
 .statistic {
@@ -374,12 +378,16 @@ body {
 .table_container {
 	align-self: center;
 	overflow-x: auto;
-	/*width: 80%;*/
+	width: 80%;
 	/*overflow: auto;*/
+	display: inline-block;
 }
 
-.table_row {
+.table_container .new_row .fixed {
 	position: sticky;
+	top: 0;
 	left: 0;
-	z-index: 11;
-}
+	width: 5em;
+	margin-bottom: .5rem;
+	}
+

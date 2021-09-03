@@ -47,7 +47,7 @@ body {
 	color: #bdbdbd;
 	font-size: 1rem;
 	line-height: 1.6;
-	font-family: Archia;
+	/*font-family: Archia;*/
 }
 
 .header {
@@ -405,4 +405,41 @@ body {
     padding: .75rem 0.75rem .75rem;
     height: 2em;
     width: 5em;
+}
+
+.hero_container {
+	display: flex;
+}
+
+.first_hero_division{
+	margin-right: 1.5rem;
+}
+
+.second_hero_division {
+	margin-left: 1.5rem;
+}
+
+.state_selection select {
+    background: #1e1e30;
+    background-image: linear-gradient(45deg,transparent 50%,#6c757d 0),linear-gradient(135deg,#6c757d 50%,transparent 0);
+	background-position: calc(100% - 13px) 50%, calc(100% - 8px) 50%;
+	background-repeat: no-repeat;
+	background-size: 5px 5px,5px 5px;
+	border-color: hsla(0,0%,58%,.10196078431372549);
+	border: 2px solid #e8e8e9;
+	border-radius: 4px;
+	font-weight: 600;
+ 	cursor: pointer;
+ 	color: #6c757d;
+ 	padding: .5rem 1.4rem .5rem .5rem;
+ 	width: 15rem;
+ 	appearance: none;
+}
+
+.state_selection .dropdown {
+	min-height: 60%;
+}
+
+.state_selection {
+	margin-top: 38rem;
 }

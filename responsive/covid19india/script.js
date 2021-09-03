@@ -13,10 +13,10 @@
 
 const data = [
 	["Gujarat", 123, 234, 345, 456, 123456789],
-	["Uttar Pradesh", 123, 234, 345, 456, 123456789],
-	["Andhra Pradesh", 123, 234, 345, 456, 123456789],
-	["Tamil Nadu", 123, 234, 345, 456, 123456789],
-	["West Bengal", 123, 234, 345, 456, 123456789],
+	["Uttar Pr", 123, 234, 345, 456, 123456789],
+	["Andhra Pr", 123, 234, 345, 456, 123456789],
+	["Tamil Na", 123, 234, 345, 456, 123456789],
+	["West Be", 123, 234, 345, 456, 123456789],
 	["Delhi", 123, 234, 345, 456, 123456789],
 	["Rajasthan", 123, 234, 345, 456, 123456789],
 	["Punjab", 123, 234, 345, 456, 123456789],
@@ -32,7 +32,7 @@ data.forEach((value,index) => {
 	if(index % 2 == 0) {
 		store = `
 		
-	<div class="cell fixed">
+	<div class="cell fixed" id = 'dropdown-menu'>
 		<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 	</div>
 
@@ -99,5 +99,7 @@ data.forEach((value,index) => {
 	});
 	
 	document.getElementById("cell").innerHTML = newdata;
+
+	dropdown-menu
 
 

@@ -103,10 +103,8 @@ data.forEach((value,index) => {
 	var element = document.getElementById('cell');
 	var test = element.getElementsByClassName('.fixed');
 	console.log(test)
-	// test.addEventListener('onmouseover', mouseover);
-	// function mouseover() {
-	// 	console.log('mouseover')
-	// }
+
+	
 
 
 

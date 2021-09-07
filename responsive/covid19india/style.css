@@ -169,16 +169,18 @@ body {
 	display: flex;
 }
 
-.hero_container {
-	text-align: center;
-	margin: 0 auto;
-}
-
 .hero {
 	padding-top: 5rem;
 	margin-left: 5rem;
 	margin-right: 3rem;
 	width: 43%;
+}
+
+.new_hero {
+	width: 77%;
+	padding-top: 5rem;
+	margin-left: 5rem;
+	margin-right: 3rem;
 }
 
 .searchbox label {
@@ -191,6 +193,20 @@ body {
 .searchbox {
 	display: flex;
 	flex-direction: column;
+}
+
+.searchbox_new {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	margin: 0 auto;
+}
+
+.searchbox_new label {
+	font-size: 0.85rem;
+	font-weight: bold;
+	padding-bottom: 2rem;
+	color: #6c757d;
 }
 
 .u-input {
@@ -229,6 +245,16 @@ body {
 	color: #6c757d;
 }
 
+.action_new_panel {
+	display: flex;
+	margin: 1rem auto;
+	align-items: center;
+	color: #6c757d;
+	justify-content: center;
+}
+
+.action_new_panel span{padding-left: 0.8rem;}
+
 .action_panel span {
 	padding-left: 0.8rem;	
 }
@@ -239,6 +265,37 @@ body {
 	cursor: pointer;
 	padding: 1rem 0;
 }
+
+.map_new_switcher{
+	grid-template-columns: repeat(4, 1fr);
+	display: grid;
+	cursor: pointer;
+	padding: 1rem 0;
+}
+
+.map_new_switcher .first_map_div{
+	color: #ff073a;
+	height: 14rem;
+}
+
+.map_new_switcher .second_map_div {
+	color: #007bff;
+	height: 14rem;
+	/*background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;*/
+	/*width: calc(25%);*/
+}
+
+.map_new_switcher .third_map_div {
+	color: #28a745;
+	height: 14rem;
+}
+
+.map_new_switcher .fourth_map_div {
+	color: #6c757d;
+	height: 14rem;
+}
+
+
 .map_switcher .first_map_div {
 	color: #ff073a;
 	height: 14rem;
@@ -418,6 +475,16 @@ body {
 
 .hero_container {
 	display: flex;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.hero_new_container {
+	/*display: flex;
+	flex-direction: column;*/
+	text-align: center;
+	margin: 0 auto;
+	/*width: 100%;*/
 }
 
 .first_hero_division{
@@ -451,6 +518,28 @@ body {
 
 .state_selection {
 	margin-top: 38rem;
+}
+
+.state_new_selection {
+	margin-top: 3rem;
+	margin-left: 45rem;
+}
+
+.state_new_selection select {
+    background: #1e1e30;
+    background-image: linear-gradient(45deg,transparent 50%,#6c757d 0),linear-gradient(135deg,#6c757d 50%,transparent 0);
+	background-position: calc(100% - 13px) 50%, calc(100% - 8px) 50%;
+	background-repeat: no-repeat;
+	background-size: 5px 5px,5px 5px;
+	border-color: hsla(0,0%,58%,.10196078431372549);
+	border: 2px solid #e8e8e9;
+	border-radius: 4px;
+	font-weight: 600;
+ 	cursor: pointer;
+ 	color: #6c757d;
+ 	padding: .5rem 1.4rem .5rem .5rem;
+ 	width: 15rem;
+ 	appearance: none;
 }
 
 

@@ -123,8 +123,12 @@ data.forEach((value,index) => {
 		var click = document.getElementById('right-arrow');
 		var hide = document.getElementsByClassName('hide_cell');
 		var table = document.getElementById('table-container');
-		var table_row = document.getElementById('table-row');
-		
+		var hero_container = document.getElementById('hero-container');
+		var hero = document.getElementById('hero');
+		var state_selection = document.getElementById('state-selection');
+		var searchbox = document.getElementById('searchbox');
+		var panel = document.getElementById('panel');
+		var map_swicher = document.getElementById('map-swicher');
 
 
 		if(click.classList.contains('right_arrow'))
@@ -139,8 +143,23 @@ data.forEach((value,index) => {
 			table.classList.remove('table_row')
 			table.classList.add('click_table')
 
-			
+			hero_container.classList.remove('hero_container');
+			hero_container.classList.add('hero_new_container');
 
+			hero.classList.remove('hero')
+			hero.classList.add('new_hero')
+
+			state_selection.classList.remove('state_selection');
+			state_selection.classList.add('state_new_selection');
+
+			searchbox.classList.remove('searchbox');
+			searchbox.classList.add('searchbox_new');
+
+			panel.classList.remove('action_panel');
+			panel.classList.add('action_new_panel');
+
+			map_swicher.classList.remove('map_switcher');
+			map_swicher.classList.add('map_new_switcher');
 
 		}
 
@@ -155,6 +174,24 @@ data.forEach((value,index) => {
 
 			table.classList.add('table_row')
 			table.classList.remove('click_table')
+
+			hero_container.classList.add('hero_container');
+			hero_container.classList.remove('hero_new_container');
+
+			hero.classList.add('hero')
+			hero.classList.remove('new_hero')
+
+			state_selection.classList.add('state_selection');
+			state_selection.classList.remove('state_new_selection');
+
+			searchbox.classList.add('searchbox');
+			searchbox.classList.remove('searchbox_new');
+
+			panel.classList.add('action_panel');
+			panel.classList.remove('action_new_panel');
+
+			map_swicher.classList.add('map_switcher');
+			map_swicher.classList.remove('map_new_switcher');
 
 
 		}

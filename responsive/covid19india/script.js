@@ -70,7 +70,7 @@ data.forEach((value,index) => {
 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 			</div>
 
-			<div class="cell statistic tmp new_class" id="hover-id" onmouseover='first-hover()'>
+			<div class="cell statistic tmp new_class" id="hover-id" onmouseover='first_hover()'>
 				<div class="delta is-confirmed">${value[1]}</div>
 				<div>64,69,332</div>
 			</div>
@@ -99,6 +99,12 @@ data.forEach((value,index) => {
 	});
 	
 	document.getElementById("cell").innerHTML = newdata;
+
+	var tmp = document.getElementById('hover-id').value;
+	var select = document.getElementById('select');
+	function first_hover(){
+		console.log(select.value = data[0][0])
+	}
 
 	
 

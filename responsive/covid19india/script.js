@@ -18,7 +18,7 @@ var store =document.getElementById("cell").innerHTML;
 data.forEach((value,index) => {
 	if(index % 2 == 0) {
 		store = `
-	<div class="table_row " id='td-row' onmouseover='first_hover("${value[0]}")'>
+	<div class="table_row " id='table-row' onmouseover='first_hover("${value[0]}")'>
 		<div class="cell fixed" id = 'dropdown-menu'>
 			<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 		</div>
@@ -55,7 +55,6 @@ data.forEach((value,index) => {
 		</div>
 		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
-			
 		</div>			
 
 	</div>
@@ -65,7 +64,7 @@ data.forEach((value,index) => {
 	else
 	{
 		store = `
-		<div class='table_row ' id='td-row' onmouseover='first_hover("${value[0]}")'>
+		<div class='table_row ' id='table-row' onmouseover='first_hover("${value[0]}")'>
 			<div class="cell fixed">
 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 			</div>
@@ -115,7 +114,7 @@ data.forEach((value,index) => {
 
 	function first_hover(val){	
 		document.getElementById('select').value = val;
-		console.log(val)
+		// console.log(val)
 	}
 
 	document.getElementById('right-arrow').addEventListener('click',myfun);
@@ -123,25 +122,25 @@ data.forEach((value,index) => {
 	function myfun(){
 		var click = document.getElementById('right-arrow');
 		var hide = document.getElementsByClassName('hide_cell');
+		var table = document.getElementById('table-container');
+		var table_row = document.getElementById('table-row');
+		
 
-		console.log(hide)
 
 		if(click.classList.contains('right_arrow'))
 		{
 			click.classList.remove('right_arrow');
 			click.classList.add('new_right_arrow');
 
-			if(hide.classList.contains('hide_cell'))
-			{
-				hide.classList.remove('hide_cell');
-				// hide.classList.add('new_hide_class');
+			for (const item of hide) {
+				item.classList.add('show')
 			}
 
-			else
-			{
-				// hide.classList.remove('new_hide_class');
-				hide.classList.add('hide_cell');
-			}
+			table.classList.remove('table_row')
+			table.classList.add('click_table')
+
+			
+
 
 		}
 
@@ -149,7 +148,14 @@ data.forEach((value,index) => {
 		{
 			click.classList.remove('new_right_arrow');
 			click.classList.add('right_arrow');
-			click.classList.add('hide_cell');
+
+			for (const item of hide) {
+				item.classList.remove('show')
+			}
+
+			table.classList.add('table_row')
+			table.classList.remove('click_table')
+
 
 		}
 	}

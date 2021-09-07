@@ -330,9 +330,16 @@ body {
 }
 
 .table_row {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    padding-top: 0.5rem;
+}
+
+.click_table {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(9, 1fr);
 	padding-top: 0.5rem;
+	/*display: block;*/
 }
 
 .cell {
@@ -404,7 +411,7 @@ body {
 
 .table_row .cell {
     padding: .75rem 0.75rem .75rem;
-    height: 2.5em;
+    /*height: 2.5em;*/
     align-self: center;
     width: 5em;
 }
@@ -467,6 +474,7 @@ body {
 	display: none;
 }
 
-.new_hide_class {
+.show {
 	display: block;
 }
+

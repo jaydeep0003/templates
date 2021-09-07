@@ -331,7 +331,7 @@ body {
 
 .table_row {
 	display: grid;
-	grid-template-columns: repeat(9, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	padding-top: 0.5rem;
 }
 
@@ -378,10 +378,9 @@ body {
 
 .table_container {
 	align-self: center;
-	overflow-x: auto;
 	width: 100%;
-	/*overflow: auto;*/
-	display: inline-block;
+	overflow-x: auto;
+	/*display: inline-block;*/
 }
 
 .table_container .new_row .fixed {
@@ -462,4 +461,12 @@ body {
 .new_right_arrow {
 	transform: rotate(180deg);
 	color: #28a745;	
+}
+
+.hide_cell {
+	display: none;
+}
+
+.new_hide_class {
+	display: block;
 }

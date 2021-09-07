@@ -25,7 +25,7 @@ data.forEach((value,index) => {
 
 		<div class="cell statistic u_hover" id="hover-id">
 			<div class="delta is-confirmed" >${value[1]}</div>
-			<div>64,69,332</div>
+			
 		</div>
 
 		<div class="cell statistic u_hover">
@@ -34,29 +34,30 @@ data.forEach((value,index) => {
 
 		<div class="cell statistic u_hover">
 			<div class="delta is-recovered">${value[3]}</div>
-			<div>62,700,332</div>
+			
 		</div>
 
 		<div class="cell statistic u_hover">
 			<div class="delta is-deceased">${value[4]}</div>
-			<div>1,37,332</div>
+			
 		</div>
 		<div class="cell statistic u_hover">
 			<div class="delta is-deceased">${value[5]}</div>
-			<div>1,37,332</div>
+			
 		</div>
-		<div class="cell statistic u_hover">
+		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[6]}</div>
-			<div>1,37,332</div>
+			
 		</div>
-		<div class="cell statistic u_hover">
+		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[7]}</div>
-			<div>1,37,332</div>
+			
 		</div>
-		<div class="cell statistic u_hover">
+		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
-			<div>1,37,332</div>
-		</div>
+			
+		</div>			
+
 	</div>
 	`
 	}
@@ -71,7 +72,7 @@ data.forEach((value,index) => {
 
 			<div class="cell statistic new_class u_hover" id="hover-id">
 				<div class="delta is-confirmed">${value[1]}</div>
-				<div>64,69,332</div>
+				
 			</div>
 
 			<div class="cell statistic new_class u_hover">
@@ -80,29 +81,29 @@ data.forEach((value,index) => {
 
 			<div class="cell statistic new_class u_hover">
 				<div class="delta is-recovered">${value[3]}</div>
-				<div>62,700,332</div>
+				
 			</div>
 
 			<div class="cell statistic new_class u_hover">
 				<div class="delta is-deceased">${value[4]}</div>
-				<div>1,37,332</div>
+				
 			</div>
 
 			<div class="cell statistic new_class u_hover">
 				<div class="delta is-deceased">${value[5]}</div>
-				<div>1,37,332</div>
+				
 			</div>
-			<div class="cell statistic u_hover new_class">
+			<div class="cell statistic u_hover new_class hide_cell">
 			<div class="delta is-deceased">${value[6]}</div>
-			<div>1,37,332</div>
+			
 		</div>
-		<div class="cell statistic u_hover new_class">
+		<div class="cell statistic u_hover new_class hide_cell">
 			<div class="delta is-deceased">${value[7]}</div>
-			<div>1,37,332</div>
+			
 		</div>
-		<div class="cell statistic u_hover new_class">
+		<div class="cell statistic u_hover new_class hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
-			<div>1,37,332</div>
+			
 		</div>
 		</div>
 		`	
@@ -118,15 +119,38 @@ data.forEach((value,index) => {
 	}
 
 	document.getElementById('right-arrow').addEventListener('click',myfun);
+
 	function myfun(){
 		var click = document.getElementById('right-arrow');
-		if(click.classList.contains('right_arrow')){
+		var hide = document.getElementsByClassName('hide_cell');
+
+		console.log(hide)
+
+		if(click.classList.contains('right_arrow'))
+		{
 			click.classList.remove('right_arrow');
-			click.classList.add('new_right_arrow')
+			click.classList.add('new_right_arrow');
+
+			if(hide.classList.contains('hide_cell'))
+			{
+				hide.classList.remove('hide_cell');
+				// hide.classList.add('new_hide_class');
+			}
+
+			else
+			{
+				// hide.classList.remove('new_hide_class');
+				hide.classList.add('hide_cell');
+			}
+
 		}
-		else{
+
+		else
+		{
 			click.classList.remove('new_right_arrow');
-			click.classList.add('right_arrow')
+			click.classList.add('right_arrow');
+			click.classList.add('hide_cell');
+
 		}
 	}
 

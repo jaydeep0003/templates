@@ -376,11 +376,6 @@ body {
 	background: #1e1e30;
 }
 
-/*.cell.statistic.new_class:hover{
-	background: red;
-}
-*/
-
 .table_container {
 	align-self: center;
 	overflow-x: auto;
@@ -410,7 +405,8 @@ body {
 
 .table_row .cell {
     padding: .75rem 0.75rem .75rem;
-    height: 2em;
+    height: 2.5em;
+    align-self: center;
     width: 5em;
 }
 

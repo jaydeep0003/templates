@@ -1,16 +1,16 @@
 const data = [
-	["Gujarat", 123, 234, 345, 456, 123456789],
-	["Uttar Pradesh", 123, 234, 345, 456, 123456789],
-	["Andhra Pradesh", 123, 234, 345, 456, 123456789],
-	["Tamil Nadu", 123, 234, 345, 456, 123456789],
-	["West Bengal", 123, 234, 345, 456, 123456789],
-	["Delhi", 123, 234, 345, 456, 123456789],
-	["Rajasthan", 123, 234, 345, 456, 123456789],
-	["Punjab", 123, 234, 345, 456, 123456789],
-	["Haryana", 123, 234, 345, 456, 123456789],
-	["Assam", 123, 234, 345, 456, 123456789],
-	["Goa", 123, 234, 345, 456, 123456789],
-	["Mizoram", 123, 234, 345, 450006, 123456789],
+	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Uttar Pradesh", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Andhra Pradesh", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Tamil Nadu", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["West Bengal", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
+	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US'],
 ]
 
 var newdata = '';
@@ -18,7 +18,7 @@ var store =document.getElementById("cell").innerHTML;
 data.forEach((value,index) => {
 	if(index % 2 == 0) {
 		store = `
-	<div class="table_row u_hover" onmouseover='first_hover("${value[0]}")'>
+	<div class="table_row " id='td-row' onmouseover='first_hover("${value[0]}")'>
 		<div class="cell fixed" id = 'dropdown-menu'>
 			<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 		</div>
@@ -45,6 +45,18 @@ data.forEach((value,index) => {
 			<div class="delta is-deceased">${value[5]}</div>
 			<div>1,37,332</div>
 		</div>
+		<div class="cell statistic u_hover">
+			<div class="delta is-deceased">${value[6]}</div>
+			<div>1,37,332</div>
+		</div>
+		<div class="cell statistic u_hover">
+			<div class="delta is-deceased">${value[7]}</div>
+			<div>1,37,332</div>
+		</div>
+		<div class="cell statistic u_hover">
+			<div class="delta is-deceased">${value[8]}</div>
+			<div>1,37,332</div>
+		</div>
 	</div>
 	`
 	}
@@ -52,7 +64,7 @@ data.forEach((value,index) => {
 	else
 	{
 		store = `
-		<div class='table_row' onmouseover='first_hover("${value[0]}")'>
+		<div class='table_row ' id='td-row' onmouseover='first_hover("${value[0]}")'>
 			<div class="cell fixed">
 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 			</div>
@@ -80,6 +92,18 @@ data.forEach((value,index) => {
 				<div class="delta is-deceased">${value[5]}</div>
 				<div>1,37,332</div>
 			</div>
+			<div class="cell statistic u_hover new_class">
+			<div class="delta is-deceased">${value[6]}</div>
+			<div>1,37,332</div>
+		</div>
+		<div class="cell statistic u_hover new_class">
+			<div class="delta is-deceased">${value[7]}</div>
+			<div>1,37,332</div>
+		</div>
+		<div class="cell statistic u_hover new_class">
+			<div class="delta is-deceased">${value[8]}</div>
+			<div>1,37,332</div>
+		</div>
 		</div>
 		`	
 	}
@@ -93,6 +117,18 @@ data.forEach((value,index) => {
 		console.log(val)
 	}
 
+	document.getElementById('right-arrow').addEventListener('click',myfun);
+	function myfun(){
+		var click = document.getElementById('right-arrow');
+		if(click.classList.contains('right_arrow')){
+			click.classList.remove('right_arrow');
+			click.classList.add('new_right_arrow')
+		}
+		else{
+			click.classList.remove('new_right_arrow');
+			click.classList.add('right_arrow')
+		}
+	}
 
 	
 

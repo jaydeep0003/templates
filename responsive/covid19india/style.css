@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
  font-family:Archia;
  src:url(/fonts/Archia/archia-semibold-webfont.eot);
  src:local('Archia'),
@@ -107,7 +107,7 @@ body {
 	transform: translate3d(6rem, 0px,0px);
 	top: 0;
 	/*width: 12rem;*/
-	height: 100vh;
+	height: 100%;
 	z-index: -1;
 	background-color: #1e1e30;
 
@@ -127,8 +127,6 @@ body {
 
 }
 
-	/*background:rgba(219,85,129,.18823529411764706);*/
-
 .hover_items ul li a.active {
 	color: rgb(76, 117, 242);
 
@@ -144,7 +142,7 @@ body {
 	height: 100vh;
 	width: 15rem;
 	position: absolute;
-	transform: translateX(-170px);
+	transform: translateX(-180px);
 	transition: all 0.3s linear;
 }
 
@@ -162,6 +160,7 @@ body {
 
 .main_blog {
 	display: flex;
+	
 }
 
 .hero_container {

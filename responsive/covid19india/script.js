@@ -13,10 +13,10 @@
 
 const data = [
 	["Gujarat", 123, 234, 345, 456, 123456789],
-	["Uttar Pr", 123, 234, 345, 456, 123456789],
-	["Andhra Pr", 123, 234, 345, 456, 123456789],
-	["Tamil Na", 123, 234, 345, 456, 123456789],
-	["West Be", 123, 234, 345, 456, 123456789],
+	["Uttar Pradesh", 123, 234, 345, 456, 123456789],
+	["Andhra Pradesh", 123, 234, 345, 456, 123456789],
+	["Tamil Nadu", 123, 234, 345, 456, 123456789],
+	["West Bengal", 123, 234, 345, 456, 123456789],
 	["Delhi", 123, 234, 345, 456, 123456789],
 	["Rajasthan", 123, 234, 345, 456, 123456789],
 	["Punjab", 123, 234, 345, 456, 123456789],
@@ -31,68 +31,69 @@ var store =document.getElementById("cell").innerHTML;
 data.forEach((value,index) => {
 	if(index % 2 == 0) {
 		store = `
-		
-	<div class="cell fixed" id = 'dropdown-menu'>
-		<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
-	</div>
+	<div class="table_row" onmouseover='first_hover("${value[0]}")'>
+		<div class="cell fixed" id = 'dropdown-menu'>
+			<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
+		</div>
 
-	<div class="cell statistic tmp" id="hover-id">
-		<div class="delta is-confirmed" >${value[1]}</div>
-		<div>64,69,332</div>
-	</div>
+		<div class="cell statistic tmp" id="hover-id">
+			<div class="delta is-confirmed" >${value[1]}</div>
+			<div>64,69,332</div>
+		</div>
 
-	<div class="cell statistic tmp">
-		<div value=''>${value[2]}</div>
-	</div>
+		<div class="cell statistic">
+			<div value=''>${value[2]}</div>
+		</div>
 
-	<div class="cell statistic tmp">
-		<div class="delta is-recovered">${value[3]}</div>
-		<div>62,700,332</div>
-	</div>
+		<div class="cell statistic">
+			<div class="delta is-recovered">${value[3]}</div>
+			<div>62,700,332</div>
+		</div>
 
-	<div class="cell statistic tmp">
-		<div class="delta is-deceased">${value[4]}</div>
-		<div>1,37,332</div>
+		<div class="cell statistic">
+			<div class="delta is-deceased">${value[4]}</div>
+			<div>1,37,332</div>
+		</div>
+		<div class="cell statistic ">
+			<div class="delta is-deceased">${value[5]}</div>
+			<div>1,37,332</div>
+		</div>
 	</div>
-	<div class="cell statistic tmp ">
-		<div class="delta is-deceased">${value[5]}</div>
-		<div>1,37,332</div>
-	</div>
-	
 	`
 	}
 
 	else
 	{
 		store = `
-
+		<div class='table_row' onmouseover='first_hover("${value[0]}")'>
 			<div class="cell fixed">
 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 			</div>
 
-			<div class="cell statistic tmp new_class" id="hover-id" onmouseover='first_hover()'>
+			<div class="cell statistic new_class" id="hover-id">
 				<div class="delta is-confirmed">${value[1]}</div>
 				<div>64,69,332</div>
 			</div>
 
-			<div class="cell statistic tmp new_class">
+			<div class="cell statistic new_class">
 				<div>${value[2]}</div>
 			</div>
 
-			<div class="cell statistic tmp new_class ">
+			<div class="cell statistic new_class ">
 				<div class="delta is-recovered">${value[3]}</div>
 				<div>62,700,332</div>
 			</div>
 
-			<div class="cell statistic tmp new_class ">
+			<div class="cell statistic new_class ">
 				<div class="delta is-deceased">${value[4]}</div>
 				<div>1,37,332</div>
 			</div>
 
-			<div class="cell statistic tmp new_class ">
+			<div class="cell statistic new_class ">
 				<div class="delta is-deceased">${value[5]}</div>
 				<div>1,37,332</div>
 			</div>
+		</div>
 		`	
 	}
 	newdata += store;
@@ -100,10 +101,9 @@ data.forEach((value,index) => {
 	
 	document.getElementById("cell").innerHTML = newdata;
 
-	var tmp = document.getElementById('hover-id').value;
-	var select = document.getElementById('select');
-	function first_hover(){
-		console.log(select.value = data[0][0])
+	function first_hover(val){	
+		document.getElementById('select').value = val;
+		console.log(val)
 	}
 
 	

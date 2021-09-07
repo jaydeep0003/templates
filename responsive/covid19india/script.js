@@ -70,12 +70,12 @@ data.forEach((value,index) => {
 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 			</div>
 
-			<div class="cell statistic tmp new_class" id="hover-id" >
+			<div class="cell statistic tmp new_class" id="hover-id" onmouseover='first-hover()'>
 				<div class="delta is-confirmed">${value[1]}</div>
 				<div>64,69,332</div>
 			</div>
 
-			<div class="cell statistic tmp new_class ">
+			<div class="cell statistic tmp new_class">
 				<div>${value[2]}</div>
 			</div>
 
@@ -100,11 +100,9 @@ data.forEach((value,index) => {
 	
 	document.getElementById("cell").innerHTML = newdata;
 
-	document.getElementById('hover-id').addEventListener('mouseover', myfunction);
+	
 
-	function myfunction() {
-		document.getElementById('select').innerHTML = 'hi'
-	}
+
 
 
 

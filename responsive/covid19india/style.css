@@ -112,11 +112,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	transform: translate3d(6rem, 0px,0px);
+	/*transform: translate3d(6rem, 0px,0px);*/
 	top: 0;
 	width: 12rem;
 	height: 100vh;
-	z-index: -1000;
+	z-index: -999;
 	background-color: #1e1e30;
 	transform: translateX(-180px);
 	transition: all 0.3s linear;
@@ -183,6 +183,7 @@ body {
 .searchbox {
 	display: flex;
 	flex-direction: column;
+
 }
 
 .searchbox_new {
@@ -359,7 +360,7 @@ body {
 }
 
 .Table {
-	width: 95%;
+	width: 94%;
 }
 
 .table_icon {
@@ -479,11 +480,8 @@ body {
 }
 
 .hero_new_container {
-	/*display: flex;
-	flex-direction: column;*/
 	text-align: center;
 	margin: 0 auto;
-	/*width: 100%;*/
 }
 
 .first_hero_division{

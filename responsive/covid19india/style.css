@@ -368,6 +368,10 @@ body {
 	font-size: 12px;
 }
 
+.Table {
+	width: 85%;
+}
+
 .table_icon {
 	display: flex;
 	margin-top: 1rem;

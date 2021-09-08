@@ -68,6 +68,7 @@ body {
 	position: fixed;
 	height: 100vh;
 	z-index: 999;
+	background: #1e1e30;
 
 }
 
@@ -95,10 +96,7 @@ body {
 }
 
 .header_effect {
-	display: flex;
-	flex-direction: column;
 	padding: 2rem;
-	position: relative;
 }
 
 .header_effect div {
@@ -110,18 +108,18 @@ body {
 }
 
 .hover_items {
-	display: flex;
-	flex-direction: column;
+	/*display: flex;*/
+	/*flex-direction: column;*/
 	position: absolute;
-	transform: translate3d(6rem, 0px,0px);
+	/*transform: translate3d(10rem, 0px,0px);*/
 	top: 0;
 	width: 16rem;
-	opacity: 1;
 	height: 100vh;
-	z-index: -1;
+	z-index: -999;
 	background-color: #1e1e30;
 	transform: translateX(-190px);
-	transition: all 0.4s linear;
+	transition:all 0.4s linear;
+
 }
 
 .hover_items ul li {
@@ -150,11 +148,10 @@ body {
 	list-style: none;
 }
 
-.header_effect:hover ~ .hover_items{
+/*.header_effect:hover ~ .hover_items{
 	transform: translateX(0px);	
 	cursor: pointer;
-
-}
+}*/
 
 .main_blog {
 	display: flex;
@@ -164,7 +161,7 @@ body {
 	padding-top: 5rem;
 	margin-left: 5rem;
 	margin-right: 3rem;
-	width: 43%;
+	width: 38%;
 }
 
 .new_hero {
@@ -210,7 +207,7 @@ body {
 	box-shadow: 0 10px 35px rgba(0, 0, 0, .1);
 	border-radius: 5px;
 	width: calc(100% - 4rem);
-	color: white;
+	color: #6c757d;
 	padding-left: 3.5rem;
 }
 
@@ -395,6 +392,11 @@ body {
 	/*display: block;*/
 }
 
+
+.click_table .cell {
+    width: 6rem;
+}
+
 .cell {
 	background-color: #1e1e30;
 	padding: 1.25rem .75rem .75rem;
@@ -404,10 +406,6 @@ body {
 	font-weight: 900;
 	/*padding: .5rem;*/
 	border-radius: 5px;
-}
-
-.table_row .cell {
-	padding:.75rem 0.75rem .75rem;
 }
 
 .statistic {
@@ -458,6 +456,11 @@ body {
 	left: 0;
 }
 
+.click_table .fixed{
+	position: sticky;
+	left: 0;	
+}
+
 
 .map-padding h5 {
     padding-top: 0.5rem;
@@ -471,7 +474,8 @@ body {
     padding: .75rem 0.75rem .75rem;
     /*height: 2.5em;*/
     align-self: center;
-    width: 5em;
+    width: 6rem;
+    padding:.75rem 0.75rem .75rem;
 }
 
 .hero_container {
@@ -487,6 +491,8 @@ body {
 
 .first_hero_division{
 	margin-right: 1.5rem;
+	width: 100%;
+	margin-left: 3rem;
 }
 
 .second_hero_division {
@@ -555,6 +561,7 @@ body {
 .new_right_arrow {
 	transform: rotate(180deg);
 	color: #28a745;	
+	background: rgba(40,167,69,.12549019607843137);
 }
 
 .hide_cell {

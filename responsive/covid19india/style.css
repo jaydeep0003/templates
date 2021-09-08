@@ -148,10 +148,10 @@ body {
 	list-style: none;
 }
 
-/*.header_effect:hover ~ .hover_items{
+.header_effect:hover ~ .hover_items{
 	transform: translateX(0px);	
 	cursor: pointer;
-}*/
+}
 
 .main_blog {
 	display: flex;
@@ -159,9 +159,9 @@ body {
 
 .hero {
 	padding-top: 5rem;
-	margin-left: 5rem;
+	margin-left: 1rem;
 	margin-right: 3rem;
-	width: 38%;
+	width: 40%;
 }
 
 .new_hero {
@@ -572,3 +572,7 @@ body {
 	display: block;
 }
 
+#table-row:hover .u_color{
+	background: #2d2d3f;
+	cursor: pointer;
+}

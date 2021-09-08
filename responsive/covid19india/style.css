@@ -392,13 +392,13 @@ body {
 
 .table_row {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(11, 1fr);
     padding-top: 0.5rem;
 }
 
 .click_table {
 	display: grid;
-	grid-template-columns: repeat(9, 1fr);
+	grid-template-columns: repeat(11, 1fr);
 	padding-top: 0.5rem;
 	/*display: block;*/
 }
@@ -452,7 +452,7 @@ body {
 }
 
 .table_container .new_row .fixed {
-	position: sticky;
+	/*position: sticky;*/
 	top: 0;
 	left: 0;
 	width: 5em;

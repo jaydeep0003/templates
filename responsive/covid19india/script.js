@@ -1,16 +1,16 @@
 const data = [
-	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US'],
-	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US'],
+	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
 ]
 
 var newdata = '';
@@ -55,7 +55,13 @@ data.forEach((value,index) => {
 		</div>
 		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
+		</div>
+		<div class="cell statistic u_hover hide_cell">
+			<div class="delta is-deceased">${value[9]}</div>
 		</div>			
+		<div class="cell statistic u_hover hide_cell">
+			<div class="delta is-deceased">${value[10]}</div>
+		</div>
 
 	</div>
 	`
@@ -102,8 +108,16 @@ data.forEach((value,index) => {
 		</div>
 		<div class="cell statistic u_hover new_class hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
-			
 		</div>
+
+		<div class="cell statistic u_hover new_class hide_cell">
+			<div class="delta is-deceased">${value[9]}</div>
+		</div>
+
+		<div class="cell statistic u_hover new_class hide_cell">
+			<div class="delta is-deceased">${value[10]}</div>
+		</div>
+
 		</div>
 		`	
 	}

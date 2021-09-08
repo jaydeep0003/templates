@@ -1,16 +1,16 @@
 const data = [
-	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
-	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687'],
+	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
 ]
 
 var newdata = '';
@@ -53,14 +53,25 @@ data.forEach((value,index) => {
 			<div class="delta is-deceased">${value[7]}</div>
 			
 		</div>
+
 		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
 		</div>
+
 		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[9]}</div>
-		</div>			
+		</div>	
+				
 		<div class="cell statistic u_hover hide_cell">
 			<div class="delta is-deceased">${value[10]}</div>
+		</div>
+
+		<div class="cell statistic u_hover hide_cell">
+			<div class="delta is-deceased">${value[11]}</div>
+		</div>
+
+		<div class="cell statistic u_hover hide_cell">
+			<div class="delta is-deceased">${value[12]}</div>
 		</div>
 
 	</div>
@@ -116,6 +127,14 @@ data.forEach((value,index) => {
 
 		<div class="cell statistic u_hover new_class hide_cell">
 			<div class="delta is-deceased">${value[10]}</div>
+		</div>
+
+		<div class="cell statistic u_hover new_class hide_cell">
+			<div class="delta is-deceased">${value[11]}</div>
+		</div>
+
+		<div class="cell statistic u_hover new_class hide_cell">
+			<div class="delta is-deceased">${value[12]}</div>
 		</div>
 
 		</div>

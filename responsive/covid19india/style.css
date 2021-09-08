@@ -97,6 +97,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
+	position: relative;
 }
 
 .header_effect div {
@@ -105,7 +106,6 @@ body {
 
 .header_effect div svg {
 	color: #6c757d;
-
 }
 
 .hover_items {
@@ -115,9 +115,11 @@ body {
 	transform: translate3d(6rem, 0px,0px);
 	top: 0;
 	width: 12rem;
-	height: 100%;
-	z-index: -10000;
+	height: 100vh;
+	z-index: -1000;
 	background-color: #1e1e30;
+	transform: translateX(-180px);
+	transition: all 0.3s linear;
 }
 
 .hover_items ul li {
@@ -131,26 +133,14 @@ body {
 .hover_items ul li a {
 	color: #6c757d;
 	text-decoration: none;
-
 }
 
 .hover_items ul li a.active {
 	color: rgb(76, 117, 242);
-
-
 }
 
 .hover_items ul .li_class {
 	margin-top: 8rem;
-}
-
-
-.hover_items {
-	height: 100vh;
-	width: 15rem;
-	position: absolute;
-	transform: translateX(-180px);
-	transition: all 0.3s linear;
 }
 
 .hover_items ul li {
@@ -177,9 +167,9 @@ body {
 }
 
 .new_hero {
-	width: 77%;
+	width: 90%;
 	padding-top: 5rem;
-	margin-left: 5rem;
+	margin-left: 3rem;
 	margin-right: 3rem;
 }
 
@@ -225,7 +215,7 @@ body {
 .searchbox_ {
 	position: relative;
 	width: 100%;
-	z-index: -1;
+	
 }
 
 .search_botton span svg{
@@ -348,7 +338,7 @@ body {
 .vaccine_header {
 	display: flex;
 	padding-top: .5rem;
-	margin-left: 8rem;
+	margin-left: 0rem;
 	font-size: .875rem;	
 }
 
@@ -369,7 +359,7 @@ body {
 }
 
 .Table {
-	width: 85%;
+	width: 95%;
 }
 
 .table_icon {
@@ -392,13 +382,13 @@ body {
 
 .table_row {
     display: grid;
-    grid-template-columns: repeat(11, 1fr);
+    grid-template-columns: repeat(13, 1fr);
     padding-top: 0.5rem;
 }
 
 .click_table {
 	display: grid;
-	grid-template-columns: repeat(11, 1fr);
+	grid-template-columns: repeat(13, 1fr);
 	padding-top: 0.5rem;
 	/*display: block;*/
 }
@@ -459,7 +449,12 @@ body {
 	border-radius: 5px;
 	margin-bottom: .2rem;
 	/*height: 5em;*/
-	}
+}
+
+.table_row .fixed {
+	position: sticky;
+	left: 0;
+}
 
 
 .map-padding h5 {

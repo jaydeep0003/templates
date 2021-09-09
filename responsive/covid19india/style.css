@@ -43,8 +43,10 @@
 }*/
 
 body {
-	background-color: #161625;
-	color: #bdbdbd;
+	background-color: var(--bg-color);
+	color: var(--color);
+
+	
 	font-size: 1rem;
 	line-height: 1.6;
 	font-family: sans-serif;
@@ -606,16 +608,17 @@ body {
   }
 }
 
-.dark_mode {
-	color: black;
-	background: white;
+
+.dark_mode{
+	--bg-color: #e8e8e7;
+	--color: black;
+	--table-bg-color: white;
+	--new-class-color: #e1e1e1;
 }
 
-.cell {
-	background: var(--bg-color);
-}
-
-
-[dark-theme]{
-	--bg-color: white;
+:root {
+	background-color: #161625;
+	color: #bdbdbd;
+	--table-bg-color: #161625;
+	--new-class-color: #1e1e30;
 }

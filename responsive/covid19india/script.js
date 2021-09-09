@@ -19,58 +19,58 @@ data.forEach((value,index) => {
 	if(index % 2 == 0) {
 		store = `
 	<div class="table_row " id='table-row' onmouseover='first_hover("${value[0]}")'>
-		<div class="cell fixed" id = 'dropdown-menu'>
+		<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'>
 			<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 		</div>
 
-		<div class="cell statistic u_color u_hover" id="hover-id">
+		<div class="cell statistic u_color u_hover " id="hover-id">
 			<div class="delta is-confirmed" >${value[1]}</div>
 			
 		</div>
 
-		<div class="cell statistic u_color u_hover">
+		<div class="cell statistic u_color u_hover ">
 			<div value=''>${value[2]}</div>
 		</div>
 
-		<div class="cell statistic u_color u_hover">
+		<div class="cell statistic u_color u_hover ">
 			<div class="delta is-recovered">${value[3]}</div>
 			
 		</div>
 
-		<div class="cell statistic u_color u_hover">
+		<div class="cell statistic u_color u_hover ">
 			<div class="delta is-deceased">${value[4]}</div>
 			
 		</div>
-		<div class="cell statistic u_color u_hover">
+		<div class="cell statistic u_color u_hover ">
 			<div class="delta is-active">${value[5]}</div>
 			
 		</div>
-		<div class="cell statistic u_color u_hover hide_cell">
+		<div class="cell statistic u_color u_hover  hide_cell">
 			<div class="delta is-deceased">${value[6]}</div>
 			
 		</div>
-		<div class="cell statistic u_color u_hover hide_cell">
+		<div class="cell statistic u_color u_hover  hide_cell">
 			<div class="delta is-deceased">${value[7]}</div>
 			
 		</div>
 
-		<div class="cell statistic u_color u_hover hide_cell">
+		<div class="cell statistic u_color u_hover  hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
 		</div>
 
-		<div class="cell statistic u_color u_hover hide_cell">
+		<div class="cell statistic u_color u_hover  hide_cell">
 			<div class="delta is-deceased">${value[9]}</div>
 		</div>	
 				
-		<div class="cell statistic u_color u_hover hide_cell">
+		<div class="cell statistic u_color u_hover  hide_cell">
 			<div class="delta is-deceased">${value[10]}</div>
 		</div>
 
-		<div class="cell statistic u_color u_hover hide_cell">
+		<div class="cell statistic u_color u_hover  hide_cell">
 			<div class="delta is-deceased">${value[11]}</div>
 		</div>
 
-		<div class="cell statistic u_color u_hover hide_cell">
+		<div class="cell statistic u_color u_hover  hide_cell">
 			<div class="delta is-deceased">${value[12]}</div>
 		</div>
 
@@ -82,58 +82,58 @@ data.forEach((value,index) => {
 	{
 		store = `
 		<div class='table_row' id='table-row' onmouseover='first_hover("${value[0]}")'>
-			<div class="cell fixed" id='row-first-id'>
+			<div class="cell fixed dark_mode_cell" id='row-first-id'>
 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
 			</div>
 
-			<div class="cell statistic new_class u_hover u_color" id="hover-id">
+			<div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
 				<div class="delta is-confirmed">${value[1]}</div>
 				
 			</div>
 
-			<div class="cell statistic new_class u_hover u_color ">
+			<div class="cell statistic new_class u_hover u_color ligth_color ">
 				<div>${value[2]}</div>
 			</div>
 
-			<div class="cell statistic new_class u_hover u_color">
+			<div class="cell statistic new_class u_hover u_color ">
 				<div class="delta is-recovered">${value[3]}</div>
 				
 			</div>
 
-			<div class="cell statistic new_class u_hover u_color">
+			<div class="cell statistic new_class u_hover u_color ">
 				<div class="delta is-deceased">${value[4]}</div>
 				
 			</div>
 
-			<div class="cell statistic new_class u_hover u_color">
+			<div class="cell statistic new_class u_hover u_color ">
 				<div class="delta is-active">${value[5]}</div>
 				
 			</div>
-			<div class="cell statistic u_hover u_color new_class hide_cell">
+			<div class="cell statistic u_hover u_color  new_class hide_cell">
 			<div class="delta is-deceased">${value[6]}</div>
 			
 		</div>
-		<div class="cell statistic u_hover u_color new_class hide_cell">
+		<div class="cell statistic u_hover u_color  new_class hide_cell">
 			<div class="delta is-deceased">${value[7]}</div>
 			
 		</div>
-		<div class="cell statistic u_hover u_color new_class hide_cell">
+		<div class="cell statistic u_hover u_color  new_class hide_cell">
 			<div class="delta is-deceased">${value[8]}</div>
 		</div>
 
-		<div class="cell statistic u_hover u_color new_class hide_cell">
+		<div class="cell statistic u_hover u_color  new_class hide_cell">
 			<div class="delta is-deceased">${value[9]}</div>
 		</div>
 
-		<div class="cell statistic u_hover u_color new_class hide_cell">
+		<div class="cell statistic u_hover u_color  new_class hide_cell">
 			<div class="delta is-deceased">${value[10]}</div>
 		</div>
 
-		<div class="cell statistic u_hover new_class hide_cell u_color">
+		<div class="cell statistic u_hover new_class hide_cell u_color ">
 			<div class="delta is-deceased">${value[11]}</div>
 		</div>
 
-		<div class="cell statistic u_hover new_class hide_cell u_color">
+		<div class="cell statistic u_hover new_class hide_cell u_color ">
 			<div class="delta is-deceased">${value[12]}</div>
 		</div>
 
@@ -309,12 +309,12 @@ document.getElementById('themes').addEventListener('click', () => {
 
 
 	// Click to Dark mode on Body
-	const element = document.body;
-	element.classList.toggle('dark_mode');
+	document.body.classList.toggle('dark_mode');
+	
 
-	// if (document.body) {
+		// if (document.body.) {
 
-	// }
+		// }
 });
 
 

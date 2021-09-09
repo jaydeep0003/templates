@@ -125,20 +125,17 @@ body {
 
 }
 
-.header_effect:hover + .hover_items{
+.header_effect:hover ~ .hover_items{
 	cursor: pointer;	
 	transform: translate(0px);	
 	display: block;
-	/*transition:all 4s linear;*/
-	 
-	
+	/*transition:all 4s linear;*/	
 }
-
 
 @keyframes example {
   from {left: -50%;}
   to {left: 0px; }
-  
+
 }
 .flex_class {
 	/*display: flex;*/
@@ -146,10 +143,12 @@ body {
 
 .hover_items ul li {
 	font-weight: bold;
-	text-align: center;
+	/*text-align: center;*/
+	padding-left: 5.5rem;
 	height: 1.5rem;
 	/*width: 12rem;*/
-	padding-bottom: 4rem;
+	padding-bottom: 2.5rem;
+	list-style: none;
 } 
 
 .hover_items ul li a {
@@ -163,11 +162,6 @@ body {
 
 .hover_items ul .li_class {
 	margin-top: 8rem;
-}
-
-.hover_items ul li {
-	text-align: center;
-	list-style: none;
 }
 
 .main_blog {
@@ -615,4 +609,13 @@ body {
 .dark_mode {
 	color: black;
 	background: white;
+}
+
+.cell {
+	background: var(--bg-color);
+}
+
+
+[dark-theme]{
+	--bg-color: white;
 }

@@ -315,14 +315,6 @@ document.getElementById('themes').addEventListener('click', () => {
 	// if (document.body) {
 
 	// }
-
-
-	let cell_class = document.getElementsByClassName('cell');
-	let table_container = document.getElementById('table-container');
-
-	// cell_class.classList.remove('cell')
-	// cell_class.classList.add('dark_mode_bg_color')
-	// document.getElementById('').style.background='red'
 });
 
 
@@ -335,9 +327,9 @@ var active = 0
 
 data.forEach((value) => {
 	sum = sum + value[1]
+	active = active + value[2]
 	recovered = recovered+ value[3]
 	deceased = deceased + value[4]
-	active = active + value[2]
 })
 
 console.log(deceased)

@@ -117,7 +117,8 @@ body {
 	width: 16rem;
 	height: 100vh;
 	z-index: -1;
-	background-color: #1e1e30;
+	/*background-color: #1e1e30;*/
+	background: var(--header-bg-color);
 	transition:all 4s linear;
 	display: none;
 	animation-name: example;
@@ -222,6 +223,7 @@ body {
 	width: calc(100% - 4rem);
 	color: #6c757d;
 	padding-left: 3.5rem;
+	font-size: 1rem;
 }
 
 .searchbox_ {
@@ -611,7 +613,6 @@ body {
   }
 }
 
-
 .dark_mode{
 	--bg-color: #e8e8e7;
 	--color: black;
@@ -634,8 +635,6 @@ body {
 	--header-bg-color: #1e1e30;
 
 }
-
-
 
 .dark_mode_cell {
 	background: var(--table-header-color);

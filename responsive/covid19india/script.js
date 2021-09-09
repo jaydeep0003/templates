@@ -322,7 +322,7 @@ document.getElementById('themes').addEventListener('click', () => {
 
 	// cell_class.classList.remove('cell')
 	// cell_class.classList.add('dark_mode_bg_color')
-	document.getElementById('').style.background='red'
+	// document.getElementById('').style.background='red'
 });
 
 
@@ -347,6 +347,3 @@ document.getElementById('recovered').innerHTML = '+' + recovered;
 document.getElementById('deceased').innerHTML = '+' + deceased;
 document.getElementById('active').innerHTML = '+' + active;
 	
-
-
-

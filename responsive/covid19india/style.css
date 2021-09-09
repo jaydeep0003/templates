@@ -59,7 +59,8 @@ body {
 }
 
 .header {
-	background-color: #1e1e30;
+	/*background-color: #1e1e30;*/
+	background: var(--header-bg-color);
 	display: flex;
 	flex-direction: column;
 	width: 6rem;
@@ -70,7 +71,8 @@ body {
 	position: fixed;
 	height: 100vh;
 	z-index: 999;
-	background: #1e1e30;
+	/*background: #1e1e30;*/
+	background: var(--header-bg-color);
 
 }
 
@@ -116,10 +118,7 @@ body {
 	height: 100vh;
 	z-index: -1;
 	background-color: #1e1e30;
-	/*transform: translate3d(10rem, 0px,0px);*/
-	/*transform: translateX(-190px);*/
 	transition:all 4s linear;
-	/*left: 0%;*/
 	display: none;
 	animation-name: example;
   animation-duration: 0.4s;  
@@ -212,7 +211,8 @@ body {
 }
 
 .u-input {
-	background: #1e1e30;
+	/*background: #1e1e30;*/
+	background: var(--u-input-bg-color);
 	outline: none;
 	border: 0;
 	width: 100%;
@@ -411,7 +411,8 @@ body {
 }
 
 .cell {
-	background-color: #1e1e30;
+	/*background-color: #1e1e30;*/
+	background: var(--new-class-color);
 	padding: 1.25rem .75rem .75rem;
 	margin-right: .25rem;
 	font-size: 16px;
@@ -429,6 +430,9 @@ body {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	background-color: #161625;
+	/*background: var(--table-bg-color);*/
+	background: var(--table-bg-color);
 }
 
 .table_row .statistic .is-confirmed {
@@ -439,12 +443,9 @@ body {
 	color: #28a745;
 }
 
-.statistic {
-	background-color: #161625;
-}
-
 .cell.statistic.new_class{
-	background: #1e1e30;
+	/*background: #1e1e30;*/
+	background: var(--new-class-color);
 }
 
 .table_container {
@@ -484,7 +485,6 @@ body {
 .map-padding h4 {padding: 0; margin: 0;}
 
 .table_row .cell {
-    padding: .75rem 0.75rem .75rem;
     /*height: 2.5em;*/
     align-self: center;
     width: 6rem;
@@ -513,7 +513,8 @@ body {
 }
 
 .state_selection select {
-    background: #1e1e30;
+    /*background: #1e1e30;*/
+    background: var(--new-class-color);
     background-image: linear-gradient(45deg,transparent 50%,#6c757d 0),linear-gradient(135deg,#6c757d 50%,transparent 0);
 	background-position: calc(100% - 13px) 50%, calc(100% - 8px) 50%;
 	background-repeat: no-repeat;
@@ -543,7 +544,8 @@ body {
 }
 
 .state_new_selection select {
-    background: #1e1e30;
+    /*background: #1e1e30;*/
+    background: var(--new-class-color);
     background-image: linear-gradient(45deg,transparent 50%,#6c757d 0),linear-gradient(135deg,#6c757d 50%,transparent 0);
 	background-position: calc(100% - 13px) 50%, calc(100% - 8px) 50%;
 	background-repeat: no-repeat;
@@ -586,7 +588,8 @@ body {
 }
 
 #table-row:hover .u_color{
-	background: #2d2d3f;
+	/*background: #2d2d3f;*/
+	background: var(--table-hover-color);
 	cursor: pointer;
 }
 
@@ -612,13 +615,28 @@ body {
 .dark_mode{
 	--bg-color: #e8e8e7;
 	--color: black;
-	--table-bg-color: white;
 	--new-class-color: #e1e1e1;
+	--table-bg-color: #e8e8e8;
+	--table-header-color: white;
+	--table-hover-color: #c4c4b3;
+	--u-input-bg-color: white;
+	--header-bg-color: white;
 }
 
 :root {
 	background-color: #161625;
 	color: #bdbdbd;
-	--table-bg-color: #161625;
 	--new-class-color: #1e1e30;
+	--table-bg-color: #161625;
+	--table-header-color: #1e1e30;
+	--table-hover-color: #2d2d3f;
+	--u-input-bg-color: #1e1e30;
+	--header-bg-color: #1e1e30;
+
+}
+
+
+
+.dark_mode_cell {
+	background: var(--table-header-color);
 }

@@ -392,6 +392,11 @@ body {
 	width: 2.5rem;
 	text-align: center;
 	margin-right: .25rem;
+	cursor: pointer;
+}
+
+.tale-u-border:hover {
+	background: #e1e1e2;
 }
 
 .table_row {

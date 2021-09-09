@@ -109,24 +109,37 @@ body {
 
 .hover_items {
 	position: absolute;
-	transform: translate3d(10rem, 0px,0px);
 	top: 0;
 	width: 16rem;
 	height: 100vh;
-	z-index: -999;
+	z-index: -1;
 	background-color: #1e1e30;
+	/*transform: translate3d(10rem, 0px,0px);*/
 	/*transform: translateX(-190px);*/
-	transition:all .4s linear;
-	left: -70%;
-	overflow: hidden;
+	transition:all 4s linear;
+	/*left: 0%;*/
+	display: none;
+	animation-name: example;
+  animation-duration: 0.4s;  
+  animation-fill-mode: linear;
+
 }
 
-.header_effect:hover ~ .hover_items{
-	transform: translate(0px);	
+.header_effect:hover + .hover_items{
 	cursor: pointer;	
-
+	transform: translate(0px);	
+	display: block;
+	/*transition:all 4s linear;*/
+	 
+	
 }
 
+
+@keyframes example {
+  from {left: -50%;}
+  to {left: 0px; }
+  
+}
 .flex_class {
 	/*display: flex;*/
 }

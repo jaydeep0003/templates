@@ -42,7 +42,7 @@ data.forEach((value,index) => {
 			
 		</div>
 		<div class="cell statistic u_color u_hover">
-			<div class="delta is-deceased">${value[5]}</div>
+			<div class="delta is-active">${value[5]}</div>
 			
 		</div>
 		<div class="cell statistic u_color u_hover hide_cell">
@@ -106,7 +106,7 @@ data.forEach((value,index) => {
 			</div>
 
 			<div class="cell statistic new_class u_hover u_color">
-				<div class="delta is-deceased">${value[5]}</div>
+				<div class="delta is-active">${value[5]}</div>
 				
 			</div>
 			<div class="cell statistic u_hover u_color new_class hide_cell">
@@ -319,10 +319,13 @@ document.getElementById('themes').addEventListener('click', () => {
 var sum = 0
 var recovered = 0
 var deceased = 0
+var active = 0
+
 data.forEach((value) => {
 	sum = sum + value[1]
 	recovered = recovered+ value[3]
 	deceased = deceased + value[4]
+	active = active + value[2]
 })
 
 console.log(deceased)
@@ -330,6 +333,7 @@ console.log(deceased)
 document.getElementById('h4-data').innerHTML = '+' + sum;
 document.getElementById('recovered').innerHTML = '+' + recovered;
 document.getElementById('deceased').innerHTML = '+' + deceased;
+document.getElementById('active').innerHTML = '+' + active;
 	
 
 

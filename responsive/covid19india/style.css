@@ -576,3 +576,37 @@ body {
 	background: #2d2d3f;
 	cursor: pointer;
 }
+
+.is-active {
+	color: #ba77b6;
+}
+
+.map_effect{
+    position: relative;
+	/*transform: translate3d(10rem, 0px,0px);*/
+	/*top: 0;*/
+	/*width: 16rem;*/
+	/*height: 100vh;*/
+	/*z-index: -999;*/
+	/*background-color: #1e1e30;*/
+	/*left: 0;*/
+	top: 0;
+	height: 5%;
+	width: 100%;
+	/*transition:all 0.4s linear;*/
+    /*animation-name: pulse;*/
+     transform: translateX(-10%);
+    animation: myfirst .5s linear;
+}
+
+
+
+@keyframes myfirst {
+    
+    100%{
+ 
+    	/*display: none;*/
+    	opacity: 1;
+    	transform: translateX(0%);
+    }
+}

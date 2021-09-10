@@ -1,3 +1,14 @@
+async function getData(){
+	let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
+	let fetch_data = await response.json()
+	return fetch_data
+}
+
+getData()
+
+
+
+
 const data = [
 	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
 	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
@@ -340,7 +351,7 @@ data.forEach((value) => {
 	deceased = deceased + value[4]
 })
 
-console.log(deceased)
+// console.log(deceased)
 
 document.getElementById('h4-data').innerHTML = '+' + sum;
 document.getElementById('recovered').innerHTML = '+' + recovered;

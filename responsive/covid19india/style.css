@@ -396,7 +396,11 @@ body {
 }
 
 .tale-u-border:hover {
-	background: #e1e1e2;
+	background: rgba(108,117,125,.12549019607843137);
+}
+
+.new_right_arrow:hover{
+	    background: rgba(40,167,69,.18823529411764706);
 }
 
 .table_row {

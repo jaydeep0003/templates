@@ -2,19 +2,24 @@ async function getData(){
 	// try {
 		let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
 		let fetch_data = await response.json()
+
+
 		let store =document.getElementById("cell").innerHTML;
+		
 		let newdata = ""
+		let counter = 0;
 
 		for(let k of Object.keys(fetch_data)){
+			let other_value = fetch_data[k].delta
 			let value = fetch_data[k].total
+			let d = other_value.confirmed
+			console.log(d)
 			let confirmed = value.confirmed
 			let recovered = value.recovered
 			let deceased = value.deceased
 			let name = k
 			
-			console.log(k)
-				
-			if(k %2 == 0 ){
+			if(counter % 2 == 0 ){
 	 		store = `
 				<div class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
 					<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'>
@@ -22,6 +27,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover " id="hover-id">
+						<div class="delta is-confirmed" id='id1' >${confirmed}</div>
 						<div class="delta is-confirmed" id='id1' >${confirmed}</div>
 						
 					</div>
@@ -138,8 +144,10 @@ async function getData(){
 		}
 
 	newdata += store;
-
+	counter = counter + 1;
 	}
+
+
 
 	document.getElementById("cell").innerHTML = newdata;
 
@@ -500,7 +508,7 @@ var deceased = 0
 var active = 0
 
 // data.forEach((value) => {
-// 	sum = sum + value[1]
+	// sum = sum + value[1]
 // 	active = active + value[2]
 // 	recovered = recovered+ value[3]
 // 	deceased = deceased + value[4]

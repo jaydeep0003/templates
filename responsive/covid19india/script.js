@@ -4,81 +4,77 @@ async function getData(){
 	try {
 		let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
 		let fetch_data = await response.json()
+		let store =document.getElementById("cell").innerHTML;
+
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
-			var st = value.confirmed
-			var reco = value.recovered
-			// console.log(st)
-			// console.log(reco)
-			console.log(value)
+			let confirmed = value.confirmed
+			let recovered = value.recovered
+			console.log(recovered)
+			console.log('fff')
+			store = `
+				<div class="table_row " id='table-row' onmouseover='first_hover("${recovered}")'>
+					<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'>
+						<div class="state_name" id="table-first-value" value=''>${recovered}</div>
+					</div>
 
-		var store =document.getElementById("cell").innerHTML; 
+					<div class="cell statistic u_color u_hover " id="hover-id">
+						<div class="delta is-confirmed" id='id1' >${confirmed}</div>
+						
+					</div>
 
-				store = `
-	<div class="table_row " id='table-row' onmouseover='first_hover("${k}")'>
-		<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'>
-			<div class="state_name" id="table-first-value" value=''>${k}</div>
-		</div>
+					<div class="cell statistic u_color u_hover ">
+						<div value=''>${recovered}</div>
+					</div>
 
-		<div class="cell statistic u_color u_hover " id="hover-id">
-			<div class="delta is-confirmed" >${st}</div>
-			
-		</div>
+					<div class="cell statistic u_color u_hover ">
+						<div class="delta is-recovered">${value[3]}</div>
+						
+					</div>
 
-		<div class="cell statistic u_color u_hover ">
-			<div value=''>${value.reco}</div>
-		</div>
+					<div class="cell statistic u_color u_hover ">
+						<div class="delta is-deceased">${value[4]}</div>
+						
+					</div>
+					<div class="cell statistic u_color u_hover ">
+						<div class="delta is-active">${value[5]}</div>
+						
+					</div>
+					<div class="cell statistic u_color u_hover  hide_cell">
+						<div class="delta is-deceased">${value[6]}</div>
+						
+					</div>
+					<div class="cell statistic u_color u_hover  hide_cell">
+						<div class="delta is-deceased">${value[7]}</div>
+						
+					</div>
 
-		<div class="cell statistic u_color u_hover ">
-			<div class="delta is-recovered">${value[3]}</div>
-			
-		</div>
+					<div class="cell statistic u_color u_hover  hide_cell">
+						<div class="delta is-deceased">${value[8]}</div>
+					</div>
 
-		<div class="cell statistic u_color u_hover ">
-			<div class="delta is-deceased">${value[4]}</div>
-			
-		</div>
-		<div class="cell statistic u_color u_hover ">
-			<div class="delta is-active">${value[5]}</div>
-			
-		</div>
-		<div class="cell statistic u_color u_hover  hide_cell">
-			<div class="delta is-deceased">${value[6]}</div>
-			
-		</div>
-		<div class="cell statistic u_color u_hover  hide_cell">
-			<div class="delta is-deceased">${value[7]}</div>
-			
-		</div>
+					<div class="cell statistic u_color u_hover  hide_cell">
+						<div class="delta is-deceased">${value[9]}</div>
+					</div>	
+							
+					<div class="cell statistic u_color u_hover  hide_cell">
+						<div class="delta is-deceased">${value[10]}</div>
+					</div>
 
-		<div class="cell statistic u_color u_hover  hide_cell">
-			<div class="delta is-deceased">${value[8]}</div>
-		</div>
+					<div class="cell statistic u_color u_hover  hide_cell">
+						<div class="delta is-deceased">${value[11]}</div>
+					</div>
 
-		<div class="cell statistic u_color u_hover  hide_cell">
-			<div class="delta is-deceased">${value[9]}</div>
-		</div>	
-				
-		<div class="cell statistic u_color u_hover  hide_cell">
-			<div class="delta is-deceased">${value[10]}</div>
-		</div>
+					<div class="cell statistic u_color u_hover  hide_cell">
+						<div class="delta is-deceased">${value[12]}</div>
+					</div>
 
-		<div class="cell statistic u_color u_hover  hide_cell">
-			<div class="delta is-deceased">${value[11]}</div>
-		</div>
-
-		<div class="cell statistic u_color u_hover  hide_cell">
-			<div class="delta is-deceased">${value[12]}</div>
-		</div>
-
-	</div>
+				</div>
 	`
-
-
-
 		}
 
-		return fetch_data
+
+		// return fetch_data
 	}
 
 	catch(error) {
@@ -90,6 +86,7 @@ async function getData(){
 
 var dt = getData()
 console.log(dt)
+console.log('hhhhhhhhhhhhhhhhhhhhhh')
 
 
 
@@ -244,7 +241,7 @@ var newdata = '';
 // 	newdata += store;
 // 	});
 	
-	document.getElementById("cell").innerHTML = newdata;
+	// document.getElementById("cell").innerHTML = newdata;
 
 	function first_hover(val){	
 		document.getElementById('select').value = val;

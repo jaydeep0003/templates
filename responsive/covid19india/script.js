@@ -1,25 +1,24 @@
-console.log('first Coll')
-
 async function getData(){
-	
-
-	try {
+	// try {
 		let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
 		let fetch_data = await response.json()
 		let store =document.getElementById("cell").innerHTML;
+		let newdata = ""
 
-			console.log('fff')
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
 			let confirmed = value.confirmed
 			let recovered = value.recovered
-			console.log(recovered)
-
+			let deceased = value.deceased
+			let name = k
+			
+			console.log(k)
+				
 			if(k %2 == 0 ){
-			store = `
-				<div class="table_row " id='table-row' onmouseover='first_hover("${recovered}")'>
+	 		store = `
+				<div class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
 					<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'>
-						<div class="state_name" id="table-first-value" value=''>${recovered}</div>
+						<div class="state_name" id="table-first-value" value=''>${name}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover " id="hover-id">
@@ -32,12 +31,12 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
-						<div class="delta is-recovered">${value[3]}</div>
+						<div class="delta is-recovered">${recovered}</div>
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
-						<div class="delta is-deceased">${value[4]}</div>
+						<div class="delta is-deceased">${deceased}</div>
 						
 					</div>
 					<div class="cell statistic u_color u_hover ">
@@ -74,31 +73,31 @@ async function getData(){
 					</div>
 
 				</div>
-	`
+			`
 		}
 		else {
 			store = `
-				<div class='table_row' id='table-row' onmouseover='first_hover("${value[0]}")'>
+				<div class='table_row' id='table-row' onmouseover='first_hover("${name}")'>
 		 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
-		 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
+		 				<div class="state_name" id="table-first-value" value=''>${name}</div>
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-		 				<div class="delta is-confirmed">${value[1]}</div>
+		 				<div class="delta is-confirmed">${confirmed}</div>
 						
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ligth_color ">
-		 				<div>${value[2]}</div>
+		 				<div>${recovered}</div>
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-recovered">${value[3]}</div>
+		 				<div class="delta is-recovered">${recovered}</div>
 						
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-deceased">${value[4]}</div>
+		 				<div class="delta is-deceased">${deceased}</div>
 						
 		 			</div>
 
@@ -135,30 +134,26 @@ async function getData(){
 		 		</div>
 
 		 		</div>
- 		`	
+ 			`	
 		}
-		newdata += store;
+
+	newdata += store;
+
 	}
 
 	document.getElementById("cell").innerHTML = newdata;
 
-
-		// return fetch_data
-	}
-
-	catch(error) {
-		console.log(error)
 	}
 
 
-}
 
 async function render() {
-await getData()
+	await getData()
 }
+
 render()
 
-console.log('hhhhhhhhhhhhhhhhhhhhhh')
+
 
 
 
@@ -168,22 +163,22 @@ console.log('hhhhhhhhhhhhhhhhhhhhhh')
 
 
 
-const data = [
-	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-]
+// const data = [
+// 	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// 	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
+// ]
 
-var newdata = '';
+// var newdata = '';
 // // var store =document.getElementById("cell").innerHTML; 
 
 // // data.forEach((value,index) => {
@@ -504,12 +499,12 @@ var recovered = 0
 var deceased = 0
 var active = 0
 
-data.forEach((value) => {
-	sum = sum + value[1]
-	active = active + value[2]
-	recovered = recovered+ value[3]
-	deceased = deceased + value[4]
-})
+// data.forEach((value) => {
+// 	sum = sum + value[1]
+// 	active = active + value[2]
+// 	recovered = recovered+ value[3]
+// 	deceased = deceased + value[4]
+// })
 
 // console.log(deceased)
 

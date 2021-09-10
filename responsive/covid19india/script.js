@@ -1,3 +1,5 @@
+console.log('first Coll')
+
 async function getData(){
 	
 
@@ -6,12 +8,13 @@ async function getData(){
 		let fetch_data = await response.json()
 		let store =document.getElementById("cell").innerHTML;
 
+			console.log('fff')
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
 			let confirmed = value.confirmed
 			let recovered = value.recovered
 			console.log(recovered)
-			console.log('fff')
+
 			if(k %2 == 0 ){
 			store = `
 				<div class="table_row " id='table-row' onmouseover='first_hover("${recovered}")'>
@@ -134,7 +137,10 @@ async function getData(){
 		 		</div>
  		`	
 		}
+		newdata += store;
 	}
+
+	document.getElementById("cell").innerHTML = newdata;
 
 
 		// return fetch_data
@@ -147,8 +153,11 @@ async function getData(){
 
 }
 
-var dt = getData()
-console.log(dt)
+async function render() {
+await getData()
+}
+render()
+
 console.log('hhhhhhhhhhhhhhhhhhhhhh')
 
 
@@ -176,6 +185,7 @@ const data = [
 
 var newdata = '';
 // // var store =document.getElementById("cell").innerHTML; 
+
 // // data.forEach((value,index) => {
 // // 	if(index % 2 == 0) {
 // // 		store = `

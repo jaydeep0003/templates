@@ -1,10 +1,32 @@
 async function getData(){
-	let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
-	let fetch_data = await response.json()
-	return fetch_data
+	
+
+	try {
+
+		let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
+		let fetch_data = await response.json()
+
+		for(let k of Object.keys(fetch_data)){
+			let new_data = fetch_data[k]
+			console.log(new_data)
+		}
+
+		return fetch_data
+	}
+
+	catch(error) {
+		console.log(error)
+	}
+
+
 }
 
-getData()
+var dt = getData()
+console.log(dt)
+
+// for(let key of Object.keys(dt)){
+// 	console.log(key + " " + dt[key])
+// }
 
 
 

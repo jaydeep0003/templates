@@ -12,19 +12,24 @@ async function getData(){
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
 			let other_value = fetch_data[k].delta
-			let delta_deceased = other_value.deceased
 			
 			let confirmed = value.confirmed
 			let recovered = value.recovered
 			let deceased = value.deceased
+
 			let name = k
+
 			let	delta_confirmed =  other_value.confirmed
 			let delta_recovered = other_value.recovered
+			let delta_deceased = other_value.deceased
+
 			let tmp = ''
+
 			if(delta_confirmed == undefined || delta_confirmed == '' ||
 			delta_confirmed == null || delta_recovered == undefined ||
 			delta_recovered == '' || delta_recovered == null || delta_deceased ==
-			undefined || delta_deceased == '' || delta_deceased == null){
+			undefined || delta_deceased == '' || delta_deceased == null)
+			{
 				 if(counter % 2 == 0){ store = ` <div
 			class="table_row " id='table-row' onmouseover='first_hover("$
 			{name}")'> <div class="cell fixed dark_mode_cell" id
@@ -58,32 +63,32 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[6]}</div>
+						<div class="delta">${value[6]}</div>
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[7]}</div>
+						<div class="delta">${value[7]}</div>
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[8]}</div>
+						<div class="delta">${value[8]}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[9]}</div>
+						<div class="delta">${value[9]}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[10]}</div>
+						<div class="delta">${value[10]}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[11]}</div>
+						<div class="delta">${value[11]}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[12]}</div>
+						<div class="delta">${value[12]}</div>
 					</div>
 
 				</div>
@@ -123,31 +128,31 @@ async function getData(){
 						
 		 			</div>
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[6]}</div>
+		 			<div class="delta">${value[6]}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[7]}</div>
+		 			<div class="delta ">${value[7]}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[8]}</div>
+		 			<div class="delta ">${value[8]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[9]}</div>
+		 			<div class="delta ">${value[9]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[10]}</div>
+		 			<div class="delta ">${value[10]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta is-deceased">${value[11]}</div>
+		 			<div class="delta ">${value[11]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta is-deceased">${value[12]}</div>
+		 			<div class="delta ">${value[12]}</div>
 		 		</div>
 
 		 		</div>
@@ -189,32 +194,32 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[6]}</div>
+						<div class="delta ">${value[6]}</div>
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[7]}</div>
+						<div class="delta ">${value[7]}</div>
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[8]}</div>
+						<div class="delta ">${value[8]}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[9]}</div>
+						<div class="delta ">${value[9]}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[10]}</div>
+						<div class="delta ">${value[10]}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[11]}</div>
+						<div class="delta ">${value[11]}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[12]}</div>
+						<div class="delta ">${value[12]}</div>
 					</div>
 
 				</div>
@@ -254,31 +259,31 @@ async function getData(){
 						
 		 			</div>
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[6]}</div>
+		 			<div class="delta 	">${value[6]}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[7]}</div>
+		 			<div class="delta ">${value[7]}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[8]}</div>
+		 			<div class="delta ">${value[8]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[9]}</div>
+		 			<div class="delta ">${value[9]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[10]}</div>
+		 			<div class="delta ">${value[10]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta is-deceased">${value[11]}</div>
+		 			<div class="delta ">${value[11]}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta is-deceased">${value[12]}</div>
+		 			<div class="delta ">${value[12]}</div>
 		 		</div>
 
 		 		</div>
@@ -305,164 +310,8 @@ render()
 
 
 
-
-
-	
-
-
-
-
-// const data = [
-// 	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// ]
-
-// var newdata = '';
-// // var store =document.getElementById("cell").innerHTML; 
-
-// // data.forEach((value,index) => {
-// // 	if(index % 2 == 0) {
-// // 		store = `
-// // 	<div class="table_row " id='table-row' onmouseover='first_hover("${value[0]}")'>
-// // 		<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'>
-// // 			<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover " id="hover-id">
-// // 			<div class="delta is-confirmed" >${value[1]}</div>
-			
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div value=''>${value[2]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div class="delta is-recovered">${value[3]}</div>
-			
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div class="delta is-deceased">${value[4]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div class="delta is-active">${value[5]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[6]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[7]}</div>
-			
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[8]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[9]}</div>
-// // 		</div>	
-				
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[10]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[11]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[12]}</div>
-// // 		</div>
-
-// // 	</div>
-// // 	`
-// // 	}
-
-// // 	else
-// // 	{
-// // 		store = `
-// // 		<div class='table_row' id='table-row' onmouseover='first_hover("${value[0]}")'>
-// // 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
-// // 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-// // 				<div class="delta is-confirmed">${value[1]}</div>
-				
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ligth_color ">
-// // 				<div>${value[2]}</div>
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ">
-// // 				<div class="delta is-recovered">${value[3]}</div>
-				
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ">
-// // 				<div class="delta is-deceased">${value[4]}</div>
-				
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ">
-// // 				<div class="delta is-active">${value[5]}</div>
-				
-// // 			</div>
-// // 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[6]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[7]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[8]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[9]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[10]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-// // 			<div class="delta is-deceased">${value[11]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-// // 			<div class="delta is-deceased">${value[12]}</div>
-// // 		</div>
-
-// // 		</div>
-// // 		`	
-// // 	}
-// 	newdata += store;
-// 	});
-	
-	// document.getElementById("cell").innerHTML = newdata;
-
 	function first_hover(val){	
 		document.getElementById('select').value = val;
-		// console.log(val)
 	}
 
 	document.getElementById('right-arrow').addEventListener('click',myfun);
@@ -616,12 +465,10 @@ render()
 
 document.getElementById('themes').addEventListener('click', () => {
 	
-	// document.getElementById('themes').innerHTML = 
-
-	// Click to Dark mode on Body
 	document.body.classList.toggle('dark_mode');
 
-	if (document.body.classList.contains('dark_mode')) {
+	if (document.body.classList.contains('dark_mode'))
+	 {
 		let svg_image = document.getElementById('themes');
 		svg_image.innerHTML = `<svg
 		xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -629,15 +476,13 @@ document.getElementById('themes').addEventListener('click', () => {
 		stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21
 		12.79z"></path></svg>`
 	}
-	else {
+
+	else 
+	{
 		let svg_image = document.getElementById('themes');
 		svg_image.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
 	}
 	
-
-		// if (document.body.) {
-
-		// }
 });
 
 
@@ -655,7 +500,6 @@ var active = 0
 // 	deceased = deceased + value[4]
 // })
 
-// console.log(deceased)
 
 document.getElementById('h4-data').innerHTML = '+' + sum;
 document.getElementById('recovered').innerHTML = '+' + recovered;

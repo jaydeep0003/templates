@@ -419,6 +419,7 @@ body {
 
 .click_table .cell {
     width: 6rem;
+    height: 1.3rem;
 }
 
 .cell {
@@ -426,17 +427,21 @@ body {
 	background: var(--new-class-color);
 	padding: 1.25rem .75rem .75rem;
 	margin-right: .25rem;
-	font-size: 16px;
+	font-size: 13px;
 	color: #6c757d;
 	font-weight: 900;
 	/*padding: .5rem;*/
 	border-radius: 5px;
 }
 
+.row {
+	font-size: 13px;
+}
+
 .statistic {
 	text-align: center;
 	/*align-items: center;*/
-	font-size: 16px;
+	font-size: 13px;
 	padding: 0;
 	display: flex;
 	justify-content: center;
@@ -451,6 +456,11 @@ body {
 }
 
 .delta.is-recovered {
+	
+	color: #007bff;
+}
+
+.delta.is-deceased {
 	color: #28a745;
 }
 
@@ -499,6 +509,7 @@ body {
     /*height: 2.5em;*/
     align-self: center;
     width: 6rem;
+    height: 1.3rem;
     padding:.75rem 0.75rem .75rem;
 }
 

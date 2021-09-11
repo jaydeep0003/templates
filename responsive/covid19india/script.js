@@ -5,26 +5,31 @@ async function getData(){
 
 
 		let store =document.getElementById("cell").innerHTML;
-		
-		let newdata = ""
+
+		let newdata = "";
 		let counter = 0;
 
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
 			let other_value = fetch_data[k].delta
-			let delta_deceased = other_value.deceased
+
+			console.log(other_value)
+			
+			// let delta_deceased = other_value.deceased
 			let confirmed = value.confirmed
 			let recovered = value.recovered
 			let deceased = value.deceased
 			let name = k
 			let	delta_confirmed =  other_value.confirmed
 			let delta_recovered = other_value.recovered
-			let tmp = 'x';
+			let tmp = 'x'
+
 			if(delta_confirmed == undefined || delta_confirmed == '' ||
 			delta_confirmed == null || delta_recovered == undefined ||
 			delta_recovered == '' || delta_recovered == null || delta_deceased ==
 			undefined || delta_deceased == '' || delta_deceased == null){
-				 if(counter % 2 == 0){ store = ` <div
+				 if(counter % 2 == 0){ 
+				 	store = ` <div
 			class="table_row " id='table-row' onmouseover='first_hover("$
 			{name}")'> <div class="cell fixed dark_mode_cell" id
 			= 'dropdown-menu'> <div class="state_name" id="table-first-value"

@@ -2,81 +2,79 @@ async function getData(){
 	// try {
 		let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
 		let fetch_data = await response.json()
-
-		// console.log(response)
-
+		
 			
 		let store =document.getElementById("cell").innerHTML;
 
 		let newdata = "";
 		let counter = 0;
+		let delta_confirmed_total = 0
+		let delta_recovered_total = 0
+		let delta_deceased_total = 0
+
 
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
 			let other_value = fetch_data[k].delta7
 			let meta = fetch_data[k].meta
-			
+
 			let population = meta.population
 
-
-			let delta_deceased = other_value.deceased
 			let confirmed = value.confirmed
 			let recovered = value.recovered
 			let deceased = value.deceased
 			let tested = value.tested
 			let other = value.other
-			let fully_vaccinated = other_value.vaccinated2
-		
+
 			let name = k
 
+			let fully_vaccinated = other_value.vaccinated2
+			let delta_deceased = other_value.deceased
 			let	delta_confirmed =  other_value.confirmed
 			let delta_recovered = other_value.recovered
 			let vaccinated = other_value.vaccinated1
-			
+
+			 
+
 			let tmp = ''
 
 			if(delta_confirmed == undefined || delta_confirmed == '' || delta_confirmed == null || delta_recovered == undefined || delta_recovered == '' || delta_recovered == null || delta_deceased == undefined || delta_deceased == '' || delta_deceased == null){
 				if(counter % 2 == 0){ 
-
 				 	store = ` <div
-			class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
-			<div class="cell fixed dark_mode_cell" id
-			= 'dropdown-menu'> <div class="state_name" id="table-first-value"
-			value=''>${name}</div> </div>
+					class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
+					<div class="cell fixed dark_mode_cell" id
+					= 'dropdown-menu'> <div class="state_name" id="table-first-value"
+					value=''>${name}</div> </div>
 
 					<div class="cell statistic u_color u_hover " id="hover-id">
 						<div class="delta is-confirmed" id='id1' >${tmp}</div>
 						<div class="delta" id='id1' >${confirmed}</div>
-						
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
-						
 						<div value=''>${recovered}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
 					<div value='' class="delta is-recovered">${tmp}</div>
 						<div class="delta ">${recovered}</div>
-						
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
 						<div class="delta is-deceased">${tmp}</div>
 						<div class="delta">${deceased}</div>
-						
 					</div>
+
 					<div class="cell statistic u_color u_hover ">
 						<div class="delta is-active">${other}</div>
-						
 					</div>
+
 					<div class="cell statistic u_color u_hover  hide_cell">
 						<div class="delta ">${tested}</div>
-						
 					</div>
+
 					<div class="cell statistic u_color u_hover  hide_cell">
 						<div class="delta">${vaccinated}</div>
-						
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -98,7 +96,6 @@ async function getData(){
 					<div class="cell statistic u_color u_hover  hide_cell">
 						<div class="delta">${population}</div>
 					</div>
-
 				</div>
 			`
 		}
@@ -112,7 +109,6 @@ async function getData(){
 		 			<div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
 		 				<div class="delta is-confirmed">${delta_confirmed}</div>
 		 				<div class="delta">${confirmed}</div>
-						
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ligth_color ">
@@ -122,51 +118,47 @@ async function getData(){
 		 			<div class="cell statistic new_class u_hover u_color ">
 		 				<div class="delta is-recovered">${delta_recovered}</div>
 		 				<div class="delta">${recovered}</div>
-						
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
 		 				<div class="delta is-deceased">${delta_deceased}</div>
 		 				<div class="delta">${deceased}</div>
-						
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
 		 				<div class="delta is-active">${other}</div>
-						
 		 			</div>
+
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta ">${tested}</div>
-					
-		 		</div>
-		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${vaccinated}</div>
-					
-		 		</div>
-		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${fully_vaccinated}</div>
-		 		</div>
+		 				<div class="delta ">${tested}</div>
+		 			</div>
 
-		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${value[9]}</div>
-		 		</div>
+		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+		 				<div class="delta">${vaccinated}</div>
+		 			</div>
 
-		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${value[10]}</div>
-		 		</div>
+		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+		 				<div class="delta">${fully_vaccinated}</div>
+		 			</div>
 
-		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta">${value[11]}</div>
-		 		</div>
+		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+		 				<div class="delta">${value[9]}</div>
+		 			</div>
 
-		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta">${population}</div>
-		 		</div>
+		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+		 				<div class="delta">${value[10]}</div>
+		 			</div>
 
+		 			<div class="cell statistic u_hover new_class hide_cell u_color ">
+		 				<div class="delta">${value[11]}</div>
+		 			</div>
+
+		 			<div class="cell statistic u_hover new_class hide_cell u_color ">
+		 				<div class="delta">${population}</div>
+		 			</div>
 		 		</div>
  			`	
-		}
-			 
+		} 
 			}
 			else {
 			 	var ot_val = 0
@@ -436,13 +428,19 @@ async function getData(){
 
 	newdata += store;
 	counter = counter + 1;
+	delta_confirmed_total = delta_confirmed_total + delta_confirmed
+	delta_recovered_total = delta_recovered_total + delta_recovered
+	delta_deceased_total = delta_deceased_total + delta_deceased
+
 	}
 
+	
+	document.getElementById('recovered').innerHTML = '+' + delta_recovered_total
+	document.getElementById('h4-data').innerHTML = '+' + delta_confirmed_total;
+	document.getElementById('deceased').innerHTML = '+' + delta_deceased_total;
 	document.getElementById("cell").innerHTML = newdata;
 
 	}
-
-
 
 async function render() {
 	await getData()
@@ -458,155 +456,6 @@ render()
 	
 
 
-
-
-// const data = [
-// 	["Gujarat", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["UP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["AP", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["TN", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["WB", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Delhi", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Rajasthan", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Punjab", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Haryana", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Assam", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Goa", 123, 234, 345, 456, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// 	["Mizoram", 123, 234, 345, 450006, 123456789, 'Gondal', 'india', 'US', '5.5Cr', '35687', '6.9Cr', '1.9Cr'],
-// ]
-
-// var newdata = '';
-// // var store =document.getElementById("cell").innerHTML; 
-
-// // data.forEach((value,index) => {
-// // 	if(index % 2 == 0) {
-// // 		store = `
-// // 	<div class="table_row " id='table-row' onmouseover='first_hover("${value[0]}")'>
-// // 		<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'>
-// // 			<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover " id="hover-id">
-// // 			<div class="delta is-confirmed" >${value[1]}</div>
-			
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div value=''>${value[2]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div class="delta is-recovered">${value[3]}</div>
-			
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div class="delta is-deceased">${value[4]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_color u_hover ">
-// // 			<div class="delta is-active">${value[5]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[6]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[7]}</div>
-			
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[8]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[9]}</div>
-// // 		</div>	
-				
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[10]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[11]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_color u_hover  hide_cell">
-// // 			<div class="delta is-deceased">${value[12]}</div>
-// // 		</div>
-
-// // 	</div>
-// // 	`
-// // 	}
-
-// // 	else
-// // 	{
-// // 		store = `
-// // 		<div class='table_row' id='table-row' onmouseover='first_hover("${value[0]}")'>
-// // 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
-// // 				<div class="state_name" id="table-first-value" value=''>${value[0]}</div>
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-// // 				<div class="delta is-confirmed">${value[1]}</div>
-				
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ligth_color ">
-// // 				<div>${value[2]}</div>
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ">
-// // 				<div class="delta is-recovered">${value[3]}</div>
-				
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ">
-// // 				<div class="delta is-deceased">${value[4]}</div>
-				
-// // 			</div>
-
-// // 			<div class="cell statistic new_class u_hover u_color ">
-// // 				<div class="delta is-active">${value[5]}</div>
-				
-// // 			</div>
-// // 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[6]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[7]}</div>
-			
-// // 		</div>
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[8]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[9]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-// // 			<div class="delta is-deceased">${value[10]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-// // 			<div class="delta is-deceased">${value[11]}</div>
-// // 		</div>
-
-// // 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-// // 			<div class="delta is-deceased">${value[12]}</div>
-// // 		</div>
-
-// // 		</div>
-// // 		`	
-// // 	}
-// 	newdata += store;
-// 	});
-	
-	// document.getElementById("cell").innerHTML = newdata;
 
 	function first_hover(val){	
 		document.getElementById('select').value = val;
@@ -801,6 +650,8 @@ var active = 0
 // 	recovered = recovered+ value[3]
 // 	deceased = deceased + value[4]
 // })
+
+
 
 // console.log(deceased)
 

@@ -675,8 +675,14 @@ var active = 0
 
 // console.log(deceased)
 
-document.getElementById('h4-data').innerHTML = '+' + sum;
-document.getElementById('recovered').innerHTML = '+' + recovered;
-document.getElementById('deceased').innerHTML = '+' + deceased;
-document.getElementById('active').innerHTML = '+' + active;
+// document.getElementById('h4-data').innerHTML = '+' + sum;
+// document.getElementById('recovered').innerHTML = '+' + recovered;
+// document.getElementById('deceased').innerHTML = '+' + deceased;
+// document.getElementById('active').innerHTML = '+' + active;
 	
+
+
+document.getElementById('menu').addEventListener('click', (()=> {
+	document.getElementById('menu').classList.toggle('new_menu');	
+	console.log('clicked');
+}))

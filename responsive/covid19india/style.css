@@ -683,11 +683,31 @@ body {
 	cursor: pointer;
 }
 
-@media(max-width: 1280px) and (min-width: 1023px){
+@media(max-width: 1280px) and (min-width: 1025px){
 	.hero {
 		width: 35%;
 		margin: 0 auto;
 		margin-left: 20%;
+	}
+}
+
+@media(max-width: 1024px) and (min-width: 993px){
+	.hero_container {
+	    display: flex;
+	    flex-direction: column;
+	    text-align: center;
+	    margin: 0 auto;
+	}
+
+	.state_selection {
+    	margin-top: 3rem;
+	}
+
+	.hero {
+	    width: 68%;
+	    margin: 0 auto;
+	    margin-left: auto;
+	    margin-left: 0%;
 	}
 }
 
@@ -722,8 +742,8 @@ body {
 @media(max-width: 768px) and (min-width: 577px) {
 	.hero {
 	    padding-top: 5rem;
-	    margin-left: 1rem;
-	    margin-right: 3rem;
+	    margin-left: 0;
+	    margin-right: 0;
 	    width: 100%;
 	}
 
@@ -732,6 +752,13 @@ body {
 	    text-align: center;
 	    margin: 0 auto;
 	    flex-direction: column;
+	}
+
+	.new_hero {
+	    width: 100%;
+	    padding-top: 5rem;
+	    margin-left: 0;
+	    margin-right: 0;
 	}
 
 	.header {
@@ -799,13 +826,168 @@ body {
 	}
 
 	.first_hero_division {
-	    margin-right: 3rem;
-	    width: 83%;
-	    margin-left: 3rem;
+	    margin-right: 1rem;
+	    width: 95.555%;
+	    margin-left: 1rem;
 	}
 
 	.state_selection {
     	margin-top: 3rem;
 	}
 
+	.action_panel {
+	    padding-left: 0rem;
+	    display: flex;
+	    justify-content: center;
+	}
+
+	.map_switcher .second_map_div {
+    	background: transparent;
+	}
+
+	.vaccine_header {
+	    justify-content: center;
+	}
+
+	.Table {
+		width: 100%;
+	}
+
+	.state_new_selection {
+	    margin-top: 3rem;
+	    margin-left: 0;
+	}
+
+}
+
+@media(max-width: 576px) and (min-width: 375px) {
+	.header {
+		display: flex;
+		flex-direction:row;		
+		width: 100%;
+	}
+
+	.header_container {
+	    position: unset;
+	    height: 0;
+	    z-index: 999;
+	    background: #1e1e30;
+	    /*background: var(--header-bg-color);*/
+	    width: 100%;
+	}
+
+	.title {
+	    font-size: 1.3rem;
+	    text-align: center;
+	    padding-top: 2rem;
+	    width: 100%;
+	    text-align: center;
+	    margin: 0 auto;
+	}
+
+	.header_effect {
+		display: none;
+	}
+
+	.header_effect:hover ~ .hover_items{
+		/*cursor: pointer;	*/
+		/*transform: translate(0px);	*/
+		display: none;
+		/*transition:all 4s linear;*/	
+	}
+
+
+	.hover_items {
+	    position: absolute;
+	    top: 5rem;
+	    width: 100%;
+	    height: 100%;
+	    /*transition: all 0.4s linear*/
+	    animation-name: example_two;
+	}
+
+	.new_menu {
+		display: block;
+	}
+
+	.hover_items ul li {
+		border-bottom: 2px solid #6c757d;
+		/*opacity: .3;*/
+
+	}
+
+	.hover_items ul li {
+		padding: 1rem;
+	}
+
+	.main_blog {
+	    display: flex;
+	    flex-direction: column;
+	}
+
+	.hero {
+	    padding-top: 5rem;
+	    margin-left: 0;
+	    margin-right: 0;
+	    width: 100%;
+	}
+
+	.hero_container {
+	    display: flex;
+	    text-align: center;
+	    margin: 0 auto;
+	    flex-direction: column;
+	}
+
+	.new_hero {
+	    width: 100%;
+	    padding-top: 5rem;
+	    margin-left: 0;
+	    margin-right: 0;
+	}
+
+	.first_hero_division {
+	    margin-right: 1rem;
+	    width: 93%;
+	    margin-left: 1rem;
+	}
+
+	.state_selection {
+    	margin-top: 3rem;
+	}
+
+	.action_panel {
+	    padding-left: 0rem;
+	    display: flex;
+	    justify-content: center;
+	}
+
+	.map_switcher .second_map_div {
+    	background: transparent;
+	}
+
+	.vaccine_header {
+	    justify-content: center;
+	}
+
+	.Table {
+		width: 100%;
+	}
+
+	.state_new_selection {
+	    margin-top: 3rem;
+	    margin-left: 0;
+	}
+
+	.map_switcher {
+    	font-size: 16px;
+	}
+
+	.panel {
+		font-size: 16px;
+	}
+
+	.map_switcher, .map_new_switcher {
+    grid-template-columns: repeat(2, 1fr);
+	}
 }

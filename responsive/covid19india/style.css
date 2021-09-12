@@ -87,6 +87,7 @@ body {
 	/*align-self: center;*/
 	text-align: center;
 	top: 2rem;
+	display: none;
 
 }
 
@@ -128,6 +129,11 @@ body {
 
 .header_effect div svg {
 	color: #6c757d;
+}
+
+
+#themes-second {
+	display: none;
 }
 
 .hover_items {
@@ -712,6 +718,7 @@ body {
 }
 
 @media(max-width: 992px) and (min-width: 769px){
+
 	.hero {
 	    width: 68%;
 	    margin: 0 auto;
@@ -740,6 +747,14 @@ body {
 
 
 @media(max-width: 768px) and (min-width: 577px) {
+	.menu {
+		display: block;
+	}
+
+	#themes-second {
+		display: block;
+	}
+
 	.hero {
 	    padding-top: 5rem;
 	    margin-left: 0;
@@ -860,7 +875,15 @@ body {
 
 }
 
-@media(max-width: 576px) and (min-width: 375px) {
+@media(max-width: 576px) {
+	.menu {
+		display: block;
+	}
+
+	#themes-second {
+		display: block;
+	}
+
 	.header {
 		display: flex;
 		flex-direction:row;		
@@ -972,6 +995,7 @@ body {
 
 	.Table {
 		width: 100%;
+		font-size: 12px;
 	}
 
 	.state_new_selection {
@@ -988,6 +1012,21 @@ body {
 	}
 
 	.map_switcher, .map_new_switcher {
-    grid-template-columns: repeat(2, 1fr);
+    	grid-template-columns: repeat(2, 1fr);
+	}
+
+	.searchbox_new {
+	    display: flex;
+	    flex-direction: column;
+	    width: 100%;
+	    margin: 0 auto;
+	}
+
+	.table_row .cell {
+	    align-self: center;
+	    width: 6rem;
+	    height: 1rem;
+	    padding: .75rem 0.75rem .75rem;
+	    font-size: 12px;
 	}
 }

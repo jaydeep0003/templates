@@ -3,8 +3,9 @@ async function getData(){
 		let response = await fetch('https://data.covid19india.org/v4/min/data.min.json')
 		let fetch_data = await response.json()
 
+		// console.log(response)
 
-			console.log(fetch_data)
+			
 		let store =document.getElementById("cell").innerHTML;
 
 		let newdata = "";
@@ -13,6 +14,10 @@ async function getData(){
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
 			let other_value = fetch_data[k].delta7
+			let meta = fetch_data[k].meta
+			
+			let population = meta.population
+
 
 			let delta_deceased = other_value.deceased
 			let confirmed = value.confirmed
@@ -20,12 +25,14 @@ async function getData(){
 			let deceased = value.deceased
 			let tested = value.tested
 			let other = value.other
-
-
+			let fully_vaccinated = other_value.vaccinated2
+		
 			let name = k
 
 			let	delta_confirmed =  other_value.confirmed
 			let delta_recovered = other_value.recovered
+			let vaccinated = other_value.vaccinated1
+			
 			let tmp = ''
 
 			if(delta_confirmed == undefined || delta_confirmed == '' ||
@@ -71,12 +78,12 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[7]}</div>
+						<div class="delta is-deceased">${vaccinated}</div>
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[8]}</div>
+						<div class="delta is-deceased">${fully_vaccinated}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -92,7 +99,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[12]}</div>
+						<div class="delta is-deceased">${population}</div>
 					</div>
 
 				</div>
@@ -136,11 +143,11 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[7]}</div>
+		 			<div class="delta is-deceased">${vaccinated}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[8]}</div>
+		 			<div class="delta is-deceased">${fully_vaccinated}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -156,13 +163,13 @@ async function getData(){
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta is-deceased">${value[12]}</div>
+		 			<div class="delta is-deceased">${population}</div>
 		 		</div>
 
 		 		</div>
  			`	
 		}
-			 // console.log(x)
+			 
 			 }
 			 else {
 			 if(counter % 2 == 0){
@@ -203,12 +210,12 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[7]}</div>
+						<div class="delta is-deceased">${vaccinated}</div>
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[8]}</div>
+						<div class="delta is-deceased">${fully_vaccinated}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -224,7 +231,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is-deceased">${value[12]}</div>
+						<div class="delta is-deceased">${population}</div>
 					</div>
 
 				</div>
@@ -268,11 +275,11 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[7]}</div>
+		 			<div class="delta is-deceased">${vaccinated}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is-deceased">${value[8]}</div>
+		 			<div class="delta is-deceased">${fully_vaccinated}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -288,13 +295,14 @@ async function getData(){
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta is-deceased">${value[12]}</div>
+		 			<div class="delta is-deceased">${population}</div>
 		 		</div>
 
 		 		</div>
  			`	
 		}
 }
+
 
 	newdata += store;
 	counter = counter + 1;

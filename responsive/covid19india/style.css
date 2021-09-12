@@ -659,3 +659,43 @@ body {
 .dark_mode_cell {
 	background: var(--table-header-color);
 }
+
+
+
+@media(max-width: 1280px){
+	.hero {
+		width: 35%;
+		margin: 0 auto;
+		margin-left: 20%;
+	}
+}
+
+@media(max-width: 992px) and (min-width: 769px){
+	.hero {
+    width: 68%;
+    margin: 0 auto;
+        margin-left: auto;
+    margin-left: 0%;
+	}
+	.new_hero {
+	    width: 83%;
+	    padding-top: 5rem;
+	    margin-left: 4rem;
+	    margin-right: 6rem;
+	}
+
+	.hero_container {
+	    display: flex;
+	    text-align: center;
+	    flex-direction: column;
+	    margin: 0 auto;
+	}
+
+	.state_selection {
+    margin-top: 3rem;
+}
+
+
+@media(max-width: 768px) and (min-width: 577px) {
+	.heto
+}

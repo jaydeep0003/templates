@@ -689,6 +689,45 @@ body {
 	cursor: pointer;
 }
 
+.fourth_table_icon_details {
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 1rem 1rem 1rem;
+	font-size: 12px;
+	font-weight: 600;
+	display: none;
+}
+
+.new_fourth_table_icon_details {
+	display: flex;
+}
+
+.tbl_icon_details {
+	display: flex;
+}
+
+.table_icon_details_second_container div{
+	display: flex;
+}
+
+.tbl_icon_details p, .table_icon_details_second_container p {
+	margin-left: .5rem;
+}
+
+.fourth_table_icon_details p {
+	color: #6c757d;
+}
+
+.table_icon_details_first_container div svg, .table_icon_details_second_container h5{
+	color: rgba(108,117,125,.6);
+}
+
+.tbl_icon_details, .table_icon_details_second_container div {
+	padding-bottom: 0.5rem;
+}
+
+/*background: rgba(255,193,7,.18823529411764706);*/
+
 @media(max-width: 1280px) and (min-width: 1025px){
 	.hero {
 		width: 35%;

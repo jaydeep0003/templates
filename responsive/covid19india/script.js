@@ -915,3 +915,19 @@ function state_click() {
 	}
 
 }
+
+
+
+
+
+
+
+// icon Details
+
+document.getElementById('detail_id').addEventListener('click', (()=> {
+	var icon_details = document.getElementById('fourth-table-icon-details')
+	icon_details.classList.toggle('new_fourth_table_icon_details');
+}))
+
+
+

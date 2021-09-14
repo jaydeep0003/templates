@@ -94,7 +94,7 @@ async function getData(){
 
 			 	if(other == undefined || other == NaN || other == '' || other == null || other == 'undefined'){
 					if(counter % 2 == 0){ 
-						
+
 					 	store = ` <div
 						class="table_row "  onmouseover='first_hover("${name}")'>
 						<div class="cell fixed dark_mode_cell" id
@@ -359,8 +359,7 @@ async function getData(){
 			 	if(other == undefined || other == NaN || other == '' || other == null || other == 'undefined'){
 					if(counter % 2 == 0){
 			  store = ` <div
-					class="table_row "  onmouseover='first_hover("$
-					{name}")'> <div class="cell fixed dark_mode_cell" id
+					class="table_row "  onmouseover='first_hover("${name}")'> <div class="cell fixed dark_mode_cell" id
 					= 'dropdown-menu'> <div class="state_name" id="table-first-value"
 					value=''>${name}</div> </div>
 
@@ -907,3 +906,12 @@ document.getElementById('themes-second').addEventListener('click', (() => {
 }));
 
 
+
+function state_click() {
+	var table_row = document.getElementsByClassName('table_row')
+	for(let i = 1 ; i < table_row.length; i++){
+		let d = parseInt(table_row[i].innerText.split('\n')[1])
+		console.log(d)
+	}
+
+}

@@ -926,7 +926,23 @@ function state_click() {
 
 document.getElementById('detail_id').addEventListener('click', (()=> {
 	var icon_details = document.getElementById('fourth-table-icon-details')
+	var detail_id = document.getElementById('detail_id')
+	detail_id.classList.toggle('new_detail_id')
+
 	icon_details.classList.toggle('new_fourth_table_icon_details');
+
+	function change(){
+		let details_effect =  document.getElementById('details-effect');
+
+		var colr = ["blue","green",'red'];
+		let new_color = ''
+		for(var i = 0; i< colr.length; i++){
+			details_effect.style.color = colr[i];
+		}
+	};
+
+setInterval(change, 3000)
+
 }))
 
 

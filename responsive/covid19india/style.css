@@ -726,7 +726,16 @@ body {
 	padding-bottom: 0.5rem;
 }
 
-/*background: rgba(255,193,7,.18823529411764706);*/
+.new_detail_id {
+	background: rgba(255,193,7,.18823529411764706);
+	color: #ffc107;
+}
+
+.new_detail_id:hover{
+	background: rgba(255,193,7,.18823529411764706);
+	color: #ffc107;	
+}
+
 
 @media(max-width: 1280px) and (min-width: 1025px){
 	.hero {

@@ -45,11 +45,7 @@ async function getData(){
 			let vaccinated = other_value.vaccinated1
 
 			let vaccine_dose_delta = fully_vaccinated + vaccinated
-
 			let vaccine_dose_delta_2 = total_vaccinated1 + total_vaccinated2
-
-
-
 
 
 			function numFormatter(num) {
@@ -65,7 +61,7 @@ async function getData(){
 		    else if(num < 900){
 		        return num;
 		    }
-    }
+		  }
 			
 		let new_total_vaccinated1 = numFormatter(total_vaccinated1)		
 		let new_total_vaccinated2 =	numFormatter(total_vaccinated2)		
@@ -90,18 +86,17 @@ async function getData(){
 			// let new_total_vaccinated2 = new Intl.NumberFormat().format(total_vaccinated2)
 			// let new_vaccine_dose_delta_2 = new Intl.NumberFormat().format(vaccine_dose_delta_2)
 
+
 			let tmp = ''
 
 			if(delta_confirmed == undefined || delta_confirmed == '' || delta_confirmed == null || delta_recovered == undefined || delta_recovered == '' || delta_recovered == null || delta_deceased == undefined || delta_deceased == '' || delta_deceased == null){
-
 				var ot_val = 0
 
 			 	if(other == undefined || other == NaN || other == '' || other == null || other == 'undefined'){
-
 					if(counter % 2 == 0){ 
-
+						
 					 	store = ` <div
-						class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
+						class="table_row "  onmouseover='first_hover("${name}")'>
 						<div class="cell fixed dark_mode_cell" id
 						= 'dropdown-menu'> <div class="state_name" id="table-first-value"
 						value=''>${name}</div> </div>
@@ -165,7 +160,7 @@ async function getData(){
 					}
 					else {
 					store = `
-						<div class='table_row' id='table-row' onmouseover='first_hover("${name}")'>
+						<div class='table_row'  onmouseover='first_hover("${name}")'>
 				 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
 				 				<div class="state_name" id="table-first-value" value=''>${name}</div>
 				 		</div>
@@ -231,7 +226,7 @@ async function getData(){
 			else {
 					if(counter % 2 == 0){ 
 					 	store = ` <div
-						class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
+						class="table_row "  onmouseover='first_hover("${name}")'>
 						<div class="cell fixed dark_mode_cell" id
 						= 'dropdown-menu'> <div class="state_name" id="table-first-value"
 						value=''>${name}</div> </div>
@@ -295,7 +290,7 @@ async function getData(){
 					}
 					else {
 						store = `
-							<div class='table_row' id='table-row' onmouseover='first_hover("${name}")'>
+							<div class='table_row'  onmouseover='first_hover("${name}")'>
 					 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
 					 				<div class="state_name" id="table-first-value" value=''>${name}</div>
 					 		</div>
@@ -364,7 +359,7 @@ async function getData(){
 			 	if(other == undefined || other == NaN || other == '' || other == null || other == 'undefined'){
 					if(counter % 2 == 0){
 			  store = ` <div
-					class="table_row " id='table-row' onmouseover='first_hover("$
+					class="table_row "  onmouseover='first_hover("$
 					{name}")'> <div class="cell fixed dark_mode_cell" id
 					= 'dropdown-menu'> <div class="state_name" id="table-first-value"
 					value=''>${name}</div> </div>
@@ -432,7 +427,7 @@ async function getData(){
 			}
 			else {
 			store = `
-				<div class='table_row' id='table-row' onmouseover='first_hover("${name}")'>
+				<div class='table_row'  onmouseover='first_hover("${name}")'>
 		 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
 		 				<div class="state_name" id="table-first-value" value=''>${name}</div>
 		 			</div>
@@ -502,7 +497,7 @@ async function getData(){
 		else {
 		if(counter % 2 == 0){
 			  store = ` <div
-					class="table_row " id='table-row' onmouseover='first_hover("$
+					class="table_row "  onmouseover='first_hover("$
 					{name}")'> <div class="cell fixed dark_mode_cell" id
 					= 'dropdown-menu'> <div class="state_name" id="table-first-value"
 					value=''>${name}</div> </div>
@@ -571,7 +566,7 @@ async function getData(){
 		}
 		else {
 			store = `
-				<div class='table_row' id='table-row' onmouseover='first_hover("${name}")'>
+				<div class='table_row'  onmouseover='first_hover("${name}")'>
 		 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
 		 				<div class="state_name" id="table-first-value" value=''>${name}</div>
 		 			</div>
@@ -637,10 +632,11 @@ async function getData(){
 		 		</div>
  			`	
 		}
+
 		}
+
+
 }
-
-
 
 	newdata += store;
 
@@ -650,13 +646,14 @@ async function getData(){
 	total_recovered += recovered
 	total_deceased += deceased
 	total_active += active
-// console.log(total_confirmed)
+
 
 	delta_confirmed_total = delta_confirmed_total + delta_confirmed
 	delta_recovered_total = delta_recovered_total + delta_recovered
 	delta_deceased_total = delta_deceased_total + delta_deceased
 	
 	}
+
 
 
 	document.getElementById("cell").innerHTML = newdata;
@@ -680,6 +677,7 @@ async function render() {
 }
 
 render()
+
 
 
 	function first_hover(val){	
@@ -907,4 +905,5 @@ document.getElementById('themes-second').addEventListener('click', (() => {
 	}
 
 }));
+
 

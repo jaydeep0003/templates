@@ -20,7 +20,7 @@ async function getData(){
 
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
-			let other_value = fetch_data[k].delta7
+			let other_value = fetch_data[k].delta
 
 			let meta = fetch_data[k].meta
 			let population = meta.population
@@ -33,11 +33,6 @@ async function getData(){
 
 			let other = value.other
 
-			tested = new Intl.NumberFormat().format(tested)
-			// other = new Intl.NumberFormat().format(other)
-			// confirmed = new Intl.NumberFormat().format(confirmed)
-
-
 			let name = k
 
 			let fully_vaccinated = other_value.vaccinated2
@@ -45,136 +40,153 @@ async function getData(){
 			let	delta_confirmed =  other_value.confirmed
 			let delta_recovered = other_value.recovered
 			let vaccinated = other_value.vaccinated1
+			let vaccine_dose = fully_vaccinated + vaccinated 
 
+
+
+			// other = new Intl.NumberFormat().format(other)
+			// confirmed = new Intl.NumberFormat().format(confirmed)
+			tested = new Intl.NumberFormat().format(tested)
+			let new_recovered = new Intl.NumberFormat().format(recovered)
+			let new_deceased = new Intl.NumberFormat().format(deceased)
+			let new_population = new Intl.NumberFormat().format(population)
+			let new_vaccinated = new Intl.NumberFormat().format(vaccinated)
 			let new_delta_confirmed =  new Intl.NumberFormat().format(delta_confirmed)
+			let new_delta_recovered = new Intl.NumberFormat().format(delta_recovered)
+			let new_delta_deceased = new Intl.NumberFormat().format(delta_deceased)
+			let new_vaccine_doese = new Intl.NumberFormat().format(vaccine_dose)
 
 			let tmp = ''
 
 			if(delta_confirmed == undefined || delta_confirmed == '' || delta_confirmed == null || delta_recovered == undefined || delta_recovered == '' || delta_recovered == null || delta_deceased == undefined || delta_deceased == '' || delta_deceased == null){
+
 				var ot_val = 0
+
 			 	if(other == undefined || other == NaN || other == '' || other == null || other == 'undefined'){
-				if(counter % 2 == 0){ 
-				 	store = ` <div
-					class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
-					<div class="cell fixed dark_mode_cell" id
-					= 'dropdown-menu'> <div class="state_name" id="table-first-value"
-					value=''>${name}</div> </div>
 
-					<div class="cell statistic u_color u_hover " id="hover-id">
-						<div class="delta is-confirmed" id='id1' >${tmp}</div>
-						<div class="delta" id='id1' >${new Intl.NumberFormat().format(confirmed)}</div>
-					</div>
+					if(counter % 2 == 0){ 
 
-					<div class="cell statistic u_color u_hover ">
-						<div value=''>${recovered}</div>
-					</div>
+					 	store = ` <div
+						class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
+						<div class="cell fixed dark_mode_cell" id
+						= 'dropdown-menu'> <div class="state_name" id="table-first-value"
+						value=''>${name}</div> </div>
 
-					<div class="cell statistic u_color u_hover ">
-					<div value='' class="delta is-recovered">${tmp}</div>
-						<div class="delta ">${recovered}</div>
-					</div>
+						<div class="cell statistic u_color u_hover " id="hover-id">
+							<div class="delta is-confirmed" id='id1' >${tmp}</div>
+							<div class="delta" id='id1' >${new Intl.NumberFormat().format(confirmed)}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover ">
-						<div class="delta is-deceased">${tmp}</div>
-						<div class="delta">${deceased}</div>
-					</div>
+						<div class="cell statistic u_color u_hover ">
+							<div value=''>${recovered}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover ">
-						<div class="delta is-active">${ot_val}</div>
-					</div>
+						<div class="cell statistic u_color u_hover ">
+						<div value='' class="delta is-recovered">${tmp}</div>
+							<div class="delta">${new_recovered}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta ">${tested}</div>
-					</div>
+						<div class="cell statistic u_color u_hover ">
+							<div class="delta is-deceased">${tmp}</div>
+							<div class="delta">${new_deceased}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${vaccinated}</div>
-					</div>
+						<div class="cell statistic u_color u_hover ">
+							<div class="delta is-active">${ot_val}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
-					</div>
+						<div class="cell statistic u_color u_hover  hide_cell">
+							<div class="delta ">${tested}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${value[9]}</div>
-					</div>	
-							
-					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${value[10]}</div>
-					</div>
+						<div class="cell statistic u_color u_hover  hide_cell">
+							<div class="delta">${new_vaccinated}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${value[11]}</div>
-					</div>
+						<div class="cell statistic u_color u_hover  hide_cell">
+							<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+						</div>
 
-					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${population}</div>
-					</div>
-				</div>
-			`
-			}
-			else {
-				store = `
-					<div class='table_row' id='table-row' onmouseover='first_hover("${name}")'>
-			 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
-			 				<div class="state_name" id="table-first-value" value=''>${name}</div>
+						<div class="cell statistic u_color u_hover  hide_cell">
+							<div class="delta">${new_vaccine_doese}</div>
+						</div>	
+								
+						<div class="cell statistic u_color u_hover  hide_cell">
+							<div class="delta">${value[10]}</div>
+						</div>
+
+						<div class="cell statistic u_color u_hover  hide_cell">
+							<div class="delta">${value[11]}</div>
+						</div>
+
+						<div class="cell statistic u_color u_hover  hide_cell">
+							<div class="delta">${new_population}</div>
+						</div>
+						</div>
+					`
+					}
+					else {
+					store = `
+						<div class='table_row' id='table-row' onmouseover='first_hover("${name}")'>
+				 			<div class="cell fixed dark_mode_cell" id='row-first-id'>
+				 				<div class="state_name" id="table-first-value" value=''>${name}</div>
+				 		</div>
+
+			 			<div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
+			 				<div class="delta is-confirmed">${new_delta_confirmed}</div>
+			 				<div class="delta">${new Intl.NumberFormat().format(confirmed)}</div>
+			 			</div>
+
+			 			<div class="cell statistic new_class u_hover u_color ligth_color ">
+			 				<div>${recovered}</div>
+			 			</div>
+
+			 			<div class="cell statistic new_class u_hover u_color ">
+			 				<div class="delta is-recovered">${new_delta_recovered}</div>
+			 				<div class="delta">${new_recovered}</div>
+			 			</div>
+
+			 			<div class="cell statistic new_class u_hover u_color ">
+			 				<div class="delta is-deceased">${tmp}</div>
+			 				<div class="delta">${new_deceased}</div>
+			 			</div>
+
+			 			<div class="cell statistic new_class u_hover u_color ">
+			 				<div class="delta is-active">${ot_val}</div>
+			 			</div>
+
+			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+			 				<div class="delta ">${tested}</div>
+			 			</div>
+
+			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+			 				<div class="delta">${new_vaccinated}</div>
+			 			</div>
+
+			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+			 				<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+			 			</div>
+
+			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+			 				<div class="delta">${new_vaccine_doese}</div>
+			 			</div>
+
+			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
+			 				<div class="delta">${value[10]}</div>
+			 			</div>
+
+			 			<div class="cell statistic u_hover new_class hide_cell u_color ">
+			 				<div class="delta">${value[11]}</div>
+			 			</div>
+
+			 			<div class="cell statistic u_hover new_class hide_cell u_color ">
+			 				<div class="delta">${new_population}</div>
+			 			</div>
 			 		</div>
-
-		 			<div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-		 				<div class="delta is-confirmed">${new_delta_confirmed}</div>
-		 				<div class="delta">${new Intl.NumberFormat().format(confirmed)}</div>
-		 			</div>
-
-		 			<div class="cell statistic new_class u_hover u_color ligth_color ">
-		 				<div>${recovered}</div>
-		 			</div>
-
-		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-recovered">${delta_recovered}</div>
-		 				<div class="delta">${recovered}</div>
-		 			</div>
-
-		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-deceased">${delta_deceased}</div>
-		 				<div class="delta">${deceased}</div>
-		 			</div>
-
-		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-active">${ot_val}</div>
-		 			</div>
-
-		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta ">${tested}</div>
-		 			</div>
-
-		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${vaccinated}</div>
-		 			</div>
-
-		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
-		 			</div>
-
-		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${value[9]}</div>
-		 			</div>
-
-		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${value[10]}</div>
-		 			</div>
-
-		 			<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 				<div class="delta">${value[11]}</div>
-		 			</div>
-
-		 			<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 				<div class="delta">${population}</div>
-		 			</div>
-		 		</div>
- 			`	
-		}
-		}
-		else {
+	 			`	
+			}
+				}
+			else {
 					if(counter % 2 == 0){ 
 				 	store = ` <div
 					class="table_row " id='table-row' onmouseover='first_hover("${name}")'>
@@ -193,12 +205,12 @@ async function getData(){
 
 					<div class="cell statistic u_color u_hover ">
 					<div value='' class="delta is-recovered">${tmp}</div>
-						<div class="delta ">${recovered}</div>
+						<div class="delta">${new_recovered}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
 						<div class="delta is-deceased">${tmp}</div>
-						<div class="delta">${deceased}</div>
+						<div class="delta">${new_deceased}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
@@ -210,7 +222,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${vaccinated}</div>
+						<div class="delta">${new_vaccinated}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -218,7 +230,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${value[9]}</div>
+						<div class="delta">${new_vaccine_doese}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -230,7 +242,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${population}</div>
+						<div class="delta">${new_population}</div>
 					</div>
 				</div>
 			`
@@ -252,13 +264,13 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-recovered">${delta_recovered}</div>
-		 				<div class="delta">${recovered}</div>
+		 				<div class="delta is-recovered">${new_delta_recovered}</div>
+		 				<div class="delta">${new_recovered}</div>
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-deceased">${delta_deceased}</div>
-		 				<div class="delta">${deceased}</div>
+		 				<div class="delta is-deceased">${new_delta_deceased}</div>
+		 				<div class="delta">${new_deceased}</div>
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
@@ -270,7 +282,7 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${vaccinated}</div>
+		 				<div class="delta">${new_vaccinated}</div>
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -278,7 +290,7 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${value[9]}</div>
+		 				<div class="delta">${new_vaccine_doese}</div>
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -290,7 +302,7 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 				<div class="delta">${population}</div>
+		 				<div class="delta">${new_population}</div>
 		 			</div>
 		 		</div>
  			`	
@@ -318,14 +330,14 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
-					<div value='' class="delta is-recovered">${delta_recovered}</div>
-						<div class="delta">${recovered}</div>
+					<div value='' class="delta is-recovered">${new_delta_recovered}</div>
+						<div class="delta">${new_recovered}</div>
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
-						<div class="delta is-deceased">${delta_deceased}</div>
-						<div class="delta">${deceased}</div>
+						<div class="delta is-deceased">${new_delta_deceased}</div>
+						<div class="delta">${new_deceased}</div>
 						
 					</div>
 					<div class="cell statistic u_color u_hover ">
@@ -337,7 +349,7 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${vaccinated}</div>
+						<div class="delta">${new_vaccinated}</div>
 						
 					</div>
 
@@ -346,7 +358,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${value[9]}</div>
+						<div class="delta">${new_vaccine_doese}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -358,7 +370,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${population}</div>
+						<div class="delta">${new_population}</div>
 					</div>
 
 				</div>
@@ -382,14 +394,14 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-recovered">${delta_recovered}</div>
-		 				<div class="delta">${recovered}</div>
+		 				<div class="delta is-recovered">${new_delta_recovered}</div>
+		 				<div class="delta">${new_recovered}</div>
 						
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-deceased">${delta_deceased}</div>
-		 				<div class="delta">${deceased}</div>
+		 				<div class="delta is-deceased">${new_delta_deceased}</div>
+		 				<div class="delta">${new_deceased}</div>
 						
 		 			</div>
 
@@ -402,7 +414,7 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${vaccinated}</div>
+		 			<div class="delta">${new_vaccinated}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -410,7 +422,7 @@ async function getData(){
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${value[9]}</div>
+		 			<div class="delta">${new_vaccine_doese}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -422,7 +434,7 @@ async function getData(){
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta">${population}</div>
+		 			<div class="delta">${new_population}</div>
 		 		</div>
 
 		 		</div>
@@ -449,14 +461,14 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
-					<div value='' class="delta is-recovered">${delta_recovered}</div>
-						<div class="delta">${recovered}</div>
+					<div value='' class="delta is-recovered">${new_delta_recovered}</div>
+						<div class="delta">${new_recovered}</div>
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover ">
-						<div class="delta is-deceased">${delta_deceased}</div>
-						<div class="delta">${deceased}</div>
+						<div class="delta is-deceased">${new_delta_deceased}</div>
+						<div class="delta">${new_deceased}</div>
 						
 					</div>
 					<div class="cell statistic u_color u_hover ">
@@ -468,7 +480,7 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${vaccinated}</div>
+						<div class="delta">${new_vaccinated}</div>
 						
 					</div>
 
@@ -477,7 +489,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${value[9]}</div>
+						<div class="delta">${new_vaccine_doese}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -489,7 +501,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${population}</div>
+						<div class="delta">${new_population}</div>
 					</div>
 
 				</div>
@@ -513,14 +525,14 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-recovered">${delta_recovered}</div>
-		 				<div class="delta">${recovered}</div>
+		 				<div class="delta is-recovered">${new_delta_recovered}</div>
+		 				<div class="delta">${new_recovered}</div>
 						
 		 			</div>
 
 		 			<div class="cell statistic new_class u_hover u_color ">
-		 				<div class="delta is-deceased">${delta_deceased}</div>
-		 				<div class="delta">${deceased}</div>
+		 				<div class="delta is-deceased">${new_delta_deceased}</div>
+		 				<div class="delta">${new_deceased}</div>
 						
 		 			</div>
 
@@ -533,7 +545,7 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${vaccinated}</div>
+		 			<div class="delta">${new_vaccinated}</div>
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -541,7 +553,7 @@ async function getData(){
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${value[9]}</div>
+		 			<div class="delta">${new_vaccine_doese}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -553,7 +565,7 @@ async function getData(){
 		 		</div>
 
 		 		<div class="cell statistic u_hover new_class hide_cell u_color ">
-		 			<div class="delta">${population}</div>
+		 			<div class="delta">${new_population}</div>
 		 		</div>
 
 		 		</div>

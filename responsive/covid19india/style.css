@@ -1030,3 +1030,7 @@ body {
 	    font-size: 12px;
 	}
 }
+
+.is_vaccine {
+	color: #db5581;
+}

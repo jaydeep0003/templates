@@ -46,6 +46,8 @@ async function getData(){
 
 			let vaccine_dose_delta = fully_vaccinated + vaccinated
 
+			let vaccine_dose_delta_2 = total_vaccinated1 + total_vaccinated2
+
 
 
 
@@ -59,11 +61,46 @@ async function getData(){
 			let new_delta_confirmed =  new Intl.NumberFormat().format(delta_confirmed)
 			let new_delta_recovered = new Intl.NumberFormat().format(delta_recovered)
 			let new_delta_deceased = new Intl.NumberFormat().format(delta_deceased)
-			let new_vaccine_doese = new Intl.NumberFormat().format(vaccine_dose)
+			let new_vaccine_doese = new Intl.NumberFormat().format(vaccine_dose_delta)
 			let new_total_vaccinated1 = new Intl.NumberFormat().format(total_vaccinated1)
 			let new_total_vaccinated2 = new Intl.NumberFormat().format(total_vaccinated2)
+			let new_vaccine_dose_delta_2 = new Intl.NumberFormat().format(vaccine_dose_delta_2)
 
 			let tmp = ''
+
+
+
+			// 
+			function numFormatter(num) {
+		    if(num > 999 && num < 10000){
+		        return (num/10000).toFixed(0) + 'K'; // convert to K for number from > 1000 < 1 million 
+		    }else if(num > 100000){
+		        return (num/1000000).toFixed(0) + 'L'; // convert to M for number from > 1 million 
+		    }else if(num > 10000000){
+		    		return (num/10000000).toFixed(0) + 'C';
+		    }else if(num < 900){
+		      return num; // if value < 1000, nothing to do
+		    }
+			}
+			let a = numFormatter(vaccine_dose_delta_2)
+			console.log(a)
+			// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			if(delta_confirmed == undefined || delta_confirmed == '' || delta_confirmed == null || delta_recovered == undefined || delta_recovered == '' || delta_recovered == null || delta_deceased == undefined || delta_deceased == '' || delta_deceased == null){
 
@@ -107,18 +144,19 @@ async function getData(){
 						</div>
 
 						<div class="cell statistic u_color u_hover  hide_cell">
-							<div class="delta">${new_vaccinated}</div>
+							<div class="delta is_vaccine">${new_vaccinated}</div>
 							<div class="delta">${new_total_vaccinated1}</div>
 
 						</div>
 
 						<div class="cell statistic u_color u_hover  hide_cell">
-							<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+							<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 							<div class="delta">${new_total_vaccinated2}</div>
 						</div>
 
 						<div class="cell statistic u_color u_hover  hide_cell">
 							<div class="delta is_vaccine">${new_vaccine_doese}</div>
+							 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 						</div>	
 								
 						<div class="cell statistic u_color u_hover  hide_cell">
@@ -170,18 +208,19 @@ async function getData(){
 			 			</div>
 
 			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-			 				<div class="delta">${new_vaccinated}</div>
+			 				<div class="delta is_vaccine">${new_vaccinated}</div>
 			 				<div class="delta">${new_total_vaccinated1}</div>
 
 			 			</div>
 
 			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-			 				<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+			 				<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 			 				<div class="delta">${new_total_vaccinated2}</div>
 			 			</div>
 
 			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
 			 				<div class="delta is_vaccine">${new_vaccine_doese}</div>
+			 				 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 			 			</div>
 
 			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -235,18 +274,19 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${new_vaccinated}</div>
+						<div class="delta is_vaccine">${new_vaccinated}</div>
 						<div class="delta">${new_total_vaccinated1}</div>
 
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+						<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 						<div class="delta">${new_total_vaccinated2}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
 						<div class="delta is_vaccine">${new_vaccine_doese}</div>
+						 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -298,18 +338,19 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${new_vaccinated}</div>
+		 				<div class="delta is_vaccine">${new_vaccinated}</div>
 		 				<div class="delta">${new_total_vaccinated1}</div>
 
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+		 				<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 		 				<div class="delta">${new_total_vaccinated2}</div>
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
 		 				<div class="delta is_vaccine">${new_vaccine_doese}</div>
+		 				 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -368,19 +409,20 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${new_vaccinated}</div>
+						<div class="delta is_vaccine">${new_vaccinated}</div>
 						<div class="delta">${new_total_vaccinated1}</div>
 
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+						<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 						<div class="delta">${new_total_vaccinated2}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
 						<div class="delta is_vaccine">${new_vaccine_doese}</div>
+						 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -436,18 +478,19 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${new_vaccinated}</div>
+		 			<div class="delta is_vaccine">${new_vaccinated}</div>
 		 			<div class="delta">${new_total_vaccinated1}</div>
 
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+		 			<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 		 			<div class="delta">${new_total_vaccinated2}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
 		 			<div class="delta is_vaccine">${new_vaccine_doese}</div>
+		 			 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -505,19 +548,20 @@ async function getData(){
 						
 					</div>
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${new_vaccinated}</div>
+						<div class="delta  is_vaccine">${new_vaccinated}</div>
 						<div class="delta">${new_total_vaccinated1}</div>
 
 						
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+						<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 						<div class="delta">${new_total_vaccinated2}</div>
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
 						<div class="delta is_vaccine">${new_vaccine_doese}</div>
+						 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 					</div>	
 							
 					<div class="cell statistic u_color u_hover  hide_cell">
@@ -573,18 +617,19 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${new_vaccinated}</div>
+		 			<div class="delta is_vaccine">${new_vaccinated}</div>
 		 			<div class="delta">${new_total_vaccinated1}</div>
 
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+		 			<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
 		 			<div class="delta">${new_total_vaccinated2}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
 		 			<div class="delta is_vaccine">${new_vaccine_doese}</div>
+		 			 <div class="delta ">${new_vaccine_dose_delta_2}</div>
 		 		</div>
 
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">

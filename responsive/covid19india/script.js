@@ -20,7 +20,20 @@ async function getData(){
 
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
-			let other_value = fetch_data[k].delta
+			try {
+				let other_value = fetch_data[k].delta
+							let fully_vaccinated = other_value.vaccinated2
+			let delta_deceased = other_value.deceased
+			let	delta_confirmed =  other_value.confirmed
+			let delta_recovered = other_value.recovered
+			let vaccinated = other_value.vaccinated1
+			let vaccine_dose_delta = fully_vaccinated + vaccinated
+
+			// let vaccine_dose_delta_2 = total_vaccinated1 + total_vaccinated2
+			}
+			catch {
+				let other_value = ''
+			}
 
 			let total_vaccinated1 = value.vaccinated1
 			let total_vaccinated2 = value.vaccinated2
@@ -38,53 +51,60 @@ async function getData(){
 
 			let name = k
 
-			let fully_vaccinated = other_value.vaccinated2
-			let delta_deceased = other_value.deceased
-			let	delta_confirmed =  other_value.confirmed
-			let delta_recovered = other_value.recovered
-			let vaccinated = other_value.vaccinated1
+			// let fully_vaccinated = other_value.vaccinated2
+			// let delta_deceased = other_value.deceased
+			// let	delta_confirmed =  other_value.confirmed
+			// let delta_recovered = other_value.recovered
+			// let vaccinated = other_value.vaccinated1
 
-			let vaccine_dose_delta = fully_vaccinated + vaccinated
+			// let vaccine_dose_delta = fully_vaccinated + vaccinated
 
-			let vaccine_dose_delta_2 = total_vaccinated1 + total_vaccinated2
-
-
+			// let vaccine_dose_delta_2 = total_vaccinated1 + total_vaccinated2
 
 
+
+
+
+			function numFormatter(num) {
+		    if(num > 999 && num < 1000000){
+		        return (num/1000).toFixed(0) + 'K'; // convert to K for number from > 1000 < 1 million 
+		    }else if(num > 1000000){
+		        return (num/1000000).toFixed(0) + 'L'; // convert to M for number from > 1 million 
+		    }else if(num < 900){
+		        return num; // if value < 1000, nothing to do
+		    }
+    }
+			// console.log(a)
+		let new_total_vaccinated1 = numFormatter(total_vaccinated1)		
+		let new_total_vaccinated2 =	numFormatter(total_vaccinated2)		
+		let new_vaccine_dose_delta_2 = numFormatter(vaccine_dose_delta_2)
+		let new_vaccine_doese = numFormatter(vaccine_dose_delta)
+		let new_vaccinated = numFormatter(vaccinated)
+		let new_fully_vaccine = numFormatter(vaccinated)
 			// other = new Intl.NumberFormat().format(other)
 			// confirmed = new Intl.NumberFormat().format(confirmed)
 			tested = new Intl.NumberFormat().format(tested)
 			let new_recovered = new Intl.NumberFormat().format(recovered)
 			let new_deceased = new Intl.NumberFormat().format(deceased)
 			let new_population = new Intl.NumberFormat().format(population)
-			let new_vaccinated = new Intl.NumberFormat().format(vaccinated)
+			// let new_vaccinated = new Intl.NumberFormat().format(vaccinated)
 			let new_delta_confirmed =  new Intl.NumberFormat().format(delta_confirmed)
 			let new_delta_recovered = new Intl.NumberFormat().format(delta_recovered)
 			let new_delta_deceased = new Intl.NumberFormat().format(delta_deceased)
-			let new_vaccine_doese = new Intl.NumberFormat().format(vaccine_dose_delta)
-			let new_total_vaccinated1 = new Intl.NumberFormat().format(total_vaccinated1)
-			let new_total_vaccinated2 = new Intl.NumberFormat().format(total_vaccinated2)
-			let new_vaccine_dose_delta_2 = new Intl.NumberFormat().format(vaccine_dose_delta_2)
+
+			// let new_fully_vaccine =	new Intl.NumberFormat().format(fully_vaccinated)
+			// let new_vaccine_doese = new Intl.NumberFormat().format(vaccine_dose_delta)
+			// let new_total_vaccinated1 = new Intl.NumberFormat().format(total_vaccinated1)
+			// let new_total_vaccinated2 = new Intl.NumberFormat().format(total_vaccinated2)
+			// let new_vaccine_dose_delta_2 = new Intl.NumberFormat().format(vaccine_dose_delta_2)
 
 			let tmp = ''
 
 
 
-			// 
-			function numFormatter(num) {
-		    if(num > 999 && num < 10000){
-		        return (num/10000).toFixed(0) + 'K'; // convert to K for number from > 1000 < 1 million 
-		    }else if(num > 100000){
-		        return (num/1000000).toFixed(0) + 'L'; // convert to M for number from > 1 million 
-		    }else if(num > 10000000){
-		    		return (num/10000000).toFixed(0) + 'C';
-		    }else if(num < 900){
-		      return num; // if value < 1000, nothing to do
-		    }
-			}
-			let a = numFormatter(vaccine_dose_delta_2)
-			console.log(a)
-			// 
+			
+			
+
 
 
 
@@ -150,7 +170,7 @@ async function getData(){
 						</div>
 
 						<div class="cell statistic u_color u_hover  hide_cell">
-							<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+							<div class="delta is_vaccine">${new_fully_vaccine}</div>
 							<div class="delta">${new_total_vaccinated2}</div>
 						</div>
 
@@ -214,7 +234,7 @@ async function getData(){
 			 			</div>
 
 			 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-			 				<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+			 				<div class="delta is_vaccine">${new_fully_vaccine}</div>
 			 				<div class="delta">${new_total_vaccinated2}</div>
 			 			</div>
 
@@ -280,7 +300,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+						<div class="delta is_vaccine">${new_fully_vaccine}</div>
 						<div class="delta">${new_total_vaccinated2}</div>
 					</div>
 
@@ -344,7 +364,7 @@ async function getData(){
 		 			</div>
 
 		 			<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 				<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+		 				<div class="delta is_vaccine">${new_fully_vaccine}</div>
 		 				<div class="delta">${new_total_vaccinated2}</div>
 		 			</div>
 
@@ -416,7 +436,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+						<div class="delta is_vaccine">${new_fully_vaccine}</div>
 						<div class="delta">${new_total_vaccinated2}</div>
 					</div>
 
@@ -484,7 +504,7 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+		 			<div class="delta is_vaccine">${new_fully_vaccine}</div>
 		 			<div class="delta">${new_total_vaccinated2}</div>
 		 		</div>
 
@@ -555,7 +575,7 @@ async function getData(){
 					</div>
 
 					<div class="cell statistic u_color u_hover  hide_cell">
-						<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+						<div class="delta is_vaccine">${new_fully_vaccine}</div>
 						<div class="delta">${new_total_vaccinated2}</div>
 					</div>
 
@@ -623,7 +643,7 @@ async function getData(){
 					
 		 		</div>
 		 		<div class="cell statistic u_hover u_color  new_class hide_cell">
-		 			<div class="delta is_vaccine">${new Intl.NumberFormat().format(fully_vaccinated)}</div>
+		 			<div class="delta is_vaccine">${new_fully_vaccine}</div>
 		 			<div class="delta">${new_total_vaccinated2}</div>
 		 		</div>
 

@@ -11,16 +11,21 @@ async function getData(){
 		let delta_confirmed_total = 0
 		let delta_recovered_total = 0
 		let delta_deceased_total = 0
+		let total_confirmed = 0
 
 
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
+			
+
 			let other_value = fetch_data[k].delta7
 			let meta = fetch_data[k].meta
 
 			let population = meta.population
 
 			let confirmed = value.confirmed
+
+
 			let recovered = value.recovered
 			let deceased = value.deceased
 			let tested = value.tested
@@ -428,18 +433,26 @@ async function getData(){
 
 
 	newdata += store;
+
 	counter = counter + 1;
+
+	total_confirmed = total_confirmed + confirmed;
+
 	delta_confirmed_total = delta_confirmed_total + delta_confirmed
 	delta_recovered_total = delta_recovered_total + delta_recovered
 	delta_deceased_total = delta_deceased_total + delta_deceased
-	console.log(delta_deceased_total)
+	
 	}
+	console.log(total_confirmed)
+	document.getElementById("cell").innerHTML = newdata;
 
 	
 	document.getElementById('recovered').innerHTML = '+' + delta_recovered_total
 	document.getElementById('h4-data').innerHTML = '+' + delta_confirmed_total;
 	// document.getElementById('deceased').innerHTML = '+' + delta_deceased_total;
-	document.getElementById("cell").innerHTML = newdata;
+
+
+	document.getElementById('total-confirmed').innerHTML = '+' + total_confirmed;
 
 	}
 

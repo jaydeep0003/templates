@@ -696,25 +696,38 @@ body {
 	font-size: 12px;
 	font-weight: 600;
 	position: relative;
+	/*height: 228px;*/
 	top: 0;
   	left: 0;
   	right: 0;
   	bottom: 0;
-  	overflow: auto;
   	z-index: 1;
-	/*transition: transform 0.5s ease-in-out;	*/
-	/*transform: translateY(-500px);*/
-	transition: all 0.5s ;
 	overflow-y: hidden;
-	/*display: none;*/
+	
+	
+	/*transform: translateY(-500px);*/
+	transition: all 0.5s forwards;	
+	  /*animation-duration: 4s;*/
+	  animation-fill-mode: ease-in-out;
+	    animation-duration: 0.5s;
+	animation-name: example;
+	display: none;
+
+}
+
+@keyframes example {
+  0%   { top:-50px; opacity: 0;}
+  
+  /*50%  { top:-100px;opacity:0.5;}*/
+  
+  100% { top:0px; opacity: 1;}
 }
 
 .new_fourth_table_icon_details {
 	display: flex;
-	/*transform: translateY(0px);*/
-	/*overflow: hidden;*/
-	/*transform: translate3d(0px, 0px, 0px);*/
+	/*transform: translateY(0px);*/	
 }
+
 
 
 

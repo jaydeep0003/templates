@@ -20,7 +20,17 @@ async function getData(){
 
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
-			let other_value = fetch_data[k].delta7
+			// let other_value = fetch_data[k].delta
+			let other_value = fetch_data[k].delta
+			console.log(other_value)
+
+				if (other_value == undefined) {
+					other_value = ''
+				}
+				else {
+					other_value = fetch_data[k].delta
+
+				}
 
 			let total_vaccinated1 = value.vaccinated1
 			let total_vaccinated2 = value.vaccinated2
@@ -29,6 +39,8 @@ async function getData(){
 			let population = meta.population
 
 			let confirmed = value.confirmed
+			
+
 			let recovered = value.recovered
 
 			let deceased = value.deceased
@@ -43,14 +55,13 @@ async function getData(){
 			let	delta_confirmed =  other_value.confirmed
 			let delta_recovered = other_value.recovered
 			let vaccinated = other_value.vaccinated1
-
 			let vaccine_dose_delta = fully_vaccinated + vaccinated
 			let vaccine_dose_delta_2 = total_vaccinated1 + total_vaccinated2
 
 
 			function numFormatter(num) {
 				
-		    if(num > 999 && num < 1000000){
+		    if(num > 999 && num < 100000){
 		        return (num/1000).toFixed(0) + 'K'; 
 		    }
 
@@ -928,7 +939,7 @@ document.getElementById('detail_id').addEventListener('click', (()=> {
 	var icon_details = document.getElementById('fourth-table-icon-details')
 	var detail_id = document.getElementById('detail_id')
 	// detail_id.classList.toggle('new_detail_id')
-	icon_details.classList.toggle('new_fourth_table_icon_details');
+	icon_details.classList.toggle('new_fourth_table_icon_details')
 
 	var i = 0;
 	function change() {

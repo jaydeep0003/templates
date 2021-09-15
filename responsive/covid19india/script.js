@@ -20,17 +20,12 @@ async function getData(){
 
 		for(let k of Object.keys(fetch_data)){
 			let value = fetch_data[k].total
-			// let other_value = fetch_data[k].delta
 			let other_value = fetch_data[k].delta
-			console.log(other_value)
+				console.log(other_value)
+				
 
-				if (other_value == undefined) {
-					other_value = ''
-				}
-				else {
-					other_value = fetch_data[k].delta
 
-				}
+
 
 			let total_vaccinated1 = value.vaccinated1
 			let total_vaccinated2 = value.vaccinated2

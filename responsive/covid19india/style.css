@@ -695,20 +695,28 @@ body {
 	margin: 1rem 1rem 1rem 1rem;
 	font-size: 12px;
 	font-weight: 600;
-	 
 	position: relative;
-	transform: translateY(0px);
-	transition: transform 0.5s ease-in-out;
-	
+	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+  	overflow: auto;
+  	z-index: 1;
+	/*transition: transform 0.5s ease-in-out;	*/
+	/*transform: translateY(-500px);*/
+	transition: all 0.5s ;
+	overflow-y: hidden;
 	/*display: none;*/
-	
 }
 
 .new_fourth_table_icon_details {
 	display: flex;
-	transform: translateY(100px);
-
+	/*transform: translateY(0px);*/
+	/*overflow: hidden;*/
+	/*transform: translate3d(0px, 0px, 0px);*/
 }
+
+
 
 .tbl_icon_details {
 	display: flex;

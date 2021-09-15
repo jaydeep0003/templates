@@ -310,7 +310,69 @@
 								</div>
 							</div>
 
-							<div class="row" id="cell">
+							<div class="row" id="main-table">
+								
+								<div class="table_row ">
+									<div class="cell fixed dark_mode_cell" id = 'dropdown-menu'> <div class="state_name" id="table-first-value" value=''>${name}</div> 
+								</div>
+
+									<div class="cell statistic u_color u_hover " id="hover-id">
+										<div class="delta is-confirmed" id='id1' >${tmp}</div>
+										<div class="delta" id='id1' >${new Intl.NumberFormat().format(confirmed)}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover ">
+										<div value=''>${recovered}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover ">
+										<div value='' class="delta is-recovered">${tmp}</div>
+										<div class="delta">${new_recovered}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover ">
+										<div class="delta is-deceased">${tmp}</div>
+										<div class="delta">${new_deceased}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover ">
+										<div class="delta is-active">${ot_val}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover  hide_cell">
+										<div class="delta ">${tested}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover  hide_cell">
+										<div class="delta is_vaccine">${new_vaccinated}</div>
+										<div class="delta">${new_total_vaccinated1}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover  hide_cell">
+										<div class="delta is_vaccine">${new_fully_vaccine}</div>
+										<div class="delta">${new_total_vaccinated2}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover  hide_cell">
+										<div class="delta is_vaccine">${new_vaccine_doese}</div>
+										 <div class="delta ">${new_vaccine_dose_delta_2}</div>
+									</div>	
+											
+									<div class="cell statistic u_color u_hover  hide_cell">
+										<div class="delta">${value[10]}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover  hide_cell">
+										<div class="delta">${value[11]}</div>
+									</div>
+
+									<div class="cell statistic u_color u_hover  hide_cell">
+										<div class="delta">${new_population}</div>
+									</div>
+								</div>
+							
+
+
 							</div>	
 						</div>
 					</div>

@@ -927,23 +927,19 @@ function state_click() {
 document.getElementById('detail_id').addEventListener('click', (()=> {
 	var icon_details = document.getElementById('fourth-table-icon-details')
 	var detail_id = document.getElementById('detail_id')
-	detail_id.classList.toggle('new_detail_id')
-
+	// detail_id.classList.toggle('new_detail_id')
 	icon_details.classList.toggle('new_fourth_table_icon_details');
 
-	function change(){
-		let details_effect =  document.getElementById('details-effect');
-
-		var colr = ["blue","green",'red'];
-		let new_color = ''
-		for(var i = 0; i< colr.length; i++){
-			details_effect.style.color = colr[i];
-		}
+	var i = 0;
+	function change() {
+	  let doc =  document.getElementById('details-effect');
+	  var color = ["#007bff", "rgba(32,26,162,.8666666666666667)", "#ff073a", "#28a745", "#6c757d"];
+	  doc.style.color = color[i];
+	  i = (i + 1) % color.length;
 	};
+	setInterval(change, 1500);
 
-setInterval(change, 3000)
-
-}))
+}));
 
 
 

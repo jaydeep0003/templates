@@ -695,11 +695,19 @@ body {
 	margin: 1rem 1rem 1rem 1rem;
 	font-size: 12px;
 	font-weight: 600;
-	display: none;
+	 
+	position: relative;
+	transform: translateY(0px);
+	transition: transform 0.5s ease-in-out;
+	
+	/*display: none;*/
+	
 }
 
 .new_fourth_table_icon_details {
 	display: flex;
+	transform: translateY(100px);
+
 }
 
 .tbl_icon_details {

@@ -1,72 +1,70 @@
+field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"]
+total_of_filed = ["confirmed", "deceased", "recovered", "tested", "vaccinated1", "vaccinated2"]
+
+html_data = "";
 fetch('https://data.covid19india.org/v4/min/data.min.json')
 .then(response => response.json())
 .then(data => {
-  
+
 
     html_element = document.getElementById('main-table');
 
-    html_data = "";
+    for (var [state, state_data] of Object.entries(data)) {
+        let difference = field.filter(x => !Object.keys(state_data).includes(x));
+        state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data) 
+        let  total_difference = total_of_filed.filter(y => !Object.keys(state_data).includes(y));
+        state_data = total_difference.reduce((a, v) => ({...a, [v]: "0"}), state_data)
 
-    for(let key of Object.keys(data)){
-
-      let data_of_delta = data[key].delta;
-      let data_of_meta = data[key].meta;
-      let data_of_total = data[key].total
+        console.log(state, state_data.total)
 
 
-      // console.log(key)
-      if (data_of_delta == undefined ) {
-        data_of_delta = ""
 
-      }
-
-       // console.log(key)
         html_element = `
-          <div class='table_row'  onmouseover='first_hover("${key}")'>
+          <div class='table_row'>
 
             <div class="cell fixed dark_mode_cell" id='row-first-id'>
-              <div class="state_name" id="table-first-value" value=''>${key}</div>
+              <div class="state_name" id="table-first-value" value=''>${state}</div>
             </div>
 
             <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-              <div class="delta is-confirmed">${data_of_delta.confirmed}</div>
+              <div class="delta is-confirmed">${state_data.total.confirmed}</div>
               
             </div>
 
             <div class="cell statistic new_class u_hover u_color ligth_color ">
-              <div>${active}</div>
+              <div>${state_data.total.recovered}</div>
             </div>
 
             <div class="cell statistic new_class u_hover u_color ">
-              <div class="delta is-recovered">${data_of_delta.recovered}</div>
+              <div class="delta is-recovered">${state_data.total.recovered}</div>
              
             </div>
 
             <div class="cell statistic new_class u_hover u_color ">
-              <div class="delta is-deceased">${data_of_delta.deceased}</div>
+              <div class="delta is-deceased">${state_data.total.deceased}</div>
              
             </div>
 
             <div class="cell statistic new_class u_hover u_color ">
-              <div class="delta is-active">${data_of_total.other}</div>
+              <div class="delta is-active">${state_data.total.other}</div>
             </div>
 
             <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta ">${data_of_total.tested}</div>
+              <div class="delta ">${state_data.total.tasted}</div>
             </div>
 
             <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta is_vaccine">${data_of_delta.vaccinated1}</div>
+              <div class="delta is_vaccine"></div>
               
             </div>
 
             <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta is_vaccine">${data_of_delta.vaccinated2}</div>
+              <div class="delta is_vaccine"></div>
             
             </div>
 
             <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta is_vaccine">${data_of_meta.population}</div>
+              <div class="delta is_vaccine"></div>
               
             </div>
 
@@ -75,23 +73,21 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
             </div>
 
             <div class="cell statistic u_hover new_class hide_cell u_color ">
-              <div class="delta">${data_of_meta.population}</div>
+              <div class="delta"></div>
             </div>
 
             <div class="cell statistic u_hover new_class hide_cell u_color ">
-              <div class="delta">${data_of_meta.population}</div>
+              <div class="delta"></div>
             </div>
 
           </div>
         `
-      
-      html_data += html_element;
+
+        html_data += html_element;
+
     }
+    document.getElementById('main-table').innerHTML = html_data;
 
-
-
-
-  document.getElementById('main-table').innerHTML = html_data;
 });
 
 

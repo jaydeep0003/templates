@@ -11,12 +11,15 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     for (var [state, state_data] of Object.entries(data)) {
 
-        // let difference = field.filter(x => !Object.keys(state_data).includes(x));
-        // state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
+        let difference = field.filter(x => !Object.keys(state_data).includes(x));
+        state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
         
-        let diff = filed_item.filter(i => !Object.keys(state_data).includes(i));
-        state_data = diff.reduce((j, d) => ({ ...j, [d]: 0}), state_data)
-        console.log(state,state_data)
+        a = data[state].total
+       console.log(a)
+
+        var diff = filed_item.filter(i => !Object.keys(a).includes(i));
+        a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
+        
 
         html_element = `
           <div class='table_row'>
@@ -45,7 +48,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
             </div>
 
             <div class="cell statistic new_class u_hover u_color ">
-              <div class="delta is-active">${state_data.total.other}</div>
+              <div class="delta is-active">${a.other}</div>
             </div>
 
             <div class="cell statistic u_hover u_color  new_class hide_cell">

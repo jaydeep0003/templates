@@ -12,8 +12,8 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     for (var [state, state_data] of Object.entries(data)) {
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
         state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data)
-        console.log(state_data)
 
+        
 
 
         html_element = `

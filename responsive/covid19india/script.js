@@ -19,12 +19,11 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
         
-        console.log(state,state_data)
+        
         
         if (html_element_counter % 2 == 0) {
-
-    html_element = `
-                      <div class='table_row'>
+            html_element = `
+                      <div class='table_row'  onmouseover='first_hover("${state}")'>
 
                         <div class="cell fixed dark_mode_cell" id='row-first-id'>
                           <div class="state_name" id="table-first-value" value=''>${state}</div>
@@ -86,16 +85,16 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
                       </div>
                     `
-} else {
-    html_element = `
-                    <div class='table_row'>
+        } 
+        else {
+                html_element = `
+                    <div class='table_row'  onmouseover='first_hover("${state}")'>
                       <div class="cell fixed dark_mode_cell" id='row-first-id'>
                         <div class="state_name" id="table-first-value" value=''>${state}</div>
-                    </div>
-                    <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                      
-                      <div class="delta is-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
-                    </div>
+                      </div>
+                      <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
+                        <div class="delta is-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                      </div>
                     <div class="cell statistic new_class u_hover u_color ligth_color ">
                       <div>${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
                     </div>
@@ -136,7 +135,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     </div>
                   </div>
                 `
-}
+        }
 
         html_data += html_element;
         html_element_counter += 1;
@@ -146,14 +145,26 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     document.getElementById('main-table').innerHTML = html_data;
                     
                     // Table Events
+
+    function first_hover(val){
+      console.log(val)
+    };
+
     document.getElementById('right-arrow').addEventListener('click', right_arrow);
-    
-   function right_arrow() {
+
+
+  function right_arrow() {
+
     var right_arrow = document.getElementById('right-arrow');
     var table = document.getElementById('table-container');
     var hide_cell = document.getElementsByClassName('hide_cell');
     var main_hero_section = document.getElementById('hero');
+    var hero_container = document.getElementById('hero-container');
     var state_selection = document.getElementById('state-selection');
+    var searchbox = document.getElementById('searchbox');
+    var panel = document.getElementById('panel');
+    var map_swicher = document.getElementById('map-swicher');
+
 
     if (right_arrow.classList.contains('right_arrow')) {
 
@@ -167,12 +178,23 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         table.classList.remove('table_row');
         table.classList.add('click_table');
 
+        hero_container.classList.remove('hero_container');
+        hero_container.classList.add('hero_new_container');
+
         main_hero_section.classList.remove('hero')
         main_hero_section.classList.add('new_hero');
 
         state_selection.classList.remove('state_selection');
         state_selection.classList.add('state_new_selection');
 
+        searchbox.classList.remove('searchbox');
+        searchbox.classList.add('searchbox_new');
+
+        panel.classList.remove('action_panel');
+        panel.classList.add('action_new_panel');
+
+        map_swicher.classList.remove('map_switcher');
+        map_swicher.classList.add('map_new_switcher');
 
     } else {
         right_arrow.classList.remove('new_right_arrow');
@@ -185,11 +207,24 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         table.classList.remove('click_table');
         table.classList.add('table_row');
 
+
+        hero_container.classList.add('hero_container');
+        hero_container.classList.remove('hero_new_container');
+
         main_hero_section.classList.remove('new_hero');
         main_hero_section.classList.add('hero')
 
         state_selection.classList.add('state_selection');
         state_selection.classList.remove('state_new_selection');
+
+        searchbox.classList.ad('searchbox');
+        searchbox.classList.remove('searchbox_new');
+
+        panel.classList.add('action_panel');
+        panel.classList.remove('action_new_panel');
+
+        map_swicher.classList.add('map_switcher');
+        map_swicher.classList.remove('map_new_switcher');
 
     }
 
@@ -198,9 +233,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
   // Click to Dark mode on Body
 
   document.getElementById('themes').addEventListener('click', () => {
-
     document.body.classList.toggle('dark_mode')
-
 
     if (document.body.classList.contains('dark_mode')) {
 
@@ -209,7 +242,9 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
         stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21
         12.79z"></path></svg>`
-    } else {
+    }
+
+     else {
 
         document.getElementById('themes').innerHTML = `<svg 
         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -245,23 +280,5 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     setInterval(change, 1500);
 
-}));
-
-
-
-
-
-
-
-
-
-
-
-
-
-// place Holder
-
-
-
-
+  }));
 });

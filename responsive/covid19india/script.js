@@ -20,124 +20,123 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
         
         console.log(state,state_data)
+        
         if (html_element_counter % 2 == 0) {
 
-            html_element = `
-              <div class='table_row'>
+    html_element = `
+                      <div class='table_row'>
 
-                <div class="cell fixed dark_mode_cell" id='row-first-id'>
-                  <div class="state_name" id="table-first-value" value=''>${state}</div>
-                </div>
+                        <div class="cell fixed dark_mode_cell" id='row-first-id'>
+                          <div class="state_name" id="table-first-value" value=''>${state}</div>
+                        </div>
 
-                <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                  <div class="delta is-confirmed">${state_data.total.confirmed}</div>
-                  
-                </div>
+                        <div class="cell statistic u_hover u_color " id="hover-id">
+                          <div class="delta is-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                          
+                        </div>
 
-                <div class="cell statistic new_class u_hover u_color ligth_color ">
-                  <div>${state_data.total.recovered}</div>
-                </div>
+                        <div class="cell statistic u_hover u_color  ">
+                          <div>${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                        </div>
 
-                <div class="cell statistic new_class u_hover u_color ">
-                  <div class="delta is-recovered">${state_data.total.recovered}</div>
-                 
-                </div>
+                        <div class="cell statistic u_hover u_color ">
+                          <div class="delta is-recovered">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                         
+                        </div>
 
-                <div class="cell statistic new_class u_hover u_color ">
-                  <div class="delta is-deceased">${state_data.total.deceased}</div>
-                 
-                </div>
+                        <div class="cell statistic u_hover u_color ">
+                          <div class="delta is-deceased">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
+                         
+                        </div>
 
-                <div class="cell statistic new_class u_hover u_color ">
-                  <div class="delta is-active">${a.other}</div>
-                </div>
+                        <div class="cell statistic u_hover u_color ">
+                          <div class="delta is-active">${new Intl.NumberFormat().format(a.other)}</div>
+                        </div>
 
-                <div class="cell statistic u_hover u_color  new_class hide_cell">
-                  <div class="delta ">${state_data.total.tested}</div>
-                </div>
+                        <div class="cell statistic u_hover u_color  hide_cell">
+                          <div class="delta ">${new Intl.NumberFormat().format(state_data.total.tested)}</div>
+                        </div>
 
-                <div class="cell statistic u_hover u_color  new_class hide_cell">
-                  <div class="delta is_vaccine">${state_data.total.vaccinated1}</div>
-                  
-                </div>
+                        <div class="cell statistic u_hover u_color  hide_cell">
+                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
+                          
+                        </div>
 
-                <div class="cell statistic u_hover u_color  new_class hide_cell">
-                  <div class="delta is_vaccine">${state_data.total.vaccinated2}</div>
-                
-                </div>
+                        <div class="cell statistic u_hover u_color  hide_cell">
+                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
+                        
+                        </div>
 
-                <div class="cell statistic u_hover u_color  new_class hide_cell">
-                  <div class="delta is_vaccine">${state_data.total.vaccinated1 + state_data.total.vaccinated2}</div>
-                  
-                </div>
+                        <div class="cell statistic u_hover u_color  hide_cell">
+                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1 + state_data.total.vaccinated2)}</div>
+                          
+                        </div>
 
-                <div class="cell statistic u_hover u_color  new_class hide_cell">
-               
-                </div>
+                        <div class="cell statistic u_hover u_color  hide_cell">
+                       
+                        </div>
 
-                <div class="cell statistic u_hover new_class hide_cell u_color ">
-                  <div class="delta"></div>
-                </div>
+                        <div class="cell statistic u_hover hide_cell u_color ">
+                          <div class="delta"></div>
+                        </div>
 
-                <div class="cell statistic u_hover new_class hide_cell u_color ">
-                  <div class="delta">${state_data.meta.population}</div>
-                </div>
+                        <div class="cell statistic u_hover hide_cell u_color ">
+                          <div class="delta">${new Intl.NumberFormat().format(state_data.meta.population)}</div>
+                        </div>
 
-              </div>
-            `
-          }
-          else
-          {
-            store = `
-            <div class='table_row'>
-              <div class="cell fixed dark_mode_cell" id='row-first-id'>
-                <div class="state_name" id="table-first-value" value=''>${state}</div>
-            </div>
-            <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-              
-              <div class="delta is-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
-            </div>
-            <div class="cell statistic new_class u_hover u_color ligth_color ">
-              <div>${state_data.total.recovered}</div>
-            </div>
-            <div class="cell statistic new_class u_hover u_color ">
-              <div class="delta is-recovered">${state_data.total.recovered}</div>
-            </div>
+                      </div>
+                    `
+} else {
+    html_element = `
+                    <div class='table_row'>
+                      <div class="cell fixed dark_mode_cell" id='row-first-id'>
+                        <div class="state_name" id="table-first-value" value=''>${state}</div>
+                    </div>
+                    <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
+                      
+                      <div class="delta is-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                    </div>
+                    <div class="cell statistic new_class u_hover u_color ligth_color ">
+                      <div>${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                    </div>
+                    <div class="cell statistic new_class u_hover u_color ">
+                      <div class="delta is-recovered">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                    </div>
 
-            <div class="cell statistic new_class u_hover u_color ">
-              <div class="delta is-deceased">${state_data.total.deceased}</div>
-            
-            </div>
-            <div class="cell statistic new_class u_hover u_color ">
-              <div class="delta is-active">${a.other}</div>
-            </div>
-            <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta ">${state_data.total.tested}</div>
-            </div>
-            <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta is_vaccine">${state_data.total.vaccinated1}</div>
-              
-            </div>
-            <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta is_vaccine">${state_data.total.vaccinated2}</div>
-              
-            </div>
-            <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta is_vaccine">${state_data.total.vaccinated1 + state_data.total.vaccinated2}</div>
-               
-            </div>
-            <div class="cell statistic u_hover u_color  new_class hide_cell">
-              <div class="delta"></div>
-            </div>
-            <div class="cell statistic u_hover new_class hide_cell u_color ">
-              <div class="delta"></div>
-            </div>
-            <div class="cell statistic u_hover new_class hide_cell u_color ">
-              <div class="delta">${state_data.meta.population}</div>
-            </div>
-          </div>
-        ` 
-          }
+                    <div class="cell statistic new_class u_hover u_color ">
+                      <div class="delta is-deceased">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
+                    
+                    </div>
+                    <div class="cell statistic new_class u_hover u_color ">
+                      <div class="delta is-active">${new Intl.NumberFormat().format(a.other)}</div>
+                    </div>
+                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+                      <div class="delta ">${new Intl.NumberFormat().format(state_data.total.tested)}</div>
+                    </div>
+                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
+                      
+                    </div>
+                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
+                      
+                    </div>
+                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1 + state_data.total.vaccinated2)}</div>
+                       
+                    </div>
+                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+                      <div class="delta"></div>
+                    </div>
+                    <div class="cell statistic u_hover new_class hide_cell u_color ">
+                      <div class="delta"></div>
+                    </div>
+                    <div class="cell statistic u_hover new_class hide_cell u_color ">
+                      <div class="delta">${new Intl.NumberFormat().format(state_data.meta.population)}</div>
+                    </div>
+                  </div>
+                `
+}
 
         html_data += html_element;
         html_element_counter += 1;

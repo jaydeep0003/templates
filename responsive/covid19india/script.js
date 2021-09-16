@@ -1,5 +1,5 @@
 field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"]
-total_of_filed = ["confirmed", "deceased", "recovered", "tested", "vaccinated1", "vaccinated2"]
+filed_item = ["other"]
 
 html_data = "";
 fetch('https://data.covid19india.org/v4/min/data.min.json')
@@ -10,11 +10,13 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     html_element = document.getElementById('main-table');
 
     for (var [state, state_data] of Object.entries(data)) {
-        let difference = field.filter(x => !Object.keys(state_data).includes(x));
-        state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data)
 
+        // let difference = field.filter(x => !Object.keys(state_data).includes(x));
+        // state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
         
-
+        let diff = filed_item.filter(i => !Object.keys(state_data).includes(i));
+        state_data = diff.reduce((j, d) => ({ ...j, [d]: 0}), state_data)
+        console.log(state,state_data)
 
         html_element = `
           <div class='table_row'>

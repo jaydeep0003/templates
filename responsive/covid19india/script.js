@@ -147,12 +147,14 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     
                     // Table Events
     document.getElementById('right-arrow').addEventListener('click', right_arrow);
-
+    
    function right_arrow() {
     var right_arrow = document.getElementById('right-arrow');
     var table = document.getElementById('table-container');
     var hide_cell = document.getElementsByClassName('hide_cell');
     var main_hero_section = document.getElementById('hero');
+    var state_selection = document.getElementById('state-selection');
+
     if (right_arrow.classList.contains('right_arrow')) {
 
         right_arrow.classList.remove('right_arrow');
@@ -167,6 +169,9 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
         main_hero_section.classList.remove('hero')
         main_hero_section.classList.add('new_hero');
+
+        state_selection.classList.remove('state_selection');
+        state_selection.classList.add('state_new_selection');
 
 
     } else {
@@ -183,6 +188,80 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         main_hero_section.classList.remove('new_hero');
         main_hero_section.classList.add('hero')
 
+        state_selection.classList.add('state_selection');
+        state_selection.classList.remove('state_new_selection');
+
     }
 
   }
+
+  // Click to Dark mode on Body
+
+  document.getElementById('themes').addEventListener('click', () => {
+
+    document.body.classList.toggle('dark_mode')
+
+
+    if (document.body.classList.contains('dark_mode')) {
+
+        document.getElementById('themes').innerHTML = `<svg
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21
+        12.79z"></path></svg>`
+    } else {
+
+        document.getElementById('themes').innerHTML = `<svg 
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12"
+        y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36"
+        y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12"
+        x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64"
+        x2="19.78" y2="4.22"></line></svg>`
+
+    }
+
+  });
+
+
+
+  // icon Details
+
+  document.getElementById('detail_id').addEventListener('click', (()=> {
+    var icon_details = document.getElementById('fourth-table-icon-details')
+    var detail_id = document.getElementById('detail_id')
+    detail_id.classList.toggle('new_detail_id')
+    icon_details.classList.toggle('new_fourth_table_icon_details');
+
+    var i = 0;
+
+    function change() {
+      let doc =  document.getElementById('details-effect');
+      var color = ["#007bff", "rgba(32,26,162,.8666666666666667)", "#ff073a", "#28a745", "#6c757d"];
+      doc.style.color = color[i];
+      i = (i + 1) % color.length;
+    };
+
+    setInterval(change, 1500);
+
+}));
+
+
+
+
+
+
+
+
+
+
+
+
+
+// place Holder
+
+
+
+
+});

@@ -634,7 +634,7 @@ body {
 	display: block;
 }
 
-#table-row:hover .u_color{
+.table_row:hover .u_color{
 	/*background: #2d2d3f;*/
 	background: var(--table-hover-color);
 	cursor: pointer;

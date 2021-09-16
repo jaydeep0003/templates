@@ -14,13 +14,11 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
         state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
         
-        a = data[state].total
-       console.log(a)
-
+        var a = data[state].total
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
-        a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
+        var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
         
-
+        
         html_element = `
           <div class='table_row'>
 
@@ -88,7 +86,41 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         html_data += html_element;
 
     }
+
     document.getElementById('main-table').innerHTML = html_data;
+                    
+                    // Table Event
+    document.getElementById('right-arrow').addEventListener('click', right_arrow);
+
+    function right_arrow()
+    {
+      var right_arrow = document.getElementById('right-arrow');
+      var table = document.getElementById('table-container');
+      var hide_cell = document.getElementsByClassName('hide_cell')
+      if (right_arrow.classList.contains('right_arrow')) {
+
+            right_arrow.classList.remove('right_arrow');
+            right_arrow.classList.add('new_right_arrow');
+
+            table.classList.remove('table_row');
+            table.classList.add('click_table');
+
+            for(var i of hide_cell){
+                  i.classList.add('show')
+            }
+
+      }
+      else
+      {
+        right_arrow.classList.remove('new_right_arrow');
+        right_arrow.classList.add('right_arrow');
+
+        table.classList.remove('click_table')
+        table.classList.add('table_row')
+      }
+
+
+    }
 
 });
 

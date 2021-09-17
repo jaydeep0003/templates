@@ -284,10 +284,35 @@ color: #359756;
 	right: auto;
 	background: #359756;
 	color: white;
+}
 
-
+.bg_images {
+	width: 784px;
+	height: 588px;
+	margin: 60px 0 0 123px; 
+		/*position: absolute;	*/
 
 }
+
+.bg_image_tag {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	display: block;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+
+.hero_title_text {
+	background: white;
+	color: #111111;
+	width: 556px;
+	margin: -153px 0 0 auto;
+}
+
+
+
 
 
 

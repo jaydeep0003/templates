@@ -179,6 +179,12 @@ main.hero {
 	display: flex;
 }
 
+.hosting_carts {
+	display: grid;
+	grid-template-columns: repeat(2, 19rem);
+	grid-gap: 1rem;
+}
+
 .hosting_title p {
 	font-size: 1.5rem;
 	font-style: normal;
@@ -244,3 +250,25 @@ color: #359756;
 	margin: 1rem auto;
 	color: black;
 }
+
+
+/*.first_cart {
+	height: 28rem;
+}*/
+
+.u_cart_size {
+	height: 24rem;
+}
+
+.cart_list_child {
+	/*margin-top: -4rem;
+	height: 28rem;*/
+}
+
+.cart_btn {
+    margin: 2rem 0 0 0;
+}
+
+/*.size {
+	height: 24rem;
+}*/

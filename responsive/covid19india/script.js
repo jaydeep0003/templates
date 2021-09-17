@@ -7,6 +7,9 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 .then(response => response.json())
 .then(data => {
 
+function first_hover(val){
+      document.getElementById('select').value = val;
+    }
 
     html_element = document.getElementById('main-table');
 
@@ -146,9 +149,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     
                     // Table Events
 
-    function first_hover(val){
-      console.log(val)
-    };
+    
 
     document.getElementById('right-arrow').addEventListener('click', right_arrow);
 

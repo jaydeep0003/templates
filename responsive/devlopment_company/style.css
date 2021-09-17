@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 *{
 	margin: 0;
 	padding: 0;
@@ -7,6 +9,144 @@
 body {
 	height: 100vh;
 	width: 100%;
-	font-size: 1rem;
+	font-size: 14px;
+	background: #fff;
+	color: #333;
 	line-height: 1.6;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.navigation_bar {
+	display: flex;
+	margin: 2rem 7rem;
+	justify-content: space-between;
+}
+
+
+.social_icons {
+	display: flex;
+
+}
+
+.icons {
+	height: 1.5rem;
+	width: 1.5rem;
+	margin-left: .9rem;
+}
+
+
+.u-icon-1 {
+    color: rgb(59, 89, 152);
+    cursor: pointer;
+}
+
+.u-icon-2 {
+    color: rgb(85, 172, 238);
+    cursor: pointer;
+}
+
+.u-icon-3 {
+    color: rgb(197, 54, 164);
+    cursor: pointer;
+}
+
+
+.u-social-icons .u-icon {
+    height: 100% ;
+}
+
+
+svg:not(:root) {
+    overflow: hidden;
+}
+.u-svg-link {
+
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+
+}
+
+.header_section_container {
+	display: flex;
+	justify-content: space-between;
+	margin: 5rem 7rem;
+}
+
+.header_title {
+	padding-right: 3rem;
+}
+
+.header_title h1 {
+	color: #359756;
+	font-style: normal;
+	font-size: 3.75rem;
+	font-weight: 700;
+}
+
+.header_image {
+	width: 501px;
+	height: 595px;
+}
+
+.header_image_tag {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+	background-size: contain;
+}
+
+.u_container_size {
+
+    flex: 0 0 50%;
+    max-width: 50%;
+    min-width: 50%;
+
+}
+
+
+.u_container_size p{
+	margin: 1.4rem 0;
+}
+
+.u_container_size p span {
+	border-bottom: 1px solid red;
+}
+
+.header_btn {
+	display: flex;
+	margin-top: 3rem;
+}
+
+.header_btn a {
+	text-decoration: none;
+	color: black;
+}
+
+.header_btn a {
+	padding: 17px 18px;
+	background: #359756;
+	color: white;
+	border-radius: 10px;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.watch_video_btn {
+	margin-left: 2rem;
+}
+
+.watch_video_btn a{
+	background-color: #d9d9d9;
+	    color: #333333 ;
+}
+
+.header_btn a svg {
+	fill: white;
+}
+
+.watch_video_btn a svg {
+	fill: black;
+	color: black;
 }

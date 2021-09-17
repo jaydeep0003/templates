@@ -82,6 +82,8 @@ svg:not(:root) {
 	font-style: normal;
 	font-size: 3.75rem;
 	font-weight: 700;
+	line-height: 1;
+	margin-top: 3.5rem;
 }
 
 .header_image {
@@ -97,13 +99,10 @@ svg:not(:root) {
 }
 
 .u_container_size {
-
     flex: 0 0 50%;
     max-width: 50%;
     min-width: 50%;
-
 }
-
 
 .u_container_size p{
 	margin: 1.4rem 0;
@@ -138,7 +137,7 @@ svg:not(:root) {
 }
 
 .watch_video_btn a{
-	background-color: #d9d9d9;
+	background-color:#e5e5e5;
 	    color: #333333 ;
 }
 
@@ -148,5 +147,100 @@ svg:not(:root) {
 
 .watch_video_btn a svg {
 	fill: black;
+	color: black;
+}
+
+.upload_btn a:hover {
+	background: black;
+}
+
+.watch_video_btn a:hover{
+	background: #d9d9d9;
+}
+
+.header_title {
+	padding: 30px 60px 30px 50px;
+}
+
+
+/*hero -- section*/
+
+main.hero {
+	background: #f2f2f2;
+	color: #111111;
+}
+
+.hero_container {
+	margin: 0 7rem;
+}
+
+.hosting_container {
+	padding-top: 3rem;
+	display: flex;
+}
+
+.hosting_title p {
+	font-size: 1.5rem;
+	font-style: normal;
+	margin: 31px 0 0;
+}
+
+.read_more_btn a {
+	padding: 0.97rem 2.7rem;
+}
+
+.first_cart {
+	background: #fff;
+	display: flex;	
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	padding: 30px;	
+	border-radius: 10px;
+}
+
+.cart_icon {
+	background: #baefcc;
+	height: 78px;
+	width: 78px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.first_cart svg {
+	fill: #359756;
+	height: 3rem;
+}
+
+.cart_btn {
+	margin: 2rem 0;
+}
+
+.cart_btn a {
+	border-radius: 25px;
+	padding: 7px 24px;
+}
+
+
+.first_cart h3 {
+letter-spacing: normal;
+font-size: 1.875rem;
+margin: 25px auto 0;
+color: #359756;
+
+}
+
+.first_cart p {
+	color: #555c66;
+	font-style: italic;
+	margin: 17px 0 0;
+}
+
+.more {
+	text-decoration: none;
+	border-bottom: 3px solid #359756;
+	margin: 1rem auto;
 	color: black;
 }

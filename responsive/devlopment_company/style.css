@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 *{
 	margin: 0;
@@ -14,6 +15,10 @@ body {
 	color: #333;
 	line-height: 1.6;
 	font-family: 'Montserrat', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Roboto', sans-serif;
 }
 
 .navigation_bar {
@@ -273,6 +278,7 @@ color: #359756;
 .hero_title_container {
 	margin-top: 3rem;
 	position: relative;
+	padding-bottom: 5rem;
 }
 
 .hero_title_container > *  {
@@ -344,6 +350,7 @@ color: #359756;
 
 .hero_text_btn {
 	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 .hero_text_btn a {
@@ -368,14 +375,126 @@ text-decoration: none;
 	margin-left: -40rem;
 }
 
+.clints_container {
+	margin-top: 3rem;
+	margin: 3rem 7rem;
+}
+
+.clints_container h6 {
+	text-align: center;
+	letter-spacing: 2px;
+	font-size: 1.125rem;
+	font-weight: 400;
+}
+
+.clints_container h1 {
+	font-size: 3.75rem;
+	font-style: normal;
+	font-weight: 700;
+	margin: 20px auto 0;
+	color: #359736;
+	text-align: center;
+}
+
+.clints_container .client_title_text{
+	font-size: 1.16rem;
+	width: 711px;
+	margin: 30px auto 30px;
+}
 
 
+.first_clint {
+	background: #f2f2f2;
+	padding: 30px 25px;
+	border-radius: 1rem;
+}
+
+.clint_image {
+	background-image: url('images/w.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	object-fit: cover;
+	width: 133px;
+	height: 133px;
+	border: 5px solid #ffffff;
+	border-radius: 50%;
+	margin: auto;	
+}
+
+.clints_details p{
+	font-size: 1.0625rem;
+	line-height: 2;
+	margin: 20px 0 0;
+	text-align: center;
+}
+
+.clints_details h5 {
+	text-transform: none;
+	letter-spacing: normal;
+	font-weight: 700;
+	font-size: 1.25rem;
+	margin: 40px auto 0;
+	color: #359736;
+	text-align: center;
+}
+
+.clints_details h6 {
+	font-weight: 400;
+	font-size: 1.125rem;
+	line-height: 1.2;
+}
+
+.clints_details {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 1rem;
+}
+
+/*purchase*/
+
+.purchase {
+	background: #f2f2f2;
+}
+
+.purchase_container {
+	margin: 3rem 7rem;
+	padding-top: 5rem;
+}
+
+.purchase_container .unlimited svg{
+	width: 1rem;
+	height: 1rem;
+	color: #359756;
+	fill: #359756;
+}
+
+.purchase_text {
+	display: flex;
+	
+}
+
+.purchase_container h1 {
+	    font-style: normal;
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin: 60px auto 0 0;
+    color: #359756;
+}
 
 
+.purchase_text p {
+margin-top: 0;
+font-size: 1.5rem;
+margin-bottom: 0;
+width: 38rem;
+}
 
 
+.unlimited {
+	margin: 0 3rem;
+}
 
-
-
-
-
+.unlimited div {
+	margin-bottom: .7rem;
+}

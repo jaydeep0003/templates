@@ -181,9 +181,24 @@ main.hero {
 
 .hosting_carts {
 	display: grid;
-	grid-template-columns: repeat(2, 19rem);
-	grid-gap: 1rem;
+	grid-template-columns: repeat(2, 1fr);	
+	grid-column-gap: 1rem;
+	grid-row-gap: 2rem;
 }
+
+/*.first_hosting {
+	display: flex;
+	flex-direction: column;
+}
+
+.second_hosting {
+	display: flex;
+	flex-direction: column;
+}
+*/
+
+
+
 
 .hosting_title p {
 	font-size: 1.5rem;
@@ -221,7 +236,7 @@ main.hero {
 }
 
 .cart_btn {
-	margin: 2rem 0;
+	margin: 2rem 0 0 0;
 }
 
 .cart_btn a {
@@ -251,24 +266,39 @@ color: #359756;
 	color: black;
 }
 
-
-/*.first_cart {
-	height: 28rem;
-}*/
-
 .u_cart_size {
 	height: 24rem;
 }
 
-.cart_list_child {
-	/*margin-top: -4rem;
-	height: 28rem;*/
+.hero_title_container {
+	margin-top: 3rem;
+	position: relative;
 }
 
-.cart_btn {
-    margin: 2rem 0 0 0;
+.bg_color {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 468px;
+	left: 202px;
+	right: auto;
+	background: #359756;
+	color: white;
+
+
+
 }
 
-/*.size {
-	height: 24rem;
-}*/
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -472,11 +472,9 @@ text-decoration: none;
 
 .purchase_text {
 	display: flex;
-	
 }
 
 .purchase_container h1 {
-	    font-style: normal;
     font-size: 3.75rem;
     font-weight: 700;
     margin: 60px auto 0 0;
@@ -485,10 +483,10 @@ text-decoration: none;
 
 
 .purchase_text p {
-margin-top: 0;
-font-size: 1.5rem;
-margin-bottom: 0;
-width: 38rem;
+	margin-top: 0;
+	font-size: 1.5rem;
+	margin-bottom: 0;
+	width: 38rem;
 }
 
 
@@ -528,11 +526,10 @@ width: 38rem;
 .purchase_plans h1 {
 	color: #baefcc;
 	letter-spacing: 1px;
-font-weight: 700;
-font-size: 3.75rem;
-line-height: 1;
-margin: 40px auto 0 0;
-
+	font-weight: 700;
+	font-size: 3.75rem;
+	line-height: 1;
+	margin: 40px auto 0 0;
 }
 
 .plan_btn a {
@@ -575,13 +572,14 @@ margin: 40px auto 0 0;
 .statice_container {
 	margin: 0 7rem;
 	position: relative;
+	padding-bottom: 17rem;
 }
 
 .statice_bg_colro {
-width: 764px;
-height: 280px;
-margin: 120px auto 0 0;
-background: #359756;
+	width: 764px;
+	height: 280px;
+	margin: 120px auto 0 0;
+	background: #359756;
 
 }
 
@@ -601,16 +599,17 @@ background: #359756;
 .static_title {
 	padding: 30px 50px;
 	background: #f2f2f2;
+	border-radius: 15px;
 }
 
 .static_title h1 {
 	font-style: normal;
-font-size: 3.75rem;
-font-weight: 700;
-margin: 0;
-margin-top: 3rem;
-color: #359756;
-line-height: 1.1;
+	font-size: 3.75rem;
+	font-weight: 700;
+	margin: 0;
+	margin-top: 3rem;
+	color: #359756;
+	line-height: 1.1;
 }
 
 .statice_btn {
@@ -619,13 +618,13 @@ line-height: 1.1;
 
 .statice_btn a {
 	padding: 17px 18px;
-background: #359756;
-color: white;
-border-radius: 10px;
-font-size: 15px;
-font-weight: 700;
-letter-spacing: 1px;
-text-decoration: none;
+	background: #359756;
+	color: white;
+	border-radius: 10px;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-decoration: none;
 }
 
 .statice_btn a:hover {

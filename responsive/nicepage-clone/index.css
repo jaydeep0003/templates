@@ -16,13 +16,14 @@ body {
 
 
 .header {
-	background-image: url('images/bg2.jpg');
+	/*background-image: url('images/bg2.jpg');*/
 	/*background-attachment: fixed;*/
 	background-position: 50% 50%;
 	overflow: visible;
 	object-fit: cover;
 	background-size: cover;
 	background-repeat: no-repeat;
+	position: relative;
 }
 
 .header_container {
@@ -32,14 +33,14 @@ body {
 .header_bg_gradient {
 	width: 38.3125rem;
 	background-image:linear-gradient(#306ed5, #b23c8a) ;
-	height: 49.375rem;
-    margin: 30px auto 0 -43px;
+	height: 62.375rem;
+    margin: 0px auto 0 -43px;
 }
 
 .header .themes {
 	background: #0f2557;
 	color: #fff;
-	min-height: 571px;
+	min-height: 743px;
 	background-image: none;
 	box-shadow: 11px 11px 40px 0 rgba(0,0,0,0.35);
 	width: 972px;
@@ -90,4 +91,37 @@ body {
 	text-transform: uppercase;
 	font-family: 'Montserrat', sans-serif;
 	border-radius: 5px;
+}
+
+.os_icons_container .u_icon_width {
+	background: #4184f4;
+	color: white;
+	fill: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	min-height: 203px;
+	min-width: 203px;
+	align-self: center;
+}
+
+.os_icons_container .u_icon_width svg {
+	height: 64px;
+	width: 64px;
+}
+
+.os_icons_container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+}
+.os_icons_container .u-icon {
+	opacity: .6;
+}
+
+.os_icons {
+	position: absolute;
+	top: 5rem;
+
 }

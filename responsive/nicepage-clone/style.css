@@ -327,3 +327,21 @@ background: #f15048;
 .web_btn a:hover{
 	background-color: #ef342b;
 }
+
+.more_need_container {
+	width: 1139px;
+	margin: 0 auto;
+}
+
+.u-svg-content {
+    height: 65px;
+    width: 65px;
+    fill: white;
+}
+
+.u_inside_up {
+	background-color: #4184f4;
+	color: white;
+	width: 233px;
+	height: 247px;
+}

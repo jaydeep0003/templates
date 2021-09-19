@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 * {
 	margin: 0;
 	padding: 0;
@@ -13,6 +14,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .header {
 	background-image: url(images/bg2.jpg);
 	object-fit: cover;
@@ -21,10 +26,11 @@ body {
 	background-attachment: fixed;
 	background-size: cover;
 	background-repeat: no-repeat;
+	position: relative;
 }
 
 .header_container {
-	padding-top: 3rem;
+	padding-top: 4rem;
 }
 
 .os_icons_container .u_icon_width svg {
@@ -38,3 +44,90 @@ body {
 	height: 790px;
 	margin-left: 5rem;
 }
+
+.themes {
+	background: #0f2557;
+	color: #fff;
+	background-image: none;
+	box-shadow: 11px 11px 40px 0 rgba(0,0,0,0.35);
+	position: absolute;
+	top: 8rem;
+	left: 8rem;
+	padding-left: 90px;
+	padding-right: 84px;
+	width: 972px;
+}
+
+.header_theme_img {
+	position: absolute;
+	left: -10rem;
+	top: -8rem;
+}
+
+.baes2_img {
+	width: 263px;
+	height: 172px;
+}
+
+.themes_container h3 {
+	font-weight: 300;
+	font-size: 1.5rem;
+	margin-top: 64px;
+}
+
+.themes_container h1 {
+	font-size: 3.75rem;
+	line-height: 1.2;
+	margin-top: 20px;
+}
+
+.themes_container p {
+	font-size: 1.5rem;
+	font-weight: 300;
+	margin-top: 20px;
+}
+
+.themes_download_btn {
+	margin: 33px auto 55px;
+	/*margin-left: auto;*/
+	display: flex;
+	justify-content: center;
+}
+
+.themes_download_btn a {
+	padding: 15px 56px 16px;
+	font-size: 1rem;
+	text-transform: uppercase;
+	font-family: Montserrat,sans-serif;
+	letter-spacing: 2px;
+	font-weight: 700;
+	background-color: #f15048;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+	text-decoration: none;
+	text-align: center;
+
+}
+
+.themes_download_btn a:hover {
+	background-color: #ef342b;
+}
+
+.os_icons_container {
+	display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

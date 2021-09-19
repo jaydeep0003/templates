@@ -41,7 +41,7 @@ h1,h2,h3,h4,h5,h6 {
 .header_bg_gradient {
 	background-image:linear-gradient(#306ed5, #b23c8a) ;
 	width: 613px;
-	height: 790px;
+	height: 806px;
 	margin-left: 5rem;
 }
 
@@ -136,13 +136,85 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+.os_icons {
+	position: relative;
+	top: -5rem;
+	margin-left: 12rem;
+}
+
+.main_web_design_image {
+	background-image: url('images/boxblue.png');
+	width: 240px;
+	box-shadow: -10px 9px 30px 0 rgba(0,0,0,0.3);
+	text-align: center;
+	color: #fff;
+}
+
+.main_web_design_image h5 {
+	font-weight: 700;
+	font-size: 1.5rem;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+
+}
+
+.main_web_design_image h2 {
+	font-size: 10rem;
+	line-height: 1;
+	letter-spacing: -5px;
+	font-weight: 700;
+}
+
+.main_web_design_circule {
+background: #f15048;
+	border-radius: 50%;
+	width: 51px;
+	height: 49px;
+	/*position: relative;*/
+	/*top: 1rem;*/
+	margin-left: 5rem;
+	position: relative;
+	top: -5rem;
+}
 
 
+.main_web_design {
+	position: absolute;
+	top: -3rem;
+	left: 55rem;
+}
+
+.video_blog {
+	 background-image: linear-gradient(90deg, #fff 50%, #f2f2f2 50%);
+	 height: 100%;
+	 width: 100%;
+}
+
+.video_container {
+	/*display: flex;*/
+}
 
 
+.second_vd_bg_color {
+	width: 710px;
+	height: 439px;
+	background-image: linear-gradient(#306ed5, #4184f4);
+	box-shadow: 0 0 31px 0 rgba(0,0,0,0.3);
+	/*margin: 188px calc(((100% - 1140px) / 2) + -61px) 0 auto;*/
+	margin-left: 10rem;
+}
 
 
+.video_container {
+	/*padding-top: 5rem;*/
+	margin-top: 5rem;
+}
 
 
+.first_vd_blog h2 {
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 1.2;
+}
 
 

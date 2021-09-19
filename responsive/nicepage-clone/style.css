@@ -88,7 +88,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .themes_download_btn {
-	margin: 33px auto 55px;
+	margin: 33px auto 157px;
 	/*margin-left: auto;*/
 	display: flex;
 	justify-content: center;
@@ -126,8 +126,9 @@ h1,h2,h3,h4,h5,h6 {
 	background-color: #4184f4;
 	color: white;
 	fill: white;
-	padding: 1rem;
-
+	padding:2rem 1rem;
+	position: relative;
+	margin-top: -10rem;
 }
 
 .u-opacity-60 {

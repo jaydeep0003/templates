@@ -207,7 +207,8 @@ background: #f15048;
 
 .first_vd_blog p {
 	margin: 41px 69px 0 0;
-	margin-right: 1rem;
+	/*margin-right: 1rem;*/
+	width: 13rem;
 }
 
 .video_container {
@@ -247,4 +248,82 @@ background: #f15048;
     position: relative;
     top: -39rem;
     margin-left: 49rem;
+}
+
+.vieo_btn {
+	margin-top: 3rem;
+}
+
+.vieo_btn a{
+	box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.3);
+	padding: 15px 56px 16px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: Montserrat,sans-serif;
+    letter-spacing: 2px;
+    font-weight: 700;
+    background-color: #b23c8a;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.vieo_btn a:hover {
+	background-color: #a0367c;
+}
+
+.web_design {
+	background-image: linear-gradient(to right, #b23c8a, #306ed5);
+}
+
+.web_design_container {
+	margin: 0 7rem;
+	padding: 7rem 0;
+	color: white;
+	display: flex;
+	/*justify-content: space-between;*/
+}
+
+.second_layout {
+	margin-left: 9rem;
+}
+
+
+.second_layout h2 {
+	font-size: 3rem;
+	font-weight: 700;
+	line-height: 1.2;
+
+}
+
+.second_layout p {
+	font-size: 1.125rem;
+	color: #e5e5e5;
+	margin: 20px 0 0;
+}
+
+.web_u_image_second {
+	margin-top: -24rem;
+	margin-left: 22rem;
+	width: 325px;
+	height: 305px;
+	box-shadow: 0 5px 25px 0 rgba(0,0,0,0.3);
+}
+
+.web_u_image_first {
+	width: 403px;
+	height: 420px;
+	box-shadow: 0 5px 25px 0 rgba(0,0,0,0.3);
+}
+
+.web_image_tag {
+	height: 100%;
+	width: 100%;
+}
+
+.web_btn a{
+	background-color: #f15048;
+}
+.web_btn a:hover{
+	background-color: #ef342b;
 }

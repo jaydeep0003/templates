@@ -115,10 +115,24 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .os_icons_container {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	width: 1048px;
+	grid-gap: .5rem;
+	text-align: center;
 }
 
+.u_icon_width {
+	background-color: #4184f4;
+	color: white;
+	fill: white;
+	padding: 1rem;
 
+}
+
+.u-opacity-60 {
+	opacity: .6;
+}
 
 
 

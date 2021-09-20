@@ -567,7 +567,7 @@ right: 3.5rem;
 
 .client_image {
 	height: 419px;
-	width: 23.5rem;
+	width: 48.5rem;
 }
 
 .client_image_tag {
@@ -575,4 +575,103 @@ right: 3.5rem;
 	height: 100%;
 	object-fit: cover;
 	background-size: cover;
+	box-shadow: -5px 10px 30px 0 rgba(0, 0, 0, 0.3);
+}
+
+.u_client_padding {
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 61.33%;
+}
+
+.client_dt_one .u-icon-1 .u-svg-content {
+	height: 114px;
+    width: 114px;
+    margin-top: 10rem;
+}
+
+.client_dt_one p {
+	font-size: 1.5rem;
+	margin-top: 20px;
+}
+
+.client_dt_one h4 {
+	font-weight: 700;
+	font-size: 1.125rem;
+	margin-top: 20px;
+	line-height: 1.2;
+}
+
+.client_dt_one .sm_size {
+	font-size: 0.875rem;
+	margin-top: 0.1rem;
+}
+
+.client_dt_second h2{
+	font-weight: 700;
+	font-size: 2.25rem;
+	margin-top: 25rem;
+	line-height: 1.2;
+}
+
+.client_dt_second p {
+	font-size: 1.5rem;
+	margin-top: 20px;
+	line-height: 1.2;
+}
+
+.client_info {
+	display: flex;
+	position: relative;
+	top: -5rem;
+}
+
+.use_companies {
+	background-color: #fff;
+	color: #111;
+
+}
+
+.use_companies_container {
+	position: relative;
+}
+
+.use_companies_container .companies_title h2 {
+	font-size: 1.875rem;
+	font-weight: 500;
+	text-align: center;
+}
+
+.main_companies {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin-top: 2rem;
+	padding-bottom: 4rem;
+}
+
+.main_companies .first_companie {
+	height: 59px;
+}
+.main_companies .first_companie .companies_image_tag {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+.companies_img {
+	position: absolute;
+	margin-left: 6rem;
+	top: -5.7rem;
+}
+
+.companies_title {
+	padding-top: 5rem;
+}
+
+.web_dow_btn {
+	text-align: center;
+}
+
+.web_download_container {
+	position: relative;
 }

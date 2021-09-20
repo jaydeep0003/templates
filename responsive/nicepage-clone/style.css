@@ -877,8 +877,126 @@ font-size: 18px;
 	}
 
 	.vidio_third_bg_image {
-    position: relative;
-    top: -39rem;
-    margin-left: 32rem;
-}
+	    margin-left: 32rem;
+	}
+
+	.vd_blog_container {
+	    width: 931px;
+	}
+
+	.second_vd_bg_color {
+	    width: 623px;
+	    height: 309px;
+	    background-image: linear-gradient(#306ed5, #4184f4);
+	    box-shadow: 0 0 31px 0 rgba(0,0,0,0.3);
+	    margin-left: 25rem;
+	}
+
+	.video_blog {
+    	padding-top: 5.5rem;
+	}
+
+	.first_vd_blog {
+		padding-top: 6rem;
+	}
+
+	.web_u_image_first {
+	    width: 364px;
+	    height: 402px;
+	}
+
+	.web_design_img {
+	    margin-left: 30rem;
+	    top: -8rem;
+	}
+
+	.web_u_image_second {
+	    margin-top: -20rem;
+	    margin-left: 18rem;
+	    width: 268px;
+		height: 270px;
+	}
+
+	.arrow_img {
+	    margin-left: 22rem;
+	    top: 5rem;
+	}
+
+	.arrow_image_tag {
+	    width: 293px;
+	    height: 181px;
+	    object-fit: contain;
+	}
+
+	.second_layout {
+	    margin-left: 3rem;
+	    margin-top: 7rem;
+	}
+
+	.web_design_container {
+	    margin-left: 3rem;
+	    margin-right: 3rem;
+	}
+
+	.vieo_btn a {
+	    padding: 15px 30px 16px;
+	}
+
+	.u_inside_up {
+	    width: 192px;
+	}
+
+	.more_need_container {
+	    width: 931px;
+	}
+
+	.u_inside_down {
+	    width: 192px;
+	    height: 308px;
+	    left: -1.2rem;
+	}
+
+	.more_item_second .u_inside_down, .more_item_fourth .u_inside_down {
+	    left: 1.3rem;
+	}
+
+	.first_templates_image {
+	    width: 628px;
+	    height: 627px;
+	}
+
+	.second_templates_image {
+	    width: 667px;
+	    height: 748px;
+	    margin-right: calc(((100% - 940px) / 2));
+	}	
+
+	.templates_container {
+	    margin-top: 11rem;
+	    padding-bottom: 0;
+	}
+
+	.device_section_blog {
+	    margin: 0 3rem;
+	}
+
+	.client_container {
+	    margin: 0 3rem;
+	}
+
+	.client_image {
+    	height: 346px;
+    	width: 40.5rem;
+    }
+    .footer_items {
+	    margin: 0 2rem;
+	}
+
+	.footer_bottom {
+	    margin: 0 3rem;
+	}
+
+	.first_footer_bottom_items span {
+    	font-size: 13px;
+	}
 }

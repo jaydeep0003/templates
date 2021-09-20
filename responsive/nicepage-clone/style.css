@@ -126,9 +126,10 @@ h1,h2,h3,h4,h5,h6 {
 	background-color: #4184f4;
 	color: white;
 	fill: white;
-	padding:2rem 1rem;
+	/*padding:2rem 1rem;*/
 	position: relative;
 	margin-top: -10rem;
+	padding-bottom: 2rem;
 }
 
 .u-opacity-60 {
@@ -321,6 +322,22 @@ background: #f15048;
 	width: 100%;
 }
 
+.web_design_img {
+	margin-left: 41rem;
+	position: absolute;
+	top: -7rem;
+}
+
+.design_arrow {
+	position: absolute;
+}
+
+.arrow_img {
+	margin-left: 33rem;
+	position: absolute;
+	top: 3rem;
+}
+
 .web_btn a{
 	background-color: #f15048;
 }
@@ -343,7 +360,6 @@ background: #f15048;
     height: 65px;
     width: 65px;
     fill: white;
-	margin-left: 2rem;
 	margin-top: 3rem;
 
 }
@@ -364,7 +380,6 @@ background: #f15048;
 	position: relative;
 	top: -7rem;
 	left: -2rem;
-
 }
 
 .u_inside_down h4 {
@@ -373,7 +388,6 @@ background: #f15048;
 	line-height: 1.2;
 	padding: 62px 20px 0;
 	text-align: center;
-
 }
 
 .u_inside_down p {
@@ -793,4 +807,78 @@ font-size: 18px;
 	cursor: pointer;
 }
 
-.first_footer_bottom_items
+
+@media(max-width: 1024px) {
+	.header_bg_gradient {
+	    margin-left: .5rem;
+	    width: 505px;
+		height: 756px;
+	}
+
+	.themes {
+	    left: 3rem;
+	    padding-right: 49px;
+		padding-left: 49px;
+		width: 797px;
+	}
+	.baes2_img {
+	    width: 217px;
+	    height: 226px;
+	    object-fit: contain;
+	}
+
+	.header_theme_img {
+	    left: -5rem;
+	}
+
+	.main_web_design {
+	    left: 46rem;
+	}
+
+	.main_web_design_image h5 {
+	    letter-spacing: 2px;
+	    font-size: 1.125rem;
+	}
+
+	.main_web_design_image h2 {
+    font-size: 8rem;
+    /*margin-left: 9px;*/
+    /*margin-right: 9px;*/
+	}
+
+	.main_web_design_circule {
+	    width: 42px;
+	    height: 40px;
+	    margin-left: 4.6rem;
+	    top: -4.7rem;
+	}
+
+	.main_web_design_image {
+	    width: 192px;
+	    height: 177px;
+	}
+
+	.themes_download_btn {
+    	margin: 14px auto 1px;
+    	padding-bottom: 7rem;
+	}
+
+	.os_icons {
+	    margin-left: 3rem;
+	}
+
+	.os_icons_container .u_icon_width svg {
+	    height: 53px;
+	    width: 53px;
+	}
+
+	.os_icons_container {
+	    width: 931px;
+	}
+
+	.vidio_third_bg_image {
+    position: relative;
+    top: -39rem;
+    margin-left: 32rem;
+}
+}

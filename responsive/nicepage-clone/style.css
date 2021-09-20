@@ -674,4 +674,31 @@ right: 3.5rem;
 
 .web_download_container {
 	position: relative;
+	margin: 0 7rem;
+}
+
+.web_download_img {
+	position: absolute;
+	right: 0;
+	top: -4rem;
+}
+
+.web_dow_title h3{
+	font-weight: 500;
+	font-size: 1.875rem;
+}
+
+.web_dow_title p {
+	font-size: 1.125rem;
+	margin-top: 20px;
+}
+
+.web_dow_title {
+	text-align: center;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+.made_by {
+	background-color: white;
 }

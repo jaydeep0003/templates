@@ -446,6 +446,7 @@ position: relative;
 
 .beautiful_web_template_container {
 	padding-top: 7rem;
+	position: relative;
 }
 
 .beautiful_web_template_title {
@@ -482,19 +483,96 @@ position: relative;
 .first_templates_image {
 	height: 738px;
 	width: 921px;
-/*	overflow: hidden;*/
 }
 
 .second_templates_image {
 	width: 737px;
 	height: 820px;
 	margin: -738px calc(((100% - 1140px) / 2)) 0 auto;
-/*	overflow: hidden;*/
 }
 
 .u_section_template_image_tag {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+}
 
+.bu_web_theme {
+	position: absolute;
+	top: -3rem;
+	right: 8rem;
+}
+
+.device_section {
+	background-color: #fff;
+	color: #333333;
+}
+
+.device_section_blog {
+	position: relative;
+	text-align: center;
+	padding-top: 6rem;
+	padding-bottom: 4rem;
+}
+
+.device_img {
+	position: absolute;
+	width: 275px;
+	height: 219px;
+	top: -5rem;
+right: 3.5rem;
+
+}
+
+.device_img_tag {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.device_section_blog h1 {
+	font-size: 3rem;
+	font-weight: 700;
+}
+
+.device_section_blog p {
+	/*margin-top: .8rem;*/
+}
+
+.device_image {
+	margin-top: 2rem;
+	height: 539px;
+	width: 100%;
+	object-fit: contain;
+
+}
+
+.client {
+	color: #ffffff;
+	background-color: #0f2557;
+}
+
+.client_container {
+	margin: 0 7rem;
+	position: relative;
+}
+
+.client_themes {
+	width: 298px;
+	height: 271px;
+	position: absolute;
+	right: 0;
+	top: -5rem;
+}
+
+.client_image {
+	height: 419px;
+	width: 23.5rem;
+}
+
+.client_image_tag {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	background-size: cover;
 }

@@ -808,7 +808,7 @@ font-size: 18px;
 }
 
 
-@media(max-width: 1024px) {
+@media(max-width: 1024px) and (min-width: 993px){
 	.header_bg_gradient {
 	    margin-left: .5rem;
 	    width: 505px;
@@ -1010,10 +1010,20 @@ font-size: 18px;
 	.header_bg_gradient {
 	    width: 387px;
 	    height: 948px;
+	    margin-left: 1rem;
 	}
 
 	.themes {
 	    width: 651px;
+	    left: 3rem;
+	    padding-left: 37px;
+		padding-right: 50px;
+	}
+
+	.themes_container p {
+	    font-size: 1.1255rem;
+	    font-weight: 300;
+	    margin-top: 20px;
 	}
 
 	.main_web_design {
@@ -1023,6 +1033,15 @@ font-size: 18px;
 	.main_web_design_image {
 	    width: 188px;
     	height: 174px;
+	}
+
+	.main_web_design_image h2 {
+	    font-size: 8rem;
+	}
+
+	.main_web_design_image h5 {
+	    font-weight: 700;
+	    font-size: 1.1255rem;
 	}
 
 	.os_icons_container {
@@ -1082,5 +1101,120 @@ font-size: 18px;
 	    margin-left: 14rem;
 	    width: 225px;
 	    height: 225px;
+	}
+
+	.arrow_img {
+	    margin-left: 19rem;
+	    top: 4.3rem;
+	}
+
+	.arrow_image_tag {
+	    width: 237px;
+	    height: 116px;
+	    object-fit: contain;
+	}
+
+	.second_layout {
+	    margin-left: 3rem;
+	    margin-top: 0rem;
+	}
+
+	.vieo_btn a {
+    	padding: 13px 10px 13px;
+	}
+
+	.more_need_container {
+    	width: 720px;
+	}
+
+	.need_items_container {
+	    margin-top: 3rem;
+	    display: grid;
+	    grid-template-columns: repeat(2, 1fr);
+	    grid-gap: 1rem;
+	}
+
+	.video_container {
+	    padding-top: 301px;
+	}
+
+	.web_design_img {
+	    margin-left: 20rem;
+	    top: -5rem;
+	}
+
+	.baes2_img {
+	    width: 227px;
+	    height: 135px;
+	}
+
+	.web_design_container {
+	    margin: 0 3rem;
+	}
+
+	.u_inside_up {
+	    width: 315px;
+	    height: 247px;
+	}
+
+	.u_inside_down {
+	    width: 309px;
+	    height: 236px;
+	}
+
+	.more_need_container {
+    	width: 654px;
+	}
+
+	.beautiful_web_template_title {
+	    margin: 0 3rem;
+	}
+
+	.beautiful_web_template_title h1 {
+	    font-size: 1.875rem;
+	}
+
+	.first_templates_image {
+	    height: 738px;
+	    width: 616px;
+	}
+	.second_templates_image {
+	    width: 615px;
+	    height: 683px;
+	    /*margin-right: calc(((100% - 720px) / 2));*/
+	    margin: -738px calc(((100% - 720px) / 2)) 0 auto;
+	}
+
+	.first_templates_image .u_size_992 {
+		margin-top: -4rem;
+	}
+
+	.device_section_blog {
+		margin: 0 3rem;
+	}
+
+	.device_section_blog h1 {
+	    font-size: 3rem;
+	    line-height: 1.1;
+	}
+
+	.device_image {
+	    margin-top: -4rem;
+	    height: 539px;
+	    width: 100%;
+	    object-fit: contain;
+	}
+
+	.client_container {
+		margin: 0 3rem;
+		position: relative;
+	}
+
+	.client_image {
+    	height: 389px;
+	    width: 33.5rem;
+	    object-fit: contain;
+	    object-fit: cover;
+	    object-position: 50.93% 50%;
 	}
 }

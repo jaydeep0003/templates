@@ -1910,4 +1910,175 @@ font-size: 18px;
 	    top: 0;
 	    text-align: center;
 	}
+
+	.first_vd_blog p {
+	    width: 100%;
+	}
+
+	.second_vd_bg_color {
+	    width: 326px;
+	    height: 152px;
+	    margin-left: 5.3rem;
+	    margin-top: 17rem;
+	}
+
+	.second_vd_blog {
+	    width: 331px;
+	    height: 100%;
+	    margin-left: 1rem;
+	    margin-top: 3rem;
+	}
+
+	.web_design_container {
+	    margin: 0 2.5rem;
+	    padding: 8rem 0;
+	}
+
+	.vidio_third_bg_image {
+	    top: -43rem;
+	    margin-left: 2rem;
+	}
+
+	.web_design_img {
+	    margin-left: 5rem;
+	    top: -3rem;
+	}
+
+	.arrow_img {
+	    margin-left: 4rem;
+	    top: 2rem;
+	}
+
+	.u_inside_up {
+	    width: 289px;
+	    height: 272px;
+	}
+
+	.u_inside_down {
+	    width: 289px;
+	    height: 237px;
+	}
+	.more_need_container {
+    	width: 100%;
+    }
+
+    .u_items_padding {
+	    margin: 0rem;
+    	margin-left: 3.7rem;
+	}
+
+	.u-740-padding {
+    	margin: 0 0 0 3.5rem;
+	}
+
+	.bu_web_theme {
+	    top: 2rem;
+	    position: absolute;
+	    left: 4rem;
+	}
+
+	.beautiful_web_template_title h1 {
+	    font-size: 1.9rem;
+	}
+
+	.beautiful_web_template_container {
+	    margin: 0 2rem;
+	}
+
+	.second_templates_image {
+    	margin-right: calc(((100% - 347px) / 2));
+    	margin-top: -4rem;
+	    height: 100%;
+	    width: 100%;
+	}
+
+	.device_section_blog {
+	    margin: 0 3rem;
+	}
+
+	.device_section_blog h1{
+		line-height: 1;
+	}
+
+	.device_section_blog p {
+		font-size: 1.125rem;
+		margin-top: 2rem;
+		line-height: 1;
+	}
+
+	.device_image {
+	    margin-top: -1rem;
+	    height: 265px;
+	}
+
+	.client_container {
+	    margin: 0px 1rem;
+	}
+
+	.client_image {
+	    height: 400px;
+	    width: 100%;
+	    padding: 0 1rem;
+	}
+
+	.client_dt_one .u-icon-1 .u-svg-content {
+	    height: 100px;
+	    width: 100px;
+	    margin-top: 3rem;
+	}
+
+	.u_client_padding {
+    	width: 100%;
+	}
+
+	.client_themes {
+	    left: 6rem;
+	}
+	.use_companies_container {
+		margin: 0 3rem;
+	}
+
+	.companies_img {
+	    margin-left: 2rem;
+	    top: -4.7rem;
+	}
+
+	.use_companies_container .companies_title h2 {
+	    font-size: 1.5rem;
+	}
+
+	.main_companies {
+	    grid-gap: 1rem;
+	}
+
+	.web_download_container {
+	    margin: 0 3rem;
+	}
+
+	.web_dow_title h3 {
+    	font-size: 1.5rem;
+ 	   margin-top: 3rem;
+	}
+
+	.made_by h3 {
+		font-size: 1.125rem;
+		margin-top: 5px;
+	}
+
+	.footer_first {
+	    width: 100%;
+	}
+
+	.footer_items {
+	    margin: 0 1rem;
+	    padding-top: 2em;
+	    padding-bottom: 2em;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center
+	}
+
+	.client_container {
+    	margin: 0px 0rem;
+	}
 }

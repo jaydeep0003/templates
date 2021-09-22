@@ -21,19 +21,14 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
 
-        var num = data[state].total['confirmed'];
-        
-        console.log(typeof dt)
-
-        var myArr = String(num).split("").map((num)=>{
-          return Number(num)
-        })
-    
-        console.log(myArr)
+        var num = data[state].total;
 
 
+        let sorted_homes = num.orderBy(h => parseFloat(h.confirmed));
 
-              
+        console.log(sorted_homes)
+
+       
         if (html_element_counter % 2 == 0) {
         
             html_element = `

@@ -7,10 +7,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 .then(response => response.json())
 .then(data => {
 
-function first_hover(){
-      // document.getElementById('select-dropdown').value = val;
-      console.log('hover')
-    }
+
 
     html_element = document.getElementById('main-table');
     var sum = 0;
@@ -22,8 +19,19 @@ function first_hover(){
         var a = data[state].total
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
+
+
+
+
+        console.log(typeof state_data.total.confirmed)
         
         
+
+
+
+
+
+
         if (html_element_counter % 2 == 0) {
         
             html_element = `
@@ -140,14 +148,19 @@ function first_hover(){
                   </div>
                 `
         }
-        sum+=state_data.total.confirmed;
         html_data += html_element;
         html_element_counter += 1;
 
     }
 
+
     document.getElementById('main-table').innerHTML = html_data;
-    
+
+    // console.log(arr)
+    // console.log(typeof arr)
+    // newarr = arr.sort((a, b) => a - b);
+
+
                     // Table Events
 
     
@@ -284,3 +297,7 @@ function first_hover(){
 
   }));
 });
+
+function first_hover(val){
+      document.getElementById('select-dropdown').value = val;
+}

@@ -424,7 +424,7 @@ background: #f15048;
 
 
 .more_item_second .u_inside_down, .more_item_fourth .u_inside_down{
-position: relative;
+	position: relative;
 	top: -7rem;
 	left: 2rem;
 
@@ -547,10 +547,6 @@ right: 3.5rem;
 .device_section_blog h1 {
 	font-size: 3rem;
 	font-weight: 700;
-}
-
-.device_section_blog p {
-	/*margin-top: .8rem;*/
 }
 
 .device_image {
@@ -759,12 +755,12 @@ ul:not(.u-unstyled) li {
 
 .footer_items h6 {
 	font-weight: 600;
-color: #fff;
-text-transform: uppercase;
-margin: 0 0 5px;
-line-height: 54px;
-text-decoration: none;
-font-size: 18px;
+	color: #fff;
+	text-transform: uppercase;
+	margin: 0 0 5px;
+	line-height: 54px;
+	text-decoration: none;
+	font-size: 18px;
 }
 
 .footer_first {
@@ -781,7 +777,6 @@ font-size: 18px;
 	padding-bottom: 1em;
 	padding-top: 1em;
 	margin: 0 6rem;
-
 }
 
 .footer_bottom_container {
@@ -800,6 +795,7 @@ font-size: 18px;
 	top: -7px;
 	margin-left: 5px;
 }
+
 .first_footer_bottom_items {
 	min-height: 1px;
 	padding-left: 15px;
@@ -1725,8 +1721,7 @@ font-size: 18px;
 	}
 
 	.u-740-padding {
-    /*margin-right: 0rem;*/
-    margin:0 0 0 17rem;
+    	margin:0 0 0 17rem;
 	}
 
 	.u_items_padding {
@@ -2011,10 +2006,6 @@ font-size: 18px;
 	    height: 265px;
 	}
 
-	.client_container {
-	    margin: 0px 1rem;
-	}
-
 	.client_image {
 	    height: 400px;
 	    width: 100%;
@@ -2080,5 +2071,52 @@ font-size: 18px;
 
 	.client_container {
     	margin: 0px 0rem;
+	}
+}
+
+
+@media(max-width: 375px) {
+	.second_vd_bg_color {
+	    margin-left: 3rem;
+	}
+
+	.second_vd_blog {
+	    width: 326px;
+	    margin-left: 0rem;
+	}
+
+	.web_u_image_second {
+	    width: 308px;
+	    height: 337px;
+	}
+
+	.vieo_btn a {
+	    padding: 15px 37px 16px;
+	}
+
+	.u_inside_up {
+	    width: 275px;
+	    height: 272px;
+	}
+
+	.sm-size {
+	    margin: 0rem;
+	    margin-left: 0rem;
+	    margin-left: 4rem;
+	}
+
+	.u-740-padding {
+		margin-left: 2rem;
+	}
+
+	.client_themes {
+	    width: 288px;
+	    height: 187px;
+	    top: 53rem;
+	    left: 2rem;
+    }
+
+    .second_templates_image {
+	    margin-right: calc(((100% - 309px) / 2));
 	}
 }

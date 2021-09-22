@@ -11,6 +11,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     html_element = document.getElementById('main-table');
     var sum = 0;
+    var val = [];
     for (var [state, state_data] of Object.entries(data)) {
 
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
@@ -20,18 +21,19 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
 
-
-
-
-        console.log(typeof state_data.total.confirmed)
+        var num = data[state].total['confirmed'];
         
-        
+        console.log(typeof dt)
+
+        var myArr = String(num).split("").map((num)=>{
+          return Number(num)
+        })
+    
+        console.log(myArr)
 
 
 
-
-
-
+              
         if (html_element_counter % 2 == 0) {
         
             html_element = `
@@ -152,14 +154,14 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
         html_data += html_element;
         html_element_counter += 1;
-        sum += state_data.total.confirmed;
+        // val += dt;
+
+        
     }
 
 
     document.getElementById('main-table').innerHTML = html_data;
 
-    console.log(sum)
-    
 
                     // Table Events
 

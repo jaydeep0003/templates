@@ -98,6 +98,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                       </div>
                     `
         } 
+
         else {
                 html_element = `
                     <div class='table_row'  onmouseover='first_hover("${state}")'>
@@ -148,18 +149,17 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                   </div>
                 `
         }
+
         html_data += html_element;
         html_element_counter += 1;
-
+        sum += state_data.total.confirmed;
     }
 
 
     document.getElementById('main-table').innerHTML = html_data;
 
-    // console.log(arr)
-    // console.log(typeof arr)
-    // newarr = arr.sort((a, b) => a - b);
-
+    console.log(sum)
+    
 
                     // Table Events
 

@@ -11,7 +11,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     html_element = document.getElementById('main-table');
     var sum = 0;
-
+    var lst = [];
     for (var [state, state_data] of Object.entries(data)) {
 
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
@@ -22,15 +22,10 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
 
         var num = data[state].total.confirmed
-        console.log(typeof num)
-        console.log(num)
-
-
-
-        // console.log(typeof d)
-        // let sorted_homes = num.orderBy(h => parseFloat(h.confirmed));
-
-        // console.log(sorted_homes)
+        var num1 = num.toString()
+        lst+= num1
+        console.log(lst)
+       console.log(num1,typeof num1)
 
        
         if (html_element_counter % 2 == 0) {
@@ -154,13 +149,14 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         html_data += html_element;
         html_element_counter += 1;
         
-
-        
     }
 
+    
         
     document.getElementById('main-table').innerHTML = html_data;
 
+
+        
 
                     // Table Events
 

@@ -7,12 +7,13 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 .then(response => response.json())
 .then(data => {
 
-function first_hover(val){
-      document.getElementById('select').value = val;
+function first_hover(){
+      // document.getElementById('select-dropdown').value = val;
+      console.log('hover')
     }
 
     html_element = document.getElementById('main-table');
-
+    var sum = 0;
     for (var [state, state_data] of Object.entries(data)) {
 
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
@@ -23,8 +24,8 @@ function first_hover(val){
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
         
         
-        
         if (html_element_counter % 2 == 0) {
+        
             html_element = `
                       <div class='table_row'  onmouseover='first_hover("${state}")'>
 
@@ -139,14 +140,14 @@ function first_hover(val){
                   </div>
                 `
         }
-
+        sum+=state_data.total.confirmed;
         html_data += html_element;
         html_element_counter += 1;
 
     }
 
     document.getElementById('main-table').innerHTML = html_data;
-                    
+    
                     // Table Events
 
     

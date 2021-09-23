@@ -12,7 +12,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     html_element = document.getElementById('main-table');
     var sum = 0;
     
-    var lst = [];
+        var lst = [];
     for (var [state, state_data] of Object.entries(data)) {
 
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
@@ -23,9 +23,12 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
 
         var num = data[state].total.confirmed
-        
         lst.push(num)
+        var ascending = lst.sort((a,b) => a -b);
 
+
+        
+        
 
         if (html_element_counter % 2 == 0) {
         
@@ -37,7 +40,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                         </div>
 
                         <div class="cell statistic u_hover u_color " id="hover-id">
-                          <div class="delta is-confirmed" id="table-first-value">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                          <div class="delta is-confirmed" id="table-first-value">${(lst)}</div>
                           
                         </div>
 
@@ -101,7 +104,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                         <div class="state_name" id="table-first-value" value=''>${state}</div>
                       </div>
                       <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                        <div class="delta is-confirmed" id="data-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                        <div class="delta is-confirmed" id="data-confirmed">${(lst)}</div>
                       </div>
                     <div class="cell statistic new_class u_hover u_color ligth_color ">
                       <div>${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
@@ -144,12 +147,19 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                   </div>
                 `
         }
-
+    // }
         html_data += html_element;
         html_element_counter += 1;
+        
     }
 
     document.getElementById('main-table').innerHTML = html_data;
+
+
+
+
+
+
 
                     // Table Events
     document.getElementById('right-arrow').addEventListener('click', right_arrow);
@@ -230,19 +240,6 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
   }
 
-
-  document.getElementById('Confirmed-id-as_ds').addEventListener('click', ()=> {
-        let lowestToHighest = lst.sort((a, b) => a - b);
-          for(i=0; i<lowestToHighest.length; i++){
-          
-          document.getElementById('hover-id').innerHTML = lowestToHighest[i]
-          console.log(lowestToHighest[i])
-      }
-  });
-
-
-
-
   // Click to Dark mode on Body
 
   document.getElementById('themes').addEventListener('click', () => {
@@ -300,3 +297,6 @@ function first_hover(val){
       document.getElementById('select-dropdown').value = val;
 }
 
+function tableSorting() {
+    
+}

@@ -12,10 +12,15 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     html_element = document.getElementById('main-table');
     var sum = 0;
     var confirmed = [];
-    for (var [state, state_data] of Object.entries(data)) {
-    	confirmed.push(state_data.total.confirmed)
-    }
-    console.log(confirmed.sort((a,b) => b - a))
+    // for (var [state, state_data] of Object.entries(data)) {
+    // 	confirmed.push(state_data.total.confirmed)
+    // }
+
+    // console.log(confirmed.sort((a,b) => b - a))
+
+        dt = Object.entries(data)
+        dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
+        console.log(dt)
     for (var [state, state_data] of Object.entries(data)) {
  
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
@@ -33,7 +38,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var deltaData_confirmed = filed_delta_check_val.filter(k => !Object.keys(stroreDelta_delta).includes(k));
         var stroreDelta_delta = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ""}), stroreDelta_delta)
 
-        console.log(state_data.total.confirmed);
+        console.log(state_data.total.confirmed)
 
         if (html_element_counter % 2 == 0) {
         

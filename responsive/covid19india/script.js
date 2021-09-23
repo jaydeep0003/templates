@@ -1,21 +1,21 @@
 field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_item = ["other"];
-
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
-
 html_data = "";
 html_element_counter = 0
+
 fetch('https://data.covid19india.org/v4/min/data.min.json')
 .then(response => response.json())
 .then(data => {
 
-
-
     html_element = document.getElementById('main-table');
     var sum = 0;
-    var lst = [];
-
+    var confirmed = [];
+    for (var [state, state_data] of Object.entries(data)) {
+    	confirmed.push(state_data.total.confirmed)
+    }
+    console.log(confirmed.sort((a,b) => b - a))
     for (var [state, state_data] of Object.entries(data)) {
  
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
@@ -28,18 +28,12 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var stroreDelta = data[state].delta
         var deltaData = filed_delta.filter(c => !Object.keys(stroreDelta).includes(c));
         var stroreDelta = deltaData.reduce((d, e)=> ({ ...d, [e]: ""}), stroreDelta)
-        
 
         var stroreDelta_delta = data[state].delta
-        var deltaData_confirmed = filed_delta_check_val.filter(c => !Object.keys(stroreDelta_delta).includes(c));
-        var stroreDelta_delta = deltaData_confirmed.reduce((d, e)=> ({ ...d, [e]: ""}), stroreDelta_delta)
+        var deltaData_confirmed = filed_delta_check_val.filter(k => !Object.keys(stroreDelta_delta).includes(k));
+        var stroreDelta_delta = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ""}), stroreDelta_delta)
 
-        lst.push(data[state].total.confirmed);
-
-       	var ascending =lst.sort((a,b) => a -b);    
-
-       	console.log(ascending)
-
+        console.log(state_data.total.confirmed);
 
         if (html_element_counter % 2 == 0) {
         
@@ -52,7 +46,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
                     <div class="cell statistic u_hover u_color " id="hover-id">
                       <div class="delta is-confirmed  u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.confirmed)}</div> 
-                      <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div> 
+                      <div class="delta" id="table-first-value"></div> 
                     </div>
 
                     <div class="cell statistic u_hover u_color  ">
@@ -114,6 +108,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
             `
         } 
 
+                    // <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
         else {
             html_element = `
                 <div class='table_row'  onmouseover='first_hover("${state}")'>
@@ -124,7 +119,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
                   <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
                     <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.confirmed)}</div>
-                    <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                    <div class="delta" id="data-confirmed"></div>
                   </div>
 
                 <div class="cell statistic new_class u_hover u_color ligth_color ">

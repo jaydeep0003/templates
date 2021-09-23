@@ -765,6 +765,26 @@ body {
 	color: #ffc107;	
 }
 
+.u_table_padding {
+	padding-left: .5rem;
+}
+
+.u_hover {
+	text-align: right;
+}
+
+.click_table .u_td_size {
+	width: 6rem;
+	height: 2rem;
+}
+
+.is-tested {
+	color: #9673b9;
+}
+
+.u_font_size {
+	font-size: 12px;
+}
 
 @media(max-width: 1280px) and (min-width: 1025px){
 	.hero {
@@ -1111,3 +1131,4 @@ body {
 .is_vaccine {
 	color: #db5581;
 }
+

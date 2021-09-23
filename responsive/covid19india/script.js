@@ -1,7 +1,8 @@
 field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_item = ["other"];
+
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
-filed_delta_confiremd = ['confirmed']
+filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 html_data = "";
 html_element_counter = 0
@@ -25,21 +26,20 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a);
 
         var stroreDelta = data[state].delta
-        console.log(stroreDelta)
         var deltaData = filed_delta.filter(c => !Object.keys(stroreDelta).includes(c));
         var stroreDelta = deltaData.reduce((d, e)=> ({ ...d, [e]: ""}), stroreDelta)
         
-        console.log(deltaData)
 
-
-
-
-
-
+        var stroreDelta_delta = data[state].delta
+        var deltaData_confirmed = filed_delta_check_val.filter(c => !Object.keys(stroreDelta_delta).includes(c));
+        var stroreDelta_delta = deltaData_confirmed.reduce((d, e)=> ({ ...d, [e]: ""}), stroreDelta_delta)
 
         lst.push(data[state].total.confirmed);
 
-       	var ascending = lst.sort((a,b) => a -b);    
+       	var ascending =lst.sort((a,b) => a -b);    
+
+       	console.log(ascending)
+
 
         if (html_element_counter % 2 == 0) {
         
@@ -51,8 +51,8 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     </div>
 
                     <div class="cell statistic u_hover u_color " id="hover-id">
-                      <div class="delta is-confirmed" >${stroreDelta.delta}</div> 
-                      <div class="delta is-confirmed" id="table-first-value">${state_data.total.confirmed}</div> 
+                      <div class="delta is-confirmed  u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.confirmed)}</div> 
+                      <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div> 
                     </div>
 
                     <div class="cell statistic u_hover u_color  ">
@@ -60,30 +60,36 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     </div>
 
                     <div class="cell statistic u_hover u_color ">
-                      <div class="delta is-recovered">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                      <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.recovered)}</div>
+                      <div class="delta">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
                      
                     </div>
 
                     <div class="cell statistic u_hover u_color ">
-                      <div class="delta is-deceased">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
+                      <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.deceased)}</div>
+                      <div class="delta">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
                      
                     </div>
 
                     <div class="cell statistic u_hover u_color ">
-                      <div class="delta is-active">${new Intl.NumberFormat().format(a.other)}</div>
+                      <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.other)}</div>
+                      <div class="delta ">${new Intl.NumberFormat().format(a.other)}</div>
                     </div>
 
                     <div class="cell statistic u_hover u_color  hide_cell">
+                      <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.tested)}</div>
                       <div class="delta ">${new Intl.NumberFormat().format(state_data.total.tested)}</div>
                     </div>
 
                     <div class="cell statistic u_hover u_color  hide_cell">
-                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
+                      <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.vaccinated1)}</div>
+                      <div class="delta ">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
                       
                     </div>
 
                     <div class="cell statistic u_hover u_color  hide_cell">
-                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
+                      <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.vaccinated2)}</div>
+                      <div class="delta ">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
                     
                     </div>
 
@@ -117,8 +123,8 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                   </div>
 
                   <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                    <div class="delta is-confirmed" id="data-confirmed">${stroreDelta.delta}</div>
-                    <div class="delta is-confirmed" id="data-confirmed">${state_data.total.confirmed}</div>
+                    <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.confirmed)}</div>
+                    <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
                   </div>
 
                 <div class="cell statistic new_class u_hover u_color ligth_color ">
@@ -126,11 +132,13 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                 </div>
 
                 <div class="cell statistic new_class u_hover u_color ">
-                  <div class="delta is-recovered">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                  <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.recovered)}</div>
+                  <div class="delta ">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
                 </div>
 
                 <div class="cell statistic new_class u_hover u_color ">
-                  <div class="delta is-deceased">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
+                  <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.deceased)}</div>
+                  <div class="delta">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
                 
                 </div>
                 <div class="cell statistic new_class u_hover u_color ">
@@ -138,15 +146,18 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                 </div>
 
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
+                  <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.tested)}</div>
                   <div class="delta ">${new Intl.NumberFormat().format(state_data.total.tested)}</div>
                 </div>
 
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
-                  <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
+                  <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.vaccinated1)}</div>
+                  <div class="delta ">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
                   
                 </div>
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
-                  <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
+                  <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(stroreDelta_delta.vaccinated2)}</div>
+                  <div class="delta ">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
                   
                 </div>
                 <div class="cell statistic u_hover u_color  new_class hide_cell">

@@ -14,7 +14,6 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     
         var lst = [];
     for (var [state, state_data] of Object.entries(data)) {
-
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
         state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
         
@@ -22,13 +21,14 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
 
-        var num = data[state].total.confirmed
-        lst.push(num)
-        var ascending = lst.sort((a,b) => a -b);
+        
 
 
-        
-        
+            var num = data[state].total.confirmed
+            lst.push(num)
+            var ascending = lst.sort((a,b) => a -b);    
+                      
+
 
         if (html_element_counter % 2 == 0) {
         
@@ -40,7 +40,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                         </div>
 
                         <div class="cell statistic u_hover u_color " id="hover-id">
-                          <div class="delta is-confirmed" id="table-first-value">${(lst)}</div>
+                          <div class="delta is-confirmed" id="table-first-value">${(ascending)}</div>
                           
                         </div>
 
@@ -104,7 +104,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                         <div class="state_name" id="table-first-value" value=''>${state}</div>
                       </div>
                       <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                        <div class="delta is-confirmed" id="data-confirmed">${(lst)}</div>
+                        <div class="delta is-confirmed" id="data-confirmed">${(ascending)}</div>
                       </div>
                     <div class="cell statistic new_class u_hover u_color ligth_color ">
                       <div>${new Intl.NumberFormat().format(state_data.total.recovered)}</div>

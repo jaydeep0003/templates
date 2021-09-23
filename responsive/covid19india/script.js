@@ -11,8 +11,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     html_element = document.getElementById('main-table');
     var sum = 0;
-    
-        var lst = [];
+    var lst = [];
     for (var [state, state_data] of Object.entries(data)) {
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
         state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
@@ -21,145 +20,142 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
 
-        
 
-
-            var num = data[state].total.confirmed
-            lst.push(num)
-            var ascending = lst.sort((a,b) => a -b);    
-                      
+        var num = data[state].total.confirmed
+        lst.push(num)
+        var ascending = lst.sort((a,b) => a -b);    
+        var dd = lst;
 
 
         if (html_element_counter % 2 == 0) {
         
             html_element = `
-                      <div class='table_row'  onmouseover='first_hover("${state}")'>
+                <div class='table_row'  onmouseover='first_hover("${state}")'>
 
-                        <div class="cell fixed dark_mode_cell" id='row-first-id'>
-                          <div class="state_name" id="table-first-value" value=''>${state}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color " id="hover-id">
-                          <div class="delta is-confirmed" id="table-first-value">${(ascending)}</div>
-                          
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  ">
-                          <div>${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color ">
-                          <div class="delta is-recovered">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
-                         
-                        </div>
-
-                        <div class="cell statistic u_hover u_color ">
-                          <div class="delta is-deceased">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
-                         
-                        </div>
-
-                        <div class="cell statistic u_hover u_color ">
-                          <div class="delta is-active">${new Intl.NumberFormat().format(a.other)}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta ">${new Intl.NumberFormat().format(state_data.total.tested)}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
-                          
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
-                        
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1 + state_data.total.vaccinated2)}</div>
-                          
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                       
-                        </div>
-
-                        <div class="cell statistic u_hover hide_cell u_color ">
-                          <div class="delta"></div>
-                        </div>
-
-                        <div class="cell statistic u_hover hide_cell u_color ">
-                          <div class="delta">${new Intl.NumberFormat().format(state_data.meta.population)}</div>
-                        </div>
-
-                      </div>
-                    `
-        } 
-
-        else {
-                html_element = `
-                    <div class='table_row'  onmouseover='first_hover("${state}")'>
-                      <div class="cell fixed dark_mode_cell" id='row-first-id'>
-                        <div class="state_name" id="table-first-value" value=''>${state}</div>
-                      </div>
-                      <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                        <div class="delta is-confirmed" id="data-confirmed">${(ascending)}</div>
-                      </div>
-                    <div class="cell statistic new_class u_hover u_color ligth_color ">
-                      <div>${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                    <div class="cell fixed dark_mode_cell" id='row-first-id'>
+                      <div class="state_name" id="table-first-value" value=''>${state}</div>
                     </div>
-                    <div class="cell statistic new_class u_hover u_color ">
+
+                    <div class="cell statistic u_hover u_color " id="hover-id">
+                      <div class="delta is-confirmed" id="table-first-value">${dd}</div> 
+                    </div>
+
+                    <div class="cell statistic u_hover u_color  ">
+                      <div>${new Intl.NumberFormat().format(state_data.total.confirmed)}</div>
+                    </div>
+
+                    <div class="cell statistic u_hover u_color ">
                       <div class="delta is-recovered">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                     
                     </div>
 
-                    <div class="cell statistic new_class u_hover u_color ">
+                    <div class="cell statistic u_hover u_color ">
                       <div class="delta is-deceased">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
-                    
+                     
                     </div>
-                    <div class="cell statistic new_class u_hover u_color ">
+
+                    <div class="cell statistic u_hover u_color ">
                       <div class="delta is-active">${new Intl.NumberFormat().format(a.other)}</div>
                     </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+
+                    <div class="cell statistic u_hover u_color  hide_cell">
                       <div class="delta ">${new Intl.NumberFormat().format(state_data.total.tested)}</div>
                     </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+
+                    <div class="cell statistic u_hover u_color  hide_cell">
                       <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
                       
                     </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+
+                    <div class="cell statistic u_hover u_color  hide_cell">
                       <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
+                    
+                    </div>
+
+                    <div class="cell statistic u_hover u_color  hide_cell">
+                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1 + state_data.total.vaccinated2)}</div>
                       
                     </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
-                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1 + state_data.total.vaccinated2)}</div>
-                       
+
+                    <div class="cell statistic u_hover u_color  hide_cell">
+                   
                     </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
+
+                    <div class="cell statistic u_hover hide_cell u_color ">
                       <div class="delta"></div>
                     </div>
-                    <div class="cell statistic u_hover new_class hide_cell u_color ">
-                      <div class="delta"></div>
-                    </div>
-                    <div class="cell statistic u_hover new_class hide_cell u_color ">
+
+                    <div class="cell statistic u_hover hide_cell u_color ">
                       <div class="delta">${new Intl.NumberFormat().format(state_data.meta.population)}</div>
                     </div>
+
+                </div>
+            `
+        } 
+
+        else {
+            html_element = `
+                <div class='table_row'  onmouseover='first_hover("${state}")'>
+
+                  <div class="cell fixed dark_mode_cell" id='row-first-id'>
+                    <div class="state_name" id="table-first-value" value=''>${state}</div>
                   </div>
-                `
-        }
-    // }
+
+                  <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
+                    <div class="delta is-confirmed" id="data-confirmed">${dd}</div>
+                  </div>
+
+                <div class="cell statistic new_class u_hover u_color ligth_color ">
+                  <div>${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                </div>
+
+                <div class="cell statistic new_class u_hover u_color ">
+                  <div class="delta is-recovered">${new Intl.NumberFormat().format(state_data.total.recovered)}</div>
+                </div>
+
+                <div class="cell statistic new_class u_hover u_color ">
+                  <div class="delta is-deceased">${new Intl.NumberFormat().format(state_data.total.deceased)}</div>
+                
+                </div>
+                <div class="cell statistic new_class u_hover u_color ">
+                  <div class="delta is-active">${new Intl.NumberFormat().format(a.other)}</div>
+                </div>
+
+                <div class="cell statistic u_hover u_color  new_class hide_cell">
+                  <div class="delta ">${new Intl.NumberFormat().format(state_data.total.tested)}</div>
+                </div>
+
+                <div class="cell statistic u_hover u_color  new_class hide_cell">
+                  <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1)}</div>
+                  
+                </div>
+                <div class="cell statistic u_hover u_color  new_class hide_cell">
+                  <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated2)}</div>
+                  
+                </div>
+                <div class="cell statistic u_hover u_color  new_class hide_cell">
+                  <div class="delta is_vaccine">${new Intl.NumberFormat().format(state_data.total.vaccinated1 + state_data.total.vaccinated2)}</div>
+                   
+                </div>
+                <div class="cell statistic u_hover u_color  new_class hide_cell">
+                  <div class="delta"></div>
+                </div>
+
+                <div class="cell statistic u_hover new_class hide_cell u_color ">
+                  <div class="delta"></div>
+                </div>
+
+                <div class="cell statistic u_hover new_class hide_cell u_color ">
+                  <div class="delta">${new Intl.NumberFormat().format(state_data.meta.population)}</div>
+                </div>
+              </div>
+            `
+       }
         html_data += html_element;
-        html_element_counter += 1;
-        
+        html_element_counter += 1;    
     }
 
     document.getElementById('main-table').innerHTML = html_data;
-
-
-
-
-
-
 
                     // Table Events
     document.getElementById('right-arrow').addEventListener('click', right_arrow);

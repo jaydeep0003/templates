@@ -12,6 +12,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     html_element = document.getElementById('main-table');
     var sum = 0;
     var lst = [];
+    
     for (var [state, state_data] of Object.entries(data)) {
 
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
@@ -22,12 +23,10 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
 
         var num = data[state].total.confirmed
-        var num1 = num.toString()
-        lst+= num1
-        console.log(lst)
-       console.log(num1,typeof num1)
+        
+        lst.push(num)
 
-       
+
         if (html_element_counter % 2 == 0) {
         
             html_element = `
@@ -149,10 +148,15 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         html_data += html_element;
         html_element_counter += 1;
         
+
     }
 
-    
-        
+        let lowestToHighest = lst.sort((a, b) => a - b);
+
+
+
+
+
     document.getElementById('main-table').innerHTML = html_data;
 
 
@@ -242,6 +246,10 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
   }
 
+document.getElementById('hover-id').addEventListener('click', ()=> {
+      let lowestToHighest = lst.sort((a, b) => a - b);
+})
+
   // Click to Dark mode on Body
 
   document.getElementById('themes').addEventListener('click', () => {
@@ -298,3 +306,4 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 function first_hover(val){
       document.getElementById('select-dropdown').value = val;
 }
+

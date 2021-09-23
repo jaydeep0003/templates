@@ -1,5 +1,7 @@
-field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"]
-filed_item = ["other"]
+field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
+filed_item = ["other"];
+filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
+filed_delta_confiremd = ['confirmed']
 
 html_data = "";
 html_element_counter = 0
@@ -12,20 +14,32 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     html_element = document.getElementById('main-table');
     var sum = 0;
     var lst = [];
+
     for (var [state, state_data] of Object.entries(data)) {
+ 
         let difference = field.filter(x => !Object.keys(state_data).includes(x));
         state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
         
         var a = data[state].total
         var diff = filed_item.filter(i => !Object.keys(a).includes(i));
-        var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a)
+        var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a);
+
+        var stroreDelta = data[state].delta
+        console.log(stroreDelta)
+        var deltaData = filed_delta.filter(c => !Object.keys(stroreDelta).includes(c));
+        var stroreDelta = deltaData.reduce((d, e)=> ({ ...d, [e]: ""}), stroreDelta)
+        
+        console.log(deltaData)
 
 
-        var num = data[state].total.confirmed
-        lst.push(num)
-        var ascending = lst.sort((a,b) => a -b);    
-        var dd = lst;
 
+
+
+
+
+        lst.push(data[state].total.confirmed);
+
+       	var ascending = lst.sort((a,b) => a -b);    
 
         if (html_element_counter % 2 == 0) {
         
@@ -37,7 +51,8 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     </div>
 
                     <div class="cell statistic u_hover u_color " id="hover-id">
-                      <div class="delta is-confirmed" id="table-first-value">${dd}</div> 
+                      <div class="delta is-confirmed" >${stroreDelta.delta}</div> 
+                      <div class="delta is-confirmed" id="table-first-value">${state_data.total.confirmed}</div> 
                     </div>
 
                     <div class="cell statistic u_hover u_color  ">
@@ -102,7 +117,8 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                   </div>
 
                   <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                    <div class="delta is-confirmed" id="data-confirmed">${dd}</div>
+                    <div class="delta is-confirmed" id="data-confirmed">${stroreDelta.delta}</div>
+                    <div class="delta is-confirmed" id="data-confirmed">${state_data.total.confirmed}</div>
                   </div>
 
                 <div class="cell statistic new_class u_hover u_color ligth_color ">

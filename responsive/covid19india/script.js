@@ -5,7 +5,7 @@ filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested'
 html_data = "";
 html_element_counter = 0
 
-sortDirection = false
+
 
 fetch('https://data.covid19india.org/v4/min/data.min.json')
 .then(response => response.json())
@@ -13,33 +13,25 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     html_element = document.getElementById('main-table');
     var sum = 0;
-    
-        
-        var dt = Object.entries(data)
-        dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
-        
-        
+tableSorting()
+    var dt = Object.entries(data)
+    dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
 
-    
-    // var dt = Object.entries(data)
-    
     dt.map((item)=> {
-     
         var allItems = item[1]
         var allItemsName = item[0]
         var allItemsTotal = allItems['total']
         var allItemsDelta = allItems['delta']
         var allItemsMeta = allItems['meta']
-
         var allItemsDeltaData = allItems['delta']
-        // console.log(allItemsTotal)
+
 
         let difference = field.filter(x => !Object.keys(allItems).includes(x));
         allItems = difference.reduce((a, v) => ({ ...a, [v]: ""}), allItems);
 
-        var findOther = allItemsTotal
+        var findOther = allItems['total']
         var diff = filed_item.filter(i => !Object.keys(allItems).includes(i));
-        var findOther = diff.reduce((j,d) => ({...j, [d]: ''}),findOther)
+        var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
 
         var findDalta = allItems['delta']
         var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
@@ -48,7 +40,6 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var findDaltaData = allItems['delta']
         var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
         var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
-
         
 
         if (html_element_counter % 2 == 0) {
@@ -83,7 +74,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
                     <div class="cell statistic u_hover u_color ">
                       <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                      <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
+                      <div class="delta ">${new Intl.NumberFormat().format(findOther.other)}</div>
                     </div>
 
                     <div class="cell statistic u_hover u_color  hide_cell">
@@ -108,11 +99,11 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     </div>
 
                     <div class="cell statistic u_hover u_color  hide_cell">
-                   
+                    <div class="delta">😈</div>
                     </div>
 
                     <div class="cell statistic u_hover hide_cell u_color ">
-                      <div class="delta"></div>
+                      <div class="delta">😈</div>
                     </div>
 
                     <div class="cell statistic u_hover hide_cell u_color ">
@@ -175,11 +166,11 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                    
                 </div>
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
-                  <div class="delta"></div>
+                  <div class="delta">😈</div>
                 </div>
 
                 <div class="cell statistic u_hover new_class hide_cell u_color ">
-                  <div class="delta"></div>
+                  <div class="delta">😈</div>
                 </div>
 
                 <div class="cell statistic u_hover new_class hide_cell u_color ">
@@ -196,7 +187,6 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     
    
-
 
     // for (var [state, state_data] of Object.entries(data)) {
  
@@ -357,6 +347,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     //     html_element_counter += 1;    
     // }
 
+    
     document.getElementById('main-table').innerHTML = html_data;
 
                     // Table Events
@@ -505,8 +496,9 @@ function first_hover(val){
       document.getElementById('select-dropdown').value = val;
 }
 
+function tableSorting () {
+    
+    console.log('clicked')
+}
 
-function tableSorting() {
-       // var dt = Object.entries(data)
-        dt.sort((a, b) => a[1].total.recovered - b[1].total.recovered)
-   }
+

@@ -5,6 +5,7 @@ filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested'
 html_data = "";
 html_element_counter = 0
 
+sortDirection = false
 
 fetch('https://data.covid19india.org/v4/min/data.min.json')
 .then(response => response.json())
@@ -16,9 +17,9 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         
         var dt = Object.entries(data)
         dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
-        // dt.sort((a, b) => a[1].total.recovered - b[1].total.recovered)
         
-        console.log(dt.total)
+        
+
     
     // var dt = Object.entries(data)
     
@@ -193,8 +194,8 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     });  
 
-
     
+   
 
 
     // for (var [state, state_data] of Object.entries(data)) {
@@ -359,7 +360,8 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
     document.getElementById('main-table').innerHTML = html_data;
 
                     // Table Events
-
+ 
+    
 
 
 
@@ -367,7 +369,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     document.getElementById('right-arrow').addEventListener('click', right_arrow);
 
-  function right_arrow() {
+function right_arrow() {
 
     var right_arrow = document.getElementById('right-arrow');
     var table = document.getElementById('table-container');
@@ -503,6 +505,8 @@ function first_hover(val){
       document.getElementById('select-dropdown').value = val;
 }
 
-   function tableSorting() {
-        console.log('clicked')
-    }
+
+function tableSorting() {
+       // var dt = Object.entries(data)
+        dt.sort((a, b) => a[1].total.recovered - b[1].total.recovered)
+   }

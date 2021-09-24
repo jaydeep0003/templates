@@ -11,34 +11,13 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
 
     html_element = document.getElementById('main-table');
     var sum = 0;
-
-    var stare,state_data = Object.entries(data)
-    console.log(stare)
-    // let difference = field.filter(x => !Object.keys(state_data).includes(x));
-    //     state_data = difference.reduce((a, v) => ({ ...a, [v]: ""}), state_data);
-        
-    //     var a = data[state].total
-    //     var diff = filed_item.filter(i => !Object.keys(a).includes(i));
-    //     var a = diff.reduce((j, d) => ({ ...j, [d]: 0}), a);
-
-    //     var stroreDelta = data[state].delta
-    //     var deltaData = filed_delta.filter(c => !Object.keys(stroreDelta).includes(c));
-    //     var stroreDelta = deltaData.reduce((d, e)=> ({ ...d, [e]: ""}), stroreDelta)
-
-    //     var stroreDelta_delta = data[state].delta
-    //     var deltaData_confirmed = filed_delta_check_val.filter(k => !Object.keys(stroreDelta_delta).includes(k));
-    //     var stroreDelta_delta = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ""}), stroreDelta_delta)
-
-
-
+    
 
     var dt = Object.entries(data)
-    dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
-    dt.forEach((val)=> {
-
-    })
-
-
+    // dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
+    // console.log(typeof dt)
+    let method1 = dt
+    
 
 
 

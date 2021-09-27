@@ -321,18 +321,15 @@ function first_hover(val){
       document.getElementById('select-dropdown').value = val;
 }
 
-
+    tableSorting()
 
     function tableSorting(val){
-        
+         
 request = new XMLHttpRequest();
 var url = "https://data.covid19india.org/v4/min/data.min.json";
 
 request.open("GET", url)
 request.send();
-
-
-
 
 request.onreadystatechange = function (){
     if (request.readyState == 4 && request.status == 200) {
@@ -341,9 +338,9 @@ request.onreadystatechange = function (){
         html_element = document.getElementById('main-table');
 
         var arrayData = Object.entries(jsonData)
+
         arrayData.sort((a, b) => a[1].total[val] - b[1].total[val])
         console.log(val)
-
         arrayData.forEach((item)=> {
 
             var allItems = item[1]
@@ -508,15 +505,12 @@ request.onreadystatechange = function (){
                   </div>
                 `
             }
-
             html_data += html_element;
             html_element_counter += 1; 
-
         });
         
-         document.getElementById('main-table').innerHTML = html_data;
-  
+        document.getElementById('main-table').innerHTML = html_data;
     };
 
-};
+    };
 };

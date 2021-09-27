@@ -40,10 +40,10 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
         var findDaltaData = allItems['delta']
         var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
         var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
-        
+  
 
         if (html_element_counter % 2 == 0) {
-        
+  
             html_element = `
                 <div class='table_row'  onmouseover='first_hover("${allItemsName}")'>
 
@@ -63,13 +63,13 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     <div class="cell statistic u_hover u_color ">
                       <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
                       <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-                     
+         
                     </div>
 
                     <div class="cell statistic u_hover u_color ">
                       <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
                       <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
-                     
+         
                     </div>
 
                     <div class="cell statistic u_hover u_color ">
@@ -85,13 +85,13 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                     <div class="cell statistic u_hover u_color  hide_cell">
                       <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated1)}</div>
                       <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
-                      
+          
                     </div>
 
                     <div class="cell statistic u_hover u_color  hide_cell">
                       <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated2)}</div>
                       <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
-                    
+        
                     </div>
 
                     <div class="cell statistic u_hover u_color  hide_cell">
@@ -139,7 +139,7 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                 <div class="cell statistic new_class u_hover u_color ">
                   <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
                   <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
-                
+    
                 </div>
                 <div class="cell statistic new_class u_hover u_color ">
                 <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
@@ -154,16 +154,16 @@ fetch('https://data.covid19india.org/v4/min/data.min.json')
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
                   <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated1)}</div>
                   <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
-                  
+      
                 </div>
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
                   <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated2)}</div>
                   <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
-                  
+      
                 </div>
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
                   <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
-                   
+       
                 </div>
                 <div class="cell statistic u_hover u_color  new_class hide_cell">
                   <div class="delta">😈</div>
@@ -325,10 +325,28 @@ function first_hover(val){
 }
 
 
-
+function tableSorting(){
 
 req = new XMLHttpRequest();
+var url = "https://data.covid19india.org/v4/min/data.min.json";
 
- req.open("GET", "https://data.covid19india.org/v4/min/data.min.json", true);
+req.open("GET", url)
+req.send();
 
- console.log(req)
+
+req.onreadystatechange = function (){
+    if (req.readyState == 4 && req.status == 200) {
+        var data = JSON.parse(req.responseText)
+
+
+        var dt = Object.entries(data)
+        dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
+
+        console.log(dt)
+
+
+    }
+}
+
+
+};

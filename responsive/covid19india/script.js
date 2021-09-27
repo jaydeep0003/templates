@@ -2,191 +2,205 @@ field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_item = ["other"];
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
-html_data = "";
 html_element_counter = 0
 
 
 
-// fetch('https://data.covid19india.org/v4/min/data.min.json')
-// .then(response => response.json())
-// .then(data => {
-
-    // html_element = document.getElementById('main-table');
-    // var sum = 0;
-
-    // var dt = Object.entries(data)
-    // dt.sort((a, b) => a[1].total.confirmed - b[1].total.confirmed)
-
-    // dt.forEach((item)=> {
-    //     var allItems = item[1]
-    //     var allItemsName = item[0]
-    //     var allItemsTotal = allItems['total']
-    //     var allItemsDelta = allItems['delta']
-    //     var allItemsMeta = allItems['meta']
-    //     var allItemsDeltaData = allItems['delta']
+function tableSorting(val){
+html_data = "";
+    console.log("Called")
+    document.getElementById('main-table').innerHTML = '';
+    console.log(document.getElementById('main-table').innerHTML)
 
 
-    //     let difference = field.filter(x => !Object.keys(allItems).includes(x));
-    //     allItems = difference.reduce((a, v) => ({ ...a, [v]: ""}), allItems);
+    request = new XMLHttpRequest();
+    var url = "https://data.covid19india.org/v4/min/data.min.json";
 
-    //     var findOther = allItems['total']
-    //     var diff = filed_item.filter(i => !Object.keys(allItems).includes(i));
-    //     var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
+    request.open("GET", url)
+    request.send();
 
-    //     var findDalta = allItems['delta']
-    //     var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
-    //     var findDalta = deltaData.reduce((k, v)=> ({ ...k, [v]: 0}), findDalta)
+    request.onreadystatechange = function (){
 
-    //     var findDaltaData = allItems['delta']
-    //     var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
-    //     var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
-  
+        if (request.readyState == 4 && request.status == 200) {
+            var jsonData = JSON.parse(request.responseText)
 
-    //     // if (html_element_counter % 2 == 0) {
-  
-    //     //     html_element = `
-    //     //         <div class='table_row'  onmouseover='first_hover("${allItemsName}")'>
+            html_element = document.getElementById('main-table');
 
-    //     //             <div class="cell fixed dark_mode_cell" id='row-first-id'>
-    //     //               <div class="state_name" id="table-first-value" value=''>${allItemsName}</div>
-    //     //             </div>
+            var arrayData = Object.entries(jsonData)
 
-    //     //             <div class="cell statistic u_hover u_color " id="hover-id">
-    //     //               <div class="delta is-confirmed  u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div> 
-    //     //               <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
-    //     //             </div>
+            arrayData.sort((a, b) => a[1].total[val] - b[1].total[val])
+            
+            arrayData.forEach((item)=> {
 
-    //     //             <div class="cell statistic u_hover u_color  ">
-    //     //               <div>${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-    //     //             </div>
+                var allItems = item[1]
+                var allItemsName = item[0]
 
-    //     //             <div class="cell statistic u_hover u_color ">
-    //     //               <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
-    //     //               <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-         
-    //     //             </div>
+                var allItemsTotal = allItems['total']
+                var allItemsDelta = allItems['delta']
 
-    //     //             <div class="cell statistic u_hover u_color ">
-    //     //               <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
-    //     //               <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
-         
-    //     //             </div>
+                var allItemsMeta = allItems['meta']
+                var allItemsDeltaData = allItems['delta']
 
-    //     //             <div class="cell statistic u_hover u_color ">
-    //     //               <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-    //     //               <div class="delta ">${new Intl.NumberFormat().format(findOther.other)}</div>
-    //     //             </div>
+                let difference = field.filter(x => !Object.keys(allItems).includes(x));
+                allItems = difference.reduce((a, v) => ({ ...a, [v]: ""}), allItems);
 
-    //     //             <div class="cell statistic u_hover u_color  hide_cell">
-    //     //               <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.tested)}</div>
-    //     //               <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
-    //     //             </div>
+                var findOther = allItems['total']
+                var diff = filed_item.filter(i => !Object.keys(allItems).includes(i));
+                var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
 
-    //     //             <div class="cell statistic u_hover u_color  hide_cell">
-    //     //               <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated1)}</div>
-    //     //               <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
+                var findDalta = allItems['delta']
+                var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
+                var findDalta = deltaData.reduce((k, v)=> ({ ...k, [v]: 0}), findDalta)
+
+                var findDaltaData = allItems['delta']
+                var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
+                var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
           
-    //     //             </div>
+                if (html_element_counter % 2 == 0) {
+          
+                    html_element = `
+                        <div class='table_row'  onmouseover='first_hover("${allItemsName}")'>
 
-    //     //             <div class="cell statistic u_hover u_color  hide_cell">
-    //     //               <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated2)}</div>
-    //     //               <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
-        
-    //     //             </div>
+                            <div class="cell fixed dark_mode_cell" id='row-first-id'>
+                              <div class="state_name" id="table-first-value" value=''>${allItemsName}</div>
+                            </div>
 
-    //     //             <div class="cell statistic u_hover u_color  hide_cell">
-    //     //               <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
-    //     //             </div>
+                            <div class="cell statistic u_hover u_color " id="hover-id">
+                              <div class="delta is-confirmed  u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div> 
+                              <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
+                            </div>
 
-    //     //             <div class="cell statistic u_hover u_color  hide_cell">
-    //     //             <div class="delta">😈</div>
-    //     //             </div>
+                            <div class="cell statistic u_hover u_color  ">
+                              <div>${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
+                            </div>
 
-    //     //             <div class="cell statistic u_hover hide_cell u_color ">
-    //     //               <div class="delta">😈</div>
-    //     //             </div>
+                            <div class="cell statistic u_hover u_color ">
+                              <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
+                              <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
+                 
+                            </div>
 
-    //     //             <div class="cell statistic u_hover hide_cell u_color ">
-    //     //               <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
-    //     //             </div>
+                            <div class="cell statistic u_hover u_color ">
+                              <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
+                              <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
+                 
+                            </div>
 
-    //     //         </div>
-    //     //     `
-    //     // } 
+                            <div class="cell statistic u_hover u_color ">
+                              <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
+                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
+                            </div>
 
-    //     // else {
-    //     //     html_element = `
-    //     //         <div class='table_row' onmouseover='first_hover("${allItemsName}")'>
+                            <div class="cell statistic u_hover u_color  hide_cell">
+                              <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.tested)}</div>
+                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
+                            </div>
 
-    //     //           <div class="cell fixed dark_mode_cell" id='row-first-id'>
-    //     //             <div class="state_name" id="table-first-value" value=''>${allItemsName}</div>
-    //     //           </div>
+                            <div class="cell statistic u_hover u_color  hide_cell">
+                              <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated1)}</div>
+                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
+                  
+                            </div>
 
-    //     //           <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-    //     //             <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div>
-    //     //             <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
-    //     //           </div>
+                            <div class="cell statistic u_hover u_color  hide_cell">
+                              <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated2)}</div>
+                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
+                
+                            </div>
 
-    //     //         <div class="cell statistic new_class u_hover u_color ligth_color ">
-    //     //           <div>${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-    //     //         </div>
+                            <div class="cell statistic u_hover u_color  hide_cell">
+                              <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
+                            </div>
 
-    //     //         <div class="cell statistic new_class u_hover u_color ">
-    //     //           <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
-    //     //           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-    //     //         </div>
+                            <div class="cell statistic u_hover u_color  hide_cell">
+                            <div class="delta">😈</div>
+                            </div>
 
-    //     //         <div class="cell statistic new_class u_hover u_color ">
-    //     //           <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
-    //     //           <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
-    
-    //     //         </div>
-    //     //         <div class="cell statistic new_class u_hover u_color ">
-    //     //         <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-    //     //           <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
-    //     //         </div>
+                            <div class="cell statistic u_hover hide_cell u_color ">
+                              <div class="delta">😈</div>
+                            </div>
 
-    //     //         <div class="cell statistic u_hover u_color  new_class hide_cell">
-    //     //           <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.tested)}</div>
-    //     //           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
-    //     //         </div>
+                            <div class="cell statistic u_hover hide_cell u_color ">
+                              <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
+                            </div>
 
-    //     //         <div class="cell statistic u_hover u_color  new_class hide_cell">
-    //     //           <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated1)}</div>
-    //     //           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
-      
-    //     //         </div>
-    //     //         <div class="cell statistic u_hover u_color  new_class hide_cell">
-    //     //           <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated2)}</div>
-    //     //           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
-      
-    //     //         </div>
-    //     //         <div class="cell statistic u_hover u_color  new_class hide_cell">
-    //     //           <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
-       
-    //     //         </div>
-    //     //         <div class="cell statistic u_hover u_color  new_class hide_cell">
-    //     //           <div class="delta">😈</div>
-    //     //         </div>
+                        </div>
+                    `
+                } 
 
-    //     //         <div class="cell statistic u_hover new_class hide_cell u_color ">
-    //     //           <div class="delta">😈</div>
-    //     //         </div>
+                else {
+                    html_element = `
+                        <div class='table_row' onmouseover='first_hover("${allItemsName}")'>
 
-    //     //         <div class="cell statistic u_hover new_class hide_cell u_color ">
-    //     //           <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
-    //     //         </div>
-    //     //       </div>
-    //     //     `
-    //     // }
+                          <div class="cell fixed dark_mode_cell" id='row-first-id'>
+                            <div class="state_name" id="table-first-value" value=''>${allItemsName}</div>
+                          </div>
 
-    //     html_data += html_element;
-    //     html_element_counter += 1; 
-    // });  
- 
-       
-    // document.getElementById('main-table').innerHTML = html_data;
+                          <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
+                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div>
+                            <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
+                          </div>
 
+                        <div class="cell statistic new_class u_hover u_color ligth_color ">
+                          <div>${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
+                        </div>
+
+                        <div class="cell statistic new_class u_hover u_color ">
+                          <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
+                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
+                        </div>
+
+                        <div class="cell statistic new_class u_hover u_color ">
+                          <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
+                          <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
+            
+                        </div>
+                        <div class="cell statistic new_class u_hover u_color ">
+                        <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
+                          <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
+                        </div>
+
+                        <div class="cell statistic u_hover u_color  new_class hide_cell">
+                          <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.tested)}</div>
+                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
+                        </div>
+
+                        <div class="cell statistic u_hover u_color  new_class hide_cell">
+                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated1)}</div>
+                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
+              
+                        </div>
+                        <div class="cell statistic u_hover u_color  new_class hide_cell">
+                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated2)}</div>
+                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
+              
+                        </div>
+                        <div class="cell statistic u_hover u_color  new_class hide_cell">
+                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
+               
+                        </div>
+                        <div class="cell statistic u_hover u_color  new_class hide_cell">
+                          <div class="delta">😈</div>
+                        </div>
+
+                        <div class="cell statistic u_hover new_class hide_cell u_color ">
+                          <div class="delta">😈</div>
+                        </div>
+
+                        <div class="cell statistic u_hover new_class hide_cell u_color ">
+                          <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
+                        </div>
+                      </div>
+                    `
+                }
+                html_data += html_element;
+                html_element_counter += 1; 
+            });
+            
+            document.getElementById('main-table').innerHTML = html_data;
+        };
+    };
+};
                     // Table Events
  
     document.getElementById('right-arrow').addEventListener('click', right_arrow);
@@ -321,196 +335,4 @@ function first_hover(val){
       document.getElementById('select-dropdown').value = val;
 }
 
-    tableSorting()
-
-    function tableSorting(val){
-         
-request = new XMLHttpRequest();
-var url = "https://data.covid19india.org/v4/min/data.min.json";
-
-request.open("GET", url)
-request.send();
-
-request.onreadystatechange = function (){
-    if (request.readyState == 4 && request.status == 200) {
-        var jsonData = JSON.parse(request.responseText)
-
-        html_element = document.getElementById('main-table');
-
-        var arrayData = Object.entries(jsonData)
-
-        arrayData.sort((a, b) => a[1].total[val] - b[1].total[val])
-        console.log(val)
-        arrayData.forEach((item)=> {
-
-            var allItems = item[1]
-            var allItemsName = item[0]
-
-            var allItemsTotal = allItems['total']
-            var allItemsDelta = allItems['delta']
-
-            var allItemsMeta = allItems['meta']
-            var allItemsDeltaData = allItems['delta']
-
-
-            let difference = field.filter(x => !Object.keys(allItems).includes(x));
-            allItems = difference.reduce((a, v) => ({ ...a, [v]: ""}), allItems);
-
-            var findOther = allItems['total']
-            var diff = filed_item.filter(i => !Object.keys(allItems).includes(i));
-            var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
-
-            var findDalta = allItems['delta']
-            var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
-            var findDalta = deltaData.reduce((k, v)=> ({ ...k, [v]: 0}), findDalta)
-
-            var findDaltaData = allItems['delta']
-            var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
-            var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
-      
-            if (html_element_counter % 2 == 0) {
-      
-                html_element = `
-                    <div class='table_row'  onmouseover='first_hover("${allItemsName}")'>
-
-                        <div class="cell fixed dark_mode_cell" id='row-first-id'>
-                          <div class="state_name" id="table-first-value" value=''>${allItemsName}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color " id="hover-id">
-                          <div class="delta is-confirmed  u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div> 
-                          <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  ">
-                          <div>${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color ">
-                          <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
-                          <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-             
-                        </div>
-
-                        <div class="cell statistic u_hover u_color ">
-                          <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
-                          <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
-             
-                        </div>
-
-                        <div class="cell statistic u_hover u_color ">
-                          <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.tested)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated1)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
-              
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated2)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
-            
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
-                        </div>
-
-                        <div class="cell statistic u_hover u_color  hide_cell">
-                        <div class="delta">😈</div>
-                        </div>
-
-                        <div class="cell statistic u_hover hide_cell u_color ">
-                          <div class="delta">😈</div>
-                        </div>
-
-                        <div class="cell statistic u_hover hide_cell u_color ">
-                          <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
-                        </div>
-
-                    </div>
-                `
-            } 
-
-            else {
-                html_element = `
-                    <div class='table_row' onmouseover='first_hover("${allItemsName}")'>
-
-                      <div class="cell fixed dark_mode_cell" id='row-first-id'>
-                        <div class="state_name" id="table-first-value" value=''>${allItemsName}</div>
-                      </div>
-
-                      <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                        <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div>
-                        <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
-                      </div>
-
-                    <div class="cell statistic new_class u_hover u_color ligth_color ">
-                      <div>${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-                    </div>
-
-                    <div class="cell statistic new_class u_hover u_color ">
-                      <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
-                      <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
-                    </div>
-
-                    <div class="cell statistic new_class u_hover u_color ">
-                      <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
-                      <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
-        
-                    </div>
-                    <div class="cell statistic new_class u_hover u_color ">
-                    <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                      <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
-                    </div>
-
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
-                      <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.tested)}</div>
-                      <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
-                    </div>
-
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
-                      <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated1)}</div>
-                      <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
-          
-                    </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
-                      <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated2)}</div>
-                      <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
-          
-                    </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
-                      <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
-           
-                    </div>
-                    <div class="cell statistic u_hover u_color  new_class hide_cell">
-                      <div class="delta">😈</div>
-                    </div>
-
-                    <div class="cell statistic u_hover new_class hide_cell u_color ">
-                      <div class="delta">😈</div>
-                    </div>
-
-                    <div class="cell statistic u_hover new_class hide_cell u_color ">
-                      <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
-                    </div>
-                  </div>
-                `
-            }
-            html_data += html_element;
-            html_element_counter += 1; 
-        });
-        
-        document.getElementById('main-table').innerHTML = html_data;
-    };
-
-    };
-};
+   

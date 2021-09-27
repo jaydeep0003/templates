@@ -323,6 +323,7 @@ function first_hover(val){
 
 
 
+    function tableSorting(val){
         
 request = new XMLHttpRequest();
 var url = "https://data.covid19india.org/v4/min/data.min.json";
@@ -332,7 +333,6 @@ request.send();
 
 
 
-    function tableSorting(val){
 
 request.onreadystatechange = function (){
     if (request.readyState == 4 && request.status == 200) {
@@ -341,14 +341,17 @@ request.onreadystatechange = function (){
         html_element = document.getElementById('main-table');
 
         var arrayData = Object.entries(jsonData)
-
-        arrayData.sort((a, b) => a[1].total.val - b[1].total.val)
+        arrayData.sort((a, b) => a[1].total[val] - b[1].total[val])
+        console.log(val)
 
         arrayData.forEach((item)=> {
+
             var allItems = item[1]
             var allItemsName = item[0]
+
             var allItemsTotal = allItems['total']
             var allItemsDelta = allItems['delta']
+
             var allItemsMeta = allItems['meta']
             var allItemsDeltaData = allItems['delta']
 
@@ -400,7 +403,7 @@ request.onreadystatechange = function (){
 
                         <div class="cell statistic u_hover u_color ">
                           <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(findOther.other)}</div>
+                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  hide_cell">

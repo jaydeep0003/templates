@@ -1,13 +1,13 @@
 field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_item = ["other"];
+
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
+
 html_element_counter = 0
-
-
-
-    document.getElementById('main-table').innerHTML = '';
-function tableSorting(val){
+document.getElementById('main-table').innerHTML = '';
+function tableSorting(val, teg) {
+    console.log(val, teg)
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -16,18 +16,18 @@ function tableSorting(val){
     request.open("GET", url)
     request.send();
 
-    request.onreadystatechange = function (){
+    request.onreadystatechange = function() {
 
         if (request.readyState == 4 && request.status == 200) {
+            console.log(request.responseText)
             var jsonData = JSON.parse(request.responseText)
-
             html_element = document.getElementById('main-table');
 
             var arrayData = Object.entries(jsonData)
-            console.log(arrayData[{total}])
-            arrayData.sort((a, b) => a[1].total[val] - b[1].total[val])
-            
-            arrayData.forEach((item)=> {
+            console.log(arrayData)
+            arrayData.sort((a, b) => a[1][teg][val] - b[1][teg][val])
+
+            arrayData.forEach((item) => {
 
                 var allItems = item[1]
                 var allItemsName = item[0]
@@ -39,23 +39,34 @@ function tableSorting(val){
                 var allItemsDeltaData = allItems['delta']
 
                 let difference = field.filter(x => !Object.keys(allItems).includes(x));
-                allItems = difference.reduce((a, v) => ({ ...a, [v]: ""}), allItems);
+                allItems = difference.reduce((a, v) => ({
+                    ...a,
+                    [v]: ""
+                }), allItems);
 
                 var findOther = allItemsTotal
                 var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
-                var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
-                // console.log(findOther)
+                var findOther = diff.reduce((j, d) => ({
+                    ...j,
+                    [d]: 0
+                }), findOther)
 
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
-                var findDalta = deltaData.reduce((k, v)=> ({ ...k, [v]: 0}), findDalta)
+                var findDalta = deltaData.reduce((k, v) => ({
+                    ...k,
+                    [v]: 0
+                }), findDalta)
 
                 var findDaltaData = allItems['delta']
                 var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
-                var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
-          
+                var findDaltaData = deltaData_confirmed.reduce((g, f) => ({
+                    ...g,
+                    [f]: ''
+                }), findDaltaData)
+
                 if (html_element_counter % 2 == 0) {
-          
+
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${allItemsName}")'>
 
@@ -124,9 +135,7 @@ function tableSorting(val){
 
                         </div>
                     `
-                } 
-
-                else {
+                } else {
                     html_element = `
                         <div class='table_row' onmouseover='first_hover("${allItemsName}")'>
 
@@ -193,9 +202,9 @@ function tableSorting(val){
                 }
 
                 html_data += html_element;
-                html_element_counter += 1; 
+                html_element_counter += 1;
             });
-            
+
             document.getElementById('main-table').innerHTML = html_data;
         };
     };
@@ -283,50 +292,46 @@ function right_arrow() {
 // Click to Dark mode on Body
 
 document.getElementById('themes').addEventListener('click', () => {
-document.body.classList.toggle('dark_mode')
+    document.body.classList.toggle('dark_mode')
+    if (document.body.classList.contains('dark_mode')) {
 
-if (document.body.classList.contains('dark_mode')) {
+        document.getElementById('themes').innerHTML = `<svg
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21
+        12.79z"></path></svg>`;
+    }
+     else {
 
-    document.getElementById('themes').innerHTML = `<svg
-    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21
-    12.79z"></path></svg>`;
-}
- else {
-
-    document.getElementById('themes').innerHTML = `<svg 
-    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-    fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12"
-    y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36"
-    y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12"
-    x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64"
-    x2="19.78" y2="4.22"></line></svg>`
-
-}
-
+        document.getElementById('themes').innerHTML = `<svg 
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+        fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12"
+        y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36"
+        y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12"
+        x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64"
+        x2="19.78" y2="4.22"></line></svg>`
+    }
 });
 
-
-
 // icon Details
-
 document.getElementById('detail_id').addEventListener('click', (()=> {
-var icon_details = document.getElementById('fourth-table-icon-details')
-var detail_id = document.getElementById('detail_id')
-detail_id.classList.toggle('new_detail_id')
-icon_details.classList.toggle('new_fourth_table_icon_details');
+    var icon_details = document.getElementById('fourth-table-icon-details')
+    var detail_id = document.getElementById('detail_id')
 
-var i = 0;
-function change() {
-  let doc =  document.getElementById('details-effect');
-  var color = ["#007bff", "rgba(32,26,162,.8666666666666667)", "#ff073a", "#28a745", "#6c757d"];
-  doc.style.color = color[i];
-  i = (i + 1) % color.length;
-};
+    detail_id.classList.toggle('new_detail_id')
+    icon_details.classList.toggle('new_fourth_table_icon_details');
 
-setInterval(change, 1500);
+    var i = 0;
+    function change() {
+        let doc =  document.getElementById('details-effect');
+        var color = ["#007bff", "rgba(32,26,162,.8666666666666667)", "#ff073a", "#28a745", "#6c757d"];
+
+        doc.style.color = color[i];
+        i = (i + 1) % color.length;
+    };
+
+    setInterval(change, 1500);
 
 }));
 

@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Covid</title>
 </head>
-<body onload="tableSorting('confirmed')">
+<body onload="tableSorting('confirmed','total')">
 	<section class="main_blog">
 		<section class="header">
 
@@ -269,31 +269,31 @@
 									<div>State/UT</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('confirmed')">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('confirmed','total')">
 									<div>Confirmed</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('active')" >
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('active' ,'total')">
 									<div>Active</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('recovered')">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('recovered' ,'total')">
 									<div>Recovered</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('deceased')">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('deceased' ,'total')">
 									<div>Deceased</div>
 								</div>
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('other')">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('other' ,'total')">
 									<div>Other</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('tested')">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('tested' ,'total')">
 									<div>Tested</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated1')">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated1' ,'total')">
 									<div>Vaccinated</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated2')">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated2' ,'total')">
 									<div>Fully Vaccinated</div>
 								</div>
 								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')">
@@ -305,7 +305,7 @@
 								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')">
 									<div>Case fatality</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('population')">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('population','meta')">
 									<div>Population</div>
 								</div>
 							</div>

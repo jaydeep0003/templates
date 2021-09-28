@@ -2,7 +2,7 @@ field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_item = ["other"];
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
-filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
+// filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
@@ -19,12 +19,11 @@ function tableSorting(val, teg) {
     request.onreadystatechange = function() {
 
         if (request.readyState == 4 && request.status == 200) {
-            console.log(request.responseText)
+
             var jsonData = JSON.parse(request.responseText)
             html_element = document.getElementById('main-table');
 
             var arrayData = Object.entries(jsonData)
-            console.log(arrayData)
             arrayData.sort((a, b) => a[1][teg][val] - b[1][teg][val])
 
             arrayData.forEach((item) => {
@@ -34,7 +33,7 @@ function tableSorting(val, teg) {
 
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
-
+                // console.log(allItemsDelta)
                 var allItemsMeta = allItems['meta']
                 var allItemsDeltaData = allItems['delta']
 
@@ -53,13 +52,14 @@ function tableSorting(val, teg) {
 
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
-                var findDalta = deltaData.reduce((k, v) => ({
+                var findDalta = deltaData.reduce((k, z) => ({
                     ...k,
-                    [v]: 0
+                    [z]: ''
                 }), findDalta)
 
+                console.log(findDalta)
                 var findDaltaData = allItems['delta']
-                var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
+                var deltaData_confirmed = filed_delta.filter(b => !Object.keys(findDaltaData).includes(b));
                 var findDaltaData = deltaData_confirmed.reduce((g, f) => ({
                     ...g,
                     [f]: ''
@@ -75,7 +75,7 @@ function tableSorting(val, teg) {
                             </div>
 
                             <div class="cell statistic u_hover u_color " id="hover-id">
-                              <div class="delta is-confirmed  u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div> 
+                              <div class="delta is-confirmed  u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.confirmed)}</div> 
                               <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
                             </div>
 
@@ -84,35 +84,35 @@ function tableSorting(val, teg) {
                             </div>
 
                             <div class="cell statistic u_hover u_color ">
-                              <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
+                              <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.recovered)}</div>
                               <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
                  
                             </div>
 
                             <div class="cell statistic u_hover u_color ">
-                              <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
+                              <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.deceased)}</div>
                               <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
                  
                             </div>
 
                             <div class="cell statistic u_hover u_color ">
-                              <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
+                              <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.other)}</div>
                               <div class="delta ">${new Intl.NumberFormat().format(findOther.other)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
-                              <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.tested)}</div>
+                              <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.tested)}</div>
                               <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
-                              <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated1)}</div>
+                              <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated1)}</div>
                               <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
                   
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
-                              <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated2)}</div>
+                              <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated2)}</div>
                               <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
                 
                             </div>
@@ -144,7 +144,7 @@ function tableSorting(val, teg) {
                           </div>
 
                           <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.confirmed)}</div>
+                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.confirmed)}</div>
                             <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
                           </div>
 
@@ -153,32 +153,32 @@ function tableSorting(val, teg) {
                         </div>
 
                         <div class="cell statistic new_class u_hover u_color ">
-                          <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.recovered)}</div>
+                          <div class="delta is-recovered u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.recovered)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
                         </div>
 
                         <div class="cell statistic new_class u_hover u_color ">
-                          <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.deceased)}</div>
+                          <div class="delta is-deceased u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.deceased)}</div>
                           <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
             
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
-                        <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
+                        <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.other)}</div>
                           <div class="delta">${new Intl.NumberFormat().format(findOther.other)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.tested)}</div>
+                          <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.tested)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated1)}</div>
+                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated1)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
               
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated2)}</div>
+                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated2)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
               
                         </div>

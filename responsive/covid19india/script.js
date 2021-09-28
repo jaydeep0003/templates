@@ -5,8 +5,7 @@ filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccina
 html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
 
-function tableSorting(val, teg) {
-    console.log(val,teg)
+function tableSorting(val, tag) {
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -21,14 +20,9 @@ function tableSorting(val, teg) {
             var jsonData = JSON.parse(request.responseText)
             html_element = document.getElementById('main-table');
             var arrayData = Object.entries(jsonData)
-            // console.log(arrayData[0][0])
-            // console.log(arrayData[0][0])
-            arrayData.sort((a, b) => a[1][teg][val] - b[1][teg][val]);
-            || 
-             arrayData.sort((a,b)=> a[1][0].localeCompare(b[1][0]));
-                
-
-
+            console.log(arrayData[1][1].total)
+            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) || arrayData.sort((a,b)=> a[tag][val].localeCompare(b[tag][val]))
+            
             arrayData.forEach((item) => {
 
                 var allItems = item[1]

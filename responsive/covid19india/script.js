@@ -26,12 +26,15 @@ function tableSorting(val, tag) {
 
             for(i=0; i<arrayData.length; i++){
 
-                var findOther = allItemsTotal
-                var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
-                var findOther = diff.reduce((j, d) => ({...j,[d]: 0}), findOther)
+                var item = arrayData[i][1]
+                var con = item
 
+
+
+                console.log()
                 
-                console.log(arrayData[i])
+
+
             }
 
             arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) 

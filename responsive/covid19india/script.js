@@ -1,13 +1,11 @@
 field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_item = ["other"];
-
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
-// filed_delta_check_val = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
+
 function tableSorting(val, teg) {
-    console.log(val, teg)
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -15,16 +13,17 @@ function tableSorting(val, teg) {
 
     request.open("GET", url)
     request.send();
-
     request.onreadystatechange = function() {
 
         if (request.readyState == 4 && request.status == 200) {
 
             var jsonData = JSON.parse(request.responseText)
             html_element = document.getElementById('main-table');
-
             var arrayData = Object.entries(jsonData)
-            arrayData.sort((a, b) => a[1][teg][val] - b[1][teg][val])
+            // console.log(arrayData[0][0])
+            // arrayData.sort((a, b) => a[1][teg][val] - b[1][teg][val])
+            arrayData.sort((a, b) => a[0][0] - b[0][0])
+            console.log(arrayData[0][0])
             arrayData.forEach((item) => {
 
                 var allItems = item[1]
@@ -37,12 +36,11 @@ function tableSorting(val, teg) {
 
                 var findOther = allItemsTotal
                 var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
-                var findOther = diff.reduce((j, d) => ({...j,[d]: ""}), findOther)
+                var findOther = diff.reduce((j, d) => ({...j,[d]: 0}), findOther)
 
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
-                console.log(findDalta)
 
                 if (html_element_counter % 2 == 0) {
                     html_element = `
@@ -75,7 +73,7 @@ function tableSorting(val, teg) {
 
                             <div class="cell statistic u_hover u_color">
                               <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
-                              <div class="delta ">${new Intl.NumberFormat().format(findOther.other)}</div>
+                              <div class="delta ">${(findOther.other)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
@@ -142,7 +140,7 @@ function tableSorting(val, teg) {
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
                         <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
-                          <div class="delta">${new Intl.NumberFormat().format(findOther.other)}</div>
+                          <div class="delta">${(findOther.other)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">

@@ -2,10 +2,12 @@ field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_item = ["other"];
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
+
 html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
 
 function tableSorting(val, tag) {
+    console.log(val , tag)
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -19,10 +21,21 @@ function tableSorting(val, tag) {
 
             var jsonData = JSON.parse(request.responseText)
             html_element = document.getElementById('main-table');
-            var arrayData = Object.entries(jsonData)
-            console.log(arrayData[1][1].total)
-            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) || arrayData.sort((a,b)=> a[tag][val].localeCompare(b[tag][val]))
             
+            var arrayData = Object.entries(jsonData)
+
+            for(i=0; i<arrayData.length; i++){
+
+                var findOther = allItemsTotal
+                var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
+                var findOther = diff.reduce((j, d) => ({...j,[d]: 0}), findOther)
+
+                
+                console.log(arrayData[i])
+            }
+
+            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) 
+
             arrayData.forEach((item) => {
 
                 var allItems = item[1]

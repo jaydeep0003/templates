@@ -9,7 +9,6 @@ html_element_counter = 0
     document.getElementById('main-table').innerHTML = '';
 function tableSorting(val){
     html_data = "";
-    console.log(val)
 
     request = new XMLHttpRequest();
     var url = "https://data.covid19india.org/v4/min/data.min.json";
@@ -25,7 +24,7 @@ function tableSorting(val){
             html_element = document.getElementById('main-table');
 
             var arrayData = Object.entries(jsonData)
-
+            console.log(arrayData[{total}])
             arrayData.sort((a, b) => a[1].total[val] - b[1].total[val])
             
             arrayData.forEach((item)=> {
@@ -204,6 +203,8 @@ function tableSorting(val){
                     // Table Events
  
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
+
+function right_arrow() {
     var right_arrow = document.getElementById('right-arrow');
     var table = document.getElementById('table-container');
     var hide_cell = document.getElementsByClassName('hide_cell');
@@ -213,15 +214,12 @@ document.getElementById('right-arrow').addEventListener('click', right_arrow);
     var searchbox = document.getElementById('searchbox');
     var panel = document.getElementById('panel');
     var map_swicher = document.getElementById('map-swicher');
-function right_arrow() {
-
     
     if (right_arrow.classList.contains('right_arrow')) {
 
         right_arrow.classList.remove('right_arrow');
         right_arrow.classList.add('new_right_arrow');
 
-        console.log(right_arrow)
         for (var i of hide_cell) {
             i.classList.add('show');
         }

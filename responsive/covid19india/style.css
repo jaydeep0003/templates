@@ -627,7 +627,7 @@ body {
 }
 
 .hide_cell {
-	display: none;
+	/*display: none;*/
 }
 
 .show {

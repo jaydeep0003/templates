@@ -34,7 +34,6 @@ function tableSorting(val){
                 var allItemsName = item[0]
 
                 var allItemsTotal = allItems['total']
-                // console.log(allItemsTotal)
                 var allItemsDelta = allItems['delta']
 
                 var allItemsMeta = allItems['meta']
@@ -43,20 +42,21 @@ function tableSorting(val){
                 let difference = field.filter(x => !Object.keys(allItems).includes(x));
                 allItems = difference.reduce((a, v) => ({ ...a, [v]: ""}), allItems);
 
-                var findOther = allItems['total']
-                var diff = filed_item.filter(i => !Object.keys(allItems).includes(i));
-                var findOther = diff.reduce((j,d) => ({...j, [d]: ""}),findOther)
+                var findOther = allItemsTotal
+                var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
+                var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
+                console.log(findOther)
 
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, v)=> ({ ...k, [v]: 0}), findDalta)
-                console.log(findDalta)
+
                 var findDaltaData = allItems['delta']
                 var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
                 var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
           
                 if (html_element_counter % 2 == 0) {
-          
+          // ${new Intl.NumberFormat().format(findDaltaData.other)}
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${allItemsName}")'>
 
@@ -86,8 +86,8 @@ function tableSorting(val){
                             </div>
 
                             <div class="cell statistic u_hover u_color ">
-                              <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                              <div class="delta ">${new Intl.NumberFormat().format(findDalta.other)}</div>
+                              <div class="delta is-active u_table_padding u_font_size"></div>
+                              <div class="delta ">${new Intl.NumberFormat().format(findOther.other)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
@@ -126,7 +126,7 @@ function tableSorting(val){
                         </div>
                     `
                 } 
-
+// ${new Intl.NumberFormat().format(findDaltaData.other)}
                 else {
                     html_element = `
                         <div class='table_row' onmouseover='first_hover("${allItemsName}")'>
@@ -155,22 +155,22 @@ function tableSorting(val){
             
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
-                        <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                          <div class="delta">${new Intl.NumberFormat().format(findDalta.other)}</div>
+                        <div class="delta is-active u_table_padding u_font_size"></div>
+                          <div class="delta">${new Intl.NumberFormat().format(findOther.other)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.tested)}</div>
+                          <div class="delta is-tested u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.tested)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated1)}</div>
+                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated1)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
               
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDalta.vaccinated2)}</div>
+                          <div class="delta is_vaccine u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.vaccinated2)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
               
                         </div>

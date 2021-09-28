@@ -6,12 +6,10 @@ html_element_counter = 0
 
 
 
-function tableSorting(val){
-html_data = "";
-    console.log("Called")
     document.getElementById('main-table').innerHTML = '';
-    console.log(document.getElementById('main-table').innerHTML)
-
+function tableSorting(val){
+    html_data = "";
+    console.log(val)
 
     request = new XMLHttpRequest();
     var url = "https://data.covid19india.org/v4/min/data.min.json";
@@ -36,6 +34,7 @@ html_data = "";
                 var allItemsName = item[0]
 
                 var allItemsTotal = allItems['total']
+                // console.log(allItemsTotal)
                 var allItemsDelta = allItems['delta']
 
                 var allItemsMeta = allItems['meta']
@@ -46,12 +45,12 @@ html_data = "";
 
                 var findOther = allItems['total']
                 var diff = filed_item.filter(i => !Object.keys(allItems).includes(i));
-                var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
+                var findOther = diff.reduce((j,d) => ({...j, [d]: ""}),findOther)
 
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, v)=> ({ ...k, [v]: 0}), findDalta)
-
+                console.log(findDalta)
                 var findDaltaData = allItems['delta']
                 var deltaData_confirmed = filed_delta_check_val.filter(b => !Object.keys(findDaltaData).includes(b));
                 var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
@@ -88,7 +87,7 @@ html_data = "";
 
                             <div class="cell statistic u_hover u_color ">
                               <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
+                              <div class="delta ">${new Intl.NumberFormat().format(findDalta.other)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
@@ -157,7 +156,7 @@ html_data = "";
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
                         <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
-                          <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.other)}</div>
+                          <div class="delta">${new Intl.NumberFormat().format(findDalta.other)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">

@@ -45,7 +45,7 @@ function tableSorting(val){
                 var findOther = allItemsTotal
                 var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
                 var findOther = diff.reduce((j,d) => ({...j, [d]: 0}),findOther)
-                console.log(findOther)
+                // console.log(findOther)
 
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
@@ -56,7 +56,7 @@ function tableSorting(val){
                 var findDaltaData = deltaData_confirmed.reduce((g, f)=> ({ ...g, [f]: ''}), findDaltaData)
           
                 if (html_element_counter % 2 == 0) {
-          // ${new Intl.NumberFormat().format(findDaltaData.other)}
+          
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${allItemsName}")'>
 
@@ -86,7 +86,7 @@ function tableSorting(val){
                             </div>
 
                             <div class="cell statistic u_hover u_color ">
-                              <div class="delta is-active u_table_padding u_font_size"></div>
+                              <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
                               <div class="delta ">${new Intl.NumberFormat().format(findOther.other)}</div>
                             </div>
 
@@ -126,7 +126,7 @@ function tableSorting(val){
                         </div>
                     `
                 } 
-// ${new Intl.NumberFormat().format(findDaltaData.other)}
+
                 else {
                     html_element = `
                         <div class='table_row' onmouseover='first_hover("${allItemsName}")'>
@@ -155,7 +155,7 @@ function tableSorting(val){
             
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
-                        <div class="delta is-active u_table_padding u_font_size"></div>
+                        <div class="delta is-active u_table_padding u_font_size">${new Intl.NumberFormat().format(findDaltaData.other)}</div>
                           <div class="delta">${new Intl.NumberFormat().format(findOther.other)}</div>
                         </div>
 
@@ -192,6 +192,7 @@ function tableSorting(val){
                       </div>
                     `
                 }
+
                 html_data += html_element;
                 html_element_counter += 1; 
             });
@@ -202,136 +203,137 @@ function tableSorting(val){
 };
                     // Table Events
  
-    document.getElementById('right-arrow').addEventListener('click', right_arrow);
+document.getElementById('right-arrow').addEventListener('click', right_arrow);
+    var right_arrow = document.getElementById('right-arrow');
+    var table = document.getElementById('table-container');
+    var hide_cell = document.getElementsByClassName('hide_cell');
+    var main_hero_section = document.getElementById('hero');
+    var hero_container = document.getElementById('hero-container');
+    var state_selection = document.getElementById('state-selection');
+    var searchbox = document.getElementById('searchbox');
+    var panel = document.getElementById('panel');
+    var map_swicher = document.getElementById('map-swicher');
+function right_arrow() {
 
-    function right_arrow() {
-        var right_arrow = document.getElementById('right-arrow');
-        var table = document.getElementById('table-container');
-        var hide_cell = document.getElementsByClassName('hide_cell');
-        var main_hero_section = document.getElementById('hero');
-        var hero_container = document.getElementById('hero-container');
-        var state_selection = document.getElementById('state-selection');
-        var searchbox = document.getElementById('searchbox');
-        var panel = document.getElementById('panel');
-        var map_swicher = document.getElementById('map-swicher');
-
-        if (right_arrow.classList.contains('right_arrow')) {
-
-            right_arrow.classList.remove('right_arrow');
-            right_arrow.classList.add('new_right_arrow');
-
-            for (var i of hide_cell) {
-                i.classList.add('show');
-            }
-
-            table.classList.remove('table_row');
-            table.classList.add('click_table');
-
-            hero_container.classList.remove('hero_container');
-            hero_container.classList.add('hero_new_container');
-
-            main_hero_section.classList.remove('hero')
-            main_hero_section.classList.add('new_hero');
-
-            state_selection.classList.remove('state_selection');
-            state_selection.classList.add('state_new_selection');
-
-            searchbox.classList.remove('searchbox');
-            searchbox.classList.add('searchbox_new');
-
-            panel.classList.remove('action_panel');
-            panel.classList.add('action_new_panel');
-
-            map_swicher.classList.remove('map_switcher');
-            map_swicher.classList.add('map_new_switcher');
-
-        } else {
-            right_arrow.classList.remove('new_right_arrow');
-            right_arrow.classList.add('right_arrow');
-
-            for (var i of hide_cell) {
-                i.classList.remove('show');
-            }
-
-            table.classList.remove('click_table');
-            table.classList.add('table_row');
-
-
-            hero_container.classList.add('hero_container');
-            hero_container.classList.remove('hero_new_container');
-
-            main_hero_section.classList.remove('new_hero');
-            main_hero_section.classList.add('hero')
-
-            state_selection.classList.add('state_selection');
-            state_selection.classList.remove('state_new_selection');
-
-            searchbox.classList.add('searchbox');
-            searchbox.classList.remove('searchbox_new');
-
-            panel.classList.add('action_panel');
-            panel.classList.remove('action_new_panel');
-
-            map_swicher.classList.add('map_switcher');
-            map_swicher.classList.remove('map_new_switcher');
-
-        }
-    }
     
-  // Click to Dark mode on Body
+    if (right_arrow.classList.contains('right_arrow')) {
+
+        right_arrow.classList.remove('right_arrow');
+        right_arrow.classList.add('new_right_arrow');
+
+        console.log(right_arrow)
+        for (var i of hide_cell) {
+            i.classList.add('show');
+        }
+
+        table.classList.remove('table_row');
+        table.classList.add('click_table');
+
+        hero_container.classList.remove('hero_container');
+        hero_container.classList.add('hero_new_container');
+
+        main_hero_section.classList.remove('hero')
+        main_hero_section.classList.add('new_hero');
+
+        state_selection.classList.remove('state_selection');
+        state_selection.classList.add('state_new_selection');
+
+        searchbox.classList.remove('searchbox');
+        searchbox.classList.add('searchbox_new');
+
+        panel.classList.remove('action_panel');
+        panel.classList.add('action_new_panel');
+
+        map_swicher.classList.remove('map_switcher');
+        map_swicher.classList.add('map_new_switcher');
+
+    }
+     else {
+        right_arrow.classList.remove('new_right_arrow');
+        right_arrow.classList.add('right_arrow');
+
+        for (var i of hide_cell) {
+            i.classList.remove('show');
+        }
+
+        table.classList.remove('click_table');
+        table.classList.add('table_row');
+
+
+        hero_container.classList.add('hero_container');
+        hero_container.classList.remove('hero_new_container');
+
+        main_hero_section.classList.remove('new_hero');
+        main_hero_section.classList.add('hero')
+
+        state_selection.classList.add('state_selection');
+        state_selection.classList.remove('state_new_selection');
+
+        searchbox.classList.add('searchbox');
+        searchbox.classList.remove('searchbox_new');
+
+        panel.classList.add('action_panel');
+        panel.classList.remove('action_new_panel');
+
+        map_swicher.classList.add('map_switcher');
+        map_swicher.classList.remove('map_new_switcher');
+
+    }
+}
+
+
+// Click to Dark mode on Body
 
 document.getElementById('themes').addEventListener('click', () => {
-    document.body.classList.toggle('dark_mode')
+document.body.classList.toggle('dark_mode')
 
-    if (document.body.classList.contains('dark_mode')) {
+if (document.body.classList.contains('dark_mode')) {
 
-        document.getElementById('themes').innerHTML = `<svg
-        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21
-        12.79z"></path></svg>`;
-    }
+    document.getElementById('themes').innerHTML = `<svg
+    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21
+    12.79z"></path></svg>`;
+}
+ else {
 
-     else {
+    document.getElementById('themes').innerHTML = `<svg 
+    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+    fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12"
+    y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36"
+    y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12"
+    x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64"
+    x2="19.78" y2="4.22"></line></svg>`
 
-        document.getElementById('themes').innerHTML = `<svg 
-        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        fill="none" stroke="#ffc107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12"
-        y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36"
-        y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12"
-        x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64"
-        x2="19.78" y2="4.22"></line></svg>`
+}
 
-    }
-
-  });
-
+});
 
 
-  // icon Details
 
-  document.getElementById('detail_id').addEventListener('click', (()=> {
-    var icon_details = document.getElementById('fourth-table-icon-details')
-    var detail_id = document.getElementById('detail_id')
-    detail_id.classList.toggle('new_detail_id')
-    icon_details.classList.toggle('new_fourth_table_icon_details');
+// icon Details
 
-    var i = 0;
-    function change() {
-      let doc =  document.getElementById('details-effect');
-      var color = ["#007bff", "rgba(32,26,162,.8666666666666667)", "#ff073a", "#28a745", "#6c757d"];
-      doc.style.color = color[i];
-      i = (i + 1) % color.length;
-    };
+document.getElementById('detail_id').addEventListener('click', (()=> {
+var icon_details = document.getElementById('fourth-table-icon-details')
+var detail_id = document.getElementById('detail_id')
+detail_id.classList.toggle('new_detail_id')
+icon_details.classList.toggle('new_fourth_table_icon_details');
 
-    setInterval(change, 1500);
+var i = 0;
+function change() {
+  let doc =  document.getElementById('details-effect');
+  var color = ["#007bff", "rgba(32,26,162,.8666666666666667)", "#ff073a", "#28a745", "#6c757d"];
+  doc.style.color = color[i];
+  i = (i + 1) % color.length;
+};
 
-  }));
+setInterval(change, 1500);
+
+}));
 
 
 function first_hover(val){
-      document.getElementById('select-dropdown').value = val;
+  document.getElementById('select-dropdown').value = val;
 }
 
-   

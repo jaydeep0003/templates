@@ -6,6 +6,7 @@ html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
 
 function tableSorting(val, teg) {
+    console.log(val,teg)
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -21,9 +22,13 @@ function tableSorting(val, teg) {
             html_element = document.getElementById('main-table');
             var arrayData = Object.entries(jsonData)
             // console.log(arrayData[0][0])
-            // arrayData.sort((a, b) => a[1][teg][val] - b[1][teg][val])
-            arrayData.sort((a, b) => a[0][0] - b[0][0])
-            console.log(arrayData[0][0])
+            // console.log(arrayData[0][0])
+            arrayData.sort((a, b) => a[1][teg][val] - b[1][teg][val]);
+            || 
+             arrayData.sort((a,b)=> a[1][0].localeCompare(b[1][0]));
+                
+
+
             arrayData.forEach((item) => {
 
                 var allItems = item[1]

@@ -30,7 +30,7 @@ function tableSorting(val, tag) {
 
     
             arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val] ? 1 : -1)
-             
+
             // console.log(arrayData)
             arrayData.forEach((item) => {
                 var allItems = item[1]

@@ -1,5 +1,4 @@
 field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
-filed_item = ["other"];
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 
@@ -22,17 +21,26 @@ function tableSorting(val, tag) {
             html_element = document.getElementById('main-table');
 
             var arrayData = Object.entries(jsonData)
-            arrayData.filter((value) => value[1].total.other == undefined ? value[1].total.other = '0' : value[1].total.other)
+            // arrayData.filter((value) => value[1].total.other == undefined ? value[1].total.other = '0' : value[1].total.other)
+            arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-            // arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) 
+
+
+            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
+
+
+            // arrayData.sort(function (a, b) {
+            //     if (a == [1][tag][val]) {
+            //         return arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
+            //     }
+            //     else  {
+            //         return arrayData.sort((a, b) => a[tag][val] - b[tag][val])
+            //     }
+
+            // })
+
+
             
-                if(arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])) {
-                    return 1
-                }
-                else {
-                    arrayData.sort((a, b) => a[tag][val] - b[tag][val])
-                }
-                
             arrayData.forEach((item) => {
 
                 var allItems = item[1]
@@ -43,10 +51,6 @@ function tableSorting(val, tag) {
                 let difference = field.filter(x => !Object.keys(allItems).includes(x));
                 allItems = difference.reduce((a, v) => ({...a,[v]: ""}), allItems);
  
-                var findOther = allItemsTotal
-                var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
-                var findOther = diff.reduce((j, d) => ({...j,[d]: 0}), findOther)
-
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
@@ -65,7 +69,7 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic u_hover u_color">
-                              <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed-allItemsTotal.recovered-allItemsTotal.deceased - findOther.other)}</div>
+                              <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed-allItemsTotal.recovered-allItemsTotal.deceased - allItemsTotal.other)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color">
@@ -82,7 +86,7 @@ function tableSorting(val, tag) {
 
                             <div class="cell statistic u_hover u_color">
                               <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
-                              <div class="delta ">${(findOther.other)}</div>
+                              <div class="delta ">${(allItemsTotal.other)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
@@ -134,7 +138,7 @@ function tableSorting(val, tag) {
                           </div>
 
                         <div class="cell statistic new_class u_hover u_color ligth_color ">
-                          <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - findOther.other)}</div>
+                          <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other)}</div>
                         </div>
 
                         <div class="cell statistic new_class u_hover u_color ">
@@ -149,7 +153,7 @@ function tableSorting(val, tag) {
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
                         <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
-                          <div class="delta">${(findOther.other)}</div>
+                          <div class="delta">${(allItemsTotal.other)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">

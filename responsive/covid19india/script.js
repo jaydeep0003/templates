@@ -27,10 +27,12 @@ function tableSorting(val, tag) {
 
             // console.log(arrayData)
 
-            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) 
 
+    
+            arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val] ? 1 : -1)
+             
+            // console.log(arrayData)
             arrayData.forEach((item) => {
-                console.log(item[1].other)
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
@@ -38,7 +40,7 @@ function tableSorting(val, tag) {
 
                 let difference = field.filter(x => !Object.keys(allItems).includes(x));
                 allItems = difference.reduce((a, v) => ({...a,[v]: ""}), allItems);
-                
+ 
                 var findOther = allItemsTotal
                 var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
                 var findOther = diff.reduce((j, d) => ({...j,[d]: 0}), findOther)

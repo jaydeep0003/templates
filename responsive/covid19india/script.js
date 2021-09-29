@@ -7,7 +7,7 @@ html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
 
 function tableSorting(val, tag) {
-    console.log(val , tag)
+    // console.log(val , tag)
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -22,25 +22,15 @@ function tableSorting(val, tag) {
             var jsonData = JSON.parse(request.responseText)
             html_element = document.getElementById('main-table');
             
+
             var arrayData = Object.entries(jsonData)
 
-            for(i=0; i<arrayData.length; i++){
-
-                var item = arrayData[i][1]
-                var con = item
-
-
-
-                console.log()
-                
-
-
-            }
+            // console.log(arrayData)
 
             arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) 
 
             arrayData.forEach((item) => {
-
+                console.log(item[1].other)
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
@@ -48,7 +38,7 @@ function tableSorting(val, tag) {
 
                 let difference = field.filter(x => !Object.keys(allItems).includes(x));
                 allItems = difference.reduce((a, v) => ({...a,[v]: ""}), allItems);
-
+                
                 var findOther = allItemsTotal
                 var diff = filed_item.filter(i => !Object.keys(findOther).includes(i));
                 var findOther = diff.reduce((j, d) => ({...j,[d]: 0}), findOther)
@@ -56,7 +46,7 @@ function tableSorting(val, tag) {
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
-
+                // console.log(findDalta)
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>

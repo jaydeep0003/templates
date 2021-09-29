@@ -25,13 +25,18 @@ function tableSorting(val, tag) {
 
             var arrayData = Object.entries(jsonData)
 
-            // console.log(arrayData)
+            const a = arrayData.filter((value) => value[1].total.other == undefined ? value[1].total.other = '0' :  value[1].total.other)
+                // if(value[1].total.other == undefined){
+                //     return value[1].total.other = '0'
+                // }
+                // else {
+                //     return value[1].total.other = value[1].total.other  
+                // }
+            
 
 
-    
-            arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val] ? 1 : -1)
+            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
 
-            // console.log(arrayData)
             arrayData.forEach((item) => {
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
@@ -48,7 +53,7 @@ function tableSorting(val, tag) {
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
-                // console.log(findDalta)
+
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>

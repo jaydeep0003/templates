@@ -7,7 +7,6 @@ html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
 
 function tableSorting(val, tag) {
-    // console.log(val , tag)
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -21,23 +20,21 @@ function tableSorting(val, tag) {
 
             var jsonData = JSON.parse(request.responseText)
             html_element = document.getElementById('main-table');
-            
 
             var arrayData = Object.entries(jsonData)
+            arrayData.filter((value) => value[1].total.other == undefined ? value[1].total.other = '0' : value[1].total.other)
 
-            const a = arrayData.filter((value) => value[1].total.other == undefined ? value[1].total.other = '0' :  value[1].total.other)
-                // if(value[1].total.other == undefined){
-                //     return value[1].total.other = '0'
-                // }
-                // else {
-                //     return value[1].total.other = value[1].total.other  
-                // }
+            // arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val]) 
             
-
-
-            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
-
+                if(arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])) {
+                    return 1
+                }
+                else {
+                    arrayData.sort((a, b) => a[tag][val] - b[tag][val])
+                }
+                
             arrayData.forEach((item) => {
+
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']

@@ -3,6 +3,12 @@ localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 html_element_counter = 0
+// total_confirmed = 0;
+// total_recovered = 0;
+// total_deceased = 0;
+// total_active = 0;
+
+let total_confirmed = total_recovered = total_deceased = total_active = delta_confirmed = delta_recovered = delta_deceased = 0
 
 document.getElementById('main-table').innerHTML = '';
 
@@ -54,7 +60,7 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', 'asc')
                 }
             }
-            total_confirmed = 0;
+            
             arrayData.forEach((item) => {
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
@@ -203,14 +209,26 @@ function tableSorting(val, tag) {
                 html_data += html_element;
                 html_element_counter += 1;
                 total_confirmed += allItemsTotal.confirmed/2;
-                
+                total_recovered += allItemsTotal.recovered/2;
+                total_deceased = allItemsTotal.deceased;
+                total_active = allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
+                delta_confirmed += findDalta.confirmed/2;
+                delta_recovered += findDalta.recovered/2;
+                delta_deceased += findDalta.deceased/2;
+
             });
 
             document.getElementById('total-confirmed').innerHTML = total_confirmed.toLocaleString();
-            // document.getElementById('total-recovered').innerHTML = total_confirmed.toLocaleString();
+            document.getElementById('total-recovered').innerHTML = total_recovered.toLocaleString();
+            document.getElementById('total-deceased').innerHTML = total_deceased.toLocaleString();
+            document.getElementById('total-active').innerHTML = total_active.toLocaleString();
+            document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
+            document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
+            document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
+
 
             document.getElementById('main-table').innerHTML = html_data;
-            console.log(total_confirmed)
+            console.log(total_active)
         };
     };
 };

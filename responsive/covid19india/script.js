@@ -1,4 +1,3 @@
-// field = ["delta21_14", "delta7", "districts", "meta", "total", "delta"];
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 
@@ -22,74 +21,23 @@ function tableSorting(val, tag) {
 
             var arrayData = Object.entries(jsonData)
 
-                const a = arrayData.filter((value1) => { 
-
-                    if (value1[1].delta21_14 == '') {
-
-                        return value1[1].delta21_14 = '0'
-
-                    }
-
-                    else if (value1[1].delta7 == '') {
-                        return value1[1].delta7 = '0'
-                    }
-
-                    else if (value1[1].districts == '') {
-                        return value1[1].districts = '0'
-                    }
-
-                    else if(value1[1].meta == '') {
-                        return value1[1].meta = '0'
-                    }
-
-                    else if (value1[1].total == '') {
-                        console.log(value1[1].total)                        
-                        return value1[1].total = '0'
-                    }
-
-                    else if (value1[1].delta == '') {
-                        return value1[1].delta = '0'
-                    }
-
-
-                    // console.log(value1[1])
-                })
-
-            // console.log(a)
-            // arrayData.filter((value) => value[1].total.other == undefined ? value[1].total.other = '0' : value[1].total.other)
+            arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-
-
-            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
-
-
-            // arrayData.sort(function (a, b) {
-            //     if (a == [1][tag][val]) {
-            //         return arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
-            //     }
-            //     else  {
-            //         return arrayData.sort((a, b) => a[tag][val] - b[tag][val])
-            //     }
-
-            // })
-
-
+            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed == undefined ? '' : value[1].delta.confirmed)
+            console.log(arrayData)
             
+            arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
             arrayData.forEach((item) => {
 
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
-                console.log(allItemsDelta)
                 var allItemsMeta = allItems['meta']
 
-                // let difference = field.filter(x => !Object.keys(allItems).includes(x));
-                // allItems = difference.reduce((a, v) => ({...a,[v]: ""}), allItems);
- 
-                // var findDalta = allItems['delta']
-                // var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
-                // var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
+                var findDalta = allItems['delta']
+                var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
+                var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
 
                 if (html_element_counter % 2 == 0) {
                     html_element = `

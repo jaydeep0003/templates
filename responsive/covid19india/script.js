@@ -3,6 +3,7 @@ localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 html_element_counter = 0
+
 document.getElementById('main-table').innerHTML = '';
 
 function tableSorting(val, tag) {
@@ -53,9 +54,7 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', 'asc')
                 }
             }
-
-
-           
+            total_confirmed = 0;
             arrayData.forEach((item) => {
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
@@ -203,15 +202,17 @@ function tableSorting(val, tag) {
 
                 html_data += html_element;
                 html_element_counter += 1;
+                total_confirmed += allItemsTotal.confirmed/2;
             });
 
+            document.getElementById('total-confirmed').innerHTML = total_confirmed;
             document.getElementById('main-table').innerHTML = html_data;
+            console.log(total_confirmed)
         };
     };
 };
                     // Table Events
  
-
 
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
 

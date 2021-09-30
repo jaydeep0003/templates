@@ -1,4 +1,4 @@
-/*@font-face {
+@font-face {
  font-family:Archia;
  src:url(/fonts/Archia/archia-semibold-webfont.eot);
  src:local('Archia'),
@@ -33,7 +33,7 @@
  font-weight:900;
  font-style:normal;
  font-display:swap
-}*/
+}
 
 
 /** {
@@ -50,7 +50,7 @@ body {
 	font-size: 1rem;
 	line-height: 1.6;
 	font-family: sans-serif;
-	/*font-family: Archia;*/
+	font-family: Archia;
 }
 
 *{

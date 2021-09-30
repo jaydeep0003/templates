@@ -1,4 +1,5 @@
 // import { STATE_NAMES } from "./state.js";
+localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 html_element_counter = 0
@@ -24,12 +25,33 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
+            
+
+
 
             if (val == 'state') {
-                arrayData.sort() 
+                if(localStorage.getItem("order") == "asc")
+                {
+                    arrayData.sort();
+                    localStorage.setItem("order", "")
+
+                }
+                else
+                {
+                    arrayData.reverse();
+                    localStorage.setItem('order', 'asc')
+                }
             }
             else {
-                arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])  
+
+                if (localStorage.getItem('order') == 'asc') {
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    localStorage.setItem('order', '')
+                }
+                else {
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    localStorage.setItem('order', 'asc')
+                }
             }
 
 

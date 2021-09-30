@@ -203,9 +203,12 @@ function tableSorting(val, tag) {
                 html_data += html_element;
                 html_element_counter += 1;
                 total_confirmed += allItemsTotal.confirmed/2;
+                
             });
 
-            document.getElementById('total-confirmed').innerHTML = total_confirmed;
+            document.getElementById('total-confirmed').innerHTML = total_confirmed.toLocaleString();
+            // document.getElementById('total-recovered').innerHTML = total_confirmed.toLocaleString();
+
             document.getElementById('main-table').innerHTML = html_data;
             console.log(total_confirmed)
         };

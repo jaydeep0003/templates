@@ -22,28 +22,22 @@ function tableSorting(val, tag) {
             html_element = document.getElementById('main-table');
 
             var arrayData = Object.entries(jsonData)
+            console.log(arrayData)
 
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-
-                
-
-
             // arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
 
-           
 
-            if (arrayData[1][0] != undefined) {
-                arrayData.sort((a, b) => a[1][0].toLowerCase() > b[1][0].toLowerCase())
+            // if (arrayData) {}
+            if (val == 'state') {
+                arrayData.sort()
             }
             else {
                 arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])                
             }
-
-                // arrayData.sort((a, b) => a[0][0] - b[0][0])
-       
-
+ 
             arrayData.forEach((item) => {
 
                 var allItems = item[1]

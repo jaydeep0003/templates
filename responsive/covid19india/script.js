@@ -24,10 +24,6 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-            // if (arrayData) {}
-
-                // console.log(a[1][tag][val])
-
 
             if (val == 'state') {
                 arrayData.sort() 

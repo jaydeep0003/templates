@@ -1,12 +1,10 @@
 // import { STATE_NAMES } from "./state.js";
 
-
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 html_element_counter = 0
 document.getElementById('main-table').innerHTML = '';
 
 function tableSorting(val, tag) {
-    // console.log(val,tag)
     html_data = "";
 
     request = new XMLHttpRequest();
@@ -14,32 +12,33 @@ function tableSorting(val, tag) {
 
     request.open("GET", url)
     request.send();
-    request.onreadystatechange = function() {
 
+    request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
 
             var jsonData = JSON.parse(request.responseText)
             html_element = document.getElementById('main-table');
 
             var arrayData = Object.entries(jsonData)
-            console.log(arrayData)
 
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-            // arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
-
-
             // if (arrayData) {}
+
+                // console.log(a[1][tag][val])
+
+
             if (val == 'state') {
-                arrayData.sort()
+                arrayData.sort() 
             }
             else {
-                arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])                
+                arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])  
             }
- 
-            arrayData.forEach((item) => {
 
+
+           
+            arrayData.forEach((item) => {
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
@@ -194,6 +193,8 @@ function tableSorting(val, tag) {
 };
                     // Table Events
  
+
+
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
 
 function right_arrow() {

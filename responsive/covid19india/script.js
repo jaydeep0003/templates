@@ -26,22 +26,23 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-                // arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
 
                 
 
-            if (arrayData.sort((a, b) => a[0][val] === undefined)) {
-                // arrayData.sort((a, b) => a[0][0] - b[0][0])
-                arrayData.sort((a, b) => a[0][0].toLowerCase() > b[0][0].toLowerCase())
+
+            // arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
+
+           
+
+            if (arrayData[1][0] != undefined) {
+                arrayData.sort((a, b) => a[1][0].toLowerCase() > b[1][0].toLowerCase())
+            }
+            else {
+                arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])                
             }
 
-               else {
-                arrayData.sort((a, b) => a[1][tag][val] - b[1][tag][val])
-                console.log(arrayData[1][tag])
-                 
-               }
-
-               //  // return 0
+                // arrayData.sort((a, b) => a[0][0] - b[0][0])
+       
 
             arrayData.forEach((item) => {
 

@@ -3,11 +3,6 @@ localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 html_element_counter = 0
-// total_confirmed = 0;
-// total_recovered = 0;
-// total_deceased = 0;
-// total_active = 0;
-
 let total_confirmed = total_recovered = total_deceased = total_active = delta_confirmed = delta_recovered = delta_deceased = 0
 
 document.getElementById('main-table').innerHTML = '';
@@ -32,7 +27,9 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-            
+            document.addEventListener('long-press' function(e) {
+                console.log('long-press')
+            })
 
 
 
@@ -123,7 +120,7 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
-                              <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
+                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
@@ -188,7 +185,7 @@ function tableSorting(val, tag) {
               
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta is_vaccine">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
+                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
                
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">

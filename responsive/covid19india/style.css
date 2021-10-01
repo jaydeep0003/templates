@@ -767,6 +767,10 @@ body {
 	height: 2rem;
 }
 
+.u_td_size:hover{
+	cursor: pointer;
+}
+
 .is-tested {
 	color: #9673b9;
 }

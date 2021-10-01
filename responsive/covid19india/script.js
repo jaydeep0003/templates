@@ -3,6 +3,19 @@
 localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
+placeholderName = ['Gondal', 'Rajkot', 'Diu']
+
+var placeName =  document.getElementById('dynamic-placeholder');
+
+console.log(placeName)
+
+
+
+
+
+
+
+
 html_element_counter = 0
 let total_confirmed = total_recovered = total_deceased = total_active = delta_confirmed = delta_recovered = delta_deceased = 0
 
@@ -34,11 +47,6 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
          
 
-
-                            // console.log(arrayData[35])
-
-
-
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
                 {
@@ -52,48 +60,27 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', 'asc')
                 }
             }
+
             else {
 
                 if (localStorage.getItem('order') == 'asc') {
-
-
-                    for(var i = 0; i<arrayData.length; i++) {
-                        // console.log(arrayData[i][0] == 'TT')
-                        if (arrayData[i][0] == 'TT') {
-                            // continue                            
-                            beake
-                        }
-                        else {
-                            arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-                            localStorage.setItem('order', '')                            
-                        }
-                    }
-
-                    // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-                    // localStorage.setItem('order', '')
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    localStorage.setItem('order', '')
                 }
                 else {
-
-                     for(var i = 0; i<arrayData.length; i++) {
-
-                        if (arrayData[i][0] == 'TT') {
-                            continue
-                        }
-                        else {
-                            arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                            localStorage.setItem('order', 'asc')   
-                        }
-                     }
-                    
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    localStorage.setItem('order', 'asc')
                 }
             }
+
+
 
             longPress = setTimeout( 
                 function() {
                     arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
                 }
-            ,1000)
 
+            ,1000)
 
             arrayData.forEach((item) => {
 

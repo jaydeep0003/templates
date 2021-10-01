@@ -35,7 +35,7 @@ function tableSorting(val, tag) {
          
 
 
-                            // console.log(arrayData[33])
+                            // console.log(arrayData[35])
 
 
 
@@ -55,29 +55,36 @@ function tableSorting(val, tag) {
             else {
 
                 if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-                    localStorage.setItem('order', '')
+
+
+                    for(var i = 0; i<arrayData.length; i++) {
+                        // console.log(arrayData[i][0] == 'TT')
+                        if (arrayData[i][0] == 'TT') {
+                            // continue                            
+                            beake
+                        }
+                        else {
+                            arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                            localStorage.setItem('order', '')                            
+                        }
+                    }
+
+                    // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    // localStorage.setItem('order', '')
                 }
                 else {
-                    // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
 
-                    if (typeof arrayData[33] == 'object') {
-                        console.log(arrayData[33])
+                     for(var i = 0; i<arrayData.length; i++) {
 
-                         arrayData.sort(function (a, b){
-                            return a[1][tag][val] = b[1][tag][val]
-                        });  
-
-                        
-                    }
-                    else {
-                        arrayData.sort(function (a, b){
-                            return a[1][tag][val] < b[1][tag][val]
-                        });    
-                    }
+                        if (arrayData[i][0] == 'TT') {
+                            continue
+                        }
+                        else {
+                            arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                            localStorage.setItem('order', 'asc')   
+                        }
+                     }
                     
-
-                    localStorage.setItem('order', 'asc')
                 }
             }
 

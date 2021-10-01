@@ -26,42 +26,51 @@ function tableSorting(val, tag) {
 
             var arrayData = Object.entries(jsonData)
 
-            arrayData.filter((value) => typeof (value[1].delta == undefined ? value[1].delta = '' : value[1].delta ))
+            arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
+            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed == undefined ? 0 : value[1].delta.confirmed)
+            arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ? 0 : value[1].delta.recovered)
+            arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
 
 
-            sort(arrayData)
-
-            function sort(a,b) {
-                // if (a[1].delta.confirmed == undefined) {
-                //     return 1
-                // }
-                // if (b[1].delta.confirmed == undefined) {
-                //     return -1
-                // }
-
-                console.log(a[1][1].delta.confirmed)
-
-            }
-
-
-
-
-
-            // longPress = setTimeout( 
-            //     function() {
-            //     var arrayData1=  arrayData.sort((a,b) => a[1].delta[val] > b[1].delta[val])
-            //         alert('longPress')
-            //         console.log(arrayData1)
-            //     }
-
-            //     ,2000)
-
-
-
-            //  Asending And Descending Order
             if (val == 'state') {
+                if(localStorage.getItem("order") == "asc")
+                {
+                    arrayData.sort();
+                    localStorage.setItem("order", "")
+
+                }
+                else
+                {
+                    arrayData.reverse();
+                    localStorage.setItem('order', 'asc')
+                }
+            }
+            else {
+
+                if (localStorage.getItem('order') == 'asc') {
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    localStorage.setItem('order', '')
+                }
+                else {
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    localStorage.setItem('order', 'asc')
+                }
+            }
+            
+
+
+
+
+            longPress = setTimeout( 
+                function() {
+
+                    alert('longPress')
+
+                    
+
+                    if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
                 {
                     arrayData.sort();
@@ -87,7 +96,13 @@ function tableSorting(val, tag) {
             }
 
 
-            
+
+
+                    }
+              
+                ,2000)
+
+
             arrayData.forEach((item) => {
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
@@ -96,8 +111,8 @@ function tableSorting(val, tag) {
 
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
-                var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
-                
+                var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ""}), findDalta)
+
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>

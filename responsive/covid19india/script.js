@@ -230,9 +230,9 @@ function tableSorting(val, tag) {
             });
 
             // document.getElementById('total-confirmed').innerHTML = total_confirmed.toLocaleString();
-            document.getElementById('total-recovered').innerHTML = total_recovered.toLocaleString();
-            document.getElementById('total-deceased').innerHTML = total_deceased.toLocaleString();
-            document.getElementById('total-active').innerHTML = total_active.toLocaleString();
+            // document.getElementById('total-recovered').innerHTML = total_recovered.toLocaleString();
+            // document.getElementById('total-deceased').innerHTML = total_deceased.toLocaleString();
+            // document.getElementById('total-active').innerHTML = total_active.toLocaleString();
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
@@ -242,29 +242,26 @@ function tableSorting(val, tag) {
             document.getElementById('main-table').innerHTML = html_data;
 
             function animateValue(obj, start, end, duration) {
-  let startTimestamp = null;
-  const step = (timestamp) => {
-    if (!startTimestamp) startTimestamp = timestamp;
-    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-    obj.innerHTML = Math.floor(progress * (start - end) + 0);
-    if (progress < 1) {
-      window.requestAnimationFrame(step);
-    }
-  };
-  window.requestAnimationFrame(step);
-}
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerHTML = Math.floor(progress * (start - end) + 0);
+                    if (progress < 1) {
+                      window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
 
-const tt_confirmed = document.getElementById("total-confirmed");
-const tt_recovered = document.getElementById('total-recovered')
-const tt_desceased = document.getElementById('total-deceased')
-const tt_active = document.getElementById('total-active')
-animateValue(tt_confirmed, total_confirmed, 0, 1500);
-animateValue(tt_recovered, total_recovered, 0, 1500);
-animateValue(tt_desceased, total_desceased, 0, 1500);
-animateValue(tt_active, total_active, 0, 1500);
-
-
-            
+            const tt_confirmed = document.getElementById("total-confirmed");
+            const tt_recovered = document.getElementById('total-recovered')
+            const tt_desceased = document.getElementById('total-deceased')
+            const tt_active = document.getElementById('total-active')
+            animateValue(tt_confirmed, total_confirmed, 0, 1500);
+            animateValue(tt_recovered, total_recovered, 0, 1500);
+            animateValue(tt_desceased, total_deceased, 0, 1500);
+            animateValue(tt_active, total_active, 0, 2500);            
         };
     };
 };

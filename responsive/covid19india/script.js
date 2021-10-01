@@ -58,46 +58,15 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', 'asc')
                 }
             }
-            
-
-
-
 
             longPress = setTimeout( 
                 function() {
 
                     alert('longPress')
 
+                     arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
+                     console.log(arrayData)
                     
-
-                    if (val == 'state') {
-                if(localStorage.getItem("order") == "asc")
-                {
-                    arrayData.sort();
-                    localStorage.setItem("order", "")
-
-                }
-                else
-                {
-                    arrayData.reverse();
-                    localStorage.setItem('order', 'asc')
-                }
-            }
-            else {
-
-                if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1].delta[val] > b[1].delta[val])  
-                    localStorage.setItem('order', '')
-                }
-                else {
-                    arrayData.sort((a, b) => a[1].delta[val] < b[1].delta[val])
-                    localStorage.setItem('order', 'asc')
-                }
-            }
-
-
-
-
                     }
               
                 ,2000)
@@ -122,7 +91,7 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic u_hover u_color " id="hover-id">
-                              <div class="delta is-confirmed  u_table_padding u_font_size">${findDalta.confirmed}</div> 
+                              <div class="delta is-confirmed  u_table_padding u_font_size">${allItemsDelta.confirmed}</div> 
                               <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
                             </div>
 
@@ -191,7 +160,7 @@ function tableSorting(val, tag) {
                           </div>
 
                           <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${(findDalta.confirmed)}</div>
+                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${(allItemsDelta.confirmed)}</div>
                             <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
                           </div>
 
@@ -260,7 +229,7 @@ function tableSorting(val, tag) {
 
             });
 
-            document.getElementById('total-confirmed').innerHTML = total_confirmed.toLocaleString();
+            // document.getElementById('total-confirmed').innerHTML = total_confirmed.toLocaleString();
             document.getElementById('total-recovered').innerHTML = total_recovered.toLocaleString();
             document.getElementById('total-deceased').innerHTML = total_deceased.toLocaleString();
             document.getElementById('total-active').innerHTML = total_active.toLocaleString();
@@ -268,8 +237,33 @@ function tableSorting(val, tag) {
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
 
+            
 
             document.getElementById('main-table').innerHTML = html_data;
+
+            function animateValue(obj, start, end, duration) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    obj.innerHTML = Math.floor(progress * (start - end) + 0);
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+const tt_confirmed = document.getElementById("total-confirmed");
+const tt_recovered = document.getElementById('total-recovered')
+const tt_desceased = document.getElementById('total-deceased')
+const tt_active = document.getElementById('total-active')
+animateValue(tt_confirmed, total_confirmed, 0, 1500);
+animateValue(tt_recovered, total_recovered, 0, 1500);
+animateValue(tt_desceased, total_desceased, 0, 1500);
+animateValue(tt_active, total_active, 0, 1500);
+
+
             
         };
     };
@@ -281,7 +275,6 @@ function tableSorting(val, tag) {
 function clearFunction() {
     clearTimeout(longPress)
 }
-
 
                     // Table Events
 
@@ -413,4 +406,6 @@ document.getElementById('detail_id').addEventListener('click', (()=> {
 function first_hover(val){
   document.getElementById('select-dropdown').value = val;
 }
+
+
 

@@ -7,6 +7,8 @@ let total_confirmed = total_recovered = total_deceased = total_active = delta_co
 
 document.getElementById('main-table').innerHTML = '';
 
+var longPress;
+
 function tableSorting(val, tag) {
     html_data = "";
 
@@ -24,15 +26,41 @@ function tableSorting(val, tag) {
 
             var arrayData = Object.entries(jsonData)
 
-            arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
+            arrayData.filter((value) => typeof (value[1].delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-            document.addEventListener('long-press' function(e) {
-                console.log('long-press')
-            })
+
+
+            sort(arrayData)
+
+            function sort(a,b) {
+                // if (a[1].delta.confirmed == undefined) {
+                //     return 1
+                // }
+                // if (b[1].delta.confirmed == undefined) {
+                //     return -1
+                // }
+
+                console.log(a[1][1].delta.confirmed)
+
+            }
 
 
 
+
+
+            // longPress = setTimeout( 
+            //     function() {
+            //     var arrayData1=  arrayData.sort((a,b) => a[1].delta[val] > b[1].delta[val])
+            //         alert('longPress')
+            //         console.log(arrayData1)
+            //     }
+
+            //     ,2000)
+
+
+
+            //  Asending And Descending Order
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
                 {
@@ -49,14 +77,16 @@ function tableSorting(val, tag) {
             else {
 
                 if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    arrayData.sort((a, b) => a[1].delta[val] > b[1].delta[val])  
                     localStorage.setItem('order', '')
                 }
                 else {
-                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    arrayData.sort((a, b) => a[1].delta[val] < b[1].delta[val])
                     localStorage.setItem('order', 'asc')
                 }
             }
+
+
             
             arrayData.forEach((item) => {
                 var allItems = item[1]
@@ -67,7 +97,7 @@ function tableSorting(val, tag) {
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
-                console.log(findDalta)
+                
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>
@@ -229,8 +259,16 @@ function tableSorting(val, tag) {
         };
     };
 };
-                    // Table Events
  
+
+
+ // clear Function
+function clearFunction() {
+    clearTimeout(longPress)
+}
+
+
+                    // Table Events
 
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
 

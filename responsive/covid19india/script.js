@@ -70,7 +70,7 @@ function tableSorting(val, tag) {
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]:""}), findDalta)
-
+                console.log(findDalta)
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>
@@ -228,7 +228,7 @@ function tableSorting(val, tag) {
 
 
             document.getElementById('main-table').innerHTML = html_data;
-            console.log(total_active)
+            
         };
     };
 };

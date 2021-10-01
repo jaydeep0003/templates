@@ -1,4 +1,5 @@
 // import { STATE_NAMES } from "./state.js";
+
 localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
@@ -28,12 +29,10 @@ function tableSorting(val, tag) {
 
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
-
             arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed == undefined ? 0 : value[1].delta.confirmed)
             arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ? 0 : value[1].delta.recovered)
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
-
-
+         
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
                 {
@@ -65,19 +64,15 @@ function tableSorting(val, tag) {
                     alert('longPress')
 
                      arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
-                     console.log(arrayData)
                     
-                    }
-              
-                ,2000)
-
+                }
+            ,1000)
 
             arrayData.forEach((item) => {
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
                 var allItemsMeta = allItems['meta']
-
                 var findDalta = allItems['delta']
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ""}), findDalta)
@@ -228,17 +223,9 @@ function tableSorting(val, tag) {
                 delta_deceased += findDalta.deceased/2;
 
             });
-
-            // document.getElementById('total-confirmed').innerHTML = total_confirmed.toLocaleString();
-            // document.getElementById('total-recovered').innerHTML = total_recovered.toLocaleString();
-            // document.getElementById('total-deceased').innerHTML = total_deceased.toLocaleString();
-            // document.getElementById('total-active').innerHTML = total_active.toLocaleString();
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
-
-            
-
             document.getElementById('main-table').innerHTML = html_data;
 
             function animateValue(obj, start, end, duration) {

@@ -33,6 +33,12 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ? 0 : value[1].delta.recovered)
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
          
+
+
+                            // console.log(arrayData[33])
+
+
+
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
                 {
@@ -53,22 +59,37 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', '')
                 }
                 else {
-                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+
+                    if (typeof arrayData[33] == 'object') {
+                        console.log(arrayData[33])
+
+                         arrayData.sort(function (a, b){
+                            return a[1][tag][val] = b[1][tag][val]
+                        });  
+
+                        
+                    }
+                    else {
+                        arrayData.sort(function (a, b){
+                            return a[1][tag][val] < b[1][tag][val]
+                        });    
+                    }
+                    
+
                     localStorage.setItem('order', 'asc')
                 }
             }
 
             longPress = setTimeout( 
                 function() {
-
-                    alert('longPress')
-
-                     arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
-                    
+                    arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
                 }
             ,1000)
 
+
             arrayData.forEach((item) => {
+
                 var allItems = item[1]
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']

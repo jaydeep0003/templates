@@ -47,13 +47,13 @@ function typeWriter(selector_target, text_list, placeholder = false, i = 0, text
 }
 
 
-text_list = [
-    "Gondal",
-    "Rajkot",
-    "Ahemdabad",
-    "Surat",
-    "Div !"
-];
+// text_list = [
+//     "Gondal",
+//     "Rajkot",
+//     "Ahemdabad",
+//     "Surat",
+//     "Div !"
+// ];
 
 return_value = typeWriter("#dynamic-placeholder", text_list, true);
 

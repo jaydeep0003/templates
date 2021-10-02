@@ -1,15 +1,12 @@
 // import { STATE_NAMES } from "./state.js";
 
 
-import { typeWriter} from '/placeholder'
+import { typeWriter} from './placeholder.js'
 
-return_value = typeWriter("#dynamic-placeholder", text_list, true);
-
-
-console.log(return_value)
+// return_value = typeWriter("#dynamic-placeholder", text_list, true);
 
 
-
+console.log(typeWriter)
 
 
 localStorage.setItem('order', 'asc')

@@ -1,7 +1,7 @@
 
 var timeoutVar = null;
 
-function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
+export function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
     if(!i) {
         if(placeholder) {
             document.querySelector(selector_target).placeholder = "";
@@ -36,7 +36,7 @@ function typeWriter(selector_target, text_list, placeholder = false, i = 0, text
 }
 
 
-text_list = [
+export let text_list = [
     "Gondal",
     "Rajkot",
     "Ahemdabad",
@@ -47,4 +47,4 @@ text_list = [
 // return_value = typeWriter("#dynamic-placeholder", text_list, true);
 
 
-export {typeWriter}
+// export {typeWriter}

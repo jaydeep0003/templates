@@ -47,4 +47,4 @@ text_list = [
 // return_value = typeWriter("#dynamic-placeholder", text_list, true);
 
 
-export {typeWriter,timeoutVar}
+export {typeWriter}

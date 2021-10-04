@@ -366,6 +366,7 @@ body {
 	padding-top: .5rem;
 	margin-left: 0rem;
 	font-size: .875rem;	
+	justify-content: center;
 }
 
 .vaccine_header div {
@@ -386,6 +387,7 @@ body {
 
 .Table {
 	width: 94%;
+	margin-top: 5rem;
 }
 
 .table_icon {
@@ -782,14 +784,13 @@ body {
 .progress_bar {
 	background-color: rgba(219,85,129,.12549019607843137);
 	height: 24px;
-	margin: 1rem 0;
+	margin: 2rem 0 0 0;
 	position: relative;
 	border-radius: 5px;
 }
 
 .progress_bar .value {
 	background-image: linear-gradient(45deg,rgba(219,85,129,.6) 25%,rgba(219,85,129,.12549019607843137) 0,rgba(219,85,129,.12549019607843137) 50%,rgba(219,85,129,.6) 0,rgba(219,85,129,.6) 75%,rgba(219,85,129,.12549019607843137) 0,rgba(219,85,129,.12549019607843137));
-	width: 49%;
 	background-size: 14px 14px;
 	opacity: .6;
 }
@@ -811,8 +812,20 @@ body {
 	background-color: rgba(219,85,129,.6);
 	width: 18.6%;
 	position: absolute;
-	top: -1rem;
+	top: -2rem;
+	height: 1.6rem;
 }
+
+.hero_container .progress_title {
+	text-align: justify;
+}
+
+.progress_title_padding {
+	padding: 0;
+	opacity: 1;
+
+}
+
 
 
 @media(max-width: 1280px) and (min-width: 1025px){

@@ -293,16 +293,27 @@ function tableSorting(val, tag) {
                 delta_deceased += findDalta.deceased/2;
                 administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
                 vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
+                vacc2 = allItemsTotal.vaccinated2*100/allItemsMeta.population;
             });
                             
             num = vacc1.toString();
-            x = Number(num.slice(0,5));
-        
+            var x = Number(num.slice(0,5));
+            num2 = vacc2.toString();
+            var y = Number(num2.slice(0,5));
+
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
             document.getElementById('administered').innerHTML = administered.toLocaleString();
+
             document.getElementById('progress-total-value').innerHTML =x + '%'
+            document.getElementById('progress-width').style.width = x + '%';
+            document.getElementById('progress-highlight').style.width = y + '%';
+            
+            document.getElementById('progress-highlight-width').style.marginLeft = y + '%';
+            document.getElementById('progress-highlight-value').innerHTML = y + '%'
+
+
 
             document.getElementById('main-table').innerHTML = html_data;
             

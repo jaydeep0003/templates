@@ -120,6 +120,30 @@ function tableSorting(val, tag) {
                 var allItemsMeta = allItems['meta']
                 var findDalta = allItems['delta']
 
+
+                
+
+                function convertNumber(number){
+                    if (number > 999 && number < 100000) {
+                        return (number/1000).toFixed(1) + 'K'
+                    }
+
+                    else if(number >= 100000 && number < 9999999) {
+                        return (number/100000).toFixed(1) + 'L'
+                    }
+
+                    else if(number >= 10000000) {
+                        return (number/10000000).toFixed(1) + 'Cr'
+                    }
+                    else if(number < 999) {
+                        return number
+                    }
+                }
+
+                
+
+
+
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
 
@@ -159,23 +183,23 @@ function tableSorting(val, tag) {
 
                             <div class="cell statistic u_hover u_color  hide_cell">
                               <div class="delta is-tested u_table_padding u_font_size">${(findDalta.tested)}</div>
-                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
+                              <div class="delta ">${convertNumber(allItemsTotal.tested)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
                               <div class="delta is_vaccine u_table_padding u_font_size">${(findDalta.vaccinated1)}</div>
-                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
+                              <div class="delta ">${convertNumber(allItemsTotal.vaccinated1)}</div>
                   
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
                               <div class="delta is_vaccine u_table_padding u_font_size">${(findDalta.vaccinated2)}</div>
-                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
+                              <div class="delta ">${convertNumber(allItemsTotal.vaccinated2)}</div>
                 
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
-                              <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
+                              <div class="delta ">${convertNumber(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  hide_cell">
@@ -187,7 +211,7 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic u_hover hide_cell u_color ">
-                              <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
+                              <div class="delta">${convertNumber(allItemsMeta.population)}</div>
                             </div>
 
                         </div>
@@ -226,21 +250,21 @@ function tableSorting(val, tag) {
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
                           <div class="delta is-tested u_table_padding u_font_size">${(findDalta.tested)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.tested)}</div>
+                          <div class="delta ">${convertNumber(allItemsTotal.tested)}</div>
                         </div>
 
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
                           <div class="delta is_vaccine u_table_padding u_font_size">${(findDalta.vaccinated1)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1)}</div>
+                          <div class="delta ">${convertNumber(allItemsTotal.vaccinated1)}</div>
               
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
                           <div class="delta is_vaccine u_table_padding u_font_size">${(findDalta.vaccinated2)}</div>
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated2)}</div>
+                          <div class="delta ">${convertNumber(allItemsTotal.vaccinated2)}</div>
               
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
-                          <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
+                          <div class="delta ">${convertNumber(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
                
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -252,7 +276,7 @@ function tableSorting(val, tag) {
                         </div>
 
                         <div class="cell statistic u_hover new_class hide_cell u_color ">
-                          <div class="delta">${new Intl.NumberFormat().format(allItemsMeta.population)}</div>
+                          <div class="delta">${convertNumber(allItemsMeta.population)}</div>
                         </div>
                       </div>
                     `
@@ -268,22 +292,20 @@ function tableSorting(val, tag) {
                 delta_recovered += findDalta.recovered/2;
                 delta_deceased += findDalta.deceased/2;
                 administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
-                vacc = allItemsTotal.vaccinated1*100/allItemsMeta.population;
+                vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
             });
                             
-            
-
+            num = vacc1.toString();
+            x = Number(num.slice(0,5));
+        
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
             document.getElementById('administered').innerHTML = administered.toLocaleString();
-            document.getElementById('progress-total-value').innerHTML =vacc + '%'
+            document.getElementById('progress-total-value').innerHTML =x + '%'
 
             document.getElementById('main-table').innerHTML = html_data;
             
-
-
-
             function animateValue(obj, start, end, duration) {
                 let startTimestamp = null;
                 const step = (timestamp) => {
@@ -297,7 +319,7 @@ function tableSorting(val, tag) {
                 window.requestAnimationFrame(step);
             }
 
-            const tt_confirmed = document.getElementById("total-confirmed");
+            const tt_confirmed = document.getElementById("total-confirmed")
             const tt_recovered = document.getElementById('total-recovered')
             const tt_desceased = document.getElementById('total-deceased')
             const tt_active = document.getElementById('total-active')

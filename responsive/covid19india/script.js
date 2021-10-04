@@ -11,7 +11,7 @@ filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccina
 
 
 html_element_counter = 0
-let total_confirmed = total_recovered = total_deceased = total_active  = delta_confirmed = delta_recovered = delta_deceased = 0
+let total_confirmed = total_recovered = total_deceased = total_active  = delta_confirmed = delta_recovered = delta_deceased = vacc1 = 0
 
 document.getElementById('main-table').innerHTML = '';
 
@@ -268,13 +268,16 @@ function tableSorting(val, tag) {
                 delta_recovered += findDalta.recovered/2;
                 delta_deceased += findDalta.deceased/2;
                 administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
-
+                vacc = allItemsTotal.vaccinated1*100/allItemsMeta.population;
             });
+                            
+            
 
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
             document.getElementById('administered').innerHTML = administered.toLocaleString();
+            document.getElementById('progress-total-value').innerHTML =vacc + '%'
 
             document.getElementById('main-table').innerHTML = html_data;
             
@@ -330,6 +333,7 @@ function right_arrow() {
     var searchbox = document.getElementById('searchbox');
     var panel = document.getElementById('panel');
     var map_swicher = document.getElementById('map-swicher');
+    var progress_bar = document.getElementById('progress-bar');
     
     if (right_arrow.classList.contains('right_arrow')) {
 
@@ -360,6 +364,9 @@ function right_arrow() {
 
         map_swicher.classList.remove('map_switcher');
         map_swicher.classList.add('map_new_switcher');
+
+        progress_bar.classList.remove('progress_bar')
+        progress_bar.classList.add('new_progress_bar')
 
     }
      else {

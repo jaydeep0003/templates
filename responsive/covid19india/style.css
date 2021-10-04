@@ -384,6 +384,9 @@ body {
 	font-size: 12px;
 }
 
+.Table {
+	width: 94%;
+}
 
 .table_icon {
 	display: flex;
@@ -782,7 +785,6 @@ body {
 	margin: 1rem 0;
 	position: relative;
 	border-radius: 5px;
-	
 }
 
 .progress_bar .value {
@@ -794,7 +796,6 @@ body {
 
 .progress_bar .value:hover {
 	opacity: 1;
-	cursor: pointer;
 }
 
 .progress_bar .value:hover ~ .highlight {
@@ -812,11 +813,6 @@ body {
 	position: absolute;
 	top: -1rem;
 }
-
-
-
-
-
 
 
 @media(max-width: 1280px) and (min-width: 1025px){

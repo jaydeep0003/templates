@@ -10,50 +10,50 @@ localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
-var timeoutVar = null;
+// var timeoutVar = null;
 
-function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
-    if(!i) {
-        if(placeholder) {
-            document.querySelector(selector_target).placeholder = "";
-        }
-        else {
-            document.querySelector(selector_target).innerHTML = "";
-        }
-    }
-    var txt = text_list[text_list_i];
+// function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
+//     if(!i) {
+//         if(placeholder) {
+//             document.querySelector(selector_target).placeholder = "";
+//         }
+//         else {
+//             document.querySelector(selector_target).innerHTML = "";
+//         }
+//     }
+//     var txt = text_list[text_list_i];
 
-     if (i < txt.length) {
-        if (placeholder) {
-            document.querySelector(selector_target).placeholder += txt.charAt(i);
-        }
-        else {
-            document.querySelector(selector_target).innerHTML += txt.charAt(i);
-        }
-        i++;
-        setTimeout(typeWriter, delay_ms, selector_target, text_list, placeholder, i, text_list_i);
-    }
+//      if (i < txt.length) {
+//         if (placeholder) {
+//             document.querySelector(selector_target).placeholder += txt.charAt(i);
+//         }
+//         else {
+//             document.querySelector(selector_target).innerHTML += txt.charAt(i);
+//         }
+//         i++;
+//         setTimeout(typeWriter, delay_ms, selector_target, text_list, placeholder, i, text_list_i);
+//     }
 
-     else {
-        text_list_i++;
-        if (typeof text_list[text_list_i] === "undefined")  {
-            setTimeout(typeWriter, (delay_ms*5), selector_target, text_list, placeholder);
-        }
-        else {
-            i = 0;
-            setTimeout(typeWriter, (delay_ms*3), selector_target, text_list, placeholder, i, text_list_i);
-        }
-    }
-}
+//      else {
+//         text_list_i++;
+//         if (typeof text_list[text_list_i] === "undefined")  {
+//             setTimeout(typeWriter, (delay_ms*5), selector_target, text_list, placeholder);
+//         }
+//         else {
+//             i = 0;
+//             setTimeout(typeWriter, (delay_ms*3), selector_target, text_list, placeholder, i, text_list_i);
+//         }
+//     }
+// }
 
 
-text_list = [
-    "Gondal",
-    "Rajkot",
-    "Ahemdabad",
-    "Surat",
-    "Div !"
-];
+// text_list = [
+//     "Gondal",
+//     "Rajkot",
+//     "Ahemdabad",
+//     "Surat",
+//     "Div !"
+// ];
 
 // return_value = typeWriter("#dynamic-placeholder", text_list, true);
 
@@ -71,8 +71,6 @@ function tableSorting(val, tag) {
     var url = "https://data.covid19india.org/v4/min/data.min.json";
 
     request.open("GET", url)
-    // request.onreadystatechange = someHandle;
-
     request.send();
 
     request.onreadystatechange = function() {
@@ -85,10 +83,16 @@ function tableSorting(val, tag) {
 
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
-            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed == undefined ? 0 : value[1].delta.confirmed)
+            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? 0 : value[1].delta.confirmed)
             arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ? 0 : value[1].delta.recovered)
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
-         
+
+
+
+            
+
+
+
 
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
@@ -118,12 +122,12 @@ function tableSorting(val, tag) {
 
 
 
-            longPress = setTimeout( 
-                function() {
-                    arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
-                }
+            // longPress = setTimeout( 
+            //     function() {
+            //         arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
+            //     }
 
-            ,1000)
+            // ,1000)
 
             arrayData.forEach((item) => {
 
@@ -132,8 +136,9 @@ function tableSorting(val, tag) {
                 var allItemsDelta = allItems['delta']
                 var allItemsMeta = allItems['meta']
                 var findDalta = allItems['delta']
+
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
-                var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ""}), findDalta)
+                var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
 
                 if (html_element_counter % 2 == 0) {
                     html_element = `
@@ -144,7 +149,7 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic u_hover u_color " id="hover-id">
-                              <div class="delta is-confirmed  u_table_padding u_font_size">${allItemsDelta.confirmed}</div> 
+                              <div class="delta is-confirmed  u_table_padding u_font_size">${findDalta.confirmed}</div> 
                               <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
                             </div>
 
@@ -213,7 +218,7 @@ function tableSorting(val, tag) {
                           </div>
 
                           <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
-                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${(allItemsDelta.confirmed)}</div>
+                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${(findDalta.confirmed)}</div>
                             <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
                           </div>
 
@@ -281,6 +286,7 @@ function tableSorting(val, tag) {
                 delta_deceased += findDalta.deceased/2;
 
             });
+
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
@@ -303,18 +309,14 @@ function tableSorting(val, tag) {
             const tt_recovered = document.getElementById('total-recovered')
             const tt_desceased = document.getElementById('total-deceased')
             const tt_active = document.getElementById('total-active')
+
+
             animateValue(tt_confirmed, total_confirmed, 0, 1500);
             animateValue(tt_recovered, total_recovered, 0, 1500);
             animateValue(tt_desceased, total_deceased, 0, 1500);
             animateValue(tt_active, total_active, 0, 2500);            
         };
     };
-
-
-        request.setRequestHeader("Access-Control-Allow-Origin","*");
-    request.setRequestHeader("Access-Control-Allow-Credentials", "true");
-    request.setRequestHeader("Access-Control-Allow-Methods", "GET");
-    request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
 
 };
  

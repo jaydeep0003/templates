@@ -87,38 +87,75 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ? 0 : value[1].delta.recovered)
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
 
+// console.log(arrayData[33])
 
-
+                
             
+                    if (val == 'state') {
+                        if(localStorage.getItem("order") == "asc"){
+                            arrayData.sort();
+                            localStorage.setItem("order", "")
+                        }
+                        else{
+                            arrayData.reverse();
+                            localStorage.setItem('order', 'asc')
+                        }
+                    }
+
+                    else {
 
 
+                        if (localStorage.getItem('order') == 'asc') {
+                            arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                            localStorage.setItem('order', '')
+                        }
+                        else {
+                            
+                            // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+
+                            
+                            arrayData.sort((a,b) => {
+                                console.log(a[0] == 'TT')
+                                if(a[0]=='TT'){
+                                    a[1][tag][val] > b[1][tag][val]
+                                }
+                                else {
+                                     a[1][tag][val] < b[1][tag][val]
+                                     
+                                }
+                            })
 
 
-            if (val == 'state') {
-                if(localStorage.getItem("order") == "asc")
-                {
-                    arrayData.sort();
-                    localStorage.setItem("order", "")
+                            localStorage.setItem('order', 'asc')
+                            
+                        }
+                    }
 
-                }
-                else
-                {
-                    arrayData.reverse();
-                    localStorage.setItem('order', 'asc')
-                }
-            }
+                    
+            
+            // if (val == 'state') {
+            //     if(localStorage.getItem("order") == "asc")
+            //     {
+            //         arrayData.sort();
+            //         localStorage.setItem("order", "")
+            //     }
+            //     else
+            //     {
+            //         arrayData.reverse();
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
-            else {
-
-                if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-                    localStorage.setItem('order', '')
-                }
-                else {
-                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                    localStorage.setItem('order', 'asc')
-                }
-            }
+            // else {
+            //     if (localStorage.getItem('order') == 'asc') {
+            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+            //         localStorage.setItem('order', '')
+            //     }
+            //     else {
+            //         arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
 
 

@@ -292,29 +292,32 @@ function tableSorting(val, tag) {
                 delta_recovered += findDalta.recovered/2;
                 delta_deceased += findDalta.deceased/2;
                 administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
+
                 vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
                 vacc2 = allItemsTotal.vaccinated2*100/allItemsMeta.population;
             });
                             
             num = vacc1.toString();
             var x = Number(num.slice(0,5));
+
             num2 = vacc2.toString();
             var y = Number(num2.slice(0,5));
 
+            var w = 10;
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
             document.getElementById('administered').innerHTML = administered.toLocaleString();
 
             document.getElementById('progress-total-value').innerHTML =x + '%'
-            document.getElementById('progress-width').style.width = x + '%';
-            document.getElementById('progress-highlight').style.width = y + '%';
-            
-            document.getElementById('progress-highlight-width').style.marginLeft = y + '%';
             document.getElementById('progress-highlight-value').innerHTML = y + '%'
 
-
-
+            document.getElementById('progress-width').style.width = x + '%';
+            document.getElementById('progress-highlight').style.width = y + '%';
+            document.getElementById('progress-highlight-width').style.marginLeft = y + '%';
+            
+            // document.getElementById('progress-total-value').style.marginLeft = y + '%';
+            
             document.getElementById('main-table').innerHTML = html_data;
             
             function animateValue(obj, start, end, duration) {
@@ -366,6 +369,7 @@ function right_arrow() {
     var searchbox = document.getElementById('searchbox');
     var panel = document.getElementById('panel');
     var map_swicher = document.getElementById('map-swicher');
+    var progress_width = document.getElementById('progress-width');
     var progress_bar = document.getElementById('progress-bar');
     
     if (right_arrow.classList.contains('right_arrow')) {
@@ -397,6 +401,9 @@ function right_arrow() {
 
         map_swicher.classList.remove('map_switcher');
         map_swicher.classList.add('map_new_switcher');
+
+        progress_width.classList.remove('value')
+        progress_width.classList.add('new_progress_value')
 
         progress_bar.classList.remove('progress_bar')
         progress_bar.classList.add('new_progress_bar')
@@ -431,6 +438,12 @@ function right_arrow() {
 
         map_swicher.classList.add('map_switcher');
         map_swicher.classList.remove('map_new_switcher');
+
+        progress_width.classList.remove('new_progress_value')
+        progress_width.classList.add('value')
+
+        progress_bar.classList.remove('new_progress_bar')
+        progress_bar.classList.add('progress_bar')
 
     }
 }

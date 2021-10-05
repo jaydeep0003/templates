@@ -61,7 +61,7 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', '')
                 }
                 else {
-                    // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    
                     arrayData.sort((a,b) => {
                         
                         if(a[0] =='TT'){
@@ -79,6 +79,15 @@ function tableSorting(val, tag) {
 
                     
             
+
+
+
+
+
+
+
+
+
             // if (val == 'state') {
             //     if(localStorage.getItem("order") == "asc")
             //     {
@@ -302,8 +311,7 @@ function tableSorting(val, tag) {
 
             num2 = vacc2.toString();
             var y = Number(num2.slice(0,5));
-
-            var w = 10;
+            
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();

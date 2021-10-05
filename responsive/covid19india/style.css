@@ -823,6 +823,7 @@ body {
 .progress_title_padding {
 	padding: 0;
 	opacity: 1;
+	text-align: justify;
 
 }
 
@@ -850,6 +851,12 @@ body {
 	top: -2rem;
 	height: 1.6rem;
 }
+
+.new_table {
+	width: 100%;
+}
+
+
 
 @media(max-width: 1280px) and (min-width: 1025px){
 	.hero {
@@ -1027,7 +1034,7 @@ body {
 	}
 
 	.Table {
-		width: 100%;
+	
 	}
 
 	.state_new_selection {
@@ -1036,6 +1043,13 @@ body {
 	}
 
 }
+
+.new_progress_bar .new_progress_value span {
+	margin-left: calc(100% + .25rem);
+	font-size: 12px;
+}
+
+
 
 @media(max-width: 576px) {
 	.menu {

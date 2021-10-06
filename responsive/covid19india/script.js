@@ -41,6 +41,7 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
 
 
+            
 
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc"){
@@ -61,18 +62,7 @@ function tableSorting(val, tag) {
                 }
 
                 else {
-                    arrayData.sort((a,b) => {
-                        
-                        if(a[0] =='TT' ){
-                            console.log(a)
-                            return a[1][tag][val] > a[1][tag][val]
-                        }
-
-                        else {
-                            return a[1][tag][val] < b[1][tag][val]
-                        }
-                    })
-
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])  
                     localStorage.setItem('order', 'asc')
                 }
             }

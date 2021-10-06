@@ -42,39 +42,40 @@ function tableSorting(val, tag) {
 
 
 
-            // if (val == 'state') {
-            //     if(localStorage.getItem("order") == "asc"){
-            //         arrayData.sort();
-            //         localStorage.setItem("order", "")
-            //     }
-            //     else{
-            //         arrayData.reverse();
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
+            if (val == 'state') {
+                if(localStorage.getItem("order") == "asc"){
+                    arrayData.sort();
+                    localStorage.setItem("order", "")
+                }
+                else{
+                    arrayData.reverse();
+                    localStorage.setItem('order', 'asc')
+                }
+            }
 
-            // else {
+            else {
 
-            //     if (localStorage.getItem('order') == 'asc') {
-            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-            //         localStorage.setItem('order', '')
-            //     }
+                if (localStorage.getItem('order') == 'asc') {
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    localStorage.setItem('order', '')
+                }
 
-            //     else {
-            //         arrayData.sort((a,b) => {
+                else {
+                    arrayData.sort((a,b) => {
                         
-            //             if(a[0] =='TT' ){
-            //                return a[1][tag][val] > a[1][tag][val]
-            //             }
+                        if(a[0] =='TT' ){
+							console.log(a)
+							return a[1][tag][val] > a[1][tag][val]
+                        }
 
-            //             else {
-            //                 return a[1][tag][val] < b[1][tag][val]
-            //             }
-            //         })
+                        else {
+                            return a[1][tag][val] < b[1][tag][val]
+                        }
+                    })
 
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
+                    localStorage.setItem('order', 'asc')
+                }
+            }
 
                     
             
@@ -88,32 +89,32 @@ function tableSorting(val, tag) {
 
             
 
-            if (val == 'state') {
-                if(localStorage.getItem("order") == "asc")
-                {
-                    arrayData.sort();
-                    localStorage.setItem("order", "")
-                }
-                else
-                {
-                    arrayData.reverse();
-                    localStorage.setItem('order', 'asc')
-                }
-            }
+            // if (val == 'state') {
+            //     if(localStorage.getItem("order") == "asc")
+            //     {
+            //         arrayData.sort();
+            //         localStorage.setItem("order", "")
+            //     }
+            //     else
+            //     {
+            //         arrayData.reverse();
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
-            else {
+            // else {
 
-                // if (localStorage.getItem('order') == 'asc') {
-                //     arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+            //     if (localStorage.getItem('order') == 'asc') {
+            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
 
-                //     localStorage.setItem('order', '')
-                // }
+            //         localStorage.setItem('order', '')
+            //     }
 
-                // else {
-                //     arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                //     localStorage.setItem('order', 'asc')
-                // }
-            }
+            //     else {
+            //         arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
 
             // longPress = setTimeout( 

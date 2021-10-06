@@ -42,40 +42,39 @@ function tableSorting(val, tag) {
 
 
 
-            if (val == 'state') {
-                if(localStorage.getItem("order") == "asc"){
-                    arrayData.sort();
-                    localStorage.setItem("order", "")
-                }
-                else{
-                    arrayData.reverse();
-                    localStorage.setItem('order', 'asc')
-                }
-            }
+            // if (val == 'state') {
+            //     if(localStorage.getItem("order") == "asc"){
+            //         arrayData.sort();
+            //         localStorage.setItem("order", "")
+            //     }
+            //     else{
+            //         arrayData.reverse();
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
-            else {
+            // else {
 
+            //     if (localStorage.getItem('order') == 'asc') {
+            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+            //         localStorage.setItem('order', '')
+            //     }
 
-                if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-                    localStorage.setItem('order', '')
-                }
-                else {
-                    
-                    arrayData.sort((a,b) => {
+            //     else {
+            //         arrayData.sort((a,b) => {
                         
-                        if(a[0] =='TT'){
-                            return a[1][tag][val] > b[1][tag][val]
-                        }
+            //             if(a[0] =='TT' ){
+            //                return a[1][tag][val] > a[1][tag][val]
+            //             }
 
-                        else {
-                            return a[1][tag][val] < b[1][tag][val]
-                        }
-                    })
+            //             else {
+            //                 return a[1][tag][val] < b[1][tag][val]
+            //             }
+            //         })
 
-                    localStorage.setItem('order', 'asc')
-                }
-            }
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
                     
             
@@ -87,31 +86,34 @@ function tableSorting(val, tag) {
 
 
 
+            
 
-            // if (val == 'state') {
-            //     if(localStorage.getItem("order") == "asc")
-            //     {
-            //         arrayData.sort();
-            //         localStorage.setItem("order", "")
-            //     }
-            //     else
-            //     {
-            //         arrayData.reverse();
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
+            if (val == 'state') {
+                if(localStorage.getItem("order") == "asc")
+                {
+                    arrayData.sort();
+                    localStorage.setItem("order", "")
+                }
+                else
+                {
+                    arrayData.reverse();
+                    localStorage.setItem('order', 'asc')
+                }
+            }
 
-            // else {
-            //     if (localStorage.getItem('order') == 'asc') {
-            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-            //         localStorage.setItem('order', '')
-            //     }
-            //     else {
-            //         arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
+            else {
 
+                if (localStorage.getItem('order') == 'asc') {
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+
+                    localStorage.setItem('order', '')
+                }
+
+                else {
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    localStorage.setItem('order', 'asc')
+                }
+            }
 
 
             // longPress = setTimeout( 
@@ -155,6 +157,11 @@ function tableSorting(val, tag) {
 
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
+
+
+
+               
+
 
                 if (html_element_counter % 2 == 0) {
                     html_element = `
@@ -290,6 +297,7 @@ function tableSorting(val, tag) {
                       </div>
                     `
                 }
+
 
                 html_data += html_element;
                 html_element_counter += 1;

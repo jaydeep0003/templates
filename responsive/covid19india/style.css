@@ -1216,3 +1216,8 @@ body {
 .table_row:last-child {
 	
 }
+
+                    
+.searchbox,.map_switcher,.progress_bar {
+	display: none;
+}

@@ -1217,7 +1217,12 @@ body {
 	
 }
 
-                    
-.searchbox,.map_switcher,.progress_bar {
-	display: none;
-}
+.india_map_tag {
+	width: 100%;
+	height: 100%;
+}               
+
+.india_map {
+	width: 32rem;
+	/*height: 100%;*/
+}     

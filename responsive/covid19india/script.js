@@ -1,7 +1,54 @@
-// import { STATE_NAMES } from "./state.js";
+
+var timeoutVar = null;
+
+ function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
+    if(!i) {
+        if(placeholder) {
+            document.querySelector(selector_target).placeholder = "";
+        }
+        else {
+            document.querySelector(selector_target).innerHTML = "";
+        }
+    }
+    var txt = text_list[text_list_i];
+
+     if (i < txt.length) {
+        if (placeholder) {
+            document.querySelector(selector_target).placeholder += txt.charAt(i);
+        }
+        else {
+            document.querySelector(selector_target).innerHTML += txt.charAt(i);
+        }
+        i++;
+        setTimeout(typeWriter, delay_ms, selector_target, text_list, placeholder, i, text_list_i);
+    }
+
+     else {
+        text_list_i++;
+        if (typeof text_list[text_list_i] === "undefined")  {
+            setTimeout(typeWriter, (delay_ms*5), selector_target, text_list, placeholder);
+        }
+        else {
+            i = 0;
+            setTimeout(typeWriter, (delay_ms*3), selector_target, text_list, placeholder, i, text_list_i);
+        }
+    }
+}
 
 
-// import { typeWriter} from './placeholder.js'
+ text_list = [
+    "Gondal",
+    "Rajkot",
+    "Ahemdabad",
+    "Surat",
+    "Div !"
+];
+
+return_value = typeWriter("#dynamic-placeholder", text_list, true);
+
+
+
+
 
 
 localStorage.setItem('order', 'asc')
@@ -41,18 +88,21 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
 
 
-            
+           
 
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc"){
                     arrayData.sort();
                     localStorage.setItem("order", "")
                 }
+
                 else{
                     arrayData.reverse();
                     localStorage.setItem('order', 'asc')
                 }
             }
+
+
 
             else {
 
@@ -62,7 +112,20 @@ function tableSorting(val, tag) {
                 }
 
                 else {
-                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])  
+
+                    
+
+                    arrayData.sort((a,b)=> {
+                        if(a[0] == "TT" ){
+                            return b[1][tag][val]
+                            
+                        }
+                        else {
+                           return a[1][tag][val] < b[1][tag][val]
+                        }
+                        
+                    })
+
                     localStorage.setItem('order', 'asc')
                 }
             }

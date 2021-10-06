@@ -42,39 +42,40 @@ function tableSorting(val, tag) {
 
 
 
-            // if (val == 'state') {
-            //     if(localStorage.getItem("order") == "asc"){
-            //         arrayData.sort();
-            //         localStorage.setItem("order", "")
-            //     }
-            //     else{
-            //         arrayData.reverse();
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
+            if (val == 'state') {
+                if(localStorage.getItem("order") == "asc"){
+                    arrayData.sort();
+                    localStorage.setItem("order", "")
+                }
+                else{
+                    arrayData.reverse();
+                    localStorage.setItem('order', 'asc')
+                }
+            }
 
-            // else {
+            else {
 
-            //     if (localStorage.getItem('order') == 'asc') {
-            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
-            //         localStorage.setItem('order', '')
-            //     }
+                if (localStorage.getItem('order') == 'asc') {
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    localStorage.setItem('order', '')
+                }
 
-            //     else {
-            //         arrayData.sort((a,b) => {
+                else {
+                    arrayData.sort((a,b) => {
                         
-            //             if(a[0] =='TT' ){
-            //                return a[1][tag][val] > a[1][tag][val]
-            //             }
+                        if(a[0] =='TT' ){
+                            console.log(a)
+                            return a[1][tag][val] > a[1][tag][val]
+                        }
 
-            //             else {
-            //                 return a[1][tag][val] < b[1][tag][val]
-            //             }
-            //         })
+                        else {
+                            return a[1][tag][val] < b[1][tag][val]
+                        }
+                    })
 
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
+                    localStorage.setItem('order', 'asc')
+                }
+            }
 
                     
             
@@ -88,41 +89,32 @@ function tableSorting(val, tag) {
 
             
 
-            if (val == 'state') {
-                if(localStorage.getItem("order") == "asc")
-                {
-                    arrayData.sort();
-                    localStorage.setItem("order", "")
-                }
-                else
-                {
-                    arrayData.reverse();
-                    localStorage.setItem('order', 'asc')
-                }
-            }
+            // if (val == 'state') {
+            //     if(localStorage.getItem("order") == "asc")
+            //     {
+            //         arrayData.sort();
+            //         localStorage.setItem("order", "")
+            //     }
+            //     else
+            //     {
+            //         arrayData.reverse();
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
-            else {
+            // else {
 
-                if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+            //     if (localStorage.getItem('order') == 'asc') {
+            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
 
-                    localStorage.setItem('order', '')
-                }
+            //         localStorage.setItem('order', '')
+            //     }
 
-                else {
-
-                    if(arrayData[33][0] == 'TT')
-                    {
-                          return arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
-                    }
-                    else {
-
-                        return arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                    }
-
-                    localStorage.setItem('order', 'asc')
-                }
-            }
+            //     else {
+            //         arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
 
             // longPress = setTimeout( 
@@ -175,94 +167,75 @@ function tableSorting(val, tag) {
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>
-
                             <div class="cell fixed dark_mode_cell" id='row-first-id'>
                               <div class="state_name" id="table-first-value" value=''>${item[0]}</div>
                             </div>
-
                             <div class="cell statistic u_hover u_color " id="hover-id">
                               <div class="delta is-confirmed  u_table_padding u_font_size">${findDalta.confirmed}</div> 
                               <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
                             </div>
-
                             <div class="cell statistic u_hover u_color">
                               <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed-allItemsTotal.recovered-allItemsTotal.deceased - allItemsTotal.other)}</div>
                             </div>
-
                             <div class="cell statistic u_hover u_color">
                               <div class="delta is-recovered u_table_padding u_font_size">${(findDalta.recovered)}</div>
                               <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
                  
                             </div>
-
                             <div class="cell statistic u_hover u_color">
                               <div class="delta is-deceased u_table_padding u_font_size">${(findDalta.deceased)}</div>
                               <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
                  
                             </div>
-
                             <div class="cell statistic u_hover u_color">
                               <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
                               <div class="delta ">${(allItemsTotal.other)}</div>
                             </div>
-
                             <div class="cell statistic u_hover u_color  hide_cell">
                               <div class="delta is-tested u_table_padding u_font_size">${(findDalta.tested)}</div>
                               <div class="delta ">${convertNumber(allItemsTotal.tested)}</div>
                             </div>
-
                             <div class="cell statistic u_hover u_color  hide_cell">
                               <div class="delta is_vaccine u_table_padding u_font_size">${(findDalta.vaccinated1)}</div>
                               <div class="delta ">${convertNumber(allItemsTotal.vaccinated1)}</div>
                   
                             </div>
-
                             <div class="cell statistic u_hover u_color  hide_cell">
                               <div class="delta is_vaccine u_table_padding u_font_size">${(findDalta.vaccinated2)}</div>
                               <div class="delta ">${convertNumber(allItemsTotal.vaccinated2)}</div>
                 
                             </div>
-
                             <div class="cell statistic u_hover u_color  hide_cell">
                               <div class="delta ">${convertNumber(allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2)}</div>
                             </div>
-
                             <div class="cell statistic u_hover u_color  hide_cell">
                             <div class="delta">😈</div>
                             </div>
-
                             <div class="cell statistic u_hover hide_cell u_color ">
                               <div class="delta">😈</div>
                             </div>
-
                             <div class="cell statistic u_hover hide_cell u_color ">
                               <div class="delta">${convertNumber(allItemsMeta.population)}</div>
                             </div>
-
                         </div>
                     `
                 } else {
                     html_element = `
                         <div class='table_row' onmouseover='first_hover("${item[0]}")'>
-
                           <div class="cell fixed dark_mode_cell" id='row-first-id'>
                             <div class="state_name" id="table-first-value" value=''>${item[0]}</div>
                           </div>
-
                           <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
                             <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${(findDalta.confirmed)}</div>
                             <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
                           </div>
-
                         <div class="cell statistic new_class u_hover u_color ligth_color ">
                           <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other)}</div>
                         </div>
-
                         <div class="cell statistic new_class u_hover u_color ">
                           <div class="delta is-recovered u_table_padding u_font_size">${(findDalta.recovered)}</div>
                           <div class="delta ">${new Intl.NumberFormat().format(allItemsTotal.recovered)}</div>
                         </div>
-
                         <div class="cell statistic new_class u_hover u_color ">
                           <div class="delta is-deceased u_table_padding u_font_size">${(findDalta.deceased)}</div>
                           <div class="delta">${new Intl.NumberFormat().format(allItemsTotal.deceased)}</div>
@@ -272,12 +245,10 @@ function tableSorting(val, tag) {
                         <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
                           <div class="delta">${(allItemsTotal.other)}</div>
                         </div>
-
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
                           <div class="delta is-tested u_table_padding u_font_size">${(findDalta.tested)}</div>
                           <div class="delta ">${convertNumber(allItemsTotal.tested)}</div>
                         </div>
-
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
                           <div class="delta is_vaccine u_table_padding u_font_size">${(findDalta.vaccinated1)}</div>
                           <div class="delta ">${convertNumber(allItemsTotal.vaccinated1)}</div>
@@ -295,11 +266,9 @@ function tableSorting(val, tag) {
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
                           <div class="delta">😈</div>
                         </div>
-
                         <div class="cell statistic u_hover new_class hide_cell u_color ">
                           <div class="delta">😈</div>
                         </div>
-
                         <div class="cell statistic u_hover new_class hide_cell u_color ">
                           <div class="delta">${convertNumber(allItemsMeta.population)}</div>
                         </div>
@@ -524,6 +493,3 @@ document.getElementById('detail_id').addEventListener('click', (()=> {
 function first_hover(val){
   document.getElementById('select-dropdown').value = val;
 }
-
-
-

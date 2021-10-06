@@ -103,16 +103,25 @@ function tableSorting(val, tag) {
 
             else {
 
-                // if (localStorage.getItem('order') == 'asc') {
-                //     arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+                if (localStorage.getItem('order') == 'asc') {
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
 
-                //     localStorage.setItem('order', '')
-                // }
+                    localStorage.setItem('order', '')
+                }
 
-                // else {
-                //     arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                //     localStorage.setItem('order', 'asc')
-                // }
+                else {
+
+                    if(arrayData[33][0] == 'TT')
+                    {
+                          return arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+                    }
+                    else {
+
+                        return arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    }
+
+                    localStorage.setItem('order', 'asc')
+                }
             }
 
 

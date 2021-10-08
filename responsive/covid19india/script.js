@@ -91,13 +91,73 @@ function tableSorting(val, tag) {
 
            
 
-            if (val == 'state') {
-                if(localStorage.getItem("order") == "asc"){
+            // if (val == 'state') {
+            //     if(localStorage.getItem("order") == "asc"){
+            //         arrayData.sort();
+            //         localStorage.setItem("order", "")
+            //     }
+
+            //     else{
+            //         arrayData.reverse();
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
+
+            // else {
+
+            //     if (localStorage.getItem('order') == 'asc') {
+            //         // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+                    
+            //         arrayData.sort((a,b)=> {
+
+            //             if(a[0] == 'TT'){
+            //                 return  a >b; 
+                            
+            //                 // return -1;
+            //             }
+            //             else {
+            //                 return a[1][tag][val] > b[1][tag][val];
+            //             }
+            //         })
+
+
+            //         localStorage.setItem('order', '')
+            //     }
+
+            //     else {
+
+            //         arrayData.sort((a,b)=> {
+            //             if(a[0] == "TT" ){
+            //                 a = a[1][tag][val] > b[1][tag][val]
+            //                 return a
+            //             }
+            //             else {
+            //                return a[1][tag][val] < b[1][tag][val];
+            //             }
+                        
+            //         })
+
+            //         localStorage.setItem('order', 'asc');
+            //     }
+            // }
+
+                    
+            
+
+
+
+
+
+
+
+        if (val == 'state') {
+                if(localStorage.getItem("order") == "asc")
+                {
                     arrayData.sort();
                     localStorage.setItem("order", "")
                 }
-
-                else{
+                else
+                {
                     arrayData.reverse();
                     localStorage.setItem('order', 'asc')
                 }
@@ -106,43 +166,60 @@ function tableSorting(val, tag) {
             else {
 
                 if (localStorage.getItem('order') == 'asc') {
-                    // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
-
-                    arrayData.sort((a,b)=> {
-
-                        if(a[0] == 'TT'){
-                            return  a >b; 
-                            
-                            // return -1;
-                        }
-                        else {
-                            return a[1][tag][val] > b[1][tag][val];
-                        }
-                    })
-
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
 
                     localStorage.setItem('order', '')
                 }
 
                 else {
-
-                    arrayData.sort((a,b)=> {
-                        if(a[0] == "TT" ){
-                            a = a[1][tag][val] > b[1][tag][val]
-                            return a
-                        }
-                        else {
-                           return a[1][tag][val] < b[1][tag][val];
-                        }
-                        
-                    })
-
-                    localStorage.setItem('order', 'asc');
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    
+                    localStorage.setItem('order', 'asc')
                 }
             }
 
-                    
-            
+
+            if(arrayData[0][0] == 'TT') {
+                arrayData.sort((a,b)=> {
+                    return a
+                })
+
+
+            }
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

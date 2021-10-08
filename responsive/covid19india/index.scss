@@ -550,6 +550,43 @@ body {
 	margin-left: 1.5rem;
 }
 
+.map_title_blog {
+	display: flex;
+	justify-content: space-between;
+	align-self: flex-start;
+	text-align: left;
+}
+
+h5 {
+	font-size: 12px;
+}
+
+.map_padding {
+	padding-top: 3.5rem;
+}
+
+.map_title_blog_second_items {
+	text-align: right;
+}
+
+.map_title_blog_second_items h2 {
+	font-size: 18px;
+}
+
+.secons_map_padding {
+	padding-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
 .state_selection select {
     /*background: #1e1e30;*/
     background: var(--new-class-color);

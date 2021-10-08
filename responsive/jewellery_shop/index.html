@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<title></title>
+</head>
+<body>
+	<section class="main_section">
+		<header class="main_header">
+			<nav class="navigation_bar">
+				<div class="nav_logo">
+
+					<img src="images/dshine-logo.png" class="nav_logo_tag">
+				</div>
+				
+				<div class="nav_items">
+					<ul>
+						<li ><a href="#" class="active">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Necklaces</a></li>
+						<li><a href="#">Product Category</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				</div>
+
+			</nav>
+		</header>
+
+		<section class="slider_blog">
+			<div class="slider_blog_slideshow">
+				<img src="images/1.jpg" class="slideshow_img">
+				<img src="images/3.jpg" class="slideshow_img">
+				<img src="images/4.jpg" class="slideshow_img">
+				<img src="images/5.jpg" class="slideshow_img">
+			</div>
+		</section>
+
+		<section class="product_collection_blog">
+			<div class="product_collection_container">
+				
+			</div>
+		</section>
+
+
+
+
+	</section>
+
+	<script>
+		
+		const sliderShowImage = document.querySelectorAll('.slider_blog .slideshow_img');
+
+		const nextimageDelay = 3000;
+		let currentImageCounter = 0;
+
+		sliderShowImage[currentImageCounter].style.opacity = 1;
+		setInterval(nextImage, nextimageDelay);
+
+		function nextImage (){
+			sliderShowImage[currentImageCounter].style.zIndex = -2;
+			const tempcounter = currentImageCounter;
+
+			setTimeout(()=> {
+				sliderShowImage[tempcounter].style.opacity = 0;
+			},1000);
+
+			sliderShowImage[currentImageCounter].style.opacity = 0;
+			currentImageCounter = (currentImageCounter + 1) % sliderShowImage.length;
+
+			sliderShowImage[currentImageCounter].style.opacity = 1;
+			sliderShowImage[currentImageCounter].style.zIndex = -1;
+		}
+
+	</script>	
+
+</body>
+</html>

@@ -36,6 +36,7 @@ var timeoutVar = null;
 }
 
 
+
  text_list = [
     "Gondal",
     "Rajkot",
@@ -102,31 +103,41 @@ function tableSorting(val, tag) {
                 }
             }
 
-
-
             else {
 
                 if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])  
+                    // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+
+                    arrayData.sort((a,b)=> {
+
+                        if(a[0] == 'TT'){
+                            return  a >b; 
+                            
+                            // return -1;
+                        }
+                        else {
+                            return a[1][tag][val] > b[1][tag][val];
+                        }
+                    })
+
+
                     localStorage.setItem('order', '')
                 }
 
                 else {
 
-                    
-
                     arrayData.sort((a,b)=> {
                         if(a[0] == "TT" ){
-                            return b[1][tag][val]
-                            
+                            a = a[1][tag][val] > b[1][tag][val]
+                            return a
                         }
                         else {
-                           return a[1][tag][val] < b[1][tag][val]
+                           return a[1][tag][val] < b[1][tag][val];
                         }
                         
                     })
 
-                    localStorage.setItem('order', 'asc')
+                    localStorage.setItem('order', 'asc');
                 }
             }
 

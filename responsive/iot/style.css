@@ -29,14 +29,14 @@ body {
 	font-size: 1.2rem;
 	font-weight: 600;
 	text-align: center;
-	padding-bottom: 1.5rem;
+	padding-bottom: .5rem;
 }
 
 .box_contanier {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 1.5rem;
-	margin: 0 1.5rem;
+	grid-gap: 1rem;
+	margin: 0 1rem;
 }
 
 .box_title {
@@ -45,13 +45,14 @@ body {
 }
 
 h2{
+	font-size: 1.2rem;
 	font-family: 'PT Sans', sans-serif;
 	font-weight: 500;
 }
 
 .child_border {
 	border: 2px solid black;
-	padding: 1rem;
+	padding: .9rem;
 }
 
 .box_border {
@@ -64,7 +65,8 @@ h2{
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 1rem;
-	padding: 1rem;
+	padding: .5rem 1rem;
+	grid-row-gap: .5rem;
 }
 
 .second_box_fourth {
@@ -88,4 +90,49 @@ h2{
 	display: grid;
 	grid-template-columns: 0.5fr 1.3fr;
 	margin-top: 3rem;
+}
+
+
+
+@media(max-width: 800px) {
+	body {
+		font-size: .875rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+	}
+	.main_container {
+	    margin: 0 1rem;
+	}
+
+	.box_contanier {
+    	display: grid;
+    	grid-template-columns: repeat(3, 1fr);
+	}
+
+	.box_contanier {
+    grid-gap: .5rem;
+    margin: 0 .5rem;
+	}
+
+	.box_child_container {
+    grid-gap: .5rem;
+    padding: .5rem;
+	}
+
+	.child_border {
+	    border: 2px solid black;
+	    padding: .5rem;
+	}
+
+	.iot_title {
+	    padding-bottom: 0.5rem;
+	}
+
+	.iot_sensor_box {
+	    border: 2px solid black;
+	    padding: .5rem 0;
+	}
+
+
 }

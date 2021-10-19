@@ -97,12 +97,42 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   letter-spacing: 0.1rem;
 }
+
 .slider_title h1 {
   font-size: 4rem;
   margin-bottom: 0.75rem;
 }
+
 .slider_title p {
   font-size: 1.5rem;
+}
+
+.product_slider_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.product_slider_child {
+  width: 25%;
+  margin: 0 5rem;
+}
+.product_slider_child img {
+  width: 100%;
+  height: 200px;
+}
+
+.left_arrow {
+  margin-left: 1rem;
+  width: 3%;
+  display: inline-block;
+}
+
+.right_arrow {
+  margin-right: 1rem;
+  width: 3%;
+  display: inline-block;
 }
 
 /*# sourceMappingURL=index.css.map */

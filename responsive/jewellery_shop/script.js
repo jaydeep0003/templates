@@ -1,3 +1,20 @@
+// function(e) {
+//   e.preventDefault();
+//   $('html,body').animate({
+//     scrollTop: 0
+//   }, 700);
+// }
+
+
+
+
+
+
+
+
+
+
+
 $(document).ready(function(){
 
     $('#itemslider').carousel({ interval: 3000 });
@@ -43,4 +60,8 @@ function nextImage (){
     sliderShowImage[currentImageCounter].style.opacity = 1;
     sliderShowImage[currentImageCounter].style.zIndex = -1;
 }
+
+
+
+// load up
 

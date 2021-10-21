@@ -57,9 +57,26 @@ localStorage.setItem('order', 'asc')
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 
+// live update time zone
+const newDate = new Date();
+const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-html_element_counter = 0
-let total_confirmed = total_recovered = total_deceased = total_active  = delta_confirmed = delta_recovered = delta_deceased = vacc1 = 0
+countMonth = months[newDate.getMonth()]
+monthDigit = countMonth.slice(0,3)
+
+firstDate = newDate.getDate()+ ' ' + monthDigit
+secondDate = newDate.getDate()+ ' ' + countMonth
+
+document.getElementById('nowDate').innerHTML = secondDate;
+document.getElementById('lastUpdate').innerHTML = firstDate;
+
+            
+
+
+
+
+html_element_counter = 0;
+let total_confirmed = total_recovered = total_deceased = total_active  = delta_confirmed = delta_recovered = delta_deceased = vacc1 = totalTtested = 0;
 
 document.getElementById('main-table').innerHTML = '';
 
@@ -89,68 +106,22 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
 
 
-           
-
-            // if (val == 'state') {
-            //     if(localStorage.getItem("order") == "asc"){
-            //         arrayData.sort();
-            //         localStorage.setItem("order", "")
-            //     }
-
-            //     else{
-            //         arrayData.reverse();
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
-
-            // else {
-
-            //     if (localStorage.getItem('order') == 'asc') {
-            //         // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
-                    
-            //         arrayData.sort((a,b)=> {
-
-            //             if(a[0] == 'TT'){
-            //                 return  a >b; 
-                            
-            //                 // return -1;
-            //             }
-            //             else {
-            //                 return a[1][tag][val] > b[1][tag][val];
-            //             }
-            //         })
 
 
-            //         localStorage.setItem('order', '')
-            //     }
+            // Panel Time Zone
+            listDateTime = arrayData
+            newListDateTime = listDateTime[10][1]['meta']['last_updated'].slice(11,16)
+            joinDateTime = firstDate + ' ,'+newListDateTime ;
+            document.getElementById('panelDateTime').innerHTML = joinDateTime;
+            d= arrayData[33][1]['meta']['last_updated']
+            b = d.slice(11,16)
+            document.getElementById('nowTime').innerHTML = b;
 
-            //     else {
 
-            //         arrayData.sort((a,b)=> {
-            //             if(a[0] == "TT" ){
-            //                 a = a[1][tag][val] > b[1][tag][val]
-            //                 return a
-            //             }
-            //             else {
-            //                return a[1][tag][val] < b[1][tag][val];
-            //             }
-                        
-            //         })
 
-            //         localStorage.setItem('order', 'asc');
-            //     }
-            // }
-
-                    
             
 
-
-
-
-
-
-
-        if (val == 'state') {
+            if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
                 {
                     arrayData.sort();
@@ -173,89 +144,9 @@ function tableSorting(val, tag) {
 
                 else {
                     arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                    
                     localStorage.setItem('order', 'asc')
                 }
             }
-
-
-            if(arrayData[0][0] == 'TT') {
-                arrayData.sort((a,b)=> {
-                    return a
-                })
-
-
-            }
-              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-            // if (val == 'state') {
-            //     if(localStorage.getItem("order") == "asc")
-            //     {
-            //         arrayData.sort();
-            //         localStorage.setItem("order", "")
-            //     }
-            //     else
-            //     {
-            //         arrayData.reverse();
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
-
-            // else {
-
-            //     if (localStorage.getItem('order') == 'asc') {
-            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
-
-            //         localStorage.setItem('order', '')
-            //     }
-
-            //     else {
-            //         arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-            //         localStorage.setItem('order', 'asc')
-            //     }
-            // }
 
 
             // longPress = setTimeout( 
@@ -420,18 +311,33 @@ function tableSorting(val, tag) {
 
                 html_data += html_element;
                 html_element_counter += 1;
+
                 total_confirmed += allItemsTotal.confirmed/2;
+
                 total_recovered += allItemsTotal.recovered/2;
+
                 total_deceased = allItemsTotal.deceased;
+
+                totalTtested += allItemsTotal.vaccinated1/2;
+
                 total_active = allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
+
                 delta_confirmed += findDalta.confirmed/2;
                 delta_recovered += findDalta.recovered/2;
                 delta_deceased += findDalta.deceased/2;
+
+
+
+
+
+
                 administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
 
                 vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
                 vacc2 = allItemsTotal.vaccinated2*100/allItemsMeta.population;
             });
+
+            
                             
             num = vacc1.toString();
             var x = Number(num.slice(0,5));
@@ -439,6 +345,7 @@ function tableSorting(val, tag) {
             num2 = vacc2.toString();
             var y = Number(num2.slice(0,5));
             
+            document.getElementById('totalTested').innerHTML = totalTtested.toLocaleString();
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();

@@ -63,5 +63,104 @@ function nextImage (){
 
 
 
-// load up
 
+testeOne = document.getElementById('teste1');
+testeTwo = document.getElementById('teste2');
+testeThree = document.getElementById('teste3');
+testeFourth = document.getElementById('teste4');
+testeFifth = document.getElementById('teste5');
+ratingFirst= document.getElementById('rt1');
+ratingSecond= document.getElementById('rt2');
+ratingThird= document.getElementById('rt3');
+ratingFourth= document.getElementById('rt4');
+ratingFifth= document.getElementById('rt5');
+
+function myFirstHover () {
+
+    if(testeOne.classList.contains('teste11')) {
+        testeOne.classList.remove('teste11')
+        testeTwo.classList.add('teste22');
+        testeThree.classList.add('teste33')
+        testeFourth.classList.add('teste44')
+        testeFifth.classList.add('teste55')
+
+        elem = document.getElementById('firstImageHover');
+        elem.focus();
+
+        ratingFirst.classList.add('new_rating_first')
+        ratingSecond.classList.remove('new_rating_second')
+        ratingThird.classList.remove('new_rating_third')
+        ratingFourth.classList.remove('new_rating_fourth')
+        ratingFifth.classList.remove('new_rating_fifth')
+    }
+}
+
+function mySecondHover () {
+
+    if(testeTwo.classList.contains('teste22')) {
+        testeTwo.classList.remove('teste22');
+        testeOne.classList.add('teste11')
+        testeThree.classList.add('teste33')
+        testeFourth.classList.add('teste44')
+        testeFifth.classList.add('teste55')
+
+        ratingFirst.classList.remove('new_rating_first')
+        ratingSecond.classList.add('new_rating_second')
+        ratingThird.classList.remove('new_rating_third')
+        ratingFourth.classList.remove('new_rating_fourth')
+        ratingFifth.classList.remove('new_rating_fifth')
+        
+    }
+}
+
+function myThirdHover () {
+
+    if(testeThree.classList.contains('teste33')) {
+        testeOne.classList.add('teste11')
+        testeTwo.classList.add('teste22');
+        testeThree.classList.remove('teste33')
+        testeFourth.classList.add('teste44')
+        testeFifth.classList.add('teste55')
+
+        ratingFirst.classList.remove('new_rating_first')
+        ratingSecond.classList.remove('new_rating_second')
+        ratingThird.classList.add('new_rating_third')
+        ratingFourth.classList.remove('new_rating_fourth')
+        ratingFifth.classList.remove('new_rating_fifth')
+    }
+}
+
+function myFourthHover () {
+
+    if(testeFourth.classList.contains('teste44')) {
+        testeOne.classList.add('teste11')
+        testeTwo.classList.add('teste22');
+        testeThree.classList.add('teste33')
+        testeFourth.classList.remove('teste44')
+        testeFifth.classList.add('teste55')
+
+        ratingFirst.classList.remove('new_rating_first')
+        ratingSecond.classList.remove('new_rating_second')
+        ratingThird.classList.remove('new_rating_third')
+        ratingFourth.classList.add('new_rating_fourth')
+        ratingFifth.classList.remove('new_rating_fifth')
+    }
+}
+
+
+function myFifthHover () {
+
+    if(testeFifth.classList.contains('teste55')) {
+        testeOne.classList.add('teste11')
+        testeTwo.classList.add('teste22');
+        testeThree.classList.add('teste33')
+        testeFourth.classList.add('teste44')
+        testeFifth.classList.remove('teste55')
+
+        ratingFirst.classList.remove('new_rating_first')
+        ratingSecond.classList.remove('new_rating_second')
+        ratingThird.classList.remove('new_rating_third')
+        ratingFourth.classList.remove('new_rating_fourth')
+        ratingFifth.classList.add('new_rating_fifth')
+    }
+}

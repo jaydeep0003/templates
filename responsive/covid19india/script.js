@@ -35,14 +35,25 @@ var timeoutVar = null;
     }
 }
 
-
-
  text_list = [
-    "Gondal",
-    "Rajkot",
-    "Ahemdabad",
-    "Surat",
-    "Div !"
+    "Andaman and Nicobar Islands",
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Chhattisgarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Goa",
+    "Gujrat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jammu and Kashmir",
+    "Jharkhand",
+    "Karnataka",
+    "Ladakh",
+    "Lakshadweep"
 ];
 
 return_value = typeWriter("#dynamic-placeholder", text_list, true);
@@ -60,26 +71,17 @@ filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccina
 // live update time zone
 const newDate = new Date();
 const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
 countMonth = months[newDate.getMonth()]
 monthDigit = countMonth.slice(0,3)
-
 firstDate = newDate.getDate()+ ' ' + monthDigit
 secondDate = newDate.getDate()+ ' ' + countMonth
-
 document.getElementById('nowDate').innerHTML = secondDate;
 document.getElementById('lastUpdate').innerHTML = firstDate;
-
-            
-
-
 
 
 html_element_counter = 0;
 let total_confirmed = total_recovered = total_deceased = total_active  = delta_confirmed = delta_recovered = delta_deceased = vacc1 = totalTtested = 0;
-
 document.getElementById('main-table').innerHTML = '';
-
 var longPress;
 
 function tableSorting(val, tag) {
@@ -164,9 +166,6 @@ function tableSorting(val, tag) {
                 var allItemsMeta = allItems['meta']
                 var findDalta = allItems['delta']
 
-
-                
-
                 function convertNumber(number){
                     if (number > 999 && number < 100000) {
                         return (number/1000).toFixed(1) + 'K'
@@ -184,17 +183,8 @@ function tableSorting(val, tag) {
                     }
                 }
 
-                
-
-
-
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
-
-
-
-               
-
 
                 if (html_element_counter % 2 == 0) {
                     html_element = `
@@ -313,16 +303,14 @@ function tableSorting(val, tag) {
                 html_element_counter += 1;
 
                 total_confirmed += allItemsTotal.confirmed/2;
-
                 total_recovered += allItemsTotal.recovered/2;
 
                 total_deceased = allItemsTotal.deceased;
-
                 totalTtested += allItemsTotal.vaccinated1/2;
 
                 total_active = allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
-
                 delta_confirmed += findDalta.confirmed/2;
+
                 delta_recovered += findDalta.recovered/2;
                 delta_deceased += findDalta.deceased/2;
 
@@ -347,47 +335,52 @@ function tableSorting(val, tag) {
             
             document.getElementById('totalTested').innerHTML = totalTtested.toLocaleString();
             document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
+
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
-            document.getElementById('administered').innerHTML = administered.toLocaleString();
 
+            document.getElementById('administered').innerHTML = administered.toLocaleString();
             document.getElementById('progress-total-value').innerHTML =x + '%'
             document.getElementById('progress-highlight-value').innerHTML = y + '%'
 
             document.getElementById('progress-width').style.width = x + '%';
             document.getElementById('progress-highlight').style.width = y + '%';
+
             document.getElementById('progress-highlight-width').style.marginLeft = y + '%';
-            
-            // document.getElementById('progress-total-value').style.marginLeft = y + '%';
-            
             document.getElementById('main-table').innerHTML = html_data;
             
             function animateValue(obj, start, end, duration) {
                 let startTimestamp = null;
                 const step = (timestamp) => {
+
                 if (!startTimestamp) startTimestamp = timestamp;
+
                     const progress = Math.min((timestamp - startTimestamp) / duration, 1);
                     obj.innerHTML = Math.floor(progress * (start - end) + 0);
+
                     if (progress < 1) {
+
                       window.requestAnimationFrame(step);
                     }
                 };
+
                 window.requestAnimationFrame(step);
             }
 
             const tt_confirmed = document.getElementById("total-confirmed")
             const tt_recovered = document.getElementById('total-recovered')
+
             const tt_desceased = document.getElementById('total-deceased')
             const tt_active = document.getElementById('total-active')
 
 
             animateValue(tt_confirmed, total_confirmed, 0, 1500);
             animateValue(tt_recovered, total_recovered, 0, 1500);
+
             animateValue(tt_desceased, total_deceased, 0, 1500);
             animateValue(tt_active, total_active, 0, 2500);            
         };
     };
-
 };
  
 

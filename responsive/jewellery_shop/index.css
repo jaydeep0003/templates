@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -863,12 +863,93 @@ footer {
 
 .footer_about_items {
   margin: 0;
+  padding: 3rem 1rem;
+  border-top: 1px solid white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 4rem;
+}
+.footer_about_items h4 {
+  font-size: 15.2px;
+  text-transform: uppercase;
+}
+.footer_about_items p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  line-height: 26px;
+  padding: 2rem 0;
+}
+.footer_about_items .footer_about_first_item ul {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_about_items .footer_about_first_item i {
+  font-size: 2rem;
 }
 .footer_about_items .footer_about_first_item ul {
   margin: 0;
 }
 .footer_about_items .footer_about_first_item p {
   margin: 0;
+}
+
+.footer_about_second_item ul, .footer_about_third_item ul {
+  padding-top: 2.5rem;
+}
+.footer_about_second_item ul li:hover, .footer_about_third_item ul li:hover {
+  transition: all 300ms ease-in-out 0s;
+  color: #fd405e;
+}
+.footer_about_second_item ul li, .footer_about_third_item ul li {
+  cursor: pointer;
+  font-size: 13px;
+}
+.footer_about_second_item ul li:not(:first-child), .footer_about_third_item ul li:not(:first-child) {
+  padding: 0.5rem 0;
+}
+
+.input_group {
+  position: relative;
+}
+.input_group .fas, .input_group .fa {
+  font-size: 1.6rem;
+}
+
+.form_control {
+  background: transparent;
+  padding: 1rem 0 1rem 3rem;
+  width: 100%;
+  border: 1px solid white;
+  outline: none;
+  font-size: 1.1rem;
+}
+
+.input_group_icon_message {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.subscribe_btn {
+  margin-top: 2rem;
+  width: 100%;
+}
+.subscribe_btn a {
+  padding: 1rem 5rem;
+  background: black;
+  color: white;
+  text-align: center;
+  display: block;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid white;
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+}
+.subscribe_btn :hover {
+  background: #fd405e;
+  border-color: #fd405e;
 }
 
 /*# sourceMappingURL=index.css.map */

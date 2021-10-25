@@ -55,18 +55,11 @@ var timeoutVar = null;
     "Ladakh",
     "Lakshadweep"
 ];
-
 return_value = typeWriter("#dynamic-placeholder", text_list, true);
-
-
-
-
-
 
 localStorage.setItem('order', 'asc')
 
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
-
 
 // live update time zone
 const newDate = new Date();
@@ -140,15 +133,42 @@ function tableSorting(val, tag) {
 
                 if (localStorage.getItem('order') == 'asc') {
                     arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
-
                     localStorage.setItem('order', '')
                 }
 
                 else {
-                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+
+                    arrayData.sort((a,b)=> {
+
+                        if(a[0] =='TT') {
+                            a[1][tag][val] > b[1][tag][val]
+                        }
+
+                        else {
+                            arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                        }
+
+                    })
+
+
+
+
                     localStorage.setItem('order', 'asc')
                 }
             }
+
+
+
+            
+
+
+
+
+
+
+
+
 
 
             // longPress = setTimeout( 
@@ -157,6 +177,26 @@ function tableSorting(val, tag) {
             //     }
 
             // ,1000)
+
+
+            var pressTimer;
+
+            $("div").mouseup(function(){
+              clearTimeout(pressTimer);
+              // Clear timeout
+              return false;
+            }).mousedown(function(){
+              // Set timeout
+              pressTimer = window.setTimeout(function() {
+                console.log('longPress')
+                arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
+              },1000);
+              return false; 
+            });
+
+
+
+
 
             arrayData.forEach((item) => {
 

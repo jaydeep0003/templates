@@ -934,12 +934,27 @@ footer {
   ul {
     display:flex;
     justify-content:space-between;
+
   }
     i {
       font-size:2rem;
     }
     ul {
-      margin:0;
+      margin-top:1rem;
+      li {
+        width:3.5rem;
+        height:3.5rem;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border:1px solid white;
+
+      }
+      li:hover {
+      transition:all 300ms ease-in-out 0s;
+      background:#fd405e;
+      border-color:#fd405e;
+      }
     }
     p {
       margin:0;
@@ -1013,3 +1028,6 @@ footer {
   }
 }
 
+.footer_icon_container {
+  margin-top:3rem;
+}

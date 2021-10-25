@@ -83,7 +83,6 @@ function tableSorting(val, tag) {
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
 
 
-
             // Panel Time Zone
             listDateTime = arrayData
             newListDateTime = listDateTime[10][1]['meta']['last_updated'].slice(11,16)
@@ -93,10 +92,13 @@ function tableSorting(val, tag) {
             b = d.slice(11,16)
             document.getElementById('nowTime').innerHTML = b;
 
+            console.log(arrayData[33][1]['delta'])
+            dataOfTotalConfirmed = arrayData[33][1]['delta']['confirmed']
+            dataOfTotalDeceased = arrayData[33][1]['delta']['deceased']
+            dataOfTotalRecovered = arrayData[33][1]['delta']['recovered']
+            dataOfTotalOther = arrayData[33][1]['delta']['other']
 
 
-
-            console.log(arrayData[33][1]['total'])
             dataOfTotal1 = arrayData[33][1]['total']['confirmed']
             dataOfTotal2 = arrayData[33][1]['total']['deceased']
             dataOfTotal3 = arrayData[33][1]['total']['other']
@@ -137,30 +139,12 @@ function tableSorting(val, tag) {
                 }
             }
 
-
-
-            
-
-
-
-
-
-
-
-
-
-
             // longPress = setTimeout( 
             //     function() {
             //         arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
             //     }
 
             // ,1000)
-
-
-            
-
-
 
             arrayData.forEach((item) => {
 
@@ -303,26 +287,6 @@ function tableSorting(val, tag) {
                     `
                 }
 
-
-
-
-
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 html_data += html_element;
                 html_element_counter += 1;
 
@@ -330,51 +294,22 @@ function tableSorting(val, tag) {
                 total_recovered += allItemsTotal.recovered/2;
 
                 total_deceased = allItemsTotal.deceased;
-                totalTtested += allItemsTotal.vaccinated1/2;
 
                 total_active = allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
-                delta_confirmed += findDalta.confirmed/2;
+                //delta_confirmed += findDalta.confirmed/2;
 
                 delta_recovered += findDalta.recovered/2;
                 delta_deceased += findDalta.deceased/2;
 
 
-                TotalConfirmed =  newvar+=allItemsTotal.confirmed/4;
                 TotalActive+= allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
-                TotalRecovered+=allItemsTotal.recovered;
-                TotalDeceased+=allItemsTotal.deceased;
-                TotalOther+=allItemsTotal.other;
-                TotalTested +=allItemsTotal.tested;
-                TotalVaccinated1+=allItemsTotal.vaccinated1;
-                TotalVaccinated2+=allItemsTotal.vaccinated2;
                 TotalPopulation+=TotalVaccinated1+TotalVaccinated2;
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
-
                 vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
                 vacc2 = allItemsTotal.vaccinated2*100/allItemsMeta.population;
             });
-
-    
-
-
-            
 
             function convertNumber(number){
                     if (number > 999 && number < 100000) {
@@ -392,39 +327,32 @@ function tableSorting(val, tag) {
                         return number
                     }
                 }
-            
 
 
-
-                dataOfTotal1 = arrayData[33][1]['total']['confirmed']
-            dataOfTotal2 = arrayData[33][1]['total']['deceased']
-            dataOfTotal3 = arrayData[33][1]['total']['other']
-            dataOfTotal4 = arrayData[33][1]['total']['tested']
-            dataOfTotal5 = arrayData[33][1]['total']['vaccinated1']
-            dataOfTotal6 = arrayData[33][1]['total']['vaccinated2']
-            dataOfTotal7 = arrayData[33][1]['total']['confirmed']
-            dataOfTotal8 = arrayData[33][1]['total']['recovered']
-
-                            
              html_element = `
                         <div class='table_row'>
                             <div class="cell fixed dark_mode_cell" id='row-first-id'>
-                                <div class="state_name" id="table-first-value" value=''>TOTAL</div>
+                                <div class="state_name" id="table-first-value" value=''>India</div>
                             </div>
+                            
 
                             <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
+                            <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${(dataOfTotalConfirmed)}</div>
                                 <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(dataOfTotal1)}</div>
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
+
                               <div class="delta ">${new Intl.NumberFormat().format(TotalActive)}</div>
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
+                                <div class="delta is-recovered u_table_padding u_font_size">${(dataOfTotalRecovered)}</div>
                                 <div class="delta ">${new Intl.NumberFormat().format(dataOfTotal8)}</div>
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
+                            <div class="delta is-deceased u_table_padding u_font_size">${(dataOfTotalDeceased)}</div>
                               <div class="delta">${new Intl.NumberFormat().format(dataOfTotal2)}</div>
                             </div>
 
@@ -463,44 +391,7 @@ function tableSorting(val, tag) {
                         </div>
 
                     `
-
-
-
-
                 html_data+=html_element
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
                             
             num = vacc1.toString();
             var x = Number(num.slice(0,5));
@@ -508,8 +399,9 @@ function tableSorting(val, tag) {
             num2 = vacc2.toString();
             var y = Number(num2.slice(0,5));
             
-            document.getElementById('totalTested').innerHTML = totalTtested.toLocaleString();
-            document.getElementById('h4-data').innerHTML = delta_confirmed.toLocaleString();
+            document.getElementById('totalTested').innerHTML = dataOfTotal4.toLocaleString();
+            // document.getElementById('h4-data').innerHTML = delta_confirmed;
+            document.getElementById('h4-data').innerHTML = dataOfTotalConfirmed.toLocaleString();
 
             document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
             document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
@@ -549,10 +441,10 @@ function tableSorting(val, tag) {
             const tt_active = document.getElementById('total-active')
 
 
-            animateValue(tt_confirmed, total_confirmed, 0, 1500);
-            animateValue(tt_recovered, total_recovered, 0, 1500);
+            animateValue(tt_confirmed, dataOfTotal1, 0, 1500);
+            animateValue(tt_recovered, dataOfTotal8, 0, 1500);
 
-            animateValue(tt_desceased, total_deceased, 0, 1500);
+            animateValue(tt_desceased, dataOfTotal3, 0, 1500);
             animateValue(tt_active, total_active, 0, 2500);            
         };
     };

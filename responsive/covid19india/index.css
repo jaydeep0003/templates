@@ -781,6 +781,10 @@ h5 {
   height: 2rem;
 }
 
+.u_td_size {
+  height: 2rem;
+}
+
 .u_td_size:hover {
   cursor: pointer;
 }

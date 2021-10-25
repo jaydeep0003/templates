@@ -35,6 +35,5 @@ export const STATE_NAMES = {
   LA: 'Ladakh',
   LD: 'Lakshadweep',
   PY: 'Puducherry',
-  TT: 'India',
   [UNASSIGNED_STATE_CODE]: 'Unassigned',
 };

@@ -50,6 +50,10 @@ body {
 
 .main_header {
   background: #f2f2f2;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
 }
 
 .navigation_bar {
@@ -59,7 +63,7 @@ body {
 }
 
 .nav_logo {
-  width: 8rem;
+  width: 13rem;
   padding: 0.5rem 0;
 }
 
@@ -70,6 +74,7 @@ body {
 
 .nav_items {
   align-self: center;
+  margin-top: 1rem;
 }
 
 .nav_items ul {
@@ -81,13 +86,13 @@ body {
 }
 
 .nav_items ul li:not(:last-child) {
-  margin-right: 4rem;
+  margin-right: 7rem;
 }
 
 .nav_items ul li a {
   text-decoration: none;
   color: black;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .nav_items ul li a:hover {
@@ -433,7 +438,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .featured_hd_items {
   position: absolute;
-  bottom: 130px;
+  bottom: 31px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -591,16 +596,16 @@ h1, h2, h3 {
   margin-left: 7rem;
 }
 
+.d_shine_img {
+  position: relative;
+}
+
 .d_shine_brands_items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
   margin: 0 2rem;
   grid-row-gap: 3rem;
-}
-
-.d_shine_img {
-  position: relative;
 }
 
 .client {

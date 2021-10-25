@@ -35,30 +35,11 @@ var timeoutVar = null;
     }
 }
 
- text_list = [
-    "Andaman and Nicobar Islands",
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chandigarh",
-    "Chhattisgarh",
-    "Dadra and Nagar Haveli and Daman and Diu",
-    "Delhi",
-    "Goa",
-    "Gujrat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jammu and Kashmir",
-    "Jharkhand",
-    "Karnataka",
-    "Ladakh",
-    "Lakshadweep"
-];
+ text_list = ["Andaman and Nicobar Islands","Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chandigarh","Chhattisgarh","Dadra and Nagar Haveli and Daman and Diu","Delhi","Goa","Gujrat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Ladakh","Lakshadweep"];
+
 return_value = typeWriter("#dynamic-placeholder", text_list, true);
 
 localStorage.setItem('order', 'asc')
-
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 // live update time zone
@@ -74,6 +55,7 @@ document.getElementById('lastUpdate').innerHTML = firstDate;
 
 html_element_counter = 0;
 let total_confirmed = total_recovered = total_deceased = total_active  = delta_confirmed = delta_recovered = delta_deceased = vacc1 = totalTtested = 0;
+let newvar = TotalActive = TotalRecovered = TotalDeceased = TotalOther = TotalTested = TotalVaccinated1 = TotalVaccinated2 = TotalPopulation = 0;
 document.getElementById('main-table').innerHTML = '';
 var longPress;
 
@@ -102,7 +84,6 @@ function tableSorting(val, tag) {
 
 
 
-
             // Panel Time Zone
             listDateTime = arrayData
             newListDateTime = listDateTime[10][1]['meta']['last_updated'].slice(11,16)
@@ -112,6 +93,20 @@ function tableSorting(val, tag) {
             b = d.slice(11,16)
             document.getElementById('nowTime').innerHTML = b;
 
+
+
+
+            console.log(arrayData[33][1]['total'])
+            dataOfTotal1 = arrayData[33][1]['total']['confirmed']
+            dataOfTotal2 = arrayData[33][1]['total']['deceased']
+            dataOfTotal3 = arrayData[33][1]['total']['other']
+            dataOfTotal4 = arrayData[33][1]['total']['tested']
+            dataOfTotal5 = arrayData[33][1]['total']['vaccinated1']
+            dataOfTotal6 = arrayData[33][1]['total']['vaccinated2']
+            dataOfTotal7 = arrayData[33][1]['total']['confirmed']
+            dataOfTotal8 = arrayData[33][1]['total']['recovered']
+
+            delete arrayData[33]
 
 
             
@@ -137,23 +132,7 @@ function tableSorting(val, tag) {
                 }
 
                 else {
-                    // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-
-                    arrayData.sort((a,b)=> {
-
-                        if(a[0] =='TT') {
-                            a[1][tag][val] > b[1][tag][val]
-                        }
-
-                        else {
-                            arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                        }
-
-                    })
-
-
-
-
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
                     localStorage.setItem('order', 'asc')
                 }
             }
@@ -179,28 +158,14 @@ function tableSorting(val, tag) {
             // ,1000)
 
 
-            var pressTimer;
-
-            $("div").mouseup(function(){
-              clearTimeout(pressTimer);
-              // Clear timeout
-              return false;
-            }).mousedown(function(){
-              // Set timeout
-              pressTimer = window.setTimeout(function() {
-                console.log('longPress')
-                arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
-              },1000);
-              return false; 
-            });
-
-
+            
 
 
 
             arrayData.forEach((item) => {
 
                 var allItems = item[1]
+                
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
                 var allItemsMeta = allItems['meta']
@@ -339,6 +304,25 @@ function tableSorting(val, tag) {
                 }
 
 
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 html_data += html_element;
                 html_element_counter += 1;
 
@@ -355,6 +339,28 @@ function tableSorting(val, tag) {
                 delta_deceased += findDalta.deceased/2;
 
 
+                TotalConfirmed =  newvar+=allItemsTotal.confirmed/4;
+                TotalActive+= allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
+                TotalRecovered+=allItemsTotal.recovered;
+                TotalDeceased+=allItemsTotal.deceased;
+                TotalOther+=allItemsTotal.other;
+                TotalTested +=allItemsTotal.tested;
+                TotalVaccinated1+=allItemsTotal.vaccinated1;
+                TotalVaccinated2+=allItemsTotal.vaccinated2;
+                TotalPopulation+=TotalVaccinated1+TotalVaccinated2;
+
+                
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -364,6 +370,135 @@ function tableSorting(val, tag) {
                 vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
                 vacc2 = allItemsTotal.vaccinated2*100/allItemsMeta.population;
             });
+
+    
+
+
+            
+
+            function convertNumber(number){
+                    if (number > 999 && number < 100000) {
+                        return (number/1000).toFixed(1) + 'K'
+                    }
+
+                    else if(number >= 100000 && number < 9999999) {
+                        return (number/100000).toFixed(1) + 'L'
+                    }
+
+                    else if(number >= 10000000) {
+                        return (number/10000000).toFixed(1) + 'Cr'
+                    }
+                    else if(number < 999) {
+                        return number
+                    }
+                }
+            
+
+
+
+                dataOfTotal1 = arrayData[33][1]['total']['confirmed']
+            dataOfTotal2 = arrayData[33][1]['total']['deceased']
+            dataOfTotal3 = arrayData[33][1]['total']['other']
+            dataOfTotal4 = arrayData[33][1]['total']['tested']
+            dataOfTotal5 = arrayData[33][1]['total']['vaccinated1']
+            dataOfTotal6 = arrayData[33][1]['total']['vaccinated2']
+            dataOfTotal7 = arrayData[33][1]['total']['confirmed']
+            dataOfTotal8 = arrayData[33][1]['total']['recovered']
+
+                            
+             html_element = `
+                        <div class='table_row'>
+                            <div class="cell fixed dark_mode_cell" id='row-first-id'>
+                                <div class="state_name" id="table-first-value" value=''>TOTAL</div>
+                            </div>
+
+                            <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
+                                <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(dataOfTotal1)}</div>
+                            </div>
+
+                            <div class="cell statistic new_class u_hover u_color ">
+                              <div class="delta ">${new Intl.NumberFormat().format(TotalActive)}</div>
+                            </div>
+
+                            <div class="cell statistic new_class u_hover u_color ">
+                                <div class="delta ">${new Intl.NumberFormat().format(dataOfTotal8)}</div>
+                            </div>
+
+                            <div class="cell statistic new_class u_hover u_color ">
+                              <div class="delta">${new Intl.NumberFormat().format(dataOfTotal2)}</div>
+                            </div>
+
+                            <div class="cell statistic new_class u_hover u_color ">
+                              <div class="delta">${(dataOfTotal3)}</div>
+                            </div>
+
+                            <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(dataOfTotal4)}</div>
+                            </div>
+
+                            <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(dataOfTotal5)}</div>
+                  
+                            </div>
+                            <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(dataOfTotal6)}</div>
+                  
+                            </div>
+                            <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(TotalPopulation)}</div>
+                   
+                            </div>
+                            <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta">😈</div>
+                            </div>
+
+                            <div class="cell statistic u_hover new_class hide_cell u_color ">
+                              <div class="delta">😈</div>
+                            </div>
+
+                            <div class="cell statistic u_hover new_class hide_cell u_color ">
+                              <div class="delta">${convertNumber(TotalPopulation)}</div>
+                            </div>
+
+                        </div>
+
+                    `
+
+
+
+
+                html_data+=html_element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             
                             

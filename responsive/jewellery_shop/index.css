@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +12,7 @@ body {
   width: 100%;
   font-size: 1rem;
   font-family: "Questrial", sans-serif;
-  color: #333;
+  color: #777;
 }
 
 #back-to-top.show {
@@ -49,7 +50,7 @@ body {
 }
 
 .main_header {
-  background: #f2f2f2;
+  background: white;
   position: fixed;
   width: 100%;
   top: 0;
@@ -62,9 +63,8 @@ body {
   justify-content: space-between;
 }
 
-.nav_logo {
-  width: 13rem;
-  padding: 0.5rem 0;
+.nav_logo h2 {
+  margin: 1rem 0;
 }
 
 .nav_logo_tag {
@@ -79,28 +79,50 @@ body {
 
 .nav_items ul {
   display: flex;
+  font-family: "Poppins", sans-serif;
 }
 
 .nav_items ul li {
   list-style: none;
 }
 
-.nav_items ul li:not(:last-child) {
-  margin-right: 7rem;
+.nav_logo {
+  padding: 0.4rem 0;
+}
+
+header ul li a.sign_btn {
+  text-decoration: none;
+  color: white;
+  background-color: #fc2a4f;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  color: white;
+}
+
+header ul li a.sign_btn:hover {
+  background: #a83af5;
+  color: white;
+  text-decoration: none;
+}
+
+.nav_items ul li {
+  margin-right: 5rem;
 }
 
 .nav_items ul li a {
   text-decoration: none;
-  color: black;
+  color: #9f9f9f;
   font-size: 1.6rem;
 }
 
 .nav_items ul li a:hover {
-  color: red;
+  color: #a83af5;
 }
 
 .nav_items li .active {
-  color: red;
+  color: #a83af5;
+  text-decoration: none;
 }
 
 .slider_bg {
@@ -129,12 +151,8 @@ body {
   transition: opacity 0.75s ease-in-out;
 }
 
-/*.slideshow_img:first-child {
-  display: block;
-}*/
 .about_products_title {
-  width: 60%;
-  margin-top: 8rem;
+  margin-top: -7rem;
 }
 
 .about_products_title p {
@@ -154,7 +172,7 @@ body {
 }
 
 .about_products_container {
-  margin: 0 0 0 7rem;
+  margin: 0 0 0 8.5rem;
 }
 
 .about_products_container .about_wrap_container {
@@ -162,8 +180,8 @@ body {
 }
 
 .image_div img {
-  margin-right: 12rem;
-  margin-top: 6rem;
+  margin-right: 11rem;
+  margin-top: -9rem;
 }
 
 .commun_btn {
@@ -393,7 +411,7 @@ h1, h2, h3, h4, h5, h6 {
 /*# sourceMappingURL=index.css.map */
 .featured_products_container {
   margin: 0 7rem;
-  margin-top: -10rem;
+  margin-top: -17rem;
 }
 
 .featured_products_title {
@@ -403,6 +421,7 @@ h1, h2, h3, h4, h5, h6 {
 .featured_products_title h2 {
   font-size: 2.5rem;
   margin-bottom: 5px;
+  margin-top: 0;
 }
 
 .featured_products_title p {
@@ -413,7 +432,7 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
-  margin-top: 7rem;
+  margin-top: 3rem;
 }
 
 .featured_description h3 {
@@ -592,8 +611,7 @@ h1, h2, h3 {
 }
 
 .d_shine_brands_container {
-  margin: 0 7rem;
-  margin-left: 7rem;
+  margin: 0 6.5rem;
 }
 
 .d_shine_img {
@@ -604,7 +622,6 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
-  margin: 0 2rem;
   grid-row-gap: 3rem;
 }
 
@@ -974,6 +991,32 @@ footer {
 
 .footer_icon_container {
   margin-top: 3rem;
+}
+
+.nav_items ul li a {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav_items ul li a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.nav_items ul li a:hover::before {
+  transform: scaleX(1);
+}
+
+.nav_items ul li .active:hover {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=index.css.map */

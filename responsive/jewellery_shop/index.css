@@ -670,6 +670,7 @@ h1, h2, h3 {
   /*text-align: center;*/
   justify-content: center;
   padding: 5rem 0;
+  height: 22.125rem;
 }
 
 .client_images li {
@@ -689,10 +690,11 @@ li:hover .first_hover {
   height: 100px;
 }
 
-/*.new_first_hover, .first_hover:focus {
+.new_first_hover, .first_hover:hover {
   width: 114px;
   height: 114px;
-}*/
+}
+
 .td {
   display: none;
 }

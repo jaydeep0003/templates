@@ -92,7 +92,13 @@ function tableSorting(val, tag) {
             b = d.slice(11,16)
             document.getElementById('nowTime').innerHTML = b;
 
-            console.log(arrayData[33][1]['delta'])
+            
+
+            dataOfTotalPopulation = arrayData[33][1]['meta']['population']
+
+            // console.log( arrayData[33][1])
+
+
             dataOfTotalConfirmed = arrayData[33][1]['delta']['confirmed']
             dataOfTotalDeceased = arrayData[33][1]['delta']['deceased']
             dataOfTotalRecovered = arrayData[33][1]['delta']['recovered']
@@ -107,7 +113,8 @@ function tableSorting(val, tag) {
             dataOfTotal6 = arrayData[33][1]['total']['vaccinated2']
             dataOfTotal7 = arrayData[33][1]['total']['confirmed']
             dataOfTotal8 = arrayData[33][1]['total']['recovered']
-
+            TotalVaccineDose = dataOfTotal5 + dataOfTotal6
+            console.log(TotalVaccineDose)
             delete arrayData[33]
 
 
@@ -307,7 +314,9 @@ function tableSorting(val, tag) {
 
 
                 administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
+
                 vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
+
                 vacc2 = allItemsTotal.vaccinated2*100/allItemsMeta.population;
             });
 
@@ -373,7 +382,7 @@ function tableSorting(val, tag) {
                   
                             </div>
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
-                              <div class="delta ">${convertNumber(TotalPopulation)}</div>
+                              <div class="delta ">${convertNumber(TotalVaccineDose)}</div>
                    
                             </div>
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -385,7 +394,7 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic u_hover new_class hide_cell u_color ">
-                              <div class="delta">${convertNumber(TotalPopulation)}</div>
+                              <div class="delta">${convertNumber(dataOfTotalPopulation)}</div>
                             </div>
 
                         </div>

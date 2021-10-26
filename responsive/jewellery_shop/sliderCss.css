@@ -423,17 +423,28 @@ body {
 }
 .example-slider .fnc-slide-1 .fnc-slide__inner,
 .example-slider .fnc-slide-1 .fnc-slide__mask-inner {
-  background-image: url("images/");
+  background-image: url("images/5.jpg");
   object-fit: cover;
+  background-position: center; 
+  background-position: center;
+  background-attachment: fixed;
 
 }
 .example-slider .fnc-slide-2 .fnc-slide__inner,
 .example-slider .fnc-slide-2 .fnc-slide__mask-inner {
-  background-image: url("images");
+  background-image: url("images/4.jpg");
+  background-position: center; 
+  background-position: center;
+  background-attachment: fixed;
 }
 .example-slider .fnc-slide-3 .fnc-slide__inner,
 .example-slider .fnc-slide-3 .fnc-slide__mask-inner {
-  background-image: url("4.jpg");
+  background-image: url("images/9cfba330db6e32a8f78b001c09a08178.jpg");
+  background-position: center; 
+  background-position: center;
+  /*background-attachment: fixed;*/
+  background-size: auto;
+  background-repeat: no-repeat;
 }
 .example-slider .fnc-slide-3 .fnc-slide__inner:before {
   content: "";
@@ -446,7 +457,7 @@ body {
 }
 .example-slider .fnc-slide-4 .fnc-slide__inner,
 .example-slider .fnc-slide-4 .fnc-slide__mask-inner {
-  background-image: url("5.jpg");
+  background-image: url("images/5.jpg");
 }
 .example-slider .fnc-slide-4 .fnc-slide__inner:before {
   content: "";
@@ -623,7 +634,7 @@ body {
 
 /*# sourceMappingURL=index.css.map */
 
-.jewellery_img_tag {
+/*.jewellery_img_tag {
   background: url('images/7.png');
   background-repeat: no-repeat;
   position: absolute;
@@ -631,4 +642,4 @@ body {
   left: 10rem;
   height: 100%;
   width: 100%;
-}
+}*/

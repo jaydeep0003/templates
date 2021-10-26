@@ -1,7 +1,7 @@
 
 var timeoutVar = null;
 
- function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
+function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
     if(!i) {
         if(placeholder) {
             document.querySelector(selector_target).placeholder = "";
@@ -92,19 +92,11 @@ function tableSorting(val, tag) {
             b = d.slice(11,16)
             document.getElementById('nowTime').innerHTML = b;
 
-            
-
             dataOfTotalPopulation = arrayData[33][1]['meta']['population']
-
-            // console.log( arrayData[33][1])
-
-
             dataOfTotalConfirmed = arrayData[33][1]['delta']['confirmed']
             dataOfTotalDeceased = arrayData[33][1]['delta']['deceased']
             dataOfTotalRecovered = arrayData[33][1]['delta']['recovered']
             dataOfTotalOther = arrayData[33][1]['delta']['other']
-
-
             dataOfTotal1 = arrayData[33][1]['total']['confirmed']
             dataOfTotal2 = arrayData[33][1]['total']['deceased']
             dataOfTotal3 = arrayData[33][1]['total']['other']
@@ -114,11 +106,7 @@ function tableSorting(val, tag) {
             dataOfTotal7 = arrayData[33][1]['total']['confirmed']
             dataOfTotal8 = arrayData[33][1]['total']['recovered']
             TotalVaccineDose = dataOfTotal5 + dataOfTotal6
-            console.log(TotalVaccineDose)
             delete arrayData[33]
-
-
-            
 
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
@@ -134,29 +122,18 @@ function tableSorting(val, tag) {
             }
 
             else {
-
                 if (localStorage.getItem('order') == 'asc') {
                     arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
                     localStorage.setItem('order', '')
                 }
-
                 else {
                     arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
                     localStorage.setItem('order', 'asc')
                 }
             }
 
-            // longPress = setTimeout( 
-            //     function() {
-            //         arrayData.sort((a, b) => a[1].delta.recovered - b[1].delta.recovered)
-            //     }
-
-            // ,1000)
-
             arrayData.forEach((item) => {
-
                 var allItems = item[1]
-                
                 var allItemsTotal = allItems['total']
                 var allItemsDelta = allItems['delta']
                 var allItemsMeta = allItems['meta']
@@ -299,25 +276,10 @@ function tableSorting(val, tag) {
 
                 total_confirmed += allItemsTotal.confirmed/2;
                 total_recovered += allItemsTotal.recovered/2;
-
                 total_deceased = allItemsTotal.deceased;
-
                 total_active = allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
-                //delta_confirmed += findDalta.confirmed/2;
-
-                delta_recovered += findDalta.recovered/2;
-                delta_deceased += findDalta.deceased/2;
-
-
                 TotalActive+= allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
                 TotalPopulation+=TotalVaccinated1+TotalVaccinated2;
-
-
-                administered = allItemsTotal.vaccinated1 + allItemsTotal.vaccinated2;
-
-                vacc1 = allItemsTotal.vaccinated1*100/allItemsMeta.population;
-
-                vacc2 = allItemsTotal.vaccinated2*100/allItemsMeta.population;
             });
 
             function convertNumber(number){
@@ -402,59 +364,39 @@ function tableSorting(val, tag) {
                     `
                 html_data+=html_element
                             
-            num = vacc1.toString();
+
+                AtLeastOneDose = dataOfTotal5*100/dataOfTotalPopulation
+                FullyVaccinated = dataOfTotal6*100/dataOfTotalPopulation
+                console.log(FullyVaccinated)
+
+
+
+
+            num = AtLeastOneDose.toString();
             var x = Number(num.slice(0,5));
 
-            num2 = vacc2.toString();
+            num2 = FullyVaccinated.toString();
             var y = Number(num2.slice(0,5));
             
             document.getElementById('totalTested').innerHTML = dataOfTotal4.toLocaleString();
-            // document.getElementById('h4-data').innerHTML = delta_confirmed;
             document.getElementById('h4-data').innerHTML = dataOfTotalConfirmed.toLocaleString();
 
-            document.getElementById('recovered').innerHTML = delta_recovered.toLocaleString();
-            document.getElementById('deceased').innerHTML = delta_deceased.toLocaleString();
+            document.getElementById('recovered').innerHTML = dataOfTotalRecovered.toLocaleString();
+            document.getElementById('deceased').innerHTML = dataOfTotalDeceased.toLocaleString();
+            document.getElementById('administered').innerHTML = TotalVaccineDose.toLocaleString();
 
-            document.getElementById('administered').innerHTML = administered.toLocaleString();
             document.getElementById('progress-total-value').innerHTML =x + '%'
             document.getElementById('progress-highlight-value').innerHTML = y + '%'
-
             document.getElementById('progress-width').style.width = x + '%';
             document.getElementById('progress-highlight').style.width = y + '%';
-
             document.getElementById('progress-highlight-width').style.marginLeft = y + '%';
+
             document.getElementById('main-table').innerHTML = html_data;
-            
-            function animateValue(obj, start, end, duration) {
-                let startTimestamp = null;
-                const step = (timestamp) => {
+            document.getElementById("total-confirmed").innerHTML = dataOfTotal1.toLocaleString();
+            document.getElementById('total-recovered').innerHTML = dataOfTotal8.toLocaleString();
+             document.getElementById('total-deceased').innerHTML = dataOfTotal2.toLocaleString();
+             document.getElementById('total-active').innerHTML = TotalActive.toLocaleString();
 
-                if (!startTimestamp) startTimestamp = timestamp;
-
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    obj.innerHTML = Math.floor(progress * (start - end) + 0);
-
-                    if (progress < 1) {
-
-                      window.requestAnimationFrame(step);
-                    }
-                };
-
-                window.requestAnimationFrame(step);
-            }
-
-            const tt_confirmed = document.getElementById("total-confirmed")
-            const tt_recovered = document.getElementById('total-recovered')
-
-            const tt_desceased = document.getElementById('total-deceased')
-            const tt_active = document.getElementById('total-active')
-
-
-            animateValue(tt_confirmed, dataOfTotal1, 0, 1500);
-            animateValue(tt_recovered, dataOfTotal8, 0, 1500);
-
-            animateValue(tt_desceased, dataOfTotal3, 0, 1500);
-            animateValue(tt_active, total_active, 0, 2500);            
         };
     };
 };

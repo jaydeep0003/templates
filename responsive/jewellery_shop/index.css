@@ -50,7 +50,7 @@ body {
 }
 
 .main_header {
-  background: white;
+  background: #fbf6f6;
   position: fixed;
   width: 100%;
   top: 0;
@@ -90,22 +90,21 @@ body {
   padding: 0.4rem 0;
 }
 
-header ul li a.sign_btn {
-  text-decoration: none;
-  color: white;
-  background-color: #fc2a4f;
-  font-weight: 600;
-  padding: 0.6rem 1rem;
-  border-radius: 20px;
-  color: white;
-}
+/*header ul li a.sign_btn {
+    text-decoration: none;
+    color: white;
+    background-color: #fc2a4f;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    color:white;
+    }
 
-header ul li a.sign_btn:hover {
-  background: #a83af5;
-  color: white;
-  text-decoration: none;
-}
-
+    header ul li a.sign_btn:hover {
+    background:#a83af5;
+    color:white;
+    text-decoration:none
+    } */
 .nav_items ul li {
   margin-right: 5rem;
 }
@@ -1017,6 +1016,10 @@ footer {
 
 .nav_items ul li .active:hover {
   text-decoration: none;
+}
+
+.about_wrap_container {
+  margin-top: 9rem;
 }
 
 /*# sourceMappingURL=index.css.map */

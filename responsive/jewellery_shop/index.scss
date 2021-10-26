@@ -51,7 +51,7 @@ body {
 
 
 .main_header {
-  background: white;
+  background: #fbf6f6;
 
   position: fixed;
   width: 100%;
@@ -103,7 +103,7 @@ body {
   padding:.4rem 0;
 }
 
-header ul li a.sign_btn {
+/*header ul li a.sign_btn {
     text-decoration: none;
     color: white;
     background-color: #fc2a4f;
@@ -117,7 +117,7 @@ header ul li a.sign_btn {
     background:#a83af5;
     color:white;
     text-decoration:none
-    }    
+    } */   
 
 .nav_items ul li {
     margin-right: 5rem;
@@ -1098,4 +1098,8 @@ footer {
 
 .nav_items ul li .active:hover {
   text-decoration:none;
+}
+
+.about_wrap_container {
+  margin-top:9rem;
 }

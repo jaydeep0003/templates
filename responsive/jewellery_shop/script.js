@@ -48,28 +48,28 @@ $(document).ready(function(){
 
 
 
-const sliderShowImage = document.querySelectorAll('.slider_bg .slideshow_img_1');
+// const sliderShowImage = document.querySelectorAll('.slider_bg .slideshow_img_1');
 
-const nextimageDelay = 3000;
-let currentImageCounter = 0;
+// const nextimageDelay = 3000;
+// let currentImageCounter = 0;
 
-sliderShowImage[currentImageCounter].style.opacity = 1;
-setInterval(nextImage, nextimageDelay);
+// sliderShowImage[currentImageCounter].style.opacity = 1;
+// setInterval(nextImage, nextimageDelay);
 
-function nextImage (){
-    sliderShowImage[currentImageCounter].style.zIndex = -2;
-    const tempcounter = currentImageCounter;
+// function nextImage (){
+//     sliderShowImage[currentImageCounter].style.zIndex = -2;
+//     const tempcounter = currentImageCounter;
 
-    setTimeout(()=> {
-        sliderShowImage[tempcounter].style.opacity = 0;
-    },1000);
+//     setTimeout(()=> {
+//         sliderShowImage[tempcounter].style.opacity = 0;
+//     },1000);
 
-    sliderShowImage[currentImageCounter].style.opacity = 0;
-    currentImageCounter = (currentImageCounter + 1) % sliderShowImage.length;
+//     sliderShowImage[currentImageCounter].style.opacity = 0;
+//     currentImageCounter = (currentImageCounter + 1) % sliderShowImage.length;
 
-    sliderShowImage[currentImageCounter].style.opacity = 1;
-    sliderShowImage[currentImageCounter].style.zIndex = -1;
-}
+//     sliderShowImage[currentImageCounter].style.opacity = 1;
+//     sliderShowImage[currentImageCounter].style.zIndex = -1;
+// }
 
 
 
@@ -86,6 +86,16 @@ ratingFourth= document.getElementById('rt4');
 ratingFifth= document.getElementById('rt5');
 
 function myFirstHover () {
+    testeOne = document.getElementById('teste1');
+testeTwo = document.getElementById('teste2');
+testeThree = document.getElementById('teste3');
+testeFourth = document.getElementById('teste4');
+testeFifth = document.getElementById('teste5');
+ratingFirst= document.getElementById('rt1');
+ratingSecond= document.getElementById('rt2');
+ratingThird= document.getElementById('rt3');
+ratingFourth= document.getElementById('rt4');
+ratingFifth= document.getElementById('rt5');
 
     if(testeOne.classList.contains('teste11')) {
         testeOne.classList.remove('teste11')

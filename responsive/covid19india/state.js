@@ -1,4 +1,4 @@
-export const STATE_NAMES = {
+const STATE_NAMES = {
   AP: 'Andhra Pradesh',
   AR: 'Arunachal Pradesh',
   AS: 'Assam',

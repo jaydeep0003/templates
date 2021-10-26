@@ -65,7 +65,23 @@ function tableSorting(val, tag) {
             dataOfTotal8 = arrayData[33][1]['total']['recovered']
             dataOfTotalActive = dataOfTotal1 - dataOfTotal8 - dataOfTotal2 - dataOfTotal3
             TotalVaccineDose = dataOfTotal5 + dataOfTotal6
+
+
+
+
+         
+
+
+
+
+
+
             delete arrayData[33]
+
+
+
+
+
 
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
@@ -90,6 +106,20 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', 'asc')
                 }
             }
+
+
+
+                    // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
+
+                    
+
+
+
+
+
+
+
+
 
             arrayData.forEach((item) => {
                 var allItems = item[1]
@@ -344,7 +374,7 @@ function tableSorting(val, tag) {
         };
     };
 };
- 
+
 
                     // Table Events
 

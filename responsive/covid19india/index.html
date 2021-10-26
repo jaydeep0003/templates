@@ -155,8 +155,9 @@
 						<div class="progress_title  progress_title_padding ">
 							<span id="progress-highlight-width">
 								|<br>
-
+								<span id="between-progress-highlight-value">
 							Fully Vaccinated[<span id="progress-highlight-value"></span>]
+							</span>
 							</span>
 						</div>
 					</div>
@@ -280,47 +281,47 @@
 
 						<div class="table_container" >
 							<div class="table_row " id="table-container">
-								<div class="cell fixed dark_mode_cell u_td_size" onclick="tableSorting('state')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell fixed dark_mode_cell u_td_size" onclick="tableSorting('state')">
 									<div>State/UT</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('confirmed','total')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('confirmed','total')">
 									<div>Confirmed</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('active','total')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('active','total')">
 									<div>Active</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('recovered' ,'total')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('recovered' ,'total')">
 									<div>Recovered</div>
 								</div>
 
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('deceased' ,'total')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('deceased' ,'total')">
 									<div>Deceased</div>
 								</div>
-								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('other' ,'total')"  onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell dark_mode_cell u_td_size" onclick="tableSorting('other' ,'total')" >
 									<div>Other</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('tested' ,'total')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('tested' ,'total')">
 									<div>Tested</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated1' ,'total')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated1' ,'total')">
 									<div>Vaccinated</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated2' ,'total')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('vaccinated2' ,'total')">
 									<div>Fully Vaccinated</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')">
 									<div>Vaccine Dose</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')">
 									<div>Tested Positivity</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('')">
 									<div>Case fatality</div>
 								</div>
-								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('population','meta')" onmouseup="clearFunction()" onmouseout="clearFunction()">
+								<div class="cell hide_cell dark_mode_cell u_td_size" onclick="tableSorting('population','meta')">
 									<div>Population</div>
 								</div>
 							</div>
@@ -434,6 +435,7 @@
 
 	</section>
 	<script src="script.js"></script>
+	<script src="placeholder.js"></script>
 	
 </body>
 </html>

@@ -1,43 +1,4 @@
 
-var timeoutVar = null;
-
-function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
-    if(!i) {
-        if(placeholder) {
-            document.querySelector(selector_target).placeholder = "";
-        }
-        else {
-            document.querySelector(selector_target).innerHTML = "";
-        }
-    }
-    var txt = text_list[text_list_i];
-
-     if (i < txt.length) {
-        if (placeholder) {
-            document.querySelector(selector_target).placeholder += txt.charAt(i);
-        }
-        else {
-            document.querySelector(selector_target).innerHTML += txt.charAt(i);
-        }
-        i++;
-        setTimeout(typeWriter, delay_ms, selector_target, text_list, placeholder, i, text_list_i);
-    }
-
-     else {
-        text_list_i++;
-        if (typeof text_list[text_list_i] === "undefined")  {
-            setTimeout(typeWriter, (delay_ms*5), selector_target, text_list, placeholder);
-        }
-        else {
-            i = 0;
-            setTimeout(typeWriter, (delay_ms*3), selector_target, text_list, placeholder, i, text_list_i);
-        }
-    }
-}
-
- text_list = ["Andaman and Nicobar Islands","Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chandigarh","Chhattisgarh","Dadra and Nagar Haveli and Daman and Diu","Delhi","Goa","Gujrat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Ladakh","Lakshadweep"];
-
-return_value = typeWriter("#dynamic-placeholder", text_list, true);
 
 localStorage.setItem('order', 'asc')
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
@@ -52,12 +13,8 @@ secondDate = newDate.getDate()+ ' ' + countMonth
 document.getElementById('nowDate').innerHTML = secondDate;
 document.getElementById('lastUpdate').innerHTML = firstDate;
 
-
 html_element_counter = 0;
-let total_confirmed = total_recovered = total_deceased = total_active  = delta_confirmed = delta_recovered = delta_deceased = vacc1 = totalTtested = 0;
-let newvar = TotalActive = TotalRecovered = TotalDeceased = TotalOther = TotalTested = TotalVaccinated1 = TotalVaccinated2 = TotalPopulation = 0;
 document.getElementById('main-table').innerHTML = '';
-var longPress;
 
 function tableSorting(val, tag) {
     html_data = "";
@@ -97,6 +54,7 @@ function tableSorting(val, tag) {
             dataOfTotalDeceased = arrayData[33][1]['delta']['deceased']
             dataOfTotalRecovered = arrayData[33][1]['delta']['recovered']
             dataOfTotalOther = arrayData[33][1]['delta']['other']
+
             dataOfTotal1 = arrayData[33][1]['total']['confirmed']
             dataOfTotal2 = arrayData[33][1]['total']['deceased']
             dataOfTotal3 = arrayData[33][1]['total']['other']
@@ -105,6 +63,7 @@ function tableSorting(val, tag) {
             dataOfTotal6 = arrayData[33][1]['total']['vaccinated2']
             dataOfTotal7 = arrayData[33][1]['total']['confirmed']
             dataOfTotal8 = arrayData[33][1]['total']['recovered']
+            dataOfTotalActive = dataOfTotal1 - dataOfTotal8 - dataOfTotal2 - dataOfTotal3
             TotalVaccineDose = dataOfTotal5 + dataOfTotal6
             delete arrayData[33]
 
@@ -273,13 +232,7 @@ function tableSorting(val, tag) {
 
                 html_data += html_element;
                 html_element_counter += 1;
-
-                total_confirmed += allItemsTotal.confirmed/2;
-                total_recovered += allItemsTotal.recovered/2;
-                total_deceased = allItemsTotal.deceased;
-                total_active = allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
-                TotalActive+= allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other;
-                TotalPopulation+=TotalVaccinated1+TotalVaccinated2;
+                
             });
 
             function convertNumber(number){
@@ -298,8 +251,6 @@ function tableSorting(val, tag) {
                         return number
                     }
                 }
-
-
              html_element = `
                         <div class='table_row'>
                             <div class="cell fixed dark_mode_cell" id='row-first-id'>
@@ -314,7 +265,7 @@ function tableSorting(val, tag) {
 
                             <div class="cell statistic new_class u_hover u_color ">
 
-                              <div class="delta ">${new Intl.NumberFormat().format(TotalActive)}</div>
+                              <div class="delta ">${new Intl.NumberFormat().format(dataOfTotalActive)}</div>
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
@@ -328,7 +279,7 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
-                              <div class="delta">${(dataOfTotal3)}</div>
+                              <div class="delta">${new Intl.NumberFormat().format(dataOfTotal3)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -362,51 +313,38 @@ function tableSorting(val, tag) {
                         </div>
 
                     `
-                html_data+=html_element
+            html_data+=html_element
                             
-
-                AtLeastOneDose = dataOfTotal5*100/dataOfTotalPopulation
-                FullyVaccinated = dataOfTotal6*100/dataOfTotalPopulation
-                console.log(FullyVaccinated)
-
-
-
+            AtLeastOneDose = dataOfTotal5*100/dataOfTotalPopulation
+            FullyVaccinated = dataOfTotal6*100/dataOfTotalPopulation
 
             num = AtLeastOneDose.toString();
-            var x = Number(num.slice(0,5));
-
             num2 = FullyVaccinated.toString();
+            var x = Number(num.slice(0,5));
             var y = Number(num2.slice(0,5));
             
             document.getElementById('totalTested').innerHTML = dataOfTotal4.toLocaleString();
             document.getElementById('h4-data').innerHTML = dataOfTotalConfirmed.toLocaleString();
-
             document.getElementById('recovered').innerHTML = dataOfTotalRecovered.toLocaleString();
             document.getElementById('deceased').innerHTML = dataOfTotalDeceased.toLocaleString();
             document.getElementById('administered').innerHTML = TotalVaccineDose.toLocaleString();
 
-            document.getElementById('progress-total-value').innerHTML =x + '%'
-            document.getElementById('progress-highlight-value').innerHTML = y + '%'
-            document.getElementById('progress-width').style.width = x + '%';
-            document.getElementById('progress-highlight').style.width = y + '%';
-            document.getElementById('progress-highlight-width').style.marginLeft = y + '%';
-
-            document.getElementById('main-table').innerHTML = html_data;
             document.getElementById("total-confirmed").innerHTML = dataOfTotal1.toLocaleString();
             document.getElementById('total-recovered').innerHTML = dataOfTotal8.toLocaleString();
              document.getElementById('total-deceased').innerHTML = dataOfTotal2.toLocaleString();
-             document.getElementById('total-active').innerHTML = TotalActive.toLocaleString();
+             document.getElementById('total-active').innerHTML = dataOfTotalActive.toLocaleString();
 
+            document.getElementById('progress-total-value').innerHTML =x + '%'
+            document.getElementById('progress-highlight-value').innerHTML = y + '%'
+            document.getElementById('between-progress-highlight-value').style.marginLeft = y + '%'
+            document.getElementById('progress-width').style.width = x + '%';
+            document.getElementById('progress-highlight').style.width = y + '%';
+            document.getElementById('progress-highlight-width').style.marginLeft = y + '%';
+            document.getElementById('main-table').innerHTML = html_data;
         };
     };
 };
  
-
-
- // clear Function
-function clearFunction() {
-    clearTimeout(longPress)
-}
 
                     // Table Events
 
@@ -547,7 +485,6 @@ document.getElementById('detail_id').addEventListener('click', (()=> {
     setInterval(change, 1500);
 
 }));
-
 
 function first_hover(val){
   document.getElementById('select-dropdown').value = val;

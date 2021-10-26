@@ -1,7 +1,5 @@
-
 var timeoutVar = null;
-
-export function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
+function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=300) {
     if(!i) {
         if(placeholder) {
             document.querySelector(selector_target).placeholder = "";
@@ -35,16 +33,6 @@ export function typeWriter(selector_target, text_list, placeholder = false, i = 
     }
 }
 
+ text_list = ["Andaman and Nicobar Islands","Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chandigarh","Chhattisgarh","Dadra and Nagar Haveli and Daman and Diu","Delhi","Goa","Gujrat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Ladakh","Lakshadweep"];
 
-export let text_list = [
-    "Gondal",
-    "Rajkot",
-    "Ahemdabad",
-    "Surat",
-    "Div !"
-];
-
-// return_value = typeWriter("#dynamic-placeholder", text_list, true);
-
-
-// export {typeWriter}
+return_value = typeWriter("#dynamic-placeholder", text_list, true);

@@ -635,7 +635,7 @@ h5 {
 }
 
 .hide_cell {
-  /*display: none;*/
+  display: none;
 }
 
 .show {

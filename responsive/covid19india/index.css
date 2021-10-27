@@ -634,10 +634,10 @@ h5 {
   background: rgba(40, 167, 69, 0.1254901961);
 }
 
-.hide_cell {
+/*.hide_cell {
   display: none;
 }
-
+*/
 .show {
   display: block;
 }

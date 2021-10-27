@@ -15,15 +15,7 @@ document.getElementById('lastUpdate').innerHTML = firstDate;
 
 html_element_counter = 0;
 document.getElementById('main-table').innerHTML = '';
-
-
-
-
-
-
-
-
-
+var timer;
 
 function tableSorting(val, tag) {
     html_data = "";
@@ -75,23 +67,7 @@ function tableSorting(val, tag) {
             dataOfTotal8 = arrayData[33][1]['total']['recovered']
             dataOfTotalActive = dataOfTotal1 - dataOfTotal8 - dataOfTotal2 - dataOfTotal3
             TotalVaccineDose = dataOfTotal5 + dataOfTotal6
-
-
-
-
-         
-
-
-
-
-
-
             delete arrayData[33]
-
-
-
-
-
 
             if (val == 'state') {
                 if(localStorage.getItem("order") == "asc")
@@ -117,10 +93,11 @@ function tableSorting(val, tag) {
                 }
             }
 
+                // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
 
 
-                    // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
-
+            
+            
 
 
             arrayData.forEach((item) => {
@@ -378,6 +355,16 @@ function tableSorting(val, tag) {
 };
 
 
+let mouseDown = (val,tag) => {
+    timer = setTimeout(()=>{
+        tableSorting(val,tag)
+    },1000);
+};
+let mouseUp = () => {
+    clearTimeout(timer)
+};
+
+
                     // Table Events
 
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
@@ -522,18 +509,4 @@ function first_hover(val){
   document.getElementById('select-dropdown').value = val;
 }
 
-
-
-var timer;
-const tempo = 1000;
-let mouseDown = () => {
-    timer = setTimeout(()=>{
-        console.log('longPress')
-        
-    },1000);
-};
-
-let mouseUp = () => {
-    clearTimeout(timer)
-}
 

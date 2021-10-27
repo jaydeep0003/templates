@@ -1,6 +1,7 @@
 
 
 localStorage.setItem('order', 'asc')
+localStorage.setItem('deltaItems','ascending')
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 // live update time zone
@@ -46,42 +47,45 @@ function tableSorting(val, tag) {
             listDateTime = arrayData
             newListDateTime = listDateTime[10][1]['meta']['last_updated'].slice(11,16)
             joinDateTime = firstDate + ' ,'+newListDateTime ;
+
             document.getElementById('panelDateTime').innerHTML = joinDateTime;
             d= arrayData[33][1]['meta']['last_updated']
+
             b = d.slice(11,16)
             document.getElementById('nowTime').innerHTML = b;
 
             dataOfTotalPopulation = arrayData[33][1]['meta']['population']
             dataOfTotalConfirmed = arrayData[33][1]['delta']['confirmed']
+
             dataOfTotalDeceased = arrayData[33][1]['delta']['deceased']
             dataOfTotalRecovered = arrayData[33][1]['delta']['recovered']
             dataOfTotalOther = arrayData[33][1]['delta']['other']
 
-            dataOfTotal1 = arrayData[33][1]['total']['confirmed']
-            dataOfTotal2 = arrayData[33][1]['total']['deceased']
-            dataOfTotal3 = arrayData[33][1]['total']['other']
-            dataOfTotal4 = arrayData[33][1]['total']['tested']
-            dataOfTotal5 = arrayData[33][1]['total']['vaccinated1']
-            dataOfTotal6 = arrayData[33][1]['total']['vaccinated2']
-            dataOfTotal7 = arrayData[33][1]['total']['confirmed']
-            dataOfTotal8 = arrayData[33][1]['total']['recovered']
-            dataOfTotalActive = dataOfTotal1 - dataOfTotal8 - dataOfTotal2 - dataOfTotal3
-            TotalVaccineDose = dataOfTotal5 + dataOfTotal6
+            TotalDataConfirmed = arrayData[33][1]['total']['confirmed']
+            TotalDataDeceased = arrayData[33][1]['total']['deceased']
+
+            TotalDataOther = arrayData[33][1]['total']['other']
+            TotalDataTested = arrayData[33][1]['total']['tested']
+
+            TotalDataVaccinatedFirst = arrayData[33][1]['total']['vaccinated1']
+            TotalDataVaccinatedSecond = arrayData[33][1]['total']['vaccinated2']
+            TotalDataRecovered = arrayData[33][1]['total']['recovered']
+            
+            dataOfTotalActive = TotalDataConfirmed - TotalDataRecovered - TotalDataDeceased - TotalDataOther
+            TotalVaccineDose = TotalDataVaccinatedFirst + TotalDataVaccinatedSecond
             delete arrayData[33]
 
+
             if (val == 'state') {
-                if(localStorage.getItem("order") == "asc")
-                {
+                if(localStorage.getItem("order") == "asc"){
                     arrayData.sort();
                     localStorage.setItem("order", "")
                 }
-                else
-                {
+                else{
                     arrayData.reverse();
                     localStorage.setItem('order', 'asc')
                 }
             }
-
             else {
                 if (localStorage.getItem('order') == 'asc') {
                     arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
@@ -94,11 +98,6 @@ function tableSorting(val, tag) {
             }
 
                 // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
-
-
-            
-            
-
 
             arrayData.forEach((item) => {
                 var allItems = item[1]
@@ -269,7 +268,7 @@ function tableSorting(val, tag) {
 
                             <div class="cell statistic new_class u_hover u_color ligth_color" id="hover-id">
                             <div class="delta is-confirmed" id="data-confirmed u_table_padding u_font_size">${(dataOfTotalConfirmed)}</div>
-                                <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(dataOfTotal1)}</div>
+                                <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(TotalDataConfirmed)}</div>
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
@@ -279,28 +278,28 @@ function tableSorting(val, tag) {
 
                             <div class="cell statistic new_class u_hover u_color ">
                                 <div class="delta is-recovered u_table_padding u_font_size">${(dataOfTotalRecovered)}</div>
-                                <div class="delta ">${new Intl.NumberFormat().format(dataOfTotal8)}</div>
+                                <div class="delta ">${new Intl.NumberFormat().format(TotalDataRecovered)}</div>
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
                             <div class="delta is-deceased u_table_padding u_font_size">${(dataOfTotalDeceased)}</div>
-                              <div class="delta">${new Intl.NumberFormat().format(dataOfTotal2)}</div>
+                              <div class="delta">${new Intl.NumberFormat().format(TotalDataDeceased)}</div>
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
-                              <div class="delta">${new Intl.NumberFormat().format(dataOfTotal3)}</div>
+                              <div class="delta">${new Intl.NumberFormat().format(TotalDataOther)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
-                              <div class="delta ">${convertNumber(dataOfTotal4)}</div>
+                              <div class="delta ">${convertNumber(TotalDataTested)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
-                              <div class="delta ">${convertNumber(dataOfTotal5)}</div>
+                              <div class="delta ">${convertNumber(TotalDataVaccinatedFirst)}</div>
                   
                             </div>
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
-                              <div class="delta ">${convertNumber(dataOfTotal6)}</div>
+                              <div class="delta ">${convertNumber(TotalDataVaccinatedSecond)}</div>
                   
                             </div>
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -324,23 +323,23 @@ function tableSorting(val, tag) {
                     `
             html_data+=html_element
                             
-            AtLeastOneDose = dataOfTotal5*100/dataOfTotalPopulation
-            FullyVaccinated = dataOfTotal6*100/dataOfTotalPopulation
+            AtLeastOneDose = TotalDataVaccinatedFirst*100/dataOfTotalPopulation
+            FullyVaccinated = TotalDataVaccinatedSecond*100/dataOfTotalPopulation
 
             num = AtLeastOneDose.toString();
             num2 = FullyVaccinated.toString();
             var x = Number(num.slice(0,5));
             var y = Number(num2.slice(0,5));
             
-            document.getElementById('totalTested').innerHTML = dataOfTotal4.toLocaleString();
+            document.getElementById('totalTested').innerHTML = TotalDataTested.toLocaleString();
             document.getElementById('h4-data').innerHTML = dataOfTotalConfirmed.toLocaleString();
             document.getElementById('recovered').innerHTML = dataOfTotalRecovered.toLocaleString();
             document.getElementById('deceased').innerHTML = dataOfTotalDeceased.toLocaleString();
             document.getElementById('administered').innerHTML = TotalVaccineDose.toLocaleString();
 
-            document.getElementById("total-confirmed").innerHTML = dataOfTotal1.toLocaleString();
-            document.getElementById('total-recovered').innerHTML = dataOfTotal8.toLocaleString();
-             document.getElementById('total-deceased').innerHTML = dataOfTotal2.toLocaleString();
+            document.getElementById("total-confirmed").innerHTML = TotalDataConfirmed.toLocaleString();
+            document.getElementById('total-recovered').innerHTML = TotalDataRecovered.toLocaleString();
+             document.getElementById('total-deceased').innerHTML = TotalDataDeceased.toLocaleString();
              document.getElementById('total-active').innerHTML = dataOfTotalActive.toLocaleString();
 
             document.getElementById('progress-total-value').innerHTML =x + '%'
@@ -355,30 +354,45 @@ function tableSorting(val, tag) {
 };
 
 
-let mouseDown = (val,tag) => {
-    timer = setTimeout(()=>{
-        tableSorting(val,tag)
-    },1000);
-};
-let mouseUp = () => {
-    clearTimeout(timer)
-};
 
+
+
+
+
+                        // // // // Delta Ascending Dscending // // // // //
+                    
+                                let mouseDown = (val,tag) => {
+                                    timer = setTimeout(() => {
+                                        tableSorting(val,tag)
+                                    },1000);
+                                };
+                                let mouseUp = () => {
+                                    clearTimeout(timer)
+                                };
+
+                        // // // // // 
 
                     // Table Events
+
+
+
 
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
 
 function right_arrow() {
     var right_arrow = document.getElementById('right-arrow');
     var table = document.getElementById('table-container');
+
     var hide_cell = document.getElementsByClassName('hide_cell');
     var main_hero_section = document.getElementById('hero');
     var hero_container = document.getElementById('hero-container');
+
     var state_selection = document.getElementById('state-selection');
     var searchbox = document.getElementById('searchbox');
+
     var panel = document.getElementById('panel');
     var map_swicher = document.getElementById('map-swicher');
+
     var progress_width = document.getElementById('progress-width');
     var progress_bar = document.getElementById('progress-bar');
     

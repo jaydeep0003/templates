@@ -16,6 +16,15 @@ document.getElementById('lastUpdate').innerHTML = firstDate;
 html_element_counter = 0;
 document.getElementById('main-table').innerHTML = '';
 
+
+
+
+
+
+
+
+
+
 function tableSorting(val, tag) {
     html_data = "";
 
@@ -35,9 +44,10 @@ function tableSorting(val, tag) {
 
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
-            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? 0 : value[1].delta.confirmed)
-            arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ? 0 : value[1].delta.recovered)
-            arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ? 0 : value[1].delta.deceased)
+            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed)
+            
+            arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ?  '': value[1].delta.recovered)
+            arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ?  '': value[1].delta.deceased)
 
 
             // Panel Time Zone
@@ -110,14 +120,6 @@ function tableSorting(val, tag) {
 
 
                     // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
-
-                    
-
-
-
-
-
-
 
 
 
@@ -519,3 +521,19 @@ document.getElementById('detail_id').addEventListener('click', (()=> {
 function first_hover(val){
   document.getElementById('select-dropdown').value = val;
 }
+
+
+
+var timer;
+const tempo = 1000;
+let mouseDown = () => {
+    timer = setTimeout(()=>{
+        console.log('longPress')
+        
+    },1000);
+};
+
+let mouseUp = () => {
+    clearTimeout(timer)
+}
+

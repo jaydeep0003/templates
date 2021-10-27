@@ -442,7 +442,7 @@ body {
   background-image: url("images/");
   background-position: center; 
   background-position: center;
-  /*background-attachment: fixed;*/
+  background-attachment: fixed;
   background-size: auto;
   background-repeat: no-repeat;
 }

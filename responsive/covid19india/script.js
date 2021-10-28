@@ -1,9 +1,7 @@
-
-
 localStorage.setItem('order', 'asc')
-localStorage.setItem('deltaItems','mouseDown')
+// localStorage.setItem('deltaItems','mouseDown')
 
-filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
+filed_delta = ['active','confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 // live update time zone
 const newDate = new Date();
@@ -37,9 +35,13 @@ function tableSorting(val, tag) {
             var arrayData = Object.entries(jsonData)
 
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
+
+
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
-            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed)
+
+            arrayData.filter((value)=> value[1].total.active = value[1].total.active == undefined ? '0': value[1].total.active)
             
+            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed)
             arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ?  '': value[1].delta.recovered)
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ?  '': value[1].delta.deceased)
 
@@ -133,6 +135,8 @@ function tableSorting(val, tag) {
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
 
+                var active =  allItemsTotal.confirmed-allItemsTotal.recovered-allItemsTotal.deceased - allItemsTotal.other
+                // console.log(active)
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>
@@ -144,7 +148,7 @@ function tableSorting(val, tag) {
                               <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
                             </div>
                             <div class="cell statistic u_hover u_color">
-                              <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed-allItemsTotal.recovered-allItemsTotal.deceased - allItemsTotal.other)}</div>
+                              <div>${new Intl.NumberFormat().format(active)}</div>
                             </div>
                             <div class="cell statistic u_hover u_color">
                               <div class="delta is-recovered u_table_padding u_font_size">${(findDalta.recovered)}</div>
@@ -199,7 +203,7 @@ function tableSorting(val, tag) {
                             <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
                           </div>
                         <div class="cell statistic new_class u_hover u_color ligth_color ">
-                          <div>${new Intl.NumberFormat().format(allItemsTotal.confirmed - allItemsTotal.recovered - allItemsTotal.deceased - allItemsTotal.other)}</div>
+                          <div>${new Intl.NumberFormat().format(active)}</div>
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
                           <div class="delta is-recovered u_table_padding u_font_size">${(findDalta.recovered)}</div>
@@ -370,29 +374,20 @@ function tableSorting(val, tag) {
 
 
 
-
                         // // // // Delta Ascending Dscending // // // // //
                                 
-                                    if (localStorage.getItem('deltaItems') == 'mouseDown') {
+                                
 
                                     var mouseDown = (val,tag) => {
                                         timer = setTimeout(() => {
-                                            tableSorting(val,tag)
-
-                                            localStorage.getItem('deltaItems','')
+                                            tableSorting(val,tag);
                                         },1000);
-                                        // localStorage.setItem('deltaItems','')
                                     };
-                                }
-                                    else {
-
-                                        localStorage.getItem('deltaItems','mouseDown')
-                                    }
                                     let mouseUp = () => {
-                                        clearTimeout(timer)
+                                        clearTimeout(timer);
                                     };
 
-                                    // console.log(mouseDown)
+
 
                         // // // // // 
 

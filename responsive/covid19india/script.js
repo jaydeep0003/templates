@@ -1,7 +1,8 @@
 
 
 localStorage.setItem('order', 'asc')
-localStorage.setItem('deltaItems','ascending')
+localStorage.setItem('deltaItems','mouseDown')
+
 filed_delta = ['confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
 
 // live update time zone
@@ -61,6 +62,10 @@ function tableSorting(val, tag) {
             dataOfTotalRecovered = arrayData[33][1]['delta']['recovered']
             dataOfTotalOther = arrayData[33][1]['delta']['other']
 
+            dataOfTotalVaccinatedFirstDoes =  arrayData[33][1]['delta']['vaccinated1']
+            dataOfTotalVaccinatedSecondDoes =  arrayData[33][1]['delta']['vaccinated2']
+            dataOfTotalTested =  arrayData[33][1]['delta']['tested']
+
             TotalDataConfirmed = arrayData[33][1]['total']['confirmed']
             TotalDataDeceased = arrayData[33][1]['total']['deceased']
 
@@ -73,6 +78,8 @@ function tableSorting(val, tag) {
             
             dataOfTotalActive = TotalDataConfirmed - TotalDataRecovered - TotalDataDeceased - TotalDataOther
             TotalVaccineDose = TotalDataVaccinatedFirst + TotalDataVaccinatedSecond
+            TotalDeltaDataOfFullyVacinated = dataOfTotalVaccinatedFirstDoes + dataOfTotalVaccinatedSecondDoes
+            
             delete arrayData[33]
 
 
@@ -150,7 +157,7 @@ function tableSorting(val, tag) {
                  
                             </div>
                             <div class="cell statistic u_hover u_color">
-                              <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
+                              <div class="delta  u_table_padding u_font_size">${(findDalta.other)}</div>
                               <div class="delta ">${(allItemsTotal.other)}</div>
                             </div>
                             <div class="cell statistic u_hover u_color  hide_cell">
@@ -204,7 +211,7 @@ function tableSorting(val, tag) {
             
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
-                        <div class="delta is-active u_table_padding u_font_size">${(findDalta.other)}</div>
+                        <div class="delta  u_table_padding u_font_size">${(findDalta.other)}</div>
                           <div class="delta">${(allItemsTotal.other)}</div>
                         </div>
                         <div class="cell statistic u_hover u_color  new_class hide_cell">
@@ -287,22 +294,27 @@ function tableSorting(val, tag) {
                             </div>
 
                             <div class="cell statistic new_class u_hover u_color ">
+                              <div class="delta">${new Intl.NumberFormat().format(dataOfTotalOther)}</div>
                               <div class="delta">${new Intl.NumberFormat().format(TotalDataOther)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(dataOfTotalTested)}</div>
                               <div class="delta ">${convertNumber(TotalDataTested)}</div>
                             </div>
 
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(dataOfTotalVaccinatedFirstDoes)}</div>
                               <div class="delta ">${convertNumber(TotalDataVaccinatedFirst)}</div>
                   
                             </div>
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(dataOfTotalVaccinatedSecondDoes)}</div>
                               <div class="delta ">${convertNumber(TotalDataVaccinatedSecond)}</div>
                   
                             </div>
                             <div class="cell statistic u_hover u_color  new_class hide_cell">
+                              <div class="delta ">${convertNumber(TotalDeltaDataOfFullyVacinated)}</div>
                               <div class="delta ">${convertNumber(TotalVaccineDose)}</div>
                    
                             </div>
@@ -360,22 +372,33 @@ function tableSorting(val, tag) {
 
 
                         // // // // Delta Ascending Dscending // // // // //
-                    
-                                let mouseDown = (val,tag) => {
-                                    timer = setTimeout(() => {
-                                        tableSorting(val,tag)
-                                    },1000);
-                                };
-                                let mouseUp = () => {
-                                    clearTimeout(timer)
-                                };
+                                
+                                    if (localStorage.getItem('deltaItems') == 'mouseDown') {
+                                    var mouseDown = mouseDown = (val,tag) => {
+                                        timer = setTimeout(() => {
+                                            tableSorting(val,tag)
+
+                                            localStorage.getItem('deltaItems','')
+                                        },1000);
+                                        // localStorage.setItem('deltaItems','')
+                                    };
+                                }
+                                    else {
+
+                                        localStorage.getItem('deltaItems','mouseDown')
+                                    }
+                                    let mouseUp = () => {
+                                        clearTimeout(timer)
+                                    };
+
+                                    // console.log(mouseDown)
 
                         // // // // // 
 
                     // Table Events
 
 
-
+                    // console.log(mouseDown)
 
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
 

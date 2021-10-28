@@ -1,3 +1,7 @@
+import * as ex from "./state.js";
+
+console.log(ex.STATE_NAMES)
+
 localStorage.setItem('order', 'asc')
 // localStorage.setItem('deltaItems','mouseDown')
 
@@ -35,20 +39,41 @@ function tableSorting(val, tag) {
 
             var arrayData = Object.entries(jsonData)
 
-            arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
+            // arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
 
-            arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
+            // arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
             // arrayData.filter((value)=> value[1].total.active = value[1].total.active == undefined ? '0': value[1].total.active)
 
-            arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed)
+            // arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed)
 
-            arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ?  '': value[1].delta.recovered)
+            // arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ?  '': value[1].delta.recovered)
 
-            arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ?  '': value[1].delta.deceased)
+            // arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ?  '': value[1].delta.deceased)
 
-            arrayData.forEach((value)=> value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other)
-            // console.log(arrayData[1][1].total)
+            // arrayData.filter((value) => value[1].delta.tested = value[1].delta.tested == undefined ?  '': value[1].delta.tested)
+
+            // arrayData.filter((value) => value[1].delta.vaccinated1 = value[1].delta.vaccinated1 == undefined ?  '': value[1].delta.vaccinated1)
+            // arrayData.filter((value) => value[1].delta.vaccinated2 = value[1].delta.vaccinated2 == undefined ?  '': value[1].delta.vaccinated2)
+
+            // arrayData.forEach((value)=> value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other)
+
+
+
+            arrayData.filter((value) => {
+                typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta);
+                value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other;
+                value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed;
+                value[1].delta.recovered = value[1].delta.recovered == undefined ?  '': value[1].delta.recovered;
+                value[1].delta.deceased = value[1].delta.deceased == undefined ?  '': value[1].delta.deceased;
+                value[1].delta.tested = value[1].delta.tested == undefined ?  '': value[1].delta.tested;
+                value[1].delta.vaccinated1 = value[1].delta.vaccinated1 == undefined ?  '': value[1].delta.vaccinated1;
+                value[1].delta.vaccinated2 = value[1].delta.vaccinated2 == undefined ?  '': value[1].delta.vaccinated2;
+                value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other;
+            })
+
+            
+            
             // Panel Time Zone
             listDateTime = arrayData
             newListDateTime = listDateTime[10][1]['meta']['last_updated'].slice(11,16)
@@ -70,6 +95,7 @@ function tableSorting(val, tag) {
             dataOfTotalVaccinatedFirstDoes =  arrayData[33][1]['delta']['vaccinated1']
             dataOfTotalVaccinatedSecondDoes =  arrayData[33][1]['delta']['vaccinated2']
             dataOfTotalTested =  arrayData[33][1]['delta']['tested']
+            console.log(dataOfTotalTested)
 
             TotalDataConfirmed = arrayData[33][1]['total']['confirmed']
             TotalDataDeceased = arrayData[33][1]['total']['deceased']
@@ -85,18 +111,7 @@ function tableSorting(val, tag) {
             TotalVaccineDose = TotalDataVaccinatedFirst + TotalDataVaccinatedSecond
             TotalDeltaDataOfFullyVacinated = dataOfTotalVaccinatedFirstDoes + dataOfTotalVaccinatedSecondDoes
             
-
-
-
-
-            // arrayData.forEach((value)=> value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other)
-                
-
-
             delete arrayData[33]
-
-
-            
 
 
             if (val == 'state') {
@@ -122,18 +137,11 @@ function tableSorting(val, tag) {
                 }
             }
 
+
+
             // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
 
-            arrayData.forEach((item) => {
-                var allItems = item[1]
-                var allItemsTotal = allItems['total']
-                var allItemsDelta = allItems['delta']
-                var allItemsMeta = allItems['meta']
-                var findDalta = allItems['delta']
-
-                console.log(allItemsTotal)
-
-                function convertNumber(number){
+            function convertNumber(number){
                     if (number > 999 && number < 100000) {
                         return (number/1000).toFixed(1) + 'K'
                     }
@@ -151,16 +159,34 @@ function tableSorting(val, tag) {
                 }
                 
 
+            arrayData.forEach((item) => {
+                var allItems = item[1]
+                var allItemsTotal = allItems['total']
+                var allItemsDelta = allItems['delta']
+                var allItemsMeta = allItems['meta']
+                var findDalta = allItems['delta']
+
+                // function convertNumber(number){
+                //     if (number > 999 && number < 100000) {
+                //         return (number/1000).toFixed(1) + 'K'
+                //     }
+
+                //     else if(number >= 100000 && number < 9999999) {
+                //         return (number/100000).toFixed(1) + 'L'
+                //     }
+
+                //     else if(number >= 10000000) {
+                //         return (number/10000000).toFixed(1) + 'Cr'
+                //     }
+                //     else if(number < 999) {
+                //         return number
+                //     }
+                // }
+                
+
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
 
-
-
-                
-
-                var active =  allItemsTotal.confirmed-allItemsTotal.recovered-allItemsTotal.deceased - allItemsTotal.other
-
-                // console.log(active)
                 if (html_element_counter % 2 == 0) {
                     html_element = `
                         <div class='table_row'  onmouseover='first_hover("${item[0]}")'>
@@ -279,22 +305,24 @@ function tableSorting(val, tag) {
             });
 
 
-            function convertNumber(number){
-                    if (number > 999 && number < 100000) {
-                        return (number/1000).toFixed(1) + 'K'
-                    }
+            // function convertNumber(number){
 
-                    else if(number >= 100000 && number < 9999999) {
-                        return (number/100000).toFixed(1) + 'L'
-                    }
+            //         if (number > 999 && number < 100000) {
+            //             return (number/1000).toFixed(1) + 'K'
+            //         }
 
-                    else if(number >= 10000000) {
-                        return (number/10000000).toFixed(1) + 'Cr'
-                    }
-                    else if(number < 999) {
-                        return number
-                    }
-                }
+            //         else if(number >= 100000 && number < 9999999) {
+            //             return (number/100000).toFixed(1) + 'L'
+            //         }
+
+            //         else if(number >= 10000000) {
+            //             return (number/10000000).toFixed(1) + 'Cr'
+            //         }
+            //         else if(number < 999) {
+            //             return number
+            //         }
+            //     }
+
              html_element = `
                         <div class='table_row'>
                             <div class="cell fixed dark_mode_cell" id='row-first-id'>

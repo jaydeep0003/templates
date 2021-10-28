@@ -374,7 +374,8 @@ function tableSorting(val, tag) {
                         // // // // Delta Ascending Dscending // // // // //
                                 
                                     if (localStorage.getItem('deltaItems') == 'mouseDown') {
-                                    var mouseDown = mouseDown = (val,tag) => {
+
+                                    var mouseDown = (val,tag) => {
                                         timer = setTimeout(() => {
                                             tableSorting(val,tag)
 

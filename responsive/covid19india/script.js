@@ -2,6 +2,7 @@ localStorage.setItem('order', 'asc')
 // localStorage.setItem('deltaItems','mouseDown')
 
 filed_delta = ['active','confirmed', 'recovered', 'deceased', 'other', 'tested', 'vaccinated1', 'vaccinated2'];
+filed_delta2 = ['active'];
 
 // live update time zone
 const newDate = new Date();
@@ -36,16 +37,18 @@ function tableSorting(val, tag) {
 
             arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
 
-
             arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
 
-            arrayData.filter((value)=> value[1].total.active = value[1].total.active == undefined ? '0': value[1].total.active)
-            
+            // arrayData.filter((value)=> value[1].total.active = value[1].total.active == undefined ? '0': value[1].total.active)
+
             arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed)
+
             arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ?  '': value[1].delta.recovered)
+
             arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ?  '': value[1].delta.deceased)
 
-
+            arrayData.forEach((value)=> value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other)
+            // console.log(arrayData[1][1].total)
             // Panel Time Zone
             listDateTime = arrayData
             newListDateTime = listDateTime[10][1]['meta']['last_updated'].slice(11,16)
@@ -82,7 +85,18 @@ function tableSorting(val, tag) {
             TotalVaccineDose = TotalDataVaccinatedFirst + TotalDataVaccinatedSecond
             TotalDeltaDataOfFullyVacinated = dataOfTotalVaccinatedFirstDoes + dataOfTotalVaccinatedSecondDoes
             
+
+
+
+
+            // arrayData.forEach((value)=> value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other)
+                
+
+
             delete arrayData[33]
+
+
+            
 
 
             if (val == 'state') {
@@ -95,7 +109,9 @@ function tableSorting(val, tag) {
                     localStorage.setItem('order', 'asc')
                 }
             }
+
             else {
+
                 if (localStorage.getItem('order') == 'asc') {
                     arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
                     localStorage.setItem('order', '')
@@ -106,7 +122,7 @@ function tableSorting(val, tag) {
                 }
             }
 
-                // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
+            // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
 
             arrayData.forEach((item) => {
                 var allItems = item[1]
@@ -114,6 +130,8 @@ function tableSorting(val, tag) {
                 var allItemsDelta = allItems['delta']
                 var allItemsMeta = allItems['meta']
                 var findDalta = allItems['delta']
+
+                console.log(allItemsTotal)
 
                 function convertNumber(number){
                     if (number > 999 && number < 100000) {
@@ -131,11 +149,17 @@ function tableSorting(val, tag) {
                         return number
                     }
                 }
+                
 
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
 
+
+
+                
+
                 var active =  allItemsTotal.confirmed-allItemsTotal.recovered-allItemsTotal.deceased - allItemsTotal.other
+
                 // console.log(active)
                 if (html_element_counter % 2 == 0) {
                     html_element = `
@@ -148,7 +172,7 @@ function tableSorting(val, tag) {
                               <div class="delta" id="table-first-value">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div> 
                             </div>
                             <div class="cell statistic u_hover u_color">
-                              <div>${new Intl.NumberFormat().format(active)}</div>
+                              <div>${new Intl.NumberFormat().format(allItemsTotal.active)}</div>
                             </div>
                             <div class="cell statistic u_hover u_color">
                               <div class="delta is-recovered u_table_padding u_font_size">${(findDalta.recovered)}</div>
@@ -203,7 +227,7 @@ function tableSorting(val, tag) {
                             <div class="delta" id="data-confirmed">${new Intl.NumberFormat().format(allItemsTotal.confirmed)}</div>
                           </div>
                         <div class="cell statistic new_class u_hover u_color ligth_color ">
-                          <div>${new Intl.NumberFormat().format(active)}</div>
+                          <div>${new Intl.NumberFormat().format(allItemsTotal.active)}</div>
                         </div>
                         <div class="cell statistic new_class u_hover u_color ">
                           <div class="delta is-recovered u_table_padding u_font_size">${(findDalta.recovered)}</div>
@@ -253,6 +277,7 @@ function tableSorting(val, tag) {
                 html_element_counter += 1;
                 
             });
+
 
             function convertNumber(number){
                     if (number > 999 && number < 100000) {

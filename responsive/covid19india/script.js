@@ -1,6 +1,41 @@
-import * as ex from "./state.js";
-
-console.log(ex.STATE_NAMES)
+const abc = {
+  AN: 'Andaman and Nicobar Islands',
+  AP: 'Andhra Pradesh',
+  AR: 'Arunachal Pradesh',
+  AS: 'Assam',
+  BR: 'Bihar',
+  CH: 'Chandigarh',
+  CT: 'Chhattisgarh',
+  DL: 'Delhi',
+  DN: 'Dadra and Nagar Haveli and Daman and Diu',
+  GA: 'Goa',
+  GJ: 'Gujarat',
+  HP: 'Himachal Pradesh',
+  HR: 'Haryana',
+  JH: 'Jharkhand',
+  JK: 'Jammu and Kashmir',
+  KA: 'Karnataka',
+  KL: 'Kerala',
+  LA: 'Ladakh',
+  LD: 'Lakshadweep',
+  MH: 'Maharashtra',
+  ML: 'Meghalaya',
+  MN: 'Manipur',
+  MP: 'Madhya Pradesh',
+  MZ: 'Mizoram',
+  NL: 'Nagaland',
+  OR: 'Odisha',
+  PB: 'Punjab',
+  PY: 'Puducherry',
+  RJ: 'Rajasthan',
+  SK: 'Sikkim',
+  TG: 'Telangana',
+  TN: 'Tamil Nadu',
+  TR: 'Tripura',
+  UP: 'Uttar Pradesh',
+  UT: 'Uttarakhand',
+  WB: 'West Bengal',
+  };
 
 localStorage.setItem('order', 'asc')
 // localStorage.setItem('deltaItems','mouseDown')
@@ -39,27 +74,6 @@ function tableSorting(val, tag) {
 
             var arrayData = Object.entries(jsonData)
 
-            // arrayData.filter((value) => typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta ))
-
-            // arrayData.filter((value) => value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other)
-
-            // arrayData.filter((value)=> value[1].total.active = value[1].total.active == undefined ? '0': value[1].total.active)
-
-            // arrayData.filter((value) => value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed)
-
-            // arrayData.filter((value) => value[1].delta.recovered = value[1].delta.recovered == undefined ?  '': value[1].delta.recovered)
-
-            // arrayData.filter((value) => value[1].delta.deceased = value[1].delta.deceased == undefined ?  '': value[1].delta.deceased)
-
-            // arrayData.filter((value) => value[1].delta.tested = value[1].delta.tested == undefined ?  '': value[1].delta.tested)
-
-            // arrayData.filter((value) => value[1].delta.vaccinated1 = value[1].delta.vaccinated1 == undefined ?  '': value[1].delta.vaccinated1)
-            // arrayData.filter((value) => value[1].delta.vaccinated2 = value[1].delta.vaccinated2 == undefined ?  '': value[1].delta.vaccinated2)
-
-            // arrayData.forEach((value)=> value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other)
-
-
-
             arrayData.filter((value) => {
                 typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta);
                 value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other;
@@ -95,7 +109,6 @@ function tableSorting(val, tag) {
             dataOfTotalVaccinatedFirstDoes =  arrayData[33][1]['delta']['vaccinated1']
             dataOfTotalVaccinatedSecondDoes =  arrayData[33][1]['delta']['vaccinated2']
             dataOfTotalTested =  arrayData[33][1]['delta']['tested']
-            console.log(dataOfTotalTested)
 
             TotalDataConfirmed = arrayData[33][1]['total']['confirmed']
             TotalDataDeceased = arrayData[33][1]['total']['deceased']
@@ -128,18 +141,15 @@ function tableSorting(val, tag) {
             else {
 
                 if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+                    // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
                     localStorage.setItem('order', '')
                 }
                 else {
-                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
                     localStorage.setItem('order', 'asc')
                 }
             }
 
-
-
-            // arrayData.sort((a, b) => a[1]['delta'][val] - b[1]['delta'][val])
 
             function convertNumber(number){
                     if (number > 999 && number < 100000) {
@@ -165,24 +175,6 @@ function tableSorting(val, tag) {
                 var allItemsDelta = allItems['delta']
                 var allItemsMeta = allItems['meta']
                 var findDalta = allItems['delta']
-
-                // function convertNumber(number){
-                //     if (number > 999 && number < 100000) {
-                //         return (number/1000).toFixed(1) + 'K'
-                //     }
-
-                //     else if(number >= 100000 && number < 9999999) {
-                //         return (number/100000).toFixed(1) + 'L'
-                //     }
-
-                //     else if(number >= 10000000) {
-                //         return (number/10000000).toFixed(1) + 'Cr'
-                //     }
-                //     else if(number < 999) {
-                //         return number
-                //     }
-                // }
-                
 
                 var deltaData = filed_delta.filter(c => !Object.keys(findDalta).includes(c));
                 var findDalta = deltaData.reduce((k, z) => ({...k,[z]: ''}), findDalta)
@@ -304,24 +296,6 @@ function tableSorting(val, tag) {
                 
             });
 
-
-            // function convertNumber(number){
-
-            //         if (number > 999 && number < 100000) {
-            //             return (number/1000).toFixed(1) + 'K'
-            //         }
-
-            //         else if(number >= 100000 && number < 9999999) {
-            //             return (number/100000).toFixed(1) + 'L'
-            //         }
-
-            //         else if(number >= 10000000) {
-            //             return (number/10000000).toFixed(1) + 'Cr'
-            //         }
-            //         else if(number < 999) {
-            //             return number
-            //         }
-            //     }
 
              html_element = `
                         <div class='table_row'>

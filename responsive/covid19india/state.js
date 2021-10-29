@@ -1,4 +1,4 @@
-export const STATE_NAMES = {
+const STATE_NAMES = {
   AP: 'Andhra Pradesh',
   AR: 'Arunachal Pradesh',
   AS: 'Assam',
@@ -38,4 +38,3 @@ export const STATE_NAMES = {
   [UNASSIGNED_STATE_CODE]: 'Unassigned',
 };
 
-export {STATE_NAMES}

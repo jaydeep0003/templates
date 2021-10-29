@@ -1,41 +1,47 @@
-const abc = {
-  AN: 'Andaman and Nicobar Islands',
-  AP: 'Andhra Pradesh',
-  AR: 'Arunachal Pradesh',
-  AS: 'Assam',
-  BR: 'Bihar',
-  CH: 'Chandigarh',
-  CT: 'Chhattisgarh',
-  DL: 'Delhi',
-  DN: 'Dadra and Nagar Haveli and Daman and Diu',
-  GA: 'Goa',
-  GJ: 'Gujarat',
-  HP: 'Himachal Pradesh',
-  HR: 'Haryana',
-  JH: 'Jharkhand',
-  JK: 'Jammu and Kashmir',
-  KA: 'Karnataka',
-  KL: 'Kerala',
-  LA: 'Ladakh',
-  LD: 'Lakshadweep',
-  MH: 'Maharashtra',
-  ML: 'Meghalaya',
-  MN: 'Manipur',
-  MP: 'Madhya Pradesh',
-  MZ: 'Mizoram',
-  NL: 'Nagaland',
-  OR: 'Odisha',
-  PB: 'Punjab',
-  PY: 'Puducherry',
-  RJ: 'Rajasthan',
-  SK: 'Sikkim',
-  TG: 'Telangana',
-  TN: 'Tamil Nadu',
-  TR: 'Tripura',
-  UP: 'Uttar Pradesh',
-  UT: 'Uttarakhand',
-  WB: 'West Bengal',
-  };
+const nabc = [ 'Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chandigarh','Chhattisgarh','Delhi','Dadra and Nagar Haveli and Daman and Diu','Goa','Gujarat','Himachal Pradesh','Haryana','Jharkhand','Jammu and Kashmir','Karnataka','Kerala','Ladakh','Lakshadweep','Maharashtra','Meghalaya','Manipur','Madhya Pradesh','Mizoram','Nagaland','Odisha','Punjab','Puducherry','Rajasthan','Sikkim','Telangana','Tamil Nadu','Tripura','','UttarPradesh','Uttarakhand','West Bengal']
+            
+
+            // const abc = {
+
+            //     AN: 'Andaman and Nicobar Islands',
+            //     AP: 'Andhra Pradesh',
+            //     AR: 'Arunachal Pradesh',
+            //     AS: 'Assam',
+            //     BR: 'Bihar',
+            //     CH: 'Chandigarh',
+            //     CT: 'Chhattisgarh',
+            //     DL: 'Delhi',
+            //     DN: 'Dadra and Nagar Haveli and Daman and Diu',
+            //     GA: 'Goa',
+            //     GJ: 'Gujarat',
+            //     HP: 'Himachal Pradesh',
+            //     HR: 'Haryana',
+            //     JH: 'Jharkhand',
+            //     JK: 'Jammu and Kashmir',
+            //     KA: 'Karnataka',
+            //     KL: 'Kerala',
+            //     LA: 'Ladakh',
+            //     LD: 'Lakshadweep',
+            //     MH: 'Maharashtra',
+            //     ML: 'Meghalaya',
+            //     MN: 'Manipur',
+            //     MP: 'Madhya Pradesh',
+            //     MZ: 'Mizoram',
+            //     NL: 'Nagaland',
+            //     OR: 'Odisha',
+            //     PB: 'Punjab',
+            //     PY: 'Puducherry',
+            //     RJ: 'Rajasthan',
+            //     SK: 'Sikkim',
+            //     TG: 'Telangana',
+            //     TN: 'Tamil Nadu',
+            //     TR: 'Tripura',
+            //     UP: 'Uttar Pradesh',
+            //     UT: 'Uttarakhand',
+            //     WB: 'West Bengal',
+            // };
+            
+
 
 localStorage.setItem('order', 'asc')
 // localStorage.setItem('deltaItems','mouseDown')
@@ -74,7 +80,19 @@ function tableSorting(val, tag) {
 
             var arrayData = Object.entries(jsonData)
 
+
+
+                
+
+                
+
             arrayData.filter((value) => {
+
+
+
+               
+                // value[0] = abc[i]
+
                 typeof (value[1]?.delta == undefined ? value[1].delta = '' : value[1].delta);
                 value[1].total.other = value[1].total.other == undefined ? '0' : value[1].total.other;
                 value[1].delta.confirmed = value[1].delta.confirmed ===  undefined ? '' : value[1].delta.confirmed;
@@ -84,7 +102,13 @@ function tableSorting(val, tag) {
                 value[1].delta.vaccinated1 = value[1].delta.vaccinated1 == undefined ?  '': value[1].delta.vaccinated1;
                 value[1].delta.vaccinated2 = value[1].delta.vaccinated2 == undefined ?  '': value[1].delta.vaccinated2;
                 value[1].total.active = value[1].total.confirmed-value[1].total.recovered-value[1].total.deceased-value[1].total.other;
+                // break
+               
             })
+
+
+
+            
 
             
             
@@ -123,8 +147,20 @@ function tableSorting(val, tag) {
             dataOfTotalActive = TotalDataConfirmed - TotalDataRecovered - TotalDataDeceased - TotalDataOther
             TotalVaccineDose = TotalDataVaccinatedFirst + TotalDataVaccinatedSecond
             TotalDeltaDataOfFullyVacinated = dataOfTotalVaccinatedFirstDoes + dataOfTotalVaccinatedSecondDoes
+
+
+
+
             
+            nabc.filter((value,index)=> {
+                    arrayData[index][0] = value
+                })
+
             delete arrayData[33]
+
+            
+
+
 
 
             if (val == 'state') {
@@ -141,11 +177,11 @@ function tableSorting(val, tag) {
             else {
 
                 if (localStorage.getItem('order') == 'asc') {
-                    // arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
                     localStorage.setItem('order', '')
                 }
                 else {
-                    // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
                     localStorage.setItem('order', 'asc')
                 }
             }

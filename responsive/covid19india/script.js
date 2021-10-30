@@ -373,6 +373,7 @@ let mouseUp = () => {
 
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
 function right_arrow() {
+
     var right_arrow = document.getElementById('right-arrow');
     var table = document.getElementById('table-container');
 
@@ -389,6 +390,7 @@ function right_arrow() {
     var progress_width = document.getElementById('progress-width');
     var progress_bar = document.getElementById('progress-bar');
     
+        
     if (right_arrow.classList.contains('right_arrow')) {
 
         right_arrow.classList.remove('right_arrow');
@@ -397,6 +399,7 @@ function right_arrow() {
         for (var i of hide_cell) {
             i.classList.add('show');
         }
+
 
         table.classList.remove('table_row');
         table.classList.add('click_table');

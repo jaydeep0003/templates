@@ -91,29 +91,86 @@ function tableSorting(val, tag) {
             TotalDeltaDataOfFullyVacinated = dataOfTotalVaccinatedFirstDoes + dataOfTotalVaccinatedSecondDoes
 
             delete arrayData[33]
+            
+            if (localStorage.getItem('mousedown') == 'mouseDown') {
 
-
-            if (val == 'state') {
-                if(localStorage.getItem("order") == "asc"){
-                    arrayData.sort();
-                    localStorage.setItem("order", "")
-                }
-                else{
-                    arrayData.reverse();
-                    localStorage.setItem('order', 'asc')
-                }
-            }
-            else {
-
-                if (localStorage.getItem('order') == 'asc') {
-                    arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
-                    localStorage.setItem('order', '')
+                if (val == 'state') {
+                    if(localStorage.getItem("order") == "asc"){
+                        arrayData.sort();
+                        localStorage.setItem("order", "")
+                    }
+                    else{
+                        arrayData.reverse();
+                        localStorage.setItem('order', 'asc')
+                    }
                 }
                 else {
-                    arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
-                    localStorage.setItem('order', 'asc')
+
+                    if (localStorage.getItem('order') == 'asc') {
+                        arrayData.sort((a, b) => a[1]['delta'][val] > b[1]['delta'][val])
+                        localStorage.setItem('order', '')
+                    }
+                    else {
+                        
+                        // arrayData.sort((a, b) => a[1]['delta'][val] < b[1]['delta'][val])
+                        arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                        localStorage.setItem('order', 'asc')
+                    }
                 }
+                localStorage.setItem('mousedown','')
             }
+
+            else {
+
+                if (val == 'state') {
+                    if(localStorage.getItem("order") == "asc"){
+                        arrayData.sort();
+                        localStorage.setItem("order", "")
+                    }
+                    else{
+                        arrayData.reverse();
+                        localStorage.setItem('order', 'asc')
+                    }
+                }
+                else {
+
+                    if (localStorage.getItem('order') == 'asc') {
+                        arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+                        localStorage.setItem('order', '')
+                    }
+                    else {
+                        
+                        // arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+                        arrayData.sort((a, b) => a[1]['delta'][val] < b[1]['delta'][val])
+                        localStorage.setItem('order', 'asc')
+                    }
+                }
+                localStorage.setItem('mousedown','mouseDown')
+            }
+
+
+            // if (val == 'state') {
+            //     if(localStorage.getItem("order") == "asc"){
+            //         arrayData.sort();
+            //         localStorage.setItem("order", "")
+            //     }
+            //     else{
+            //         arrayData.reverse();
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
+            // else {
+
+            //     if (localStorage.getItem('order') == 'asc') {
+            //         arrayData.sort((a, b) => a[1][tag][val] > b[1][tag][val])
+            //         localStorage.setItem('order', '')
+            //     }
+            //     else {
+                    
+            //         arrayData.sort((a, b) => a[1][tag][val] < b[1][tag][val])
+            //         localStorage.setItem('order', 'asc')
+            //     }
+            // }
 
 
             function convertNumber(number){
@@ -363,14 +420,18 @@ function tableSorting(val, tag) {
 
 var mouseDown = (val,tag) => {
     timer = setTimeout(() => {
+        localStorage.setItem('mousedown','mouseDown')
         tableSorting(val,tag);
     },1000);
 };
+
+
 let mouseUp = () => {
     clearTimeout(timer);
 };
-            // Table Events
 
+localStorage.removeItem('mousedown')
+// Table Events
 document.getElementById('right-arrow').addEventListener('click', right_arrow);
 function right_arrow() {
 
@@ -399,6 +460,11 @@ function right_arrow() {
         for (var i of hide_cell) {
             i.classList.add('show');
         }
+
+
+
+
+
 
 
         table.classList.remove('table_row');
@@ -468,7 +534,7 @@ function right_arrow() {
     }
 }
 
-        // Click to Dark mode on Body
+// Click to Dark mode on Body
 document.getElementById('themes').addEventListener('click', () => {
     document.body.classList.toggle('dark_mode')
     if (document.body.classList.contains('dark_mode')) {
@@ -508,11 +574,25 @@ document.getElementById('detail_id').addEventListener('click', (()=> {
         doc.style.color = color[i];
         i = (i + 1) % color.length;
     };
-
     setInterval(change, 1500);
-
 }));
 
 function first_hover(val){
   document.getElementById('select-dropdown').value = val;
 }
+
+
+
+xyz = document.getElementsByClassName('cls1');
+var i;
+
+for(i = 0; i < xyz.length; i++){
+    xyz[i].style.fill = 'blue'
+    xyz[i].style.stroke="blue"
+}
+
+$(document).ready(function(e) {
+  $(".circles").mouseover(function() {
+    console.log($('.cls1').text());
+  }); 
+});

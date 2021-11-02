@@ -109,13 +109,13 @@ body {
   display: none;
 }
 
-.hover_items {
+/*.hover_items {
   position: absolute;
   top: 0;
   width: 16rem;
   height: 100vh;
   z-index: -1;
-  /*background-color: #1e1e30;*/
+  background-color: #1e1e30;
   background: var(--header-bg-color);
   transition: all 4s linear;
   display: none;
@@ -123,13 +123,18 @@ body {
   animation-duration: 0.4s;
   animation-fill-mode: linear;
 }
+*/
 
-.header_effect:hover ~ .hover_items {
+.hover_items {
+  display: none;
+}
+
+/*.header_effect:hover ~ .hover_items {
   cursor: pointer;
   transform: translate(2px);
   display: block;
-  transition:all 4s linear;
-}
+  transition: all 4s linear;
+}*/
 
 @keyframes example {
   from {
@@ -143,12 +148,11 @@ body {
   /*display: flex;*/
 }
 
-.hover_items ul li {
+/*.hover_items ul li {
   font-weight: bold;
-  /*text-align: center;*/
+  
   padding-left: 5.5rem;
   height: 1.5rem;
-  /*width: 12rem;*/
   padding-bottom: 2.5rem;
   list-style: none;
 }
@@ -165,7 +169,7 @@ body {
 .hover_items ul .li_class {
   margin-top: 8rem;
 }
-
+*/
 .main_blog {
   display: flex;
 }
@@ -288,6 +292,10 @@ body {
   /*width: calc(25%);*/
 }
 
+.abcd {
+  background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;
+}
+
 .map_new_switcher .third_map_div {
   color: #28a745;
   height: 14rem;
@@ -310,7 +318,7 @@ body {
 .map_switcher .second_map_div {
   color: #007bff;
   height: 14rem;
-  background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;
+  
   /*width: calc(25%);*/
 }
 
@@ -408,6 +416,7 @@ body {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
   padding-top: 0.5rem;
+
 }
 
 .click_table {
@@ -514,9 +523,22 @@ body {
   /*height: 2.5em;*/
   align-self: center;
   width: 6rem;
-  height: 1.3rem;
+  height: 1.9rem;
   padding: 0.75rem 0.75rem 0.75rem;
+  display: flex;
+  justify-content: center;
 }
+
+/*.table_row .cell {
+  height: 2.5em;
+align-self: center;
+width: 6rem;
+height: 1.9rem;
+padding: 0.55rem 0.75rem 0.55rem .5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+}*/
 
 .hero_container {
   display: flex;
@@ -637,7 +659,6 @@ h5 {
 /*.hide_cell {
   display: none;
 }*/
-
 
 .show {
   display: block;
@@ -980,34 +1001,31 @@ h5 {
     display: none;
   }
 
-  .header_effect:hover ~ .hover_items {
-    /*cursor: pointer;	*/
-    /*transform: translate(0px);	*/
+  /*.header_effect:hover ~ .hover_items {
     display: none;
-    /*transition:all 4s linear;*/
   }
-
-  .hover_items {
+*/
+/*  .hover_items {
     position: absolute;
     top: 5rem;
     width: 100%;
     height: 100%;
-    /*transition: all 0.4s linear*/
+    transition: all 0.4s linear
     animation-name: example_two;
   }
-
+*/
   .new_menu {
     display: block;
   }
 
-  .hover_items ul li {
-    border-bottom: 2px solid #6c757d;
+  /*.hover_items ul li {*/
+    /*border-bottom: 2px solid #6c757d;*/
     /*opacity: .3;*/
-  }
+  /*}*/
 
-  .hover_items ul li {
-    padding: 1rem;
-  }
+  /*.hover_items ul li {*/
+    /*padding: 1rem;*/
+  /*}*/
 
   .main_blog {
     display: flex;
@@ -1085,38 +1103,35 @@ h5 {
     display: none;
   }
 
-  .header_effect:hover ~ .hover_items {
-    /*cursor: pointer;	*/
-    /*transform: translate(0px);	*/
+  .hea/*der_effect:hover ~ .hover_items {
     display: none;
-    /*transition:all 4s linear;*/
-  }
+  }*/
 
-  .hover_items {
+/*  .hover_items {
     position: absolute;
     top: 5rem;
     width: 100%;
     height: 100%;
-    /*transition: all 0.4s linear*/
     animation-name: example_two;
   }
-
+*/
   .new_menu {
     display: block;
   }
 
-  .hover_items ul li {
-    border-bottom: 2px solid #6c757d;
+  /*.hover_items ul li {*/
+    /*border-bottom: 2px solid #6c757d;*/
     /*opacity: .3;*/
-  }
+  /*}*/
 
-  .hover_items ul li {
+  /*.hover_items ul li {
     padding: 1rem;
   }
-
+*/
   .main_blog {
     display: flex;
     flex-direction: column;
+
   }
 
   .hero {
@@ -1197,7 +1212,7 @@ h5 {
     align-self: center;
     width: 6rem;
     height: 1rem;
-    padding: 0.75rem 0.75rem 0.75rem;
+    padding: 0.75rem 0.75rem 0.75rem .5rem;
     font-size: 12px;
   }
 }
@@ -1208,20 +1223,37 @@ h5 {
 .india_map_tag {
   width: 100%;
   height: 100%;
+  fill: #132240;
+  
 }
+
+.india_map_tag svg{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .india_map {
   width: 32rem;
-  /*height: 100%;*/
 }
 
 /*# sourceMappingURL=index.css.map */
-
-.map_title_blog_second_items  {
+.map_title_blog_second_items {
   color: #9673b9;
 }
 
-.map_title_blog_second_items  h2 {
+.map_title_blog_second_items h2 {
   font-weight: 900;
 }
 
@@ -1229,30 +1261,30 @@ h5 {
   color: #6c757d;
 }
 
-
-
-.title_india{
+.title_india {
   color: #e23028;
+  cursor: pointer;
+  padding: .2rem;
+  background: rgba(226,48,40,.06274509803921569);
+  display: inline;
   font-size: 1.5rem;
 }
 
+.title_india:hover {
+  background: rgba(226,48,40,.12549019607843137);
+}
 
 .footer {
   text-align: center;
 }
 
 .footer_container {
-  margin: 10rem 0;
+  padding: 10rem 0;
 }
-
 
 .footer_linkes {
   list-style: none;
 }
-
-/*.footer_linkes li a {
-  text-decoration: none;
-}*/
 
 a {
   text-decoration: none;
@@ -1261,9 +1293,9 @@ a {
 .footer_title {
   color: #007bff;
   font-weight: 900;
-  background: rgba(0,123,255,.12549019607843137);
+  background: rgba(0, 123, 255, 0.1254901961);
   text-transform: uppercase;
-  transition: background .2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 
 .footer h5 {
@@ -1283,7 +1315,7 @@ a {
 }
 
 .githube {
-  color: rgba(108,117,125,.6);
+  color: rgba(108, 117, 125, 0.6);
 }
 
 .githube:hover {
@@ -1291,7 +1323,7 @@ a {
 }
 
 .api {
-  color: rgba(255,193,7,.6);
+  color: rgba(255, 193, 7, 0.6);
 }
 
 .api:hover {
@@ -1299,7 +1331,7 @@ a {
 }
 
 .twitter {
-  color: rgba(76,117,242,.6);
+  color: rgba(76, 117, 242, 0.6);
 }
 
 .twitter:hover {
@@ -1307,10 +1339,78 @@ a {
 }
 
 .instagram {
-  color: rgba(219,85,129,.6);
+  color: rgba(219, 85, 129, 0.6);
 }
-
 
 .instagram:hover {
   color: #db5581;
 }
+
+/*.state_name {
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  /*text-align: center;
+  align-items: center;
+  height: 2rem;
+}*/
+
+/*# sourceMappingURL=index.css.map */
+
+
+/*.table_row .align_items_right {
+
+
+justify-content: flex-end;
+display: flex;
+align-items: end;
+}
+*/
+
+.first_map_div_bgcolor {
+  background: rgba(255, 7, 58, 0.1254901961);
+}
+
+.second_map_div_bgcolor {
+  background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;
+}
+
+.third_map_div_bgcolor  {
+  background: rgba(40, 167, 69, 0.1254901961);
+}
+
+.fourth_map_div_bgcolor {
+  background: rgba(108, 117, 125, 0.062745098);
+}
+
+
+
+.india_first_color {
+ fill: rgba(255, 7, 58, 0.1254901961);
+}
+
+.india_second_color {
+  fill:#132240;
+}
+
+.india_third_color {
+  fill:rgba(40, 167, 69, 0.1254901961);
+  
+}
+
+.india_fourth_color {
+ fill: rgba(108, 117, 125, 0.062745098);
+}
+
+.title_india_bgColor {
+  background: rgba(220,53,69,.12549019607843137);
+  /*background: rgba(220,53,69,.12549019607843137);*/
+}
+
+.title_india_darkColor{
+
+  background: #fbe5e7;
+}
+
+
+

@@ -124,7 +124,6 @@ body {
   animation-fill-mode: linear;
 }
 */
-
 .hover_items {
   display: none;
 }
@@ -135,7 +134,6 @@ body {
   display: block;
   transition: all 4s linear;
 }*/
-
 @keyframes example {
   from {
     left: -50%;
@@ -150,7 +148,7 @@ body {
 
 /*.hover_items ul li {
   font-weight: bold;
-  
+
   padding-left: 5.5rem;
   height: 1.5rem;
   padding-bottom: 2.5rem;
@@ -292,6 +290,10 @@ body {
   /*width: calc(25%);*/
 }
 
+.abcd {
+  background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;
+}
+
 .map_new_switcher .third_map_div {
   color: #28a745;
   height: 14rem;
@@ -314,7 +316,6 @@ body {
 .map_switcher .second_map_div {
   color: #007bff;
   height: 14rem;
-  background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;
   /*width: calc(25%);*/
 }
 
@@ -412,7 +413,6 @@ body {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
   padding-top: 0.5rem;
-
 }
 
 .click_table {
@@ -519,13 +519,13 @@ body {
   /*height: 2.5em;*/
   align-self: center;
   width: 6rem;
-  height: 1.5rem;
-  padding: 0.75rem 0.75rem 0.75rem .5rem;
+  height: 1.9rem;
+  padding: 0.75rem 0.75rem 0.75rem;
   display: flex;
   justify-content: center;
 }
 
-.table_row .cell {
+/*.table_row .cell {
   height: 2.5em;
 align-self: center;
 width: 6rem;
@@ -534,8 +534,7 @@ padding: 0.55rem 0.75rem 0.55rem .5rem;
 display: flex;
 justify-content: center;
 align-items: center;
-}
-
+}*/
 .hero_container {
   display: flex;
   text-align: center;
@@ -655,7 +654,6 @@ h5 {
 /*.hide_cell {
   display: none;
 }*/
-
 .show {
   display: block;
 }
@@ -998,31 +996,29 @@ h5 {
   }
 
   /*.header_effect:hover ~ .hover_items {
-    display: none;
-  }
-*/
-/*  .hover_items {
-    position: absolute;
-    top: 5rem;
-    width: 100%;
-    height: 100%;
-    transition: all 0.4s linear
-    animation-name: example_two;
-  }
-*/
+      display: none;
+    }
+  */
+  /*  .hover_items {
+      position: absolute;
+      top: 5rem;
+      width: 100%;
+      height: 100%;
+      transition: all 0.4s linear
+      animation-name: example_two;
+    }
+  */
   .new_menu {
     display: block;
   }
 
   /*.hover_items ul li {*/
-    /*border-bottom: 2px solid #6c757d;*/
-    /*opacity: .3;*/
+  /*border-bottom: 2px solid #6c757d;*/
+  /*opacity: .3;*/
   /*}*/
-
   /*.hover_items ul li {*/
-    /*padding: 1rem;*/
+  /*padding: 1rem;*/
   /*}*/
-
   .main_blog {
     display: flex;
     flex-direction: column;
@@ -1099,31 +1095,18 @@ h5 {
     display: none;
   }
 
-  .hea/*der_effect:hover ~ .hover_items {
-    display: none;
-  }*/
-
-/*  .hover_items {
-    position: absolute;
-    top: 5rem;
-    width: 100%;
-    height: 100%;
-    animation-name: example_two;
-  }
-*/
-  .new_menu {
+  .hea .new_menu {
     display: block;
   }
 
   /*.hover_items ul li {*/
-    /*border-bottom: 2px solid #6c757d;*/
-    /*opacity: .3;*/
+  /*border-bottom: 2px solid #6c757d;*/
+  /*opacity: .3;*/
   /*}*/
-
   /*.hover_items ul li {
-    padding: 1rem;
-  }
-*/
+      padding: 1rem;
+    }
+  */
   .main_blog {
     display: flex;
     flex-direction: column;
@@ -1207,7 +1190,7 @@ h5 {
     align-self: center;
     width: 6rem;
     height: 1rem;
-    padding: 0.75rem 0.75rem 0.75rem .5rem;
+    padding: 0.75rem 0.75rem 0.75rem 0.5rem;
     font-size: 12px;
   }
 }
@@ -1216,6 +1199,12 @@ h5 {
 }
 
 .india_map_tag {
+  width: 100%;
+  height: 100%;
+  fill: #132240;
+}
+
+.india_map_tag svg {
   width: 100%;
   height: 100%;
 }
@@ -1239,7 +1228,15 @@ h5 {
 
 .title_india {
   color: #e23028;
+  cursor: pointer;
+  padding: 0.2rem;
+  background: rgba(226, 48, 40, 0.062745098);
+  display: inline;
   font-size: 1.5rem;
+}
+
+.title_india:hover {
+  background: rgba(226, 48, 40, 0.1254901961);
 }
 
 .footer {
@@ -1322,15 +1319,64 @@ a {
   align-items: center;
   height: 2rem;
 }*/
-
 /*# sourceMappingURL=index.css.map */
-
-
-.table_row .align_items_right {
+/*.table_row .align_items_right {
 
 
 justify-content: flex-end;
 display: flex;
 align-items: end;
 }
+*/
+.first_map_div_bgcolor {
+  background: rgba(255, 7, 58, 0.1254901961);
+}
 
+.second_map_div_bgcolor {
+  background: rgba(0, 123, 255, 0.125) none repeat scroll 0% 0%;
+}
+
+.third_map_div_bgcolor {
+  background: rgba(40, 167, 69, 0.1254901961);
+}
+
+.fourth_map_div_bgcolor {
+  background: rgba(108, 117, 125, 0.062745098);
+}
+
+.india_first_color {
+  fill: rgba(255, 7, 58, 0.1254901961);
+}
+
+.india_second_color {
+  fill: #132240;
+}
+
+.india_third_color {
+  fill: rgba(40, 167, 69, 0.1254901961);
+}
+
+.india_fourth_color {
+  fill: rgba(108, 117, 125, 0.062745098);
+}
+
+.title_india_bgColor {
+  background: rgba(220, 53, 69, 0.1254901961);
+  /*background: rgba(220,53,69,.12549019607843137);*/
+}
+
+
+.title_india_darkColor {
+  background: #fbe5e7;
+
+}
+
+/*# sourceMappingURL=index.css.map */
+.cls1:hover {
+  fill: red;
+
+}
+
+.cls1:hover {
+  opacity: 1;
+}
